@@ -6,7 +6,11 @@
 - Installare le dipendenze del progetto
 ```
 npm i
-```     
+``` 
+nel caso restituisca errore forzare
+```
+npm install --force
+```    
 ```
 composer i
  ```
