@@ -13,8 +13,8 @@ export default {
 
 <template>
   <div class="main_wrapper">
-    <Header/>
-    <div class="container">
+    <Header  />
+    <div class="container debug">
 
       <h1>home guest</h1>
     </div>
