@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Apartment extends Model
 {
@@ -36,6 +37,7 @@ class Apartment extends Model
     protected $fillable = [
         'name',
         'slug',
+        'user_id',
         'description',
         'cover_image',
         'address',
@@ -49,4 +51,29 @@ class Apartment extends Model
         'visible',
         'type'
     ];
+
+    public static function getCoordinates($address){
+      //Url di base
+      $baseUrl = 'https://api.tomtom.com/';
+      // Geocodin API (tipo di dato che voglio ricevere)
+      $geocodigSearch = 'search/2/geocode/';
+      // Indirizzo da cercare
+      $addressToSearch = Str::slug($address, '-');
+      // Parametri della query
+      $queryType  = '.json?typeahead=false&limit=1&view=Unified&key=';
+      // Key personale per fare le chiamate
+      $apiKey = 'cxG50CTiIMJjWZztYbdn0RxgT658PVkx';
+
+
+      $info_address_json = file_get_contents($baseUrl . $geocodigSearch . $addressToSearch . $queryType . $apiKey);
+      $info_address = json_decode($info_address_json,JSON_PRETTY_PRINT);
+
+      $lat = $info_address['results'][0]['position']['lat'];
+      $lon = $info_address['results'][0]['position']['lon'];
+
+      $datatype = "ST_GeomFromText('POINT(  $lat  $lon )')";
+      dump($datatype);
+      // dump($baseUrl . $geocodigSearch . $addressToSearch . $queryType . $apiKey);
+      return $datatype;
+    }
 }

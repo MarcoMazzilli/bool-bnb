@@ -24,7 +24,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
           sponsorships_table_seeder::class,
           ServicesTableSeeder::class,
-          UsersTableSeeder::class
+          UsersTableSeeder::class,
+          ApartmentsTableSeeder::class
         ]);
     }
 }
