@@ -22,6 +22,14 @@ return new class extends Migration
             $table->string('author_first_name');
             $table->string('author_last_name');
             $table->timestamps();
+
+            // Foreign key Apartment
+            $table->unsignedBigInteger('apartment_id')->after('id');
+
+            $table->foreign('apartment_id')
+            ->references('id')
+            ->on('apartments')
+            ->onDelete('set null');
         });
     }
 

@@ -20,4 +20,8 @@ class Apartment extends Model
     public function visits(){
         return $this->hasMany(Visit::class);
     }
+    // Relazione con i messaggi
+    public function messages(){
+        return $this->hasMany(Message::class);
+    }
 }
