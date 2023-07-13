@@ -26,15 +26,15 @@
         @include('auth.headerNativo')
       </header>
 
-        <div class="container-fluid row h-100">
+        <div class="container-fluid row">
 
-          <aside class="col-2 bg-dark text-white">
-            @auth
-                @include('profile.partials.asideLeft')
-            @endauth
+          @auth
+          <aside class="col-2 text-white">
+              @include('admin.partials.asideLeft')
           </aside>
+          @endauth
 
-          <main class="col ">
+          <main class="col">
               @yield('content')
           </main>
       </div>

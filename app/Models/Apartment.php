@@ -32,4 +32,21 @@ class Apartment extends Model
     public function services(){
         return $this->belongsToMany(Service::class);
     }
+
+    protected $fillable = [
+        'name',
+        'slug',
+        'description',
+        'cover_image',
+        'address',
+        'address_info',
+        'coordinate',
+        'price',
+        'n_of_bed',
+        'n_of_room',
+        'n_of_bathroom',
+        'apartment_size',
+        'visible',
+        'type'
+    ];
 }
