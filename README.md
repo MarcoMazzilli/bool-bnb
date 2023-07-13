@@ -36,3 +36,9 @@ php artisan storage:link
 ```
 php artisan migrate
 ```
+---
+Per poter popolare le tabelle con dati Fake, dopo aver lanciato le migration utilizzare il comando 
+```
+php artisan db:seed
+```
+
