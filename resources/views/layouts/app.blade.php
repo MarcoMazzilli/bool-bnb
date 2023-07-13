@@ -30,7 +30,7 @@
 
           <aside class="col-2 bg-dark text-white">
             @auth
-                @include('profile.partials.asideLeft')
+                @include('admin.partials.asideLeft')
             @endauth
           </aside>
 

@@ -1,6 +1,6 @@
 <script>
 import {store} from'../data/store.js';
-import Header from '../views/guest/components/header.vue';
+import Header from '../js/components/header.vue';
 export default {
     name: 'home',
 
@@ -23,5 +23,5 @@ export default {
 </template>
 
 <style lang="scss" >
-@import '../scss/mainGuest.scss'
+@import '../scss/guest/mainGuest.scss'
 </style>
