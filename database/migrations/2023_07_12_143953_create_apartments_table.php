@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('apartments', function (Blueprint $table) {
 
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();
             $table->string('name');
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->text('description')->nullable();
             $table->string('cover_image');
             $table->string('address');
@@ -33,8 +34,6 @@ return new class extends Migration
             $table->timestamps();
 
             // Foreign key User
-            $table->unsignedBigInteger('user_id')->after('id');
-
             $table->foreign('user_id')
             ->references('id')
             ->on('users')

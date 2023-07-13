@@ -24,4 +24,12 @@ class Apartment extends Model
     public function messages(){
         return $this->hasMany(Message::class);
     }
+    //Relazione pivot con sponsorship
+    public function sponsorships(){
+        return $this->belongsToMany(Sponsorship::class);
+    }
+    //Relazione pivot con servizi
+    public function services(){
+        return $this->belongsToMany(Service::class);
+    }
 }
