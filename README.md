@@ -36,9 +36,29 @@ php artisan storage:link
 ```
 php artisan migrate
 ```
+
 ---
+# 13 luglio 2023
+
+5 fake users sono:
+
+- CassioSabbatini@admin.it
+
+- MichelangeloMazzi@admin.it
+
+- AthosPadovano@admin.it
+
+- TommasoCalabrese@admin.it
+
+- AnnaDellucci@admin.it
+
+  Per tutti la password è: `0000`
+
+---
+
 Per poter popolare le tabelle con dati Fake, dopo aver lanciato le migration utilizzare il comando 
 ```
 php artisan db:seed
 ```
+
 
