@@ -17,6 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('image_path');
             $table->timestamps();
+
+            // Foreign key Apartment
+            $table->unsignedBigInteger('apartment_id')->after('id');
+
+            $table->foreign('apartment_id')
+            ->references('id')
+            ->on('apartments')
+            ->onDelete('set null');
         });
     }
 
