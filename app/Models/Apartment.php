@@ -16,4 +16,8 @@ class Apartment extends Model
     public function images(){
         return $this->hasMany(Image::class);
     }
+    // Relazione con le visite
+    public function visits(){
+        return $this->hasMany(Visit::class);
+    }
 }

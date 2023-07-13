@@ -18,6 +18,14 @@ return new class extends Migration
             $table->string('ip_address');
             $table->dateTime('date');
             $table->timestamps();
+
+            // Foreign key Apartment
+            $table->unsignedBigInteger('apartment_id')->after('id');
+
+            $table->foreign('apartment_id')
+            ->references('id')
+            ->on('apartments')
+            ->onDelete('set null');
         });
     }
 
