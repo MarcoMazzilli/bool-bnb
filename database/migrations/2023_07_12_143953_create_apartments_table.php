@@ -31,6 +31,14 @@ return new class extends Migration
             $table->boolean('visible')->default(1);
             $table->string('type');
             $table->timestamps();
+
+            // Foreign key User
+            $table->unsignedBigInteger('user_id')->after('id');
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('set null');
         });
     }
 
