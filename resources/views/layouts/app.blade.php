@@ -28,7 +28,7 @@
 
         <div class="container-fluid row h-100">
 
-          <aside class="col-2 bg-dark text-white">
+          <aside class="col-2 text-white">
             @auth
                 @include('admin.partials.asideLeft')
             @endauth
