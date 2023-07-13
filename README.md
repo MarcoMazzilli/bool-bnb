@@ -36,3 +36,23 @@ php artisan storage:link
 ```
 php artisan migrate
 ```
+
+---
+# 13 luglio 2023
+
+5 fake users sono:
+
+- CassioSabbatini@admin.it
+
+- MichelangeloMazzi@admin.it
+
+- AthosPadovano@admin.it
+
+- TommasoCalabrese@admin.it
+
+- AnnaDellucci@admin.it
+
+  Per tutti la password è: `0000`
+
+---
+
