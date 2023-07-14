@@ -3,9 +3,9 @@
 <nav class="">
 
   <ul>
-    <li><a href="">dashboard home</a></li>
-    <li><a href="">i miei appartamenti</a></li>
-    <li><a href="">aggiungi</a></li>
+    <li><a href="{{ route('dashboard') }}">dashboard home</a></li>
+    <li><a href="{{ route('admin.apartments.index') }}">i miei appartamenti</a></li>
+    <li><a href="{{ route('admin.apartments.create') }}">aggiungi</a></li>
     <li><a href="">inbox</a></li>
 
 </nav>
