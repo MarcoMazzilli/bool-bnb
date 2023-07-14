@@ -3,6 +3,7 @@
 use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ApartmentController;
+use App\Http\Controllers\Admin\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/' , [PageController::class , 'index'])->name('home');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('admin.home');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth','verified'])

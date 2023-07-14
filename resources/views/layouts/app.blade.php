@@ -20,24 +20,41 @@
 </head>
 
 <body>
-    <div id="app" class="main-wrapper">
+    <div id="app" class="main_wrapper">
+        {{-- HEADER --}}
+        <div>
+            @include('auth.headerNativo')
+        </div>
+        {{-- /HEADER --}}
 
-      <header>
-        @include('auth.headerNativo')
-      </header>
+        {{-- MAIN --}}
+        @guest
+        <div class="container-fluid" id="container-main">
+            <div class="row">
 
-        <div class="container-fluid row">
+                <div class="col-10 p-5 mx-auto">
+                    @yield('content-log-reg')
+                </div>
 
-          @auth
-          <aside class="col-2 text-white">
-              @include('admin.partials.asideLeft')
-          </aside>
-          @endauth
+            </div>
+        @endguest
 
-          <main class="col">
-              @yield('content')
-          </main>
-      </div>
+        @auth
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-2 p-0">
+                    @include('admin.partials.asideLeft')
+                </div>
+
+                <div class="col-10 p-0 mx-auto">
+                    @yield('content')
+                </div>
+
+            </div>
+        </div>
+        @endauth
+        {{-- /MAIN --}}
 
     </div>
 </body>

@@ -15,13 +15,35 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $fakeUsers = ['Cassio Sabbatini','Michelangelo Mazzi','Athos Padovano','Tommaso Calabrese', 'Anna Dellucci'];
+        $users =[
+          [
+            "name" => 'Cassio',
+            "lastName" => 'Sabbatini',
+          ],
+          [
+            "name" => 'Michelangelo',
+            "lastName" => 'Mazzi',
+          ],
+          [
+            "name" => 'Athos',
+            "lastName" => 'Padovano',
+          ],
+          [
+            "name" => 'Tommaso',
+            "lastName" => 'Calabrese'
+          ],
+          [
+            "name" => 'Anna',
+            "lastName" => 'Dellucci',
+          ],
+        ];
 
-        foreach ($fakeUsers as $name){
+        foreach ($users as $user){
 
           $new_user = new User();
-          $new_user->name = $name;
-          $new_user->email = str_replace(' ', '', $name) . '@admin.it' ;
+          $new_user->name = $user['name'];
+          $new_user->last_name = $user['lastName'];
+          $new_user->email = str_replace(' ', '', $user['name'] . $user['lastName'] ) . '@admin.it' ;
           $new_user->password = Hash::make('0000');
           $new_user->save();
         }

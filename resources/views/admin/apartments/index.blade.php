@@ -11,7 +11,7 @@
         <th scope="col">#ID</th>
         <th scope="col">Nome</th>
         <th scope="col">Luogo appartamento</th>
-        <th scope="col">Servizi</th>
+        <th scope="col">Azioni</th>
       </tr>
     </thead>
     <tbody>
@@ -21,7 +21,11 @@
             <th>{{ $apartment->id }}</th>
             <td>{{ $apartment->name }}</td>
             <td>{{ $apartment->address }}</td>
-            <td>{{ $apartment->services }}</td>
+            <td>
+              <a href="{{route('admin.apartments.show', $apartment)}}" class="btn btn-outline-primary">Mostra</a>
+              <a href="{{route('admin.apartments.edit', $apartment)}}" class="btn btn-outline-secondary">Modifica</a>
+              <a href="#" class="btn btn-outline-danger">Elimina</a>
+            </td>
           </tr>
 
       @endforeach
@@ -39,17 +43,22 @@
         <th scope="col">Servizi</th>
       </tr>
     </thead>
+
     <tbody>
-      @foreach ($apartments as $apartment)
 
-          <tr>
-            <th>{{ $apartment->id }}</th>
-            <td>{{ $apartment->name }}</td>
-            <td>{{ $apartment->address }}</td>
-            <td>{{ $apartment->services }}</td>
-          </tr>
+    @foreach ($apartments as $apartment)
+      {{-- @dd($apartment->sponsorships) --}}
+      @if (!$apartment->sponsorships)
+      <tr>
+        <th>{{ $apartment->id }}</th>
+        <td>{{ $apartment->name }}</td>
+        <td>{{ $apartment->address }}</td>
+        <td>{{ $apartment->services }}</td>
+      </tr>
+      @else
+      @endif
+    @endforeach
 
-      @endforeach
     </tbody>
   </table>
 </div>

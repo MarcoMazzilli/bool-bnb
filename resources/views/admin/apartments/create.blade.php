@@ -6,13 +6,26 @@
 
   <h3 class="mb-3">Aggiungi nuovo appartamento</h3>
 
-    <form action="#" method="POST" enctype="multipart/form-data">
+
+  {{-- Gestione degli errori --}}
+  @if ($errors->any())
+    <div class="alert alert-danger" role="alert">
+      <ul>
+        @foreach ($errors->all() as $error)
+          <li>{{ $error }}</li>
+        @endforeach
+      </ul>
+      {{-- @dump($errors->all); --}}
+    </div>
+  @endif
+
+    <form action="{{ route('admin.apartments.store') }}" method="POST" enctype="multipart/form-data">
       @csrf
-      @method($method)
+      {{-- @method($method) --}}
 
       <form>
         <div class="mb-3">
-          <label for="title" class="form-label">Titolo appartamento</label>
+          <label for="title" class="form-label">Nome</label>
           <input
             id="name"
             name='name'
@@ -24,7 +37,19 @@
         </div>
 
         <div class="mb-3">
-          <label for="description" class="form-label">Descrizione appartamento</label>
+          <label for="type" class="form-label">Tipologia</label>
+          <input
+            id="type"
+            name='type'
+            value=""
+            class="form-control"
+            placeholder="Monolocale, trilocale, villetta..."
+            type="text"
+          >
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Descrizione</label>
           <input
             id="description"
             name='description'
@@ -36,8 +61,62 @@
         </div>
 
 
+
+        <div class="mb-3 d-flex">
+
+          <section class="me-3">
+            <label for="address" class="form-label">Metri quadri</label>
+            <input
+              id="apartment_size"
+              name='apartment_size'
+              value=""
+              class="form-control"
+              placeholder="Metri quadri"
+              type="text"
+            >
+          </section>
+
+          <section class="me-3">
+              <label for="address" class="form-label">Numero di camere</label>
+              <input
+                id="n_of_room"
+                name='n_of_room'
+                value=""
+                class="form-control"
+                placeholder="Numero di camere"
+                type="text"
+              >
+          </section>
+
+          <section class="me-3">
+              <label for="address" class="form-label">Numero di letti</label>
+              <input
+                id="n_of_bed"
+                name='n_of_bed'
+                value=""
+                class="form-control"
+                placeholder="Numero di letti"
+                type="text"
+              >
+          </section>
+
+          <section class="me-3">
+              <label for="address" class="form-label">Numero di bagni</label>
+              <input
+                id="n_of_bathroom"
+                name='n_of_bathroom'
+                value=""
+                class="form-control"
+                placeholder="Numero di bagni"
+                type="text"
+              >
+          </section>
+
+        </div>
+
+
         <div class="mb-3">
-          <label for="address" class="form-label">Indirizzo appartamento</label>
+          <label for="address" class="form-label">Indirizzo</label>
           <input
             id="address"
             name='address'
@@ -49,16 +128,17 @@
         </div>
 
         <div class="mb-3">
-          <label for="address" class="form-label">Info aggiuntive indirizzo</label>
+          <label for="address" class="form-label">Informazioni aggiuntive indirizzo</label>
           <input
             id="address_info"
             name='address_info'
             value=""
             class="form-control"
-            placeholder="Info indirizzo appartamento"
+            placeholder="Informazioni aggiuntive sull'indirizzo"
             type="text"
           >
         </div>
+
 
         <div class="mb-3">
 
@@ -66,27 +146,42 @@
 
             <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 
-              <input
-                          id="services"
-                          class="btn-check"
-                          autocomplete="off"
-                          type="checkbox"
-                          value=""
-                          name="services"
-              >
+              <div class="form-check me-3">
+                <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckDefault"
+                name="services">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Default checkbox
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckChecked"
+                checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                  Checked checkbox
+                </label>
+              </div>
 
           </div>
         </div>
 
 
         <div class="mb-3">
-          <label for="cover_image" class="form-label">Cover appartamento</label>
+          <label for="cover_image" class="form-label">Seleziona immagine di copertina</label>
           <input
             id="cover_image"
             name='cover_image'
             value=""
             class="form-control"
-            placeholder="immagine appartamento"
+            placeholder="copertina"
             type="file"
           >
         </div>
