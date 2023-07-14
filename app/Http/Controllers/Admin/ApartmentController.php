@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Paginate;
 use Illuminate\Http\Request;
 use App\Http\Requests\ApartmentRequest;
+use Illuminate\Support\Str;
 
 
 class ApartmentController extends Controller
@@ -27,11 +28,11 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-      $apartments = Apartment::where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get();
-      // dd($apartments);
-      // $sponsoredApartments = ;
+        $apartments = Apartment::where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get();
+        // dd($apartments);
+        // $sponsoredApartments = ;
 
-      return view('admin.apartments.index', compact('apartments'));
+        return view('admin.apartments.index', compact('apartments'));
     }
 
     /**
@@ -42,8 +43,8 @@ class ApartmentController extends Controller
     public function create()
     {
 
-      $method = 'POST';
-      return view('admin.apartments.create', compact('method' ));
+        $method = 'POST';
+        return view('admin.apartments.create', compact('method'));
     }
 
     /**
@@ -54,20 +55,17 @@ class ApartmentController extends Controller
      */
     public function store(ApartmentRequest $request)
     {
-      $form_data = $request->all();
+        $form_data = $request->all();
 
-      $new_apartment = new Apartment();
+        $new_apartment = new Apartment();
 
-      $new_apartment->fill($form_data);
+        $form_data['coordinate'] = DB::raw($new_apartment->getCoordinates($form_data['address']));
 
-      $new_apartment->coordinante= DB::raw($new_apartment->getCoordinates($form_data['address']));
+        $new_apartment->fill($form_data);
 
-      // dd($new_apartment);
+        $new_apartment->save();
 
-      $new_apartment->save();
-
-      return redirect()->route('admin.apartments.show', $new_apartment);
-
+        return redirect()->route('admin.apartments.show', $new_apartment);
     }
 
     /**
@@ -79,7 +77,7 @@ class ApartmentController extends Controller
     public function show(Apartment $apartment)
     {
 
-      return view('admin.apartments.show', compact('apartment'));
+        return view('admin.apartments.show', compact('apartment'));
     }
 
     /**
@@ -90,9 +88,9 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
-      $method = 'PUT';
-      $route = route('admin.apartments.update', $apartment);
-      return view('admin.apartments.edit', compact('apartment','method','route'));
+        $method = 'PUT';
+        $route = route('admin.apartments.update', $apartment);
+        return view('admin.apartments.edit', compact('apartment', 'method', 'route'));
     }
 
     /**
@@ -104,7 +102,7 @@ class ApartmentController extends Controller
      */
     public function update(ApartmentRequest $request, Apartment $apartment)
     {
-      $form_data = $request->all();
+        $form_data = $request->all();
         // // se il name è stato modificato genero un nuovo slug
         // if($apartment->name !== $form_data['name']){
         //   $form_data['slug']  = Apartment::generateSlug($form_data['name']);
@@ -113,19 +111,19 @@ class ApartmentController extends Controller
         //   $form_data['slug']  = $apartment->slug;
         // }
 
-        if(array_key_exists('cover_image',$form_data)){
+        if (array_key_exists('cover_image', $form_data)) {
 
-          // se l'immagine esiste vuol dire che ne ho caricata una nuova e quindi elimino quella vecchia
-        if($apartment->cover_image){
-              Storage::disk('public')->delete($apartment->cover_image);
+            // se l'immagine esiste vuol dire che ne ho caricata una nuova e quindi elimino quella vecchia
+            if ($apartment->cover_image) {
+                Storage::disk('public')->delete($apartment->cover_image);
+            }
+            // salvo l'immagine nella cartella uploads e in $form_data['cover_image'] salvo il percorso
+            $form_data['cover_image'] = Storage::put('uploads/', $form_data['cover_image']);
         }
-          // salvo l'immagine nella cartella uploads e in $form_data['cover_image'] salvo il percorso
-          $form_data['cover_image'] = Storage::put('uploads/',$form_data['cover_image']);
-      }
 
-      $apartment->update($form_data);
+        $apartment->update($form_data);
 
-      return view('admin.apartments.show', compact('apartment'));
+        return view('admin.apartments.show', compact('apartment'));
     }
 
     /**

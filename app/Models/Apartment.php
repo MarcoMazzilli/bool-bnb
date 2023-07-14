@@ -10,27 +10,33 @@ class Apartment extends Model
 {
     use HasFactory;
     // Relazione con l'user
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
     // Relazione con le immagini
-    public function images(){
+    public function images()
+    {
         return $this->hasMany(Image::class);
     }
     // Relazione con le visite
-    public function visits(){
+    public function visits()
+    {
         return $this->hasMany(Visit::class);
     }
     // Relazione con i messaggi
-    public function messages(){
+    public function messages()
+    {
         return $this->hasMany(Message::class);
     }
     //Relazione pivot con sponsorship
-    public function sponsorships(){
+    public function sponsorships()
+    {
         return $this->belongsToMany(Sponsorship::class);
     }
     //Relazione pivot con servizi
-    public function services(){
+    public function services()
+    {
         return $this->belongsToMany(Service::class);
     }
 
@@ -52,28 +58,29 @@ class Apartment extends Model
         'type'
     ];
 
-    public static function getCoordinates($address){
-      //Url di base
-      $baseUrl = 'https://api.tomtom.com/';
-      // Geocodin API (tipo di dato che voglio ricevere)
-      $geocodigSearch = 'search/2/geocode/';
-      // Indirizzo da cercare
-      $addressToSearch = Str::slug($address, '-');
-      // Parametri della query
-      $queryType  = '.json?typeahead=false&limit=1&view=Unified&key=';
-      // Key personale per fare le chiamate
-      $apiKey = env("API_TT_KEY");
+    public static function getCoordinates($address)
+    {
+        //Url di base
+        $baseUrl = 'https://api.tomtom.com/';
+        // Geocodin API (tipo di dato che voglio ricevere)
+        $geocodigSearch = 'search/2/geocode/';
+        // Indirizzo da cercare
+        $addressToSearch = Str::slug($address, '-');
+        // Parametri della query
+        $queryType  = '.json?typeahead=false&limit=1&view=Unified&key=';
+        // Key personale per fare le chiamate
+        $apiKey = env("API_TT_KEY");
 
 
-      $info_address_json = file_get_contents($baseUrl . $geocodigSearch . $addressToSearch . $queryType . $apiKey);
-      $info_address = json_decode($info_address_json,JSON_PRETTY_PRINT);
+        $info_address_json = file_get_contents($baseUrl . $geocodigSearch . $addressToSearch . $queryType . $apiKey);
+        $info_address = json_decode($info_address_json, JSON_PRETTY_PRINT);
 
-      $lat = $info_address['results'][0]['position']['lat'];
-      $lon = $info_address['results'][0]['position']['lon'];
+        $lat = $info_address['results'][0]['position']['lat'];
+        $lon = $info_address['results'][0]['position']['lon'];
 
-      $datatype = "ST_GeomFromText('POINT(  $lon  $lat  )')";
-      dump($datatype);
-      // dump($baseUrl . $geocodigSearch . $addressToSearch . $queryType . $apiKey);
-      return $datatype;
+        $datatype = "ST_GeomFromText('POINT(  $lon  $lat  )')";
+        dump($datatype);
+        // dump($baseUrl . $geocodigSearch . $addressToSearch . $queryType . $apiKey);
+        return $datatype;
     }
 }
