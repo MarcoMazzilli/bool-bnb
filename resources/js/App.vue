@@ -12,16 +12,17 @@ export default {
 </script>
 
 <template>
-  <div class="main_wrapper">
+
     <Header  />
+
     <div class="container debug">
 
       <h1>home guest</h1>
     </div>
 
-  </div>
+
 </template>
 
 <style lang="scss" >
-@import '../scss/guest/mainGuest.scss'
+@import '../scss/guest/mainGuest.scss';
 </style>
