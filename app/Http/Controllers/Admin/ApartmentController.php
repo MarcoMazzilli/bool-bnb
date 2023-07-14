@@ -62,9 +62,17 @@ class ApartmentController extends Controller
         $form_data['coordinate'] = DB::raw($new_apartment->getCoordinates($form_data['address']));
 
         $new_apartment->fill($form_data);
+        $new_apartment->user_id =  Auth::id();
 
-        $new_apartment->save();
 
+        if(array_key_exists('cover_image', $form_data)){
+            $form_data['cover_image'] = Storage::put('uploads/', $form_data['cover_image']);
+            $form_data['image_image'] = $request->file('cover_image')->getClientOriginalName();
+        }else{
+            @dump(' non esiste');
+        }
+        @dd('');
+        // $new_apartment->save();
         return redirect()->route('admin.apartments.show', $new_apartment);
     }
 

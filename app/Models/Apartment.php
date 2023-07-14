@@ -79,8 +79,7 @@ class Apartment extends Model
         $lon = $info_address['results'][0]['position']['lon'];
 
         $datatype = "ST_GeomFromText('POINT(  $lon  $lat  )')";
-        dump($datatype);
-        // dump($baseUrl . $geocodigSearch . $addressToSearch . $queryType . $apiKey);
+
         return $datatype;
     }
 }
