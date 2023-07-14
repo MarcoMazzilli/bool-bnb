@@ -62,7 +62,7 @@ class Apartment extends Model
       // Parametri della query
       $queryType  = '.json?typeahead=false&limit=1&view=Unified&key=';
       // Key personale per fare le chiamate
-      $apiKey = 'cxG50CTiIMJjWZztYbdn0RxgT658PVkx';
+      $apiKey = env("API_TT_KEY");
 
 
       $info_address_json = file_get_contents($baseUrl . $geocodigSearch . $addressToSearch . $queryType . $apiKey);
@@ -71,7 +71,7 @@ class Apartment extends Model
       $lat = $info_address['results'][0]['position']['lat'];
       $lon = $info_address['results'][0]['position']['lon'];
 
-      $datatype = "ST_GeomFromText('POINT(  $lat  $lon )')";
+      $datatype = "ST_GeomFromText('POINT(  $lon  $lat  )')";
       dump($datatype);
       // dump($baseUrl . $geocodigSearch . $addressToSearch . $queryType . $apiKey);
       return $datatype;

@@ -61,4 +61,13 @@ Per poter popolare le tabelle con dati Fake, dopo aver lanciato le migration uti
 php artisan db:seed
 ```
 
+per aggiornare le tabelle e ripopolarle
+```
+php artisan migrate:refresh --seed
+```
+
+una volta sacaricato il progetto inserire nel file .env la propria api key del tomtom nel campo `API_TT_KEY`
+https://developer.tomtom.com/user/me/apps
+
+
 
