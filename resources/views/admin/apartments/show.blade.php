@@ -18,7 +18,7 @@
 
         <div class="image d-flex justify-content-center m-5">
             {{-- <img class="w-50" src={{ $apartment['cover_image'] }}  alt="" > --}}
-            <img src="{{ asset('storage/' . $apartment->cover_image) }}" alt="">
+            <img src="{{ asset('storage/' . $apartment->cover_image) }}" alt="" style="width: 500px">
         </div>
 
 
