@@ -28,14 +28,24 @@
         {{-- /HEADER --}}
 
         {{-- MAIN --}}
+        @guest
         <div class="container-fluid" id="container-main">
             <div class="row">
 
-                @auth
+                <div class="col-10 p-5 mx-auto">
+                    @yield('content-log-reg')
+                </div>
+
+            </div>
+        @endguest
+
+        @auth
+        <div class="container-fluid">
+            <div class="row">
+
                 <div class="col-2 p-0">
                     @include('admin.partials.asideLeft')
                 </div>
-                @endauth
 
                 <div class="col-10 p-0 mx-auto">
                     @yield('content')
@@ -43,6 +53,7 @@
 
             </div>
         </div>
+        @endauth
         {{-- /MAIN --}}
 
     </div>
