@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+@section('content-log-reg')
 <div class="bg-image" id="form-new-user">
 
   <div class="container">
