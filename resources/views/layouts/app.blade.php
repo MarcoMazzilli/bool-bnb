@@ -28,16 +28,16 @@
         {{-- /HEADER --}}
 
         {{-- MAIN --}}
-        <div class="container-fluid p-5" id="container-main">
+        <div class="container-fluid" id="container-main">
             <div class="row">
 
                 @auth
-                <div class="col-2">
+                <div class="col-2 p-0">
                     @include('admin.partials.asideLeft')
                 </div>
                 @endauth
 
-                <div class="col m-auto">
+                <div class="col-10 p-0 mx-auto">
                     @yield('content')
                 </div>
 
