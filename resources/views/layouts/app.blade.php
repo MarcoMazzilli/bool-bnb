@@ -20,24 +20,30 @@
 </head>
 
 <body>
-    <div id="app" class="main-wrapper">
+    <div id="app" class="main_wrapper">
+        {{-- HEADER --}}
+        <div>
+            @include('auth.headerNativo')
+        </div>
+        {{-- /HEADER --}}
 
-      <header>
-        @include('auth.headerNativo')
-      </header>
+        {{-- MAIN --}}
+        <div class="container-fluid p-5" id="container-main">
+            <div class="row">
 
-        <div class="container-fluid row">
+                @auth
+                <div class="col-2">
+                    @include('admin.partials.asideLeft')
+                </div>
+                @endauth
 
-          @auth
-          <aside class="col-2 text-white">
-              @include('admin.partials.asideLeft')
-          </aside>
-          @endauth
+                <div class="col m-auto">
+                    @yield('content')
+                </div>
 
-          <main class="col">
-              @yield('content')
-          </main>
-      </div>
+            </div>
+        </div>
+        {{-- /MAIN --}}
 
     </div>
 </body>
