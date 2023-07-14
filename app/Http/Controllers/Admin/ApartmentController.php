@@ -12,7 +12,10 @@ use App\Models\User;
 use App\Models\Sponsorship;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\Http\Requests\ApartmentRequest;
+
 
 class ApartmentController extends Controller
 {
@@ -46,9 +49,22 @@ class ApartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ApartmentRequest $request)
     {
-        //
+      $form_data = $request->all();
+
+      $new_apartment = new Apartment();
+
+      $new_apartment->fill($form_data);
+
+      $new_apartment->coordinante= DB::raw($new_apartment->getCoordinates($form_data['address']));
+
+      // dd($new_apartment);
+
+      $new_apartment->save();
+
+      return redirect()->route('admin.apartments.show', $new_apartment);
+
     }
 
     /**
@@ -57,9 +73,10 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Apartment $apartment)
     {
-        // $apartments
+
+      return view('admin.apartments.show', compact('apartment'));
     }
 
     /**
@@ -68,9 +85,11 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Apartment $apartment)
     {
-        //
+      $method = 'PUT';
+      $route = route('admin.apartments.update', $apartment);
+      return view('admin.apartments.edit', compact('apartment','method','route'));
     }
 
     /**
@@ -80,9 +99,30 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ApartmentRequest $request, Apartment $apartment)
     {
-        //
+      $form_data = $request->all();
+        // // se il name è stato modificato genero un nuovo slug
+        // if($apartment->name !== $form_data['name']){
+        //   $form_data['slug']  = Apartment::generateSlug($form_data['name']);
+        // }else{
+        // // altrimenti salvo lo slug
+        //   $form_data['slug']  = $apartment->slug;
+        // }
+
+        if(array_key_exists('cover_image',$form_data)){
+
+          // se l'immagine esiste vuol dire che ne ho caricata una nuova e quindi elimino quella vecchia
+        if($apartment->cover_image){
+              Storage::disk('public')->delete($apartment->cover_image);
+        }
+          // salvo l'immagine nella cartella uploads e in $form_data['cover_image'] salvo il percorso
+          $form_data['cover_image'] = Storage::put('uploads/',$form_data['cover_image']);
+      }
+
+      $apartment->update($form_data);
+
+      return view('admin.apartments.show', compact('apartment'));
     }
 
     /**
