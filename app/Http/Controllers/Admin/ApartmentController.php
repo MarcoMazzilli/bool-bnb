@@ -12,6 +12,7 @@ use App\Models\User;
 use App\Models\Sponsorship;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Paginate;
 use Illuminate\Http\Request;
 
 class ApartmentController extends Controller
@@ -23,7 +24,9 @@ class ApartmentController extends Controller
      */
     public function index()
     {
-      $apartments = Apartment::all();
+      $apartments = Apartment::where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get();
+      // dd($apartments);
+      // $sponsoredApartments = ;
 
       return view('admin.apartments.index', compact('apartments'));
     }
