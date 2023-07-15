@@ -20,16 +20,12 @@
 </head>
 
 <body>
+    @guest
     <div id="app" class="main_wrapper">
-        {{-- HEADER --}}
-        <div>
-            @include('auth.headerNativo')
-        </div>
-        {{-- /HEADER --}}
-
-        {{-- MAIN --}}
-        @guest
         <div class="container-fluid" id="container-main">
+            <div>
+                @include('auth.headerNativo')
+            </div>
             <div class="row">
 
                 <div class="col-10 p-5 mx-auto">
@@ -37,21 +33,28 @@
                 </div>
 
             </div>
-        @endguest
+    @endguest
 
         @auth
-        <div class="container-fluid">
+        <div class="container-fluid" id="wrapper">
+            <div id="card-dashboard" class="wrappper-dashboard border rounded-4 overflow-hidden">
+
             <div class="row">
 
-                <div class="col-2 p-0">
-                    @include('admin.partials.asideLeft')
-                </div>
 
-                <div class="col-10 p-0 mx-auto">
-                    @yield('content')
-                </div>
+                    <div class="col-2 p-0">
+                        @include('admin.partials.asideLeft')
+                    </div>
 
-            </div>
+                    <div class="col-10 p-0 mx-auto">
+                        <div>
+                            @include('auth.headerNativo')
+                        </div>
+                        @yield('content')
+                    </div>
+
+                </div>
+            </div> {{-- wrapp dash --}}
         </div>
         @endauth
         {{-- /MAIN --}}

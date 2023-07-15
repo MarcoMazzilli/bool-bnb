@@ -1,0 +1,17 @@
+aside{
+.nav-item{
+    padding: 5px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    &:hover{
+        background-color: lighten($brand-main, 25%);
+        border-radius: 10px;
+    }
+}
+
+.nav-item.active{
+    background-color: lighten($brand-main, 25%);
+    border-radius: 10px;
+}
+}
