@@ -1,9 +1,12 @@
-<aside class="p-3 bg-white shadow">
+<aside class="h-100 shadow">
+
+    {{-- LOGO --}}
     <div class="logo">
         <h1>BoolBnb</h1>
     </div>
 
-    <div class="txt-white my-5">
+    {{-- MAIN LINK --}}
+    <div class="links">
 
         <ul class="navbar-nav">
             <li class="nav-item {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}">
@@ -20,6 +23,20 @@
             </li>
         </ul>
     </div>
+
+    {{-- LOG-OUT BUTTON --}}
+    <div class="log-out-button text-center">
+        <button type="submit" class="btn btn-logout">
+
+            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+                <span>Torna al sito pubblico</span>
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+
+        </button>
+    </div>
 </aside>
-
-

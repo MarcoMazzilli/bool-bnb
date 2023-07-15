@@ -20,26 +20,26 @@
 </head>
 
 <body>
-    @guest
-    <div id="app" class="main_wrapper">
-        <div class="container-fluid" id="container-main">
-            <div>
-                @include('auth.headerNativo')
-            </div>
-            <div class="row">
 
+    @guest
+        <div class="container-fluid" id="register-login-wrapper">
+
+            @include('auth.headerNativo')
+
+            <div class="row">
                 <div class="col-10 p-5 mx-auto">
                     @yield('content-log-reg')
                 </div>
-
             </div>
+
+        </div>
     @endguest
 
-        @auth
-        <div class="container-fluid" id="wrapper">
-            <div id="card-dashboard" class="wrappper-dashboard border rounded-4 overflow-hidden">
+    @auth
+        <div class="container-fluid" id="wrapper-auth-user">
+            <div class="wrappper-dashboard border rounded-4 overflow-hidden" id="card-dashboard">
 
-            <div class="row">
+                <div class="row h-100">
 
 
                     <div class="col-2 p-0">
@@ -54,12 +54,11 @@
                     </div>
 
                 </div>
-            </div> {{-- wrapp dash --}}
+            </div>
+
         </div>
         @endauth
-        {{-- /MAIN --}}
 
-    </div>
 </body>
 
 </html>
