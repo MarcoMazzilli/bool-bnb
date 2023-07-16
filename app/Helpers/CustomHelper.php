@@ -21,21 +21,22 @@ class CustomHelper{
         return $slug;
     }
 
-    public static function saveImage($image, $request, $form_data, $model){
+    public static function saveImage($request, $form_data, $model){
+        //nome immagine
+        $image_name = preg_replace('/\..+$/', '', $request->file('cover_image')->getClientOriginalName());
+        // estensione immagine
+        $extension = $request->file('cover_image')->getClientOriginalExtension();
+        // nome che voglio assegnare
+        // TODO: se nel form data arriva un titolo descrittivo il nome dell'immagine corrispondera a quello, cosi da poterlo inserire anche nell'alt dell'immagine per questioni di accessibilità
+        $file_name = Str::slug($form_data['name'], '-') . '.' . $extension;
 
-        $original_name = $request->file($image)->getClientOriginalName();
-        $nameonly = preg_replace('/\..+$/', '', $request->file($image)->getClientOriginalName());
-        $ext = $request->file($image)->getClientOriginalExtension();
-        $file_name = Str::slug($nameonly, '-') . '.' . $ext;
-        $path = 'uploads/' . date('Y') . '/' . date('m');
+        // percorso in cui salvare l'immagine
+        $path = 'uploads/' . Str::slug($form_data['name'], '-');
 
-        if($model::where($image, $path . '/' .$file_name )->first()){
-            $nameonly .= '-' . rand(1000,10000);
-            $file_name = Str::slug($nameonly, '-') . '.' . $ext;
+        if($model::where('cover_image', $path . '/' .$file_name )->first()){
+            $file_name = Str::slug($form_data['name'], '-') . '-' .rand(1000,10000) . '.' . $extension;
         }
 
-        $form_data[$image] = Storage::putFileAs($path, $form_data[$image], $file_name);
-
-        return $form_data;
+        return Storage::putFileAs($path, $form_data['cover_image'], $file_name);
     }
 }

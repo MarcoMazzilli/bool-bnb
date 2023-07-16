@@ -146,16 +146,16 @@
 
             <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 
-              <div class="form-check me-3">
-                <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-                name="services">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Default checkbox
-                </label>
+              <div class="form-check">
+                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    @foreach ($services as $service )
+
+                    <label class="btn btn-outline-primary" for="{{$service->name}}">{{ $service->name }}</label>
+                    <input type="checkbox" class="btn-check" id="{{$service->name}}" name="services[]">
+
+                    @endforeach
+
+                  </div>
               </div>
 
               <div class="form-check">
