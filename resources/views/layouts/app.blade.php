@@ -8,8 +8,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-    <link rel="shortcut icon" href="/img/Boolbnb.png" type="png">
+    {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
+    <title>BoolBnb</title>
+    <link rel="shortcut icon" href="/img/boolbnb-sfondo-trasparente.png" type="png">
 
 
     <!-- Fonts -->
