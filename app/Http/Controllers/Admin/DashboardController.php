@@ -17,9 +17,14 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-  public function index(){
+public function index(){
 
+    $apartmentsCount = [
+        'appartamenti' => Apartment::all()->where('user_id', Auth::id())->count(),
+        'appartamenti visibili' => Apartment::where('visible', 1)->where('user_id', Auth::id())->count(),
+        'appartamenti nascosti' => Apartment::where('visible', 0)->where('user_id', Auth::id())->count()
+    ];
 
-    return view('admin.home');
+    return view('admin.home', compact('apartmentsCount'));
 }
 }

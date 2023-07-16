@@ -4,6 +4,7 @@ use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ApartmentController;
 use App\Http\Controllers\Admin\DashboardController;
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,21 +20,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/' , [PageController::class , 'index'])->name('home');
 
-Route::get('/dashboard', function () {
-    return view('admin.home');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth','verified'])->name('dashboard');
 
 Route::middleware(['auth','verified'])
     ->name('admin.')
     ->prefix('admin')
     ->group(function(){
-      Route::get('/', [DashboardController::class, 'index'])->name('home');
-      Route::resource('apartments', ApartmentController::class);
+        Route::resource('apartments', ApartmentController::class);
     });
 
 require __DIR__.'/auth.php';
 
 
 Route::get('{any?}',function(){
-  return view('guest.home');
+    return view('guest.home');
 })->where('any','.*')->name('home');

@@ -13,23 +13,19 @@
 
                 <div class="card-body">
 
-                    <div>
-                        <span class="title fw-bold">Tot. appartamenti :</span><span class="result"> Da inserire la variabile ricevuta tramite una query </span> <hr>
-                    </div>
-                    <div>
-                        <span class="title fw-bold">Tot. appartamenti Sponsorizzati :</span><span class="result"> Da inserire la variabile </span> <hr>
-                    </div>
-                    <div>
-                        <span class="title fw-bold">Tot. appartamenti visibili :</span><span class="result"> Da inserire la variabile </span> <hr>
-                    </div>
-                    <div>
-                        <span class="title fw-bold">Tot. appartamenti nascosti :</span><span class="result"> Da inserire la variabile </span>
-                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><strong>Tot. appartamenti Sponsorizzati :</strong> ???? </li>
+
+                        @foreach ($apartmentsCount as $label => $value )
+                            <li class="list-group-item"><strong>Tot. {{ $label}} :</strong> {{ $value }}</li>
+                        @endforeach
+
+                    </ul>
 
                 </div>
             </div>
         </div>
-        <div class="col col-3">
+        <div class="col col-5">
             <div class="card shadow">
                 {{-- TODO: PASSARSI CON UNA QUERY TUTTI I MESSAGGI CON IL CAMPO READ FALSE --}}
                 <div class="card-header">N. nuovi messaggi</div>
