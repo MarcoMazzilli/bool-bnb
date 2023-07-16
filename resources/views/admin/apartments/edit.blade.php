@@ -102,16 +102,16 @@
         </div>
 
 
-        <div class="mb-3">
+        <div class="mb-3" id="autocomplete">
           <label for="address" class="form-label">Indirizzo</label>
-          <input
+          {{-- <input
             id="address"
             name='address'
             value=""
             class="form-control"
             placeholder="Indirizzo appartamento"
             type="text"
-          >
+          > --}}
         </div>
 
         <div class="mb-3">
@@ -179,5 +179,43 @@
     </form>
 
 </div>
+
+<script>
+
+    const options = {
+      searchOptions: {
+        key: "{{ env('API_TT_KEY') }}",
+        language: "it-IT",
+        limit: 5,
+      },
+
+      autocompleteOptions: {
+        key: "{{ env('API_TT_KEY') }}",
+        language: "it-IT",
+      },
+    }
+
+    const ttSearchBox = new tt.plugins.SearchBox(tt.services, options)
+    const searchBoxHTML = ttSearchBox.getSearchBoxHTML()
+    const searchBoxContainer = document.getElementById('autocomplete');
+
+    if (searchBoxContainer) {
+        searchBoxContainer.appendChild(searchBoxHTML);
+        // console.log(ttSearchBox);
+    }
+    const inputElement = document.querySelector('.tt-search-box-input');
+    // console.log(inputElement);
+
+    // attributi dell input
+    Object.assign(inputElement, {
+      id: 'address',
+      name: 'address',
+      value: '',
+      className: 'form-control' + ' ' + 'tt-search-box-input',
+      placeholder: 'Indirizzo appartamento',
+      type: 'text'
+    });
+    // console.log(inputElement);
+  </script>
 
 @endsection

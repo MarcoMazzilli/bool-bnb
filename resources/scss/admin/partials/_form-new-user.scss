@@ -41,3 +41,23 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+
+// --------- re-style  autocomplete input
+.tt-search-box{
+    margin: 0;
+}
+
+.tt-search-box-input-container{
+border: none;
+padding: 0px;
+font-family: var(--bs-body-font-family);
+}
+
+.tt-search-box-input-container > div:first-child{
+    display: none;
+}
+
+.tt-search-box-close-icon{
+    display: none;
+}
