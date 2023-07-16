@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 use Illuminate\Support\Str;
-// use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage;
 
 
 class CustomHelper{
@@ -20,4 +20,22 @@ class CustomHelper{
         }
         return $slug;
     }
-  }
+
+    public static function saveImage($image, $request, $form_data, $model){
+
+        $original_name = $request->file($image)->getClientOriginalName();
+        $nameonly = preg_replace('/\..+$/', '', $request->file($image)->getClientOriginalName());
+        $ext = $request->file($image)->getClientOriginalExtension();
+        $file_name = Str::slug($nameonly, '-') . '.' . $ext;
+        $path = 'uploads/' . date('Y') . '/' . date('m');
+
+        if($model::where($image, $path . '/' .$file_name )->first()){
+            $nameonly .= '-' . rand(1000,10000);
+            $file_name = Str::slug($nameonly, '-') . '.' . $ext;
+        }
+
+        $form_data[$image] = Storage::putFileAs($path, $form_data[$image], $file_name);
+
+        return $form_data;
+    }
+}
