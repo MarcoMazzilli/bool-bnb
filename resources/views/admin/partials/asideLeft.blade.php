@@ -20,6 +20,7 @@
                     <i class="fa-solid fa-chart-line d-md-none"></i>
                 </a>
             </li>
+
             <li class="nav-item {{ Route::currentRouteName() === 'admin.apartments.index' ? 'active' : '' }}" title="I miei appartamenti">
                 <a class="nav-link" href="{{ route('admin.apartments.index') }}">
                     <span class="d-none d-md-block">I miei appartamenti</span>
@@ -37,7 +38,20 @@
                     <span class="d-none d-md-block">Inbox</span>
                     <i class="fa-solid fa-inbox d-md-none"></i>
                 </a>
+
+            @if (Auth::user()->apartments->count())
+                <li class="nav-item {{ Route::currentRouteName() === 'admin.apartments.index' ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('admin.apartments.index') }}">I miei appartamenti</a>
+                </li>
+            @endif
+            <li class="nav-item {{ Route::currentRouteName() === 'admin.apartments.create' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.apartments.create') }}">Aggiungi</a>
             </li>
+            @if (Auth::user()->apartments->count())
+            <li class="nav-item {{ Route::currentRouteName() === '#' ? 'active' : '' }}">
+                <a class="nav-link" href="#">Inbox</a>
+            </li>
+            @endif
         </ul>
     </div>
 

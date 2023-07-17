@@ -7,13 +7,18 @@
             <h1 class="">{{ $apartment->name }}</h1>
 
             <div class="btn">
-                <a href="#" class="btn btn-outline-secondary">Modifica</a>
-                <a href="#" class="btn btn-outline-danger">Elimina</a>
+                <a href="{{route('admin.apartments.edit', $apartment)}}" class="btn btn-outline-secondary">Modifica</a>
+                @include('admin.partials.form-delete',[
+                    'title'=>'Eliminazione Post',
+                    'id'=> $apartment->id,
+                    'message'=> "Confermi l'eliminazione del appartamento $apartment->name",
+                    'route' => route('admin.apartments.destroy', $apartment)
+                ])
             </div>
         </div>
 
         <div class="address">
-            <span>{{ $apartment->address }}</span>
+            <span>{{ $apartment->address }}</span> <br> <span>{{ $apartment->visible }}</span>
         </div>
 
         <div class="image d-flex justify-content-center m-5">
@@ -40,7 +45,7 @@
         <div class="coordinate mt-4">
             <h5>Dove ti troverai</h5>
             <span>{{ $apartment->address }}</span>
-            <div>MAPPA</div>
+            <div>MAPPA {{ $apartment->coordinate }}</div>
         </div>
 
     </div>
