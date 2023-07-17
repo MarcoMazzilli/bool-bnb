@@ -22,6 +22,10 @@
             <td>{{ $apartment->name }}</td>
             <td>{{ $apartment->address }}</td>
             <td>
+
+
+
+              <a href="{{route('admin.apartments.show', $apartment)}}" class="btn btn-outline-primary">nascondi</a>
               <a href="{{route('admin.apartments.show', $apartment)}}" class="btn btn-outline-primary">Mostra</a>
               <a href="{{route('admin.apartments.edit', $apartment)}}" class="btn btn-outline-secondary">Modifica</a>
 
