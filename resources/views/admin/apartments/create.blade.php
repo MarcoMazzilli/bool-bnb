@@ -30,10 +30,14 @@
             id="name"
             name='name'
             value=""
-            class="form-control"
+            class="form-control @error('name') is-invalid @enderror"
             placeholder="Nome appartamento"
             type="text"
           >
+
+            @error('name')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
         </div>
 
         <div class="mb-3">
@@ -42,10 +46,15 @@
             id="type"
             name='type'
             value=""
-            class="form-control"
+            class="form-control @error('type') is-invalid @enderror"
             placeholder="Monolocale, trilocale, villetta..."
             type="text"
           >
+
+
+            @error('type')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
         </div>
 
         <div class="mb-3">
@@ -54,10 +63,15 @@
             id="description"
             name='description'
             value=""
-            class="form-control"
+            class="form-control @error('description') is-invalid @enderror"
             placeholder="Descrizione appartamento"
             type="text"
           >
+
+
+            @error('description')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
         </div>
 
 
@@ -70,46 +84,62 @@
               id="apartment_size"
               name='apartment_size'
               value=""
-              class="form-control"
+              class="form-control @error('apartment_size') is-invalid @enderror"
               placeholder="Metri quadri"
               type="text"
             >
+
+
+            @error('apartment_size')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
           </section>
 
           <section class="me-3">
-              <label for="address" class="form-label">Numero di camere</label>
+              <label for="n_of_room" class="form-label">Numero di camere</label>
               <input
                 id="n_of_room"
                 name='n_of_room'
                 value=""
-                class="form-control"
+                class="form-control @error('n_of_room') is-invalid @enderror"
                 placeholder="Numero di camere"
                 type="text"
               >
+
+            @error('n_of_room')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
           </section>
 
           <section class="me-3">
-              <label for="address" class="form-label">Numero di letti</label>
+              <label for="n_of_bed" class="form-label">Numero di letti</label>
               <input
                 id="n_of_bed"
                 name='n_of_bed'
                 value=""
-                class="form-control"
+                class="form-control @error('n_of_bed') is-invalid @enderror"
                 placeholder="Numero di letti"
                 type="text"
               >
+            @error('n_of_bed')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
           </section>
 
           <section class="me-3">
-              <label for="address" class="form-label">Numero di bagni</label>
+              <label for="n_of_bathroom" class="form-label">Numero di bagni</label>
               <input
                 id="n_of_bathroom"
                 name='n_of_bathroom'
                 value=""
-                class="form-control"
+                class="form-control @error('n_of_bathroom') is-invalid @enderror"
                 placeholder="Numero di bagni"
                 type="text"
               >
+
+            @error('n_of_bathroom')
+                <p class="text-danger">{{ $message }}</p>
+            @enderror
           </section>
 
         </div>
@@ -138,15 +168,15 @@
           </div>
 
         <div class="mb-3">
-          <label for="address" class="form-label">Informazioni aggiuntive indirizzo</label>
-          <input
-            id="address_info"
-            name='address_info'
-            value=""
-            class="form-control"
-            placeholder="Informazioni aggiuntive sull'indirizzo"
-            type="text"
-          >
+            <label for="address_info" class="form-label">Informazioni aggiuntive indirizzo</label>
+            <input
+                id="address_info"
+                name='address_info'
+                value=""
+                class="form-control"
+                placeholder="Informazioni aggiuntive sull'indirizzo"
+                type="text"
+                >
         </div>
 
 {{-- ----------------- servizi offerti       --}}
