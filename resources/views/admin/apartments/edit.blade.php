@@ -177,38 +177,25 @@
 
         </div>
 
-        <div class="mb-3">
+{{-- ----------------- servizi offerti       --}}
+<div class="mb-3">
 
-            <p class="form-label">Servizi offerti</p>
+    <p class="form-label">Servizi offerti</p>
 
-            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 
-              <div class="form-check me-3">
-                <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-                name="services">
-                <label class="form-check-label" for="flexCheckDefault">
-                  Default checkbox
-                </label>
-              </div>
 
-              <div class="form-check">
-                <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckChecked"
-                checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                  Checked checkbox
-                </label>
-              </div>
+          <div class="my_btn_grp" role="group" aria-label="Basic checkbox toggle button group">
+          @foreach ($services as $service )
 
-          </div>
+          <input type="checkbox" class="btn-check" autocomplete="off" id="{{$service->name}}" name="services[]" value="{{$service->id}}">
+          <label class="btn btn-outline-primary m-1" for="{{$service->name}}">{{ $service->name }}</label>
+
+            @endforeach
         </div>
+
+  </div>
+</div>
 
 
         <div class="mb-3">

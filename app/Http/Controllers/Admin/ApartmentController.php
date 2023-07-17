@@ -114,9 +114,10 @@ class ApartmentController extends Controller
      */
     public function edit(Apartment $apartment)
     {
+        $services = Service::all();
         $method = 'PUT';
         $route = route('admin.apartments.update', $apartment);
-        return view('admin.apartments.edit', compact('apartment', 'method', 'route'));
+        return view('admin.apartments.edit', compact('apartment', 'method', 'route','services'));
     }
 
     /**
