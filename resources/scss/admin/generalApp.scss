@@ -6,6 +6,14 @@
     text-decoration: none;
 }
 
+.debug{
+    background-color: rgba(255, 0, 0, 0.226);
+  }
+
+  .debug2{
+    background-color: rgba(9, 255, 0, 0.226);
+  }
+
 .form-control:focus {
     border-color: lighten($low-black, 80%);
     box-shadow: 2px 2px 0px 1px lighten($brand-main, 20%)
@@ -45,6 +53,21 @@ body {
 
 .no_wrap{
     flex-wrap: nowrap;
+}
+
+.my_form_check{
+
+}
+
+.my_btn_grp{
+    position: relative;
+    // display: flex;
+    vertical-align: middle;
+    // width: 100%;
+}
+
+.my_width{
+    // width: 500px;
 }
 
 

@@ -182,6 +182,18 @@
           >
         </div>
 
+        <div class="mb-3">
+            <label for="image_description" class="form-label">Dai un nome all' immagine</label>
+            <input
+              id="image_description"
+              name='image_description'
+              value="{{ old('image_description', $apartment?->image_description) }}"
+              class="form-control"
+              placeholder="copertina"
+              type="text"
+            >
+          </div>
+
 
         <button type="submit" class="btn btn-success">Invia</button>
 

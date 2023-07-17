@@ -156,29 +156,19 @@
 
             <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 
-              <div class="form-check">
-                <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
-                    @foreach ($services as $service )
 
-                    <label class="btn btn-outline-primary" for="{{$service->name}}">{{ $service->name }}</label>
-                    <input type="checkbox" class="btn-check" id="{{$service->name}}" name="services[]">
+                  <div class="my_btn_grp" role="group" aria-label="Basic checkbox toggle button group">
+                  @foreach ($services as $service )
+
+                  <input type="checkbox" class="btn-check" autocomplete="off" id="{{$service->name}}" name="services[]" value="{{$service->id}}">
+                  <label class="btn btn-outline-primary m-1" for="{{$service->name}}">{{ $service->name }}</label>
 
                     @endforeach
+                </div>
 
-                  </div>
-              </div>
 
-              <div class="form-check">
-                <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckChecked"
-                checked>
-                <label class="form-check-label" for="flexCheckChecked">
-                  Checked checkbox
-                </label>
-              </div>
+
+
 
           </div>
         </div>
@@ -193,6 +183,18 @@
             class="form-control"
             placeholder="copertina"
             type="file"
+          >
+        </div>
+
+        <div class="mb-3">
+          <label for="image_description" class="form-label">Dai un nome all' immagine</label>
+          <input
+            id="image_description"
+            name='image_description'
+            value=""
+            class="form-control"
+            placeholder="copertina"
+            type="text"
           >
         </div>
 
