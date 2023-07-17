@@ -1,0 +1,20 @@
+h3{
+    span{
+        font-weight: 800;
+        color: $brand-main;
+    }
+}
+.btn {
+    background-color: $brand-main;
+    color: $text-white;
+    border-radius: $brand-btn-radius;
+    text-align: center;
+    padding: 10px 20px;
+    font-weight: 600;
+
+    &:hover {
+        color: $text-white;
+        background-color: $brand-blue;
+        transition: all .4s;
+    }
+}
