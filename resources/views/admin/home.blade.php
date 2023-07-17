@@ -15,7 +15,7 @@
                     <h3 class="card-title">Guadagna con <span>BoolBnb</span></h3>
                     <p class="card-text">Scatta delle foto, scegli un prezzo e preparati ad accogliere i tuoi primi ospiti!</p>
                     <p>Inserire il tuo appartamento non è mai stato così semplice</p>
-                    <a class="btn" href="{{ route('admin.apartments.create') }}">Aggiungi alloggio</a>
+                    <a class="btn mm-btn" href="{{ route('admin.apartments.create') }}">Aggiungi alloggio</a>
                 </div>
             </div>
         @else
