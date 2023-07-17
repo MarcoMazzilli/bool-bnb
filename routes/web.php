@@ -29,9 +29,10 @@ Route::middleware(['auth','verified'])
     ->prefix('admin')
     ->group(function(){
         Route::resource('apartments', ApartmentController::class);
-        // Route::resource('visible', ApartmentController::class, 'visible');
-        Route::put('apartments/{apartment}/visible', [ApartmentController::class, 'visible'])
-        ->name('apartments.visible');
+
+
+        // Route::put('apartments/{apartment}/visible', [ApartmentController::class, 'visible'])
+        // ->name('apartments.visible');
     });
 
 require __DIR__.'/auth.php';
