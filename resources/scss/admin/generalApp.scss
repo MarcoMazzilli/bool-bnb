@@ -34,5 +34,18 @@ body {
     background-color: #fff;
 }
 
+.my_overflow{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.my_overflow_auto{
+    overflow: auto;
+}
+
+.no_wrap{
+    flex-wrap: nowrap;
+}
+
 
 

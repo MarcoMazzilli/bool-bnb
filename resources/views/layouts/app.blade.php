@@ -49,16 +49,16 @@
 
     @auth
         <div class="container-fluid" id="wrapper-auth-user">
-            <div class="wrappper-dashboard border rounded-4 overflow-hidden" id="card-dashboard">
+            <div class="wrappper-dashboard border rounded-4 my_overflow" id="card-dashboard">
 
-                <div class="row h-100">
+                <div class="row h-100 no_wrap">
 
 
                     <div class="col-2 p-0">
                         @include('admin.partials.asideLeft')
                     </div>
 
-                    <div class="col-10 p-0 mx-auto">
+                    <div class="col-10 p-0 mx-auto my_overflow_auto">
                         <div>
                             @include('auth.headerNativo')
                         </div>

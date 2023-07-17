@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container p-5">
+<div class="container my_overflow">
   <h3>Lista appartamenti</h3>
 
   <table class="table mb-5">
