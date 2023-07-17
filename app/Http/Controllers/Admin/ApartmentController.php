@@ -142,8 +142,17 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+    public function destroy(Apartment $apartment)
     {
-        //
+        if($apartment->cover_image){
+            Storage::disk('public')->delete($apartment->cover_image);
+        }
+
+        // dd($apartment);
+
+        $apartment->delete();
+
+        return redirect()->route('admin.apartments.index')->with('deleted','appartamento eliminato');
     }
 }

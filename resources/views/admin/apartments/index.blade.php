@@ -24,7 +24,14 @@
             <td>
               <a href="{{route('admin.apartments.show', $apartment)}}" class="btn btn-outline-primary">Mostra</a>
               <a href="{{route('admin.apartments.edit', $apartment)}}" class="btn btn-outline-secondary">Modifica</a>
-              <a href="#" class="btn btn-outline-danger">Elimina</a>
+
+              @include('admin.partials.form-delete',[
+                'title'=>'Eliminazione Post',
+                'id'=> $apartment->id,
+                'message'=> "Confermi l'eliminazione del appartamento $apartment->name",
+                'route' => route('admin.apartments.destroy', $apartment)
+            ])
+
             </td>
           </tr>
 
