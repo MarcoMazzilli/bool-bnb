@@ -67,16 +67,13 @@ class ApartmentController extends Controller
 
 
         if(array_key_exists('cover_image', $form_data)){
-            // $form_data['cover_image'] = $this->saveImage($request, $form_data , new Apartment());
             $form_data['cover_image'] = CustomHelper::saveImage($request, $form_data , new Apartment());
-        }else{
-            @dump('key not found');
         }
 
-        // @dd($form_data);
         $new_apartment->fill($form_data);
-        // dd($new_apartment);
+
         $new_apartment->save();
+
         return redirect()->route('admin.apartments.show', $new_apartment);
     }
 
@@ -147,24 +144,5 @@ class ApartmentController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function saveImage($request, $form_data, $model){
-        //nome immagine
-        $image_name = preg_replace('/\..+$/', '', $request->file('cover_image')->getClientOriginalName());
-        // estensione immagine
-        $extension = $request->file('cover_image')->getClientOriginalExtension();
-        // nome che voglio assegnare
-        // TODO: se nel form data arriva un titolo descrittivo il nome dell'immagine corrispondera a quello, cosi da poterlo inserire anche nell'alt dell'immagine per questioni di accessibilità
-        $file_name = Str::slug($form_data['name'], '-') . '.' . $extension;
-
-        // percorso in cui salvare l'immagine
-        $path = 'uploads/' . Str::slug($form_data['name'], '-');
-
-        if($model::where('cover_image', $path . '/' .$file_name )->first()){
-            $file_name = Str::slug($form_data['name'], '-') . '-' .rand(1000,10000) . '.' . $extension;
-        }
-
-        return Storage::putFileAs($path, $form_data['cover_image'], $file_name);
     }
 }

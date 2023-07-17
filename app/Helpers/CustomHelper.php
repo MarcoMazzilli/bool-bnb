@@ -22,13 +22,16 @@ class CustomHelper{
     }
 
     public static function saveImage($request, $form_data, $model){
-        //nome immagine
-        $image_name = preg_replace('/\..+$/', '', $request->file('cover_image')->getClientOriginalName());
-        // estensione immagine
+
+        // estensione dell' immagine
         $extension = $request->file('cover_image')->getClientOriginalExtension();
-        // nome che voglio assegnare
-        // TODO: se nel form data arriva un titolo descrittivo il nome dell'immagine corrispondera a quello, cosi da poterlo inserire anche nell'alt dell'immagine per questioni di accessibilità
-        $file_name = Str::slug($form_data['name'], '-') . '.' . $extension;
+
+        // Se esiste una description dell'immagine utilizzo quella per compilare il nome, altrimenti assegno un nome generico e randomico.
+        if(array_key_exists('image_description', $form_data)){
+            $file_name = Str::slug($form_data['image_description'], '-') . '.' . $extension;
+        }else{
+            $file_name = 'img' . rand(1000,10000) . '.' . $extension;
+        }
 
         // percorso in cui salvare l'immagine
         $path = 'uploads/' . Str::slug($form_data['name'], '-');
