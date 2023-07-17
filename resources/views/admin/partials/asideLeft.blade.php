@@ -1,5 +1,4 @@
-<aside class="h-100 shadow overflow-y-scroll">
-    {{-- FIXME:  con la classe "overflow-y-scroll" esce la scrollbar ma non funziona --}}
+<aside class="h-100 shadow">
 
     {{-- LOGO --}}
     <div class="logo ps-3">
