@@ -1,6 +1,6 @@
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modal{{ $id }}">
+<button type="button" class="btn btn-outline" data-bs-toggle="modal" data-bs-target="#modal{{ $id }}">
     visibile
   </button>
 

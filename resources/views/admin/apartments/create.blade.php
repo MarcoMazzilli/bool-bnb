@@ -128,7 +128,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="visible" class="form-label">visibile</label>
+            <label for="visible" class="form-label"></label>
 
             <select name="visible" id="visible">
               <option value=1> visibile</option>
@@ -149,7 +149,7 @@
           >
         </div>
 
-
+{{-- ----------------- servizi offerti       --}}
         <div class="mb-3">
 
             <p class="form-label">Servizi offerti</p>
