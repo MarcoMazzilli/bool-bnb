@@ -16,15 +16,18 @@
           {{ $message }}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
-          <form
-                class="d-inline"
-                action="{{ $route }}"
-                method="POST"
-            >
+
+            <form class="d-inline" action="{{ route('admin.apartments.update', $apartment) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
-                <button class="btn btn-danger" type="submit">Nascondere</button>
+                <label for="visible" class="form-label">visibile</label>
+                <select name="visible" id="visible">
+                    <option value=1> visibile</option>
+                    <option value=0 > non visibile</option>
+                </select>
+
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annulla</button>
+                <button class="btn btn-danger" type="submit">modifica</button>
         </form>
         </div>
       </div>

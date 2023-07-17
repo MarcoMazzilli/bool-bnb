@@ -127,6 +127,16 @@
         </div>
 
         <div class="mb-3">
+          <label for="visible" class="form-label">visibile</label>
+
+          <select name="visible" id="visible">
+            <option value=1> visibile</option>
+            <option value=0 > non visibile</option>
+          </select>
+
+        </div>
+
+        <div class="mb-3">
 
             <p class="form-label">Servizi offerti</p>
 
