@@ -1,10 +1,12 @@
-<aside class="h-100 shadow">
+<aside class="h-100 shadow overflow-y-scroll">
+    {{-- FIXME:  con la classe "overflow-y-scroll" esce la scrollbar ma non funziona --}}
 
     {{-- LOGO --}}
-    <div class="logo">
-        <h1>BoolBnb</h1>
-        <a href="">
-            {{-- <img src="{{ asset('img/boolbnb-sfondo-trasparente.png') }}" alt=""> --}}
+    <div class="logo ps-3">
+        <a href="{{ url('/') }}">
+            <i class="fa-solid fa-house d-md-none my-4 "></i>
+            {{-- <span class="d-md-none">Logo solo casa</span> --}}
+            <img class=" d-none d-md-block" src="{{ asset('img/boolbnb-sfondo-trasparente.png') }}" alt="logo">
         </a>
     </div>
 
@@ -12,9 +14,31 @@
     <div class="links">
 
         <ul class="navbar-nav">
-            <li class="nav-item {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}">
-                <a class="nav-link " href="{{ route('dashboard') }}">Dashboard home</a>
+            <li class="nav-item {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}" title="Dashboard home">
+                <a class="nav-link " href="{{ route('dashboard') }}">
+                    <span class="d-none d-md-block">Dashboard home</span>
+                    <i class="fa-solid fa-chart-line d-md-none"></i>
+                </a>
             </li>
+
+            <li class="nav-item {{ Route::currentRouteName() === 'admin.apartments.index' ? 'active' : '' }}" title="I miei appartamenti">
+                <a class="nav-link" href="{{ route('admin.apartments.index') }}">
+                    <span class="d-none d-md-block">I miei appartamenti</span>
+                    <i class="fa-solid fa-house-user d-md-none"></i>
+                </a>
+            </li>
+            <li class="nav-item {{ Route::currentRouteName() === 'admin.apartments.create' ? 'active' : '' }}" title="Aggiungi">
+                <a class="nav-link" href="{{ route('admin.apartments.create') }}">
+                    <span class="d-none d-md-block">Aggiungi</span>
+                    <i class="fa-solid fa-square-plus d-md-none"></i>
+                </a>
+            </li>
+            <li class="nav-item {{ Route::currentRouteName() === '#' ? 'active' : '' }}" title="Inbox">
+                <a class="nav-link" href="#">
+                    <span class="d-none d-md-block">Inbox</span>
+                    <i class="fa-solid fa-inbox d-md-none"></i>
+                </a>
+
             @if (Auth::user()->apartments->count())
                 <li class="nav-item {{ Route::currentRouteName() === 'admin.apartments.index' ? 'active' : '' }}">
                     <a class="nav-link" href="{{ route('admin.apartments.index') }}">I miei appartamenti</a>
@@ -37,7 +61,8 @@
 
             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
             document.getElementById('logout-form').submit();">
-                <span>Torna al sito pubblico</span>
+                <span class="d-none d-md-block">Torna al sito pubblico</span>
+                <i class="fa-solid fa-house-chimney d-md-none"></i>
             </a>
 
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
