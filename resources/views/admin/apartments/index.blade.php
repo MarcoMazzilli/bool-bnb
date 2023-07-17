@@ -23,12 +23,12 @@
             <td>{{ $apartment->address }}</td>
             <td>
 
-                @include('admin.partials.form-visible',[
+                {{-- @include('admin.partials.form-visible',[
                     'title'=>'modifica',
                     'id'=> $apartment->id,
                     'message'=> "modifica $apartment->name",
                     'route' => route('admin.apartments.update', $apartment)
-                ])
+                ]) --}}
 
               <a href="{{route('admin.apartments.show', $apartment)}}" class="btn btn-outline-primary">Mostra</a>
               <a href="{{route('admin.apartments.edit', $apartment)}}" class="btn btn-outline-secondary">Modifica</a>
