@@ -10,7 +10,7 @@
       @csrf
       @method('PUT')
 
-      <form>
+
         <div class="mb-3">
           <label for="title" class="form-label">Nome</label>
           <input
@@ -184,7 +184,7 @@
 
 
         <button type="submit" class="btn btn-success">Invia</button>
-      </form>
+
 
     </form>
 
