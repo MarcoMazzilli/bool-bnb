@@ -18,7 +18,7 @@
         </div>
 
         <div class="address">
-            <span>{{ $apartment->address }}</span>
+            <span>{{ $apartment->address }}</span> <br> <span>{{ $apartment->visible }}</span>
         </div>
 
         <div class="image d-flex justify-content-center m-5">
