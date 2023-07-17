@@ -5,7 +5,7 @@ return  [
   [
     "name"=> "Sea La Vie",
     "description"=> "Casa sulla spiaggia",
-    "cover_image"=> "https://cf.bstatic.com/xdata/images/hotel/max1024x768/95862692.jpg?k=1f15546fa1d4e9a739df5c3393a530f1539e2c4819593a6326c3113410f58794&o=&hp=1",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "via della fontana, 51, 48122, Punta Marina RA",
     "address_info"=> "Dicta autem molestiae necessitatibus et.",
     "price"=> "89.99",
@@ -19,7 +19,7 @@ return  [
   [
     "name"=> "Aspen Glow",
     "description"=> "Casale sulla montagna",
-    "cover_image"=> "https://www.immobiliare.it/news/app/uploads/2022/01/montagna-baita_seconda_casa_neve_chalet_min.jpeg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "Rotonda Nestore 15 10052 Bardonecchia TO",
     "address_info"=> "A aliquid consequuntur nemo velit laudantium facilis.",
     "price"=> "68.99",
@@ -33,7 +33,7 @@ return  [
   [
     "name"=> "The Orchard",
     "description"=> "Villa di lusso",
-    "cover_image"=> "https://media.agestaweb.it/siti/01171/public/foto/1(150).jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "Via mario Bianco 75 Bergamo",
     "address_info"=> "Veritatis libero laboriosam impedit.",
     "price"=> "298.75",
@@ -47,7 +47,7 @@ return  [
   [
     "name"=> "Eco Stay",
     "description"=> "Appartamento in centro",
-    "cover_image"=> "https://www.bolognare.it/wp-content/uploads/603724.jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "Via Vittor Pisani, 1, 20124 Milano MI",
     "address_info"=> "Impedit voluptatum placeat ut.",
     "price"=> "120.89",
@@ -61,7 +61,7 @@ return  [
   [
     "name"=> "Rhapsody by the Sea",
     "description"=> "Casa sulla spiaggia",
-    "cover_image"=> "https://hips.hearstapps.com/hmg-prod/images/kralendjik-1-caraibi-1553763129.jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "Via Posillipo-36B-80123-Napoli-NA",
     "address_info"=> "Unde aut architecto et.",
     "price"=> "79.99",
@@ -75,7 +75,7 @@ return  [
   [
     "name"=> "Forrest Creek",
     "description"=> "Casale sulla montagna",
-    "cover_image"=> "https://media.lavorincasa.it/post/16/15504/gallery/6242/casa-in-montagna-moderna-da-pinterest.jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "28841 Provincia del Verbano-Cusio-Ossola",
     "address_info"=> "Dicta ut et dolorem ut ab.",
     "price"=> "109.99",
@@ -89,7 +89,7 @@ return  [
   [
     "name"=> "Oak View",
     "description"=> "Villa di lusso",
-    "cover_image"=> "https://jacopotartaglia.it/wp-content/uploads/2021/06/webaliser-_TPTXZd9mOo-unsplash.jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "Via IV Novembre 16d 40123 Bologna ",
     "address_info"=> "Cum qui aspernatur earum nemo tempore aut aut qui.",
     "price"=> "289.99",
@@ -103,7 +103,7 @@ return  [
   [
     "name"=> "The View",
     "description"=> "Appartamento in centro",
-    "cover_image"=> "https://img3.idealista.it/blur/WEB_LISTING-M/0/id.pro.it.image.master/3b/1a/3b/471780604.jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "28925 Via Marini 20 Pallanza",
     "address_info"=> "Quis voluptatem id temporibus maxime nostrum.",
     "price"=> "49.99",
@@ -117,7 +117,7 @@ return  [
   [
     "name"=> "Beachy Vibes",
     "description"=> "Casa sulla spiaggia",
-    "cover_image"=> "https://www.pugliacasevacanza.com/img/case-vacanza/182/1.jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "73028 Otranto LE",
     "address_info"=> "Consequatur sed debitis non eveniet natus ab ut.",
     "price"=> "89.99",
@@ -131,7 +131,7 @@ return  [
   [
     "name"=> "Daffodil Hill",
     "description"=> "Casale sulla montagna",
-    "cover_image"=> "https://news.wikicasa.it/wp-content/uploads/2021/11/Progetto-senza-titolo-30__-1-1024x672.jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "23041 Livigno SO",
     "address_info"=> "Enim sunt nulla ut itaque repellat ab.",
     "price"=> "89.99",
@@ -145,7 +145,7 @@ return  [
   [
     "name"=> "Sierra Sky",
     "description"=> "Villa di lusso",
-    "cover_image"=> "https://www.villeecasali.com/wp-content/uploads/2017/01/Una-villa-da-250-milioni-1-1024x576.jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "Piazza di Santa Maria Nuova, 1, 50122 Firenze FI",
     "address_info"=> "Aliquid qui repellendus fugiat architecto eius.",
     "price"=> "89.99",
@@ -159,7 +159,7 @@ return  [
   [
     "name"=> "The Retreat",
     "description"=> "Appartamento in centro",
-    "cover_image"=> "https://img3.idealista.it/blur/WEB_LISTING-M/0/id.pro.it.image.master/03/ed/7d/464631295.jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "Marghera, Venezia VE",
     "address_info"=> "Ea sed exercitationem aut velit corrupti cumque repellendus.",
     "price"=> "89.99",
@@ -173,7 +173,7 @@ return  [
   [
     "name"=> "Castaway",
     "description"=> "Casa sulla spiaggia",
-    "cover_image"=> "https://www.casevacanzepomelia.it/imga/aurora-villa-sulla-spiaggia-di-sabbia-vicino-marzamemi---cir-19089014c217434-panoramica--6477--1500.jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "89866 Gurdurello VV",
     "address_info"=> "In veritatis inventore incidunt vitae hic sit nisi placeat.",
     "price"=> "89.99",
@@ -187,7 +187,7 @@ return  [
   [
     "name"=> "The Golden Eagle",
     "description"=> "Casale sulla montagna",
-    "cover_image"=> "https://blog.quimmo.it/wp-content/uploads/2018/10/comprare-una-casa-in-montagna-768x510.jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "Rotonda Flaviana 36 39040 Racines BZ",
     "address_info"=> "Nisi qui voluptates tempora aut.",
     "price"=> "89.99",
@@ -201,7 +201,7 @@ return  [
   [
     "name"=> "Moon Dunes",
     "description"=> "Villa di lusso",
-    "cover_image"=> "https://cdn.cw-ibiza.it/upload/Luxury-Villas-Ibiza-for-sale-00.jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "Via di Villa Ruffo, 5, 00196 Roma RM",
     "address_info"=> "Ut omnis incidunt rerum doloremque expedita consequuntur.",
     "price"=> "89.99",
@@ -215,7 +215,7 @@ return  [
   [
     "name"=> "Parkview Living",
     "description"=> "Appartamento in centro",
-    "cover_image"=> "https://pwm.im-cdn.it/image/1312668240/m-c.jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "Str. Vicinale Francescone, 19, 65125 Pescara PE",
     "address_info"=> "Doloremque quibusdam numquam aliquid esse.",
     "price"=> "89.99",
@@ -229,7 +229,7 @@ return  [
   [
     "name"=> "Cabana",
     "description"=> "Casa sulla spiaggia",
-    "cover_image"=> "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSF-BwLEbXqvfqMWtizUVwYK0mXU4bgbUnSg&usqp=CAU",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "90010 Campofelice di Roccella PA",
     "address_info"=> "Vel deserunt alias quam beatae incidunt numquam qui illum.",
     "price"=> "89.99",
@@ -243,7 +243,7 @@ return  [
   [
     "name"=> "Summit Watch",
     "description"=> "Casale sulla montagna",
-    "cover_image"=> "https://cdn.trend-online.com/2022/11/21/812301/full.webp",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "87066 Longobucco CS",
     "address_info"=> "Culpa quibusdam possimus architecto ut corporis sit.",
     "price"=> "89.99",
@@ -257,7 +257,7 @@ return  [
   [
     "name"=> "Dreamsville",
     "description"=> "Villa di lusso",
-    "cover_image"=> "https://i.pinimg.com/originals/5b/bf/57/5bbf5746e2a1add8256edf0337443e9e.jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "Via Arenaccia, 135, 80141 Napoli NA",
     "address_info"=> "Dicta ea sint tempora illum architecto fugit nisi.",
     "price"=> "89.99",
@@ -271,7 +271,7 @@ return  [
   [
     "name"=> "The Breeze Way",
     "description"=> "Appartamento in centro",
-    "cover_image"=> "https://pwm.im-cdn.it/image/1109155996/cover-m-c.jpg",
+    "cover_image"=> "seeder-img/default.jpg",
     "address"=> "Via Salvatore Matarrese, 45, 70124 Bari BA",
     "address_info"=> "Veniam qui minima sapiente sit sit neque laborum.",
     "price"=> "89.99",
