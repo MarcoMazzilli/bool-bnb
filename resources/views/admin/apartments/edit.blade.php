@@ -16,7 +16,7 @@
           <input
             id="name"
             name='name'
-            value=""
+            value="{{ old('name', $apartment?->name) }}"
             class="form-control"
             placeholder="Nome appartamento"
             type="text"
@@ -28,7 +28,7 @@
           <input
             id="type"
             name='type'
-            value=""
+            value="{{ old('type', $apartment?->type) }}"
             class="form-control"
             placeholder="Monolocale, trilocale, villetta..."
             type="text"
@@ -40,7 +40,7 @@
           <input
             id="description"
             name='description'
-            value=""
+            value="{{ old('description', $apartment?->description) }}"
             class="form-control"
             placeholder="Descrizione appartamento"
             type="text"
@@ -56,7 +56,7 @@
             <input
               id="apartment_size"
               name='apartment_size'
-              value=""
+              value="{{ old('apartment_size', $apartment?->apartment_size) }}"
               class="form-control"
               placeholder="Metri quadri"
               type="text"
@@ -68,7 +68,7 @@
               <input
                 id="n_of_room"
                 name='n_of_room'
-                value=""
+                value="{{ old('n_of_room', $apartment?->n_of_room) }}"
                 class="form-control"
                 placeholder="Numero di camere"
                 type="text"
@@ -80,7 +80,7 @@
               <input
                 id="n_of_bed"
                 name='n_of_bed'
-                value=""
+                value="{{ old('n_of_bed', $apartment?->n_of_bed) }}"
                 class="form-control"
                 placeholder="Numero di letti"
                 type="text"
@@ -92,7 +92,7 @@
               <input
                 id="n_of_bathroom"
                 name='n_of_bathroom'
-                value=""
+                value="{{ old('n_of_bathroom', $apartment?->n_of_bathroom) }}"
                 class="form-control"
                 placeholder="Numero di bagni"
                 type="text"
@@ -119,11 +119,21 @@
           <input
             id="address_info"
             name='address_info'
-            value=""
+            value="{{ old('address_info', $apartment?->address_info) }}"
             class="form-control"
             placeholder="Informazioni aggiuntive sull'indirizzo"
             type="text"
           >
+        </div>
+
+        <div class="mb-3">
+          <label for="visible" class="form-label"></label>
+
+          <select name="visible" id="visible">
+            <option value=1> visibile</option>
+            <option value=0 > non visibile</option>
+          </select>
+
         </div>
 
         <div class="mb-3">
@@ -210,9 +220,9 @@
     Object.assign(inputElement, {
       id: 'address',
       name: 'address',
-      value: '',
+      value: '{{ old('address', $apartment?->address) }}',
       className: 'form-control' + ' ' + 'tt-search-box-input',
-      placeholder: 'Indirizzo appartamento',
+      placeholder: 'inserisci indirizzo',
       type: 'text'
     });
     // console.log(inputElement);

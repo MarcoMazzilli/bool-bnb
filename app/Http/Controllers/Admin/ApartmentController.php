@@ -27,6 +27,23 @@ class ApartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function visible(ApartmentRequest $request,Apartment $apartment){
+        $data = [];
+
+        if($apartment->visible === 1){
+            $data['visible'] = 0;
+        }elseif($apartment->visible === 0){
+            $data['visible'] = 1;
+        }
+        // dd($apartment);
+        $method = 'PUT';
+        // $route = route('admin.apartments.update', $apartment);
+        $apartment->visible->update(0);
+        return view('admin.apartments.index', compact('apartment'));
+
+     }
+
     public function index()
     {
         $apartments = Apartment::where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get();
@@ -141,8 +158,17 @@ class ApartmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+    public function destroy(Apartment $apartment)
     {
-        //
+        if($apartment->cover_image){
+            Storage::disk('public')->delete($apartment->cover_image);
+        }
+
+        // dd($apartment);
+
+        $apartment->delete();
+
+        return redirect()->route('admin.apartments.index')->with('deleted','appartamento eliminato');
     }
 }

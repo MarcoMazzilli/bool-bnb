@@ -7,8 +7,13 @@
             <h1 class="">{{ $apartment->name }}</h1>
 
             <div class="btn">
-                <a href="#" class="btn btn-outline-secondary">Modifica</a>
-                <a href="#" class="btn btn-outline-danger">Elimina</a>
+                <a href="{{route('admin.apartments.edit', $apartment)}}" class="btn btn-outline-secondary">Modifica</a>
+                @include('admin.partials.form-delete',[
+                    'title'=>'Eliminazione Post',
+                    'id'=> $apartment->id,
+                    'message'=> "Confermi l'eliminazione del appartamento $apartment->name",
+                    'route' => route('admin.apartments.destroy', $apartment)
+                ])
             </div>
         </div>
 

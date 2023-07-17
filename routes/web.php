@@ -22,12 +22,16 @@ Route::get('/' , [PageController::class , 'index'])->name('home');
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth','verified'])->name('dashboard');
+// Route::get('/visible', [DashboardController::class, 'visible'])->middleware(['auth','verified'])->name('visible');
 
 Route::middleware(['auth','verified'])
     ->name('admin.')
     ->prefix('admin')
     ->group(function(){
         Route::resource('apartments', ApartmentController::class);
+        // Route::resource('visible', ApartmentController::class, 'visible');
+        Route::put('apartments/{apartment}/visible', [ApartmentController::class, 'visible'])
+        ->name('apartments.visible');
     });
 
 require __DIR__.'/auth.php';

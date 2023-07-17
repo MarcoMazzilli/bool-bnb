@@ -22,9 +22,24 @@
             <td>{{ $apartment->name }}</td>
             <td>{{ $apartment->address }}</td>
             <td>
+
+                @include('admin.partials.form-visible',[
+                    'title'=>'modifica',
+                    'id'=> $apartment->id,
+                    'message'=> "modifica $apartment->name",
+                    'route' => route('admin.apartments.update', $apartment)
+                ])
+
               <a href="{{route('admin.apartments.show', $apartment)}}" class="btn btn-outline-primary">Mostra</a>
               <a href="{{route('admin.apartments.edit', $apartment)}}" class="btn btn-outline-secondary">Modifica</a>
-              <a href="#" class="btn btn-outline-danger">Elimina</a>
+
+              @include('admin.partials.form-delete',[
+                'title'=>'Eliminazione Post',
+                'id'=> $apartment->id,
+                'message'=> "Confermi l'eliminazione del appartamento $apartment->name",
+                'route' => route('admin.apartments.destroy', $apartment)
+            ])
+
             </td>
           </tr>
 
