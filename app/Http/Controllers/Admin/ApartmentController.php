@@ -47,10 +47,15 @@ class ApartmentController extends Controller
     public function index()
     {
         $apartments = Apartment::where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get();
-        // dd($apartments);
-        // $sponsoredApartments = ;
+        $num_sponsorship = 0;
+        foreach($apartments as $apartment ){
 
-        return view('admin.apartments.index', compact('apartments'));
+            $num_sponsorship += $apartment->sponsorships->count();
+
+        }
+        // dd($num_sponsorship);
+
+        return view('admin.apartments.index', compact('apartments', 'num_sponsorship'));
     }
 
     /**

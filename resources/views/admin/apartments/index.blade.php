@@ -48,7 +48,7 @@
         </table>
 
         <h3>Lista appartamenti sponsorizzati</h3>
-        @if ($apartment->sponsorships->count() != 0)
+        @if ($num_sponsorship != 0)
             <table class="table">
                 <thead>
                     <tr>
