@@ -66,8 +66,11 @@ per aggiornare le tabelle e ripopolarle
 php artisan migrate:refresh --seed
 ```
 
-una volta sacaricato il progetto inserire nel file .env la propria api key del tomtom nel campo `API_TT_KEY`
+Una volta sacaricato il progetto inserire nel file .env la propria api key del tomtom nel campo `API_TT_KEY`
 https://developer.tomtom.com/user/me/apps
+
+Se durante la fase di creazione di un nuovo appartamento l'immagine non viene visualizzata, assicurarsi che nel file `.env` la costante `FILESYSTEM_DISK` sia inpostata su public
+
 
 
 

@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Paginate;
 use Illuminate\Http\Request;
 use App\Http\Requests\ApartmentRequest;
 use Illuminate\Support\Str;
+use App\Helpers\CustomHelper;
 
 
 class ApartmentController extends Controller
@@ -42,9 +43,9 @@ class ApartmentController extends Controller
      */
     public function create()
     {
-
+        $services = Service::all();
         $method = 'POST';
-        return view('admin.apartments.create', compact('method'));
+        return view('admin.apartments.create', compact('method','services'));
     }
 
     /**
@@ -66,15 +67,13 @@ class ApartmentController extends Controller
 
 
         if(array_key_exists('cover_image', $form_data)){
-            $form_data['cover_image'] = Storage::put('uploads', $form_data['cover_image']);
-
-        }else{
-            @dump(' non esiste');
+            $form_data['cover_image'] = CustomHelper::saveImage($request, $form_data , new Apartment());
         }
-        // @dd('');
+
         $new_apartment->fill($form_data);
-        // dd($new_apartment);
+
         $new_apartment->save();
+
         return redirect()->route('admin.apartments.show', $new_apartment);
     }
 
