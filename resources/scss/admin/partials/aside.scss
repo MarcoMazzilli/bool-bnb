@@ -1,12 +1,22 @@
 aside {
-    padding: 10px !important;
+    // padding: 10px !important;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
+
+    .logo{
+        img{
+            height: 70px;
+        }
+        i.fa-house{
+            color: $brand-main;
+        }
+    }
 
     .links{
-        padding: 50px 0;
-        flex-grow: 1;
+        // TODO: se si vuole aggiunere il padding aggiungere lo scroll
+        // padding: 50px 0;
+        // flex-grow: 1;
 
         ul {
             .nav-item {
@@ -17,7 +27,7 @@ aside {
                 padding: 5px;
                 margin-bottom: 10px;
                 font-weight: 600;
-                font-size: 1.1rem;
+                // font-size: 1.1rem;
 
                 &:hover {
                     background-color: $brand-main;
