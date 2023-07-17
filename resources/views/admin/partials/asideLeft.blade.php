@@ -3,6 +3,9 @@
     {{-- LOGO --}}
     <div class="logo">
         <h1>BoolBnb</h1>
+        <a href="">
+            {{-- <img src="{{ asset('img/boolbnb-sfondo-trasparente.png') }}" alt=""> --}}
+        </a>
     </div>
 
     {{-- MAIN LINK --}}

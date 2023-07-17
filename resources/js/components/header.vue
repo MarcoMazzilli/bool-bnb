@@ -69,16 +69,17 @@ header{
   height: 70px;
 
   span.search{
-    background-color: $brand-main;
+    background-color: white;
     transition: all .3s;
     i{
       transition: all .3s;
-      color: $brand-blue;
+      color: $brand-main;
+
     }
     &:hover{
-      background-color: white;
+    background-color: $brand-main;
       i{
-        color: $brand-main;
+      color: $brand-blue;
       }
     }
   }
