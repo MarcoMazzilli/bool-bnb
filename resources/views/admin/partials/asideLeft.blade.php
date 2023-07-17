@@ -10,7 +10,7 @@
     </div>
 
     {{-- MAIN LINK --}}
-    <div class="links">
+    <div class="links h-75">
 
         <ul class="navbar-nav">
             <li class="nav-item {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}" title="Dashboard home">

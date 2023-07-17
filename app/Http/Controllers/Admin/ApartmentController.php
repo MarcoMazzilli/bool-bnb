@@ -87,13 +87,15 @@ class ApartmentController extends Controller
             $form_data['cover_image'] = CustomHelper::saveImage($request, $form_data , new Apartment());
         }
 
-        if (array_key_exists('technologies', $form_data)) {
-            $new_apartment->services()->attach($form_data['services']);
-        }
 
         $new_apartment->fill($form_data);
 
+
         $new_apartment->save();
+
+        if (array_key_exists('services', $form_data)) {
+            $new_apartment->services()->attach($form_data['services']);
+        }
 
         return redirect()->route('admin.apartments.show', $new_apartment);
     }
@@ -153,10 +155,11 @@ class ApartmentController extends Controller
         }
 
         if (array_key_exists('services', $form_data)) {
-            $apartment->technologies()->sync($form_data['services']);
+            $apartment->services()->sync($form_data['services']);
         }else{
-            $apartment->technologies()->detach();
+            $apartment->services()->detach();
         }
+        // @dd($form_data);
 
         $apartment->update($form_data);
 

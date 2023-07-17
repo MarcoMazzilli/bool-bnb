@@ -38,8 +38,11 @@
 
         <div class="extra services mt-4">
             <h5>Cosa troverai:</h5>
-            <span class="badge bg-secondary">New</span></h5>
-            {{-- <span>{{ $apartment->services }}</span> --}}
+            @forelse ($apartment->services as $service )
+            <span class="badge bg-secondary">{{ $service->name }}</span></h5>
+            @empty
+            <span class="badge bg-secondary">Nessun servizio aggiuntivo</span></h5>
+            @endforelse
         </div>
 
         <div class="coordinate mt-4">

@@ -25,7 +25,7 @@
 
 
         <div class="mb-3">
-          <label for="title" class="form-label">Nome</label>
+          <label for="title" class="form-label">Nome*</label>
           <input
             id="name"
             name='name'
@@ -41,7 +41,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="type" class="form-label">Tipologia</label>
+          <label for="type" class="form-label">Tipologia*</label>
           <input
             id="type"
             name='type'
@@ -79,7 +79,7 @@
         <div class="mb-3 d-flex">
 
           <section class="me-3">
-            <label for="address" class="form-label">Metri quadri</label>
+            <label for="address" class="form-label">Metri quadri*</label>
             <input
               id="apartment_size"
               name='apartment_size'
@@ -96,7 +96,7 @@
           </section>
 
           <section class="me-3">
-              <label for="n_of_room" class="form-label">Numero di camere</label>
+              <label for="n_of_room" class="form-label">Numero di camere*</label>
               <input
                 id="n_of_room"
                 name='n_of_room'
@@ -112,7 +112,7 @@
           </section>
 
           <section class="me-3">
-              <label for="n_of_bed" class="form-label">Numero di letti</label>
+              <label for="n_of_bed" class="form-label">Numero di letti*</label>
               <input
                 id="n_of_bed"
                 name='n_of_bed'
@@ -127,7 +127,7 @@
           </section>
 
           <section class="me-3">
-              <label for="n_of_bathroom" class="form-label">Numero di bagni</label>
+              <label for="n_of_bathroom" class="form-label">Numero di bagni*</label>
               <input
                 id="n_of_bathroom"
                 name='n_of_bathroom'
@@ -146,7 +146,7 @@
 
 
         <div class="mb-3" id="autocomplete">
-          <label for="address" class="form-label">Indirizzo</label>
+          <label for="address" class="form-label">Indirizzo*</label>
           {{-- <input
             id="address"
             name='address'
@@ -201,7 +201,7 @@
 
 
         <div class="mb-3">
-          <label for="cover_image" class="form-label">Seleziona immagine di copertina</label>
+          <label for="cover_image" class="form-label">Seleziona immagine di copertina*</label>
           <input
             id="cover_image"
             name='cover_image'
