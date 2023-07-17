@@ -87,6 +87,10 @@ class ApartmentController extends Controller
             $form_data['cover_image'] = CustomHelper::saveImage($request, $form_data , new Apartment());
         }
 
+        if (array_key_exists('technologies', $form_data)) {
+            $new_apartment->services()->attach($form_data['services']);
+        }
+
         $new_apartment->fill($form_data);
 
         $new_apartment->save();
@@ -148,6 +152,12 @@ class ApartmentController extends Controller
             $form_data['cover_image'] = Storage::put('uploads/', $form_data['cover_image']);
         }
 
+        if (array_key_exists('services', $form_data)) {
+            $apartment->technologies()->sync($form_data['services']);
+        }else{
+            $apartment->technologies()->detach();
+        }
+
         $apartment->update($form_data);
 
         return view('admin.apartments.show', compact('apartment'));
@@ -167,6 +177,7 @@ class ApartmentController extends Controller
         }
 
         // dd($apartment);
+        $apartment->services()->detach();
 
         $apartment->delete();
 
