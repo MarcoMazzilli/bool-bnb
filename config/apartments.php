@@ -116,7 +116,7 @@ return  [
     "n_of_bathroom"=> 1,
     "apartment_size"=> rand(30,150),
     "visible"=> false,
-    "type"=> "trilocale"
+    "type"=> "quadrilocale"
   ],
   [
     "name"=> "Daffodil Hill",
@@ -129,7 +129,7 @@ return  [
     "n_of_bathroom"=> 1,
     "apartment_size"=> rand(30,150),
     "visible"=> false,
-    "type"=> "trilocale"
+    "type"=> "monolocale"
   ],
   [
     "name"=> "Sierra Sky",
@@ -155,7 +155,7 @@ return  [
     "n_of_bathroom"=> 1,
     "apartment_size"=> rand(30,150),
     "visible"=> false,
-    "type"=> "trilocale"
+    "type"=> "bilocale"
   ],
   [
     "name"=> "Castaway",
@@ -168,7 +168,7 @@ return  [
     "n_of_bathroom"=> 1,
     "apartment_size"=> rand(30,150),
     "visible"=> false,
-    "type"=> "trilocale"
+    "type"=> "quadrilocale"
   ],
   [
     "name"=> "The Golden Eagle",
@@ -194,7 +194,7 @@ return  [
     "n_of_bathroom"=> 1,
     "apartment_size"=> rand(30,150),
     "visible"=> false,
-    "type"=> "trilocale"
+    "type"=> "monolocale"
   ],
   [
     "name"=> "Parkview Living",
@@ -207,7 +207,7 @@ return  [
     "n_of_bathroom"=> 1,
     "apartment_size"=> rand(30,150),
     "visible"=> false,
-    "type"=> "trilocale"
+    "type"=> "bilocale"
   ],
   [
     "name"=> "Cabana",
@@ -233,7 +233,7 @@ return  [
     "n_of_bathroom"=> 1,
     "apartment_size"=> rand(30,150),
     "visible"=> false,
-    "type"=> "trilocale"
+    "type"=> "quadrilocale"
   ],
   [
     "name"=> "Dreamsville",
@@ -246,7 +246,7 @@ return  [
     "n_of_bathroom"=> 1,
     "apartment_size"=> rand(30,150),
     "visible"=> false,
-    "type"=> "trilocale"
+    "type"=> "monolocale"
   ],
   [
     "name"=> "The Breeze Way",
@@ -259,6 +259,6 @@ return  [
     "n_of_bathroom"=> 1,
     "apartment_size"=> rand(30,150),
     "visible"=> false,
-    "type"=> "trilocale"
+    "type"=> "bilocale"
   ]
 ];
