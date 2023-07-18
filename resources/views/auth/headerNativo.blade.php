@@ -4,6 +4,9 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                 <div class="logo">logo</div>
+                {{-- TODO: scegliere il logo da mettere nel'header --}}
+                {{-- <img style="height: 70px;" class=" d-none d-md-block" src="{{ asset('img/boolbnb-sfondo-trasparente.png') }}" alt="logo"> --}}
+
 
                 {{-- config('app.name', 'Laravel') --}}
             </a>
