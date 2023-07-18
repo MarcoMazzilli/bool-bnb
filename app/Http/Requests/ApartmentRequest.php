@@ -30,6 +30,8 @@ class ApartmentRequest extends FormRequest
             'n_of_room'=> 'required|numeric|between:1,10',
             'n_of_bathroom'=> 'required|numeric|between:1,10',
             'apartment_size'=> 'required|numeric|between:15,1000',
+            'cover_image'=> 'required',
+            'services'=> 'required',
             'type'=> 'required|min:3|max:50'
         ];
     }
@@ -63,6 +65,8 @@ class ApartmentRequest extends FormRequest
             'apartment_size.between' => 'I metri quadri devono essere compresi tra 15mq e 1000mq',
             'apartment_size.min' => 'I metri quadri devono essere almeno :min',
             'apartment_size.max' => 'I metri quadri devono essere massimo  :max',
+            'cover_image.required' => 'L\'immagine è un campo obbligatorio',
+            'services.required' => 'Devi inserire almeno 1 servizio',
             'type.required' => 'La tipologia è un campo obbligatorio',
             'type.min' => 'La tipologia deve avere almeno :min caratteri',
             'type.max' => 'La tipologia non deve avere più di :max caratteri',

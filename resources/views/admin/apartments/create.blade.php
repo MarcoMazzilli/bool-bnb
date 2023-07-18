@@ -187,13 +187,21 @@
             <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 
 
-                  <div class="my_btn_grp" role="group" aria-label="Basic checkbox toggle button group">
-                  @foreach ($services as $service )
+                <div class="my_btn_grp" role="group" aria-label="Basic checkbox toggle button group">
+                @foreach ($services as $service )
 
-                  <input type="checkbox" class="btn-check" autocomplete="off" id="{{$service->name}}" name="services[]" value="{{$service->id}}">
-                  <label class="btn btn-outline-primary m-1" for="{{$service->name}}">{{ $service->name }}</label>
+                <input
+                    type="checkbox"
+                    class="btn-check"
+                    autocomplete="off"
+                    id="{{$service->name}}" name="services[]"
+                    value="{{$service->id}}">
+
+
+                <label class="btn btn-outline-primary m-1" for="{{$service->name}}">{{ $service->name }}</label>
 
                     @endforeach
+
                 </div>
 
           </div>
@@ -292,6 +300,10 @@
             const tagImage = document.getElementById('prev-image');
             tagImage.src = '';
         }
-  </script>
-
-@endsection
+    name: 'address',
+      value: '',
+      className: 'form-control' + ' ' + 'tt-search-box-input',
+      placeholder: 'Indirizzo appartamento',
+      type: 'text'
+    });
+    // console.log(inputElement);
