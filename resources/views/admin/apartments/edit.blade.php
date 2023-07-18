@@ -171,8 +171,8 @@
           <label for="visible" class="form-label"></label>
 
           <select name="visible" id="visible">
-            <option value=1> visibile</option>
-            <option value=0 > non visibile</option>
+            <option value=1 {{ old('visible') == 1 ? 'selected' : '' }}> visibile</option>
+            <option value=0 {{ old('visible') == 0 ? 'selected' : '' }}> non visibile</option>
           </select>
 
         </div>
@@ -188,7 +188,20 @@
           <div class="my_btn_grp" role="group" aria-label="Basic checkbox toggle button group">
           @foreach ($services as $service )
 
-          <input type="checkbox" class="btn-check" autocomplete="off" id="{{$service->name}}" name="services[]" value="{{$service->id}}">
+          <input
+            type="checkbox"
+            class="btn-check"
+            autocomplete="off"
+            id="{{$service->name}}"
+            name="services[]"
+            value="{{$service->id}}"
+
+            @if (!$errors->any() && $apartment->services->contains($service))
+            checked
+            @elseif ($errors->any() && in_array($service->id, old('services', [])))
+            checked
+            @endif>
+
           <label class="btn btn-outline-primary m-1" for="{{$service->name}}">{{ $service->name }}</label>
 
             @endforeach

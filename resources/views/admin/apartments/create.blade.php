@@ -29,7 +29,7 @@
           <input
             id="name"
             name='name'
-            value=""
+            value="{{ old('name') }}"
             class="form-control @error('name') is-invalid @enderror"
             placeholder="Nome appartamento"
             type="text"
@@ -45,7 +45,7 @@
           <input
             id="type"
             name='type'
-            value=""
+            value="{{ old('type') }}"
             class="form-control @error('type') is-invalid @enderror"
             placeholder="Monolocale, trilocale, villetta..."
             type="text"
@@ -62,7 +62,7 @@
           <input
             id="description"
             name='description'
-            value=""
+            value="{{ old('description')}}"
             class="form-control @error('description') is-invalid @enderror"
             placeholder="Descrizione appartamento"
             type="text"
@@ -83,7 +83,7 @@
             <input
               id="apartment_size"
               name='apartment_size'
-              value=""
+              value="{{old('apartment_size')}}"
               class="form-control @error('apartment_size') is-invalid @enderror"
               placeholder="Metri quadri"
               type="text"
@@ -100,7 +100,7 @@
               <input
                 id="n_of_room"
                 name='n_of_room'
-                value=""
+                value="{{old('n_of_room')}}"
                 class="form-control @error('n_of_room') is-invalid @enderror"
                 placeholder="Numero di camere"
                 type="text"
@@ -116,7 +116,7 @@
               <input
                 id="n_of_bed"
                 name='n_of_bed'
-                value=""
+                value="{{old('n_of_bed')}}"
                 class="form-control @error('n_of_bed') is-invalid @enderror"
                 placeholder="Numero di letti"
                 type="text"
@@ -131,7 +131,7 @@
               <input
                 id="n_of_bathroom"
                 name='n_of_bathroom'
-                value=""
+                value="{{old('n_of_bathroom')}}"
                 class="form-control @error('n_of_bathroom') is-invalid @enderror"
                 placeholder="Numero di bagni"
                 type="text"
@@ -161,8 +161,8 @@
             <label for="visible" class="form-label"></label>
 
             <select name="visible" id="visible">
-              <option value=1> visibile</option>
-              <option value=0 > non visibile</option>
+              <option value=1 {{ old('visible') == 1 ? 'selected' : '' }}> visibile</option>
+              <option value=0 {{ old('visible') == 0 ? 'selected' : '' }}> non visibile</option>
             </select>
 
           </div>
@@ -172,7 +172,7 @@
             <input
                 id="address_info"
                 name='address_info'
-                value=""
+                value="{{ old('address_info')}}"
                 class="form-control"
                 placeholder="Informazioni aggiuntive sull'indirizzo"
                 type="text"
@@ -189,6 +189,19 @@
 
                 <div class="my_btn_grp" role="group" aria-label="Basic checkbox toggle button group">
                 @foreach ($services as $service )
+
+                  <input
+                    type="checkbox"
+                    class="btn-check"
+                    autocomplete="off"
+                    id="{{$service->name}}"
+                    name="services[]"
+                    value="{{$service->id}}"
+                    @if (in_array($service->id, old('services',[])))
+                    checked
+                    @endif
+                    >
+                  <label class="btn btn-outline-primary m-1" for="{{$service->name}}">{{ $service->name }}</label>
 
                 <input
                     type="checkbox"
@@ -228,7 +241,7 @@
           <input
             id="image_description"
             name='image_description'
-            value=""
+            value="{{old('image_description')}}"
             class="form-control"
             placeholder="copertina"
             type="text"
