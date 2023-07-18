@@ -205,11 +205,14 @@
           <input
             id="cover_image"
             name='cover_image'
+            onchange="showImage(event)"
             value=""
             class="form-control"
             placeholder="copertina"
             type="file"
           >
+
+            <img width="150" id="prev-image" src="">
         </div>
 
         <div class="mb-3">
@@ -269,6 +272,26 @@
       type: 'text'
     });
     // console.log(inputElement);
+
+
+    //Gestione anteprima immagine di copertina
+        ClassicEditor
+            .create( document.querySelector( '#text' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+        function showImage(event){
+            const tagImage = document.getElementById('prev-image');
+            tagImage.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        function removeImage(){
+            const imageInput = document.getElementById('image_description');
+            imageInput.value = '';
+            const tagImage = document.getElementById('prev-image');
+            tagImage.src = '';
+        }
   </script>
 
 @endsection

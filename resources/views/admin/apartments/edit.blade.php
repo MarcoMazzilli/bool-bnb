@@ -198,16 +198,20 @@
 </div>
 
 
-        <div class="mb-3">
+        <div class="mb-2">
           <label for="cover_image" class="form-label">Seleziona immagine di copertina</label>
           <input
             id="cover_image"
             name='cover_image'
+            onchange="showImage(event)"
             value=""
             class="form-control"
             placeholder="copertina"
             type="file"
           >
+
+
+          <img width="150" class="mt-3" id="prev-image" src="{{ asset('storage/' . $apartment?->cover_image) }}">
         </div>
 
         <div class="mb-3">
@@ -266,6 +270,27 @@
       type: 'text'
     });
     // console.log(inputElement);
-  </script>
+
+
+//Gestione anteprima immagine di copertina
+        ClassicEditor
+            .create( document.querySelector( '#text' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+        function showImage(event){
+            const tagImage = document.getElementById('prev-image');
+            tagImage.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        function removeImage(){
+            const imageInput = document.getElementById('image_description');
+            imageInput.value = '';
+            const tagImage = document.getElementById('prev-image');
+            tagImage.src = '';
+        }
+
+</script>
 
 @endsection
