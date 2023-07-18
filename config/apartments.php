@@ -14,7 +14,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "trilocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "Aspen Glow",
@@ -29,7 +29,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "bilocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "The Orchard",
@@ -44,7 +44,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "quadrilocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "Eco Stay",
@@ -59,7 +59,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "monolocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "Rhapsody by the Sea",
@@ -74,7 +74,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "trilocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "Forrest Creek",
@@ -89,7 +89,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "trilocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "Oak View",
@@ -104,7 +104,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "quadrilocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "The View",
@@ -119,7 +119,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "bilocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "Beachy Vibes",
@@ -134,7 +134,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "quadrilocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "Daffodil Hill",
@@ -149,7 +149,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "monolocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "Sierra Sky",
@@ -164,7 +164,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "trilocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "The Retreat",
@@ -179,7 +179,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "bilocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "Castaway",
@@ -194,7 +194,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "quadrilocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "The Golden Eagle",
@@ -209,7 +209,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "trilocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "Moon Dunes",
@@ -224,7 +224,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "monolocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "Parkview Living",
@@ -239,7 +239,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "bilocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "Cabana",
@@ -254,7 +254,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "trilocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "Summit Watch",
@@ -269,7 +269,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "quadrilocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "Dreamsville",
@@ -286,7 +286,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "monolocale",
-    "services"=> [rand(1,19)]
+    "services"=> [rand(1,17)]
   ],
   [
     "name"=> "The Breeze Way",
