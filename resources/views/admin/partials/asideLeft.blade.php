@@ -31,7 +31,7 @@
 
             <li class="nav-item {{ Route::currentRouteName() === 'admin.apartments.create' ? 'active' : '' }}" title="Aggiungi">
                 <a class="nav-link" href="{{ route('admin.apartments.create') }}">
-                    <span class="d-none d-md-block">Aggiungi</span>
+                    <span class="d-none d-md-block">Aggiungi appartamento</span>
                     <i class="fa-solid fa-square-plus d-md-none"></i>
                 </a>
             </li>

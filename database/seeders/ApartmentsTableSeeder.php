@@ -44,6 +44,10 @@ class ApartmentsTableSeeder extends Seeder
 
           // dump($new_apartment);
           $new_apartment->save();
+
+          if (array_key_exists('services', $apartment)) {
+            $new_apartment->services()->attach($apartment['services']);
+        }
         }
     }
 }

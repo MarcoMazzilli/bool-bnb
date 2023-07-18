@@ -187,8 +187,8 @@
             <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 
 
-                  <div class="my_btn_grp" role="group" aria-label="Basic checkbox toggle button group">
-                  @foreach ($services as $service )
+                <div class="my_btn_grp" role="group" aria-label="Basic checkbox toggle button group">
+                @foreach ($services as $service )
 
                   <input
                     type="checkbox"
@@ -203,7 +203,18 @@
                     >
                   <label class="btn btn-outline-primary m-1" for="{{$service->name}}">{{ $service->name }}</label>
 
+                <input
+                    type="checkbox"
+                    class="btn-check"
+                    autocomplete="off"
+                    id="{{$service->name}}" name="services[]"
+                    value="{{$service->id}}">
+
+
+                <label class="btn btn-outline-primary m-1" for="{{$service->name}}">{{ $service->name }}</label>
+
                     @endforeach
+
                 </div>
 
           </div>
@@ -215,10 +226,14 @@
           <input
             id="cover_image"
             name='cover_image'
+            onchange="showImage(event)"
+            value=""
             class="form-control"
             placeholder="copertina"
             type="file"
           >
+
+            <img width="150" id="prev-image" src="">
         </div>
 
         <div class="mb-3">
@@ -278,6 +293,30 @@
       type: 'text'
     });
     // console.log(inputElement);
-  </script>
 
-@endsection
+
+    //Gestione anteprima immagine di copertina
+        ClassicEditor
+            .create( document.querySelector( '#text' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+        function showImage(event){
+            const tagImage = document.getElementById('prev-image');
+            tagImage.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        function removeImage(){
+            const imageInput = document.getElementById('image_description');
+            imageInput.value = '';
+            const tagImage = document.getElementById('prev-image');
+            tagImage.src = '';
+        }
+    name: 'address',
+      value: '',
+      className: 'form-control' + ' ' + 'tt-search-box-input',
+      placeholder: 'Indirizzo appartamento',
+      type: 'text'
+    });
+    // console.log(inputElement);
