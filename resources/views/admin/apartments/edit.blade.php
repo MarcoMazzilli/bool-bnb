@@ -296,22 +296,12 @@
                 if(elements[2].firstChild.data && elements[2].nextSibling ){
                     replaceAddres = elements[2].firstChild.data + ' ' + elements[2].nextSibling.data;
                     Object.assign(inputElement, {
-                    id: 'address',
-                    name: 'address',
-                    value: replaceAddres,
-                    className: 'form-control' + ' ' + 'tt-search-box-input',
-                    placeholder: 'Indirizzo appartamento',
-                    type: 'text'});
+                    value: replaceAddres });
 
                 }else if(elements[2].firstChild.data){
                     replaceAddres = elements[2].firstChild.data;
                     Object.assign(inputElement, {
-                    id: 'address',
-                    name: 'address',
-                    value: replaceAddres,
-                    className: 'form-control' + ' ' + 'tt-search-box-input',
-                    placeholder: 'Indirizzo appartamento',
-                    type: 'text'});
+                    value: replaceAddres });
                 }
 
             console.warn('indirizzo forzato :',replaceAddres);
