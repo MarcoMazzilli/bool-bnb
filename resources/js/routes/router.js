@@ -1,5 +1,5 @@
 import {createRouter, createWebHistory } from 'vue-router';
-import home from '../pages/home.vue';
+import Home from '../pages/home.vue';
 import advancedSearch from '../pages/advanced-search.vue';
 import apartment from '../pages/apartment.vue';
 
@@ -10,20 +10,20 @@ const router = createRouter({
         {
             path: '/',
             name: 'home',
-            component: home,
-            meta
+            component: Home,
+            // meta
         },
         {
             path: '/search',
             name: 'advancedSearch',
             component: advancedSearch,
-            meta
+            // meta
         },
         {
             path: '/apartment/:slug',
             name: 'apartment',
             component: apartment,
-            meta
+            // meta
         },
     ]
 })

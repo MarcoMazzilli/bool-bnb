@@ -2,7 +2,7 @@
 import {store} from '../../data/store';
 import axios from 'axios';
 export default {
-    name: Apartment,
+    name: 'Apartment',
     data(){
         return{}
     },

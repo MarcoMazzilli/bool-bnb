@@ -1,8 +1,8 @@
 <script>
-import {store} from '../../data/store';
-import axios from 'axios';
+// import {store} from '../../data/store';
+// import axios from 'axios';
 export default {
-    name: Home,
+    name: 'Home',
     data(){
         return{}
     },
