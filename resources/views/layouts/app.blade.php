@@ -31,6 +31,8 @@
 
     <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/plugins/SearchBox/3.1.3-public-preview.0/SearchBox-web.js"></script>
 
+    {{-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> --}}
+
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
 </head>
