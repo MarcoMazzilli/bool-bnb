@@ -1,11 +1,12 @@
 <script>
 import {store} from'../data/store.js';
 import Header from '../js/components/header.vue';
+import DebHeader from '../js/components/debug_header.vue';
 export default {
     name: 'home',
 
     components:{
-        Header,
+        Header,DebHeader,
     },
     methods:{},
     computed:{},
@@ -16,6 +17,7 @@ export default {
 <template>
 
     <Header  />
+    <DebHeader  />
 
     <!--caricamento pagine virtuali  -->
     <router-view v-slot="{Component}">

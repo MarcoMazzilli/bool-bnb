@@ -53,7 +53,6 @@ export default {
       </div>
     </div>
 
-
   </header>
 </template>
 
