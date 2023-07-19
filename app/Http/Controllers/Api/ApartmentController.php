@@ -13,7 +13,8 @@ class ApartmentController extends Controller
     public function index(){
 
         // $apartments = Apartment::select(['coordinate'])->get();
-        $apartments = Apartment::select(['name','description','address',  DB::raw("ST_AsText(coordinate) as coordinate")])
+        $apartments = Apartment::select(['id','user_id','name','slug','description','slug','cover_image','address','address_info','price','n_of_bed','n_of_room','n_of_bathroom','apartment_size','type','created_at',
+          DB::raw("ST_AsText(coordinate) as coordinate")])
         ->get()
         ->map(function ($apartment) {
           $coordinates = sscanf($apartment->coordinate, 'POINT(%f %f)');
