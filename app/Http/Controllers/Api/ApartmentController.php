@@ -46,7 +46,6 @@ class ApartmentController extends Controller
 
 
 
-
         return response()->json(compact('apartments', 'coordinates', 'apartmentsWithoutCoord'));
     }
 }
