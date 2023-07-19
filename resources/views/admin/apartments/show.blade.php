@@ -18,16 +18,16 @@
         </div>
 
         <div class="address">
-            <span>{{ $apartment->address }}</span> <br> <span>{{ $apartment->visible }}</span>
+            <span>{{ $apartment->address }}</span>
         </div>
 
-        <div class="image d-flex justify-content-center m-5">
+        <div class="image d-flex mt-4">
             {{-- <img class="w-50" src={{ $apartment['cover_image'] }}  alt="" > --}}
             <img src="{{ asset('storage/' . $apartment->cover_image) }}" alt="" style="width: 500px">
         </div>
 
 
-        <div class="description">
+        <div class="description mt-4">
             <h5>{{ $apartment->description }} ( {{ $apartment->type }} )</h5>
         </div>
 
