@@ -182,12 +182,9 @@
 
     </div>
 
-    {{-- autocomplete seach bar tomtom script --}}
-
-
-
-
     <script>
+
+//  autocomplete seach bar tomtom script ---------------------------------------/
         const options = {
             searchOptions: {
                 key: "{{ env('API_TT_KEY') }}",
@@ -207,11 +204,8 @@
 
         if (searchBoxContainer) {
             searchBoxContainer.appendChild(searchBoxHTML);
-            // console.log(ttSearchBox);
         }
         const inputElement = document.querySelector('.tt-search-box-input');
-        // console.log(inputElement);
-
         // attributi dell input
         Object.assign(inputElement, {
             id: 'address',
@@ -221,23 +215,18 @@
             placeholder: 'Indirizzo appartamento',
             type: 'text'
         });
-        // console.log(inputElement);
-        // verifica dell indirizzo
-        const
-            TomtomBaseUrl ='https://api.tomtom.com/',
-            apiKey = "{{ env('API_TT_KEY') }}",
-            apiUrlSearchAddress = 'search/2/geocode/',
-            queryType = '.json?typeahead=false&limit=1&view=Unified&key=';
-        let indirizzo = 'inserisci indirizzo';
+
+
 
 
         inputElement.addEventListener('blur', function() {verify(inputElement);});
 
         function verify(inputElement) {
-            console.log('event',inputElement.value);
+            console.log('valore lasciato',inputElement.value);
             const elements = document.querySelectorAll('.tt-search-box-result-list-bold');
 
             let replaceAddres;
+
             console.warn('first child',elements[2].firstChild.data);
             console.warn('next silibing',elements[2].nextSibling);
 
@@ -249,8 +238,8 @@
                     value: replaceAddres,
                     className: 'form-control' + ' ' + 'tt-search-box-input',
                     placeholder: 'Indirizzo appartamento',
-                    type: 'text'
-                });
+                    type: 'text'});
+
                 }else if(elements[2].firstChild.data){
                     replaceAddres = elements[2].firstChild.data;
                     Object.assign(inputElement, {
@@ -259,35 +248,32 @@
                     value: replaceAddres,
                     className: 'form-control' + ' ' + 'tt-search-box-input',
                     placeholder: 'Indirizzo appartamento',
-                    type: 'text'
-                });
+                    type: 'text'});
                 }
 
-
-                console.warn(replaceAddres);
-
+            console.warn(replaceAddres);
             indirizzo = inputElement.value;
             getCordianates();
         };
+
+
+        // verifica dell indirizzo
+        const
+            TomtomBaseUrl ='https://api.tomtom.com/',
+            apiKey = "{{ env('API_TT_KEY') }}",
+            apiUrlSearchAddress = 'search/2/geocode/',
+            queryType = '.json?typeahead=false&limit=1&view=Unified&key=';
+        let indirizzo = 'inserisci indirizzo';
 
         function convertAddress(address){
             const converted = address.replace(/ /g,'%20') ;
             console.log(converted);
             return converted;
         };
-
+        // stampa json link del geocoding
         function   getCordianates(){
             console.log(TomtomBaseUrl + apiUrlSearchAddress + convertAddress(indirizzo) + queryType + apiKey);
-            // -------- chiamata
-            // axios.get(TomtomBaseUrl + apiUrlSearchAddress + convertAddress(indirizzo) + queryType + apiKey)
-            // .then(result =>{
-            //     console.log(result.data.results[0].position);
-
-            // })
-            // .catch(function (error) {console.warn(error);}).finally(function () { });
-            };
-
-
+        };
 
 
 // ---------------------------------------------------------------------------
