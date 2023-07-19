@@ -2,14 +2,25 @@
 import {store} from'../data/store.js';
 import Header from '../js/components/header.vue';
 import Jumbotron from '../js/components/jumbotron.vue';
+import ApartmentCard from '../js/components/apartmentCard.vue';
+import axios from 'axios';
+
 export default {
     name: 'home',
 
     components:{
         Header,
-        Jumbotron
+        Jumbotron,
+        ApartmentCard,
     },
-    methods:{},
+    data(){
+    return{
+    }
+    },
+
+
+    methods:{
+  },
     computed:{},
     mounted(){}
 }
@@ -20,6 +31,8 @@ export default {
     <Header  />
 
     <Jumbotron  />
+
+    <ApartmentCard  />
 
     <!-- <div class="container debug">
 
