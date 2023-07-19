@@ -21,39 +21,43 @@
       @csrf
       @method('PUT')
 
+      <div class="row row-cols-1 row-cols-md-2 mb-3">
 
-        <div class="mb-3">
-          <label for="title" class="form-label">Nome*</label>
-          <input
-            id="name"
-            name='name'
-            value="{{ old('name', $apartment?->name) }}"
-            class="form-control @error('name') is-invalid @enderror"
-            placeholder="Nome appartamento"
-            type="text"
-          >
+          <section class="col mb-3 mb-md-0">
+            <label for="title" class="form-label">Nome*</label>
+            <input
+              id="name"
+              name='name'
+              value="{{ old('name', $apartment?->name) }}"
+              class="form-control @error('name') is-invalid @enderror"
+              placeholder="Nome appartamento"
+              type="text"
+            >
 
-            @error('name')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
-        </div>
+              @error('name')
+                  <p class="text-danger">{{ $message }}</p>
+              @enderror
+          </section>
 
-        <div class="mb-3">
-          <label for="type" class="form-label">Tipologia*</label>
-          <input
-            id="type"
-            name='type'
-            value="{{ old('type', $apartment?->type) }}"
-            class="form-control @error('type') is-invalid @enderror"
-            placeholder="Monolocale, trilocale, villetta..."
-            type="text"
-          >
+          <section class="col">
+            <label for="type" class="form-label">Tipologia*</label>
+            <input
+              id="type"
+              name='type'
+              value="{{ old('type', $apartment?->type) }}"
+              class="form-control @error('type') is-invalid @enderror"
+              placeholder="Monolocale, trilocale, villetta..."
+              type="text"
+            >
 
 
-            @error('type')
-                <p class="text-danger">{{ $message }}</p>
-            @enderror
-        </div>
+              @error('type')
+                  <p class="text-danger">{{ $message }}</p>
+              @enderror
+          </section>
+      </div>
+
+
 
         <div class="mb-3">
           <label for="description" class="form-label">Descrizione</label>
@@ -75,9 +79,9 @@
 
 
 
-        <div class="mb-3 d-flex">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 mb-3">
 
-          <section class="me-3">
+          <section class="col mb-3 mb-lg-0">
             <label for="apartment_size" class="form-label">Metri quadri*</label>
             <input
               id="apartment_size"
@@ -92,7 +96,7 @@
             @enderror
           </section>
 
-          <section class="me-3">
+          <section class="col mb-3 mb-lg-0">
               <label for="n_of_room" class="form-label">Numero di camere*</label>
               <input
                 id="n_of_room"
@@ -109,7 +113,7 @@
             @enderror
           </section>
 
-          <section class="me-3">
+          <section class="col mb-3 mb-sm-0">
               <label for="n_of_bed" class="form-label">Numero di letti*</label>
               <input
                 id="n_of_bed"
@@ -125,7 +129,7 @@
                 @enderror
           </section>
 
-          <section class="me-3">
+          <section class="col mb-sm-0">
               <label for="n_of_bathroom" class="form-label">Numero di bagni*</label>
               <input
                 id="n_of_bathroom"
@@ -142,18 +146,31 @@
 
         </div>
 
+        <div class="row row-cols-1 row-cols-md-2 mb-3">
 
-        <div class="mb-3" id="autocomplete">
-          <label for="address" class="form-label">Indirizzo*</label>
-          {{-- <input
-            id="address"
-            name='address'
-            value=""
-            class="form-control"
-            placeholder="Indirizzo appartamento"
-            type="text"
-          > --}}
+            <div class="col mb-3 mb-md-0" id="autocomplete">
+              <label for="address" class="form-label">Indirizzo*</label>
+              {{-- <input
+                id="address"
+                name='address'
+                value=""
+                class="form-control"
+                placeholder="Indirizzo appartamento"
+                type="text"
+              > --}}
+            </div>
+
+            <div class="col">
+              <label for="visible" class="form-label">Apparamento visibile</label>
+
+              <select name="visible" id="visible" class="form-select" aria-label="Default select example">
+                <option value=1 {{ old('visible') == 1 ? 'selected' : '' }}> visibile</option>
+                <option value=0 {{ old('visible') == 0 ? 'selected' : '' }}> non visibile</option>
+              </select>
+
+            </div>
         </div>
+
 
         <div class="mb-3">
           <label for="address" class="form-label">Informazioni aggiuntive indirizzo</label>
@@ -167,15 +184,6 @@
           >
         </div>
 
-        <div class="mb-3">
-          <label for="visible" class="form-label"></label>
-
-          <select name="visible" id="visible">
-            <option value=1 {{ old('visible') == 1 ? 'selected' : '' }}> visibile</option>
-            <option value=0 {{ old('visible') == 0 ? 'selected' : '' }}> non visibile</option>
-          </select>
-
-        </div>
 
 {{-- ----------------- servizi offerti       --}}
 <div class="mb-3">
