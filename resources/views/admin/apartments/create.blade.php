@@ -258,7 +258,7 @@
                     type: 'text'});
                 }
 
-            console.warn(replaceAddres);
+            console.warn('indirizzo forzato :', replaceAddres);
             indirizzo = inputElement.value;
             getCordianates();
         };
