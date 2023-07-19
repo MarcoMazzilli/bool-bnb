@@ -6,6 +6,7 @@ export default {
     data(){
         return{}
     },
+    components:{},
     methods :{},
     mounted(){
         console.log('Advanced Search!')
