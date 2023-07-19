@@ -1,8 +1,24 @@
 <script>
+import {store} from '../../data/store';
+import axios from 'axios';
 export default {
   name: 'Header',
+  methods :{
+
+    searchApartment(){
+        console.log('CERCA!')
+
+        // axios.get()
+        // .then(result =>{
+        // console.log(result.data)
+        // })
+    }
+  },
+
 }
+
 </script>
+
 <template>
   <header>
     <div class="container h-100">
@@ -17,14 +33,24 @@ export default {
 
         <div class="col col-11 col-sm-9 col-lg-8">
 
-          <form role="search">
+
             <div class="input-group flex-nowrap">
-              <input type="text" class="form-control" placeholder="Cerca per indirizzo" aria-label="Username" aria-describedby="addon-wrapping">
-              <span class="input-group-text search" id="addon-wrapping">
+              <input @keypress.enter="searchApartment()"
+              type="text"
+              class="form-control"
+              placeholder="Cerca per indirizzo"
+              aria-label="Username"
+              aria-describedby="addon-wrapping">
+
+              <span @click="searchApartment()"
+              class="input-group-text search"
+              id="addon-wrapping"
+
+              >
                 <i class="fa-solid fa-magnifying-glass"></i>
               </span>
             </div>
-          </form>
+
 
         </div>
 
