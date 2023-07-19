@@ -1,26 +1,14 @@
 <script>
 import {store} from'../data/store.js';
 import Header from '../js/components/header.vue';
-import Jumbotron from '../js/components/jumbotron.vue';
-import ApartmentCard from '../js/components/apartmentCard.vue';
-import axios from 'axios';
-
+import DebHeader from '../js/components/debug_header.vue';
 export default {
     name: 'home',
 
     components:{
-        Header,
-        Jumbotron,
-        ApartmentCard,
+        Header,DebHeader,
     },
-    data(){
-    return{
-    }
-    },
-
-
-    methods:{
-  },
+    methods:{},
     computed:{},
     mounted(){}
 }
@@ -29,16 +17,15 @@ export default {
 <template>
 
     <Header  />
+    <DebHeader  />
 
-    <Jumbotron  />
+    <!--caricamento pagine virtuali  -->
+    <router-view v-slot="{Component}">
 
-    <ApartmentCard  />
+        <component :is="Component">
+        </component>
 
-    <!-- <div class="container debug">
-
-      <h1>home guest</h1>
-    </div> -->
-
+    </router-view>
 
 </template>
 

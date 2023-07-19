@@ -72,5 +72,11 @@ https://developer.tomtom.com/user/me/apps
 Se durante la fase di creazione di un nuovo appartamento l'immagine non viene visualizzata, assicurarsi che nel file `.env` la costante `FILESYSTEM_DISK` sia inpostata su public
 
 
+---
+installare il vue-router
+```
+npm i vue-router@4 --force
+```
+
 
 
