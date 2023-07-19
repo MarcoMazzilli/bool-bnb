@@ -8,7 +8,16 @@ export default {
         return{}
     },
     components:{Jumbotron},
-    methods :{},
+    methods :{
+
+        getApartment(){
+            axios.get()
+            .then(result =>{
+                console.log(result.data)
+            })
+        }
+
+    },
     mounted(){
         console.log('Home page!')
     }
