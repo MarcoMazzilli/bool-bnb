@@ -1,13 +1,12 @@
 <script>
 import {store} from'../data/store.js';
 import Header from '../js/components/header.vue';
-import Jumbotron from '../js/components/jumbotron.vue';
+import DebHeader from '../js/components/debug_header.vue';
 export default {
     name: 'home',
 
     components:{
-        Header,
-        Jumbotron
+        Header,DebHeader,
     },
     methods:{},
     computed:{},
@@ -18,14 +17,15 @@ export default {
 <template>
 
     <Header  />
+    <DebHeader  />
 
-    <Jumbotron  />
+    <!--caricamento pagine virtuali  -->
+    <router-view v-slot="{Component}">
 
-    <!-- <div class="container debug">
+        <component :is="Component">
+        </component>
 
-      <h1>home guest</h1>
-    </div> -->
-
+    </router-view>
 
 </template>
 
