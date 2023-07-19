@@ -23,28 +23,33 @@
             @csrf
             {{-- @method($method) --}}
 
+            <div class="row row-cols-1 row-cols-md-2 mb-3">
 
-            <div class="mb-3">
-                <label for="title" class="form-label">Nome*</label>
-                <input id="name" name='name' value="{{ old('name') }}"
-                    class="form-control @error('name') is-invalid @enderror" placeholder="Nome appartamento" type="text">
+                <section class="col mb-3 mb-md-0">
+                    <label for="title" class="form-label">Nome*</label>
+                    <input id="name" name='name' value="{{ old('name') }}"
+                        class="form-control @error('name') is-invalid @enderror" placeholder="Nome appartamento" type="text">
 
-                @error('name')
-                    <p class="text-danger">{{ $message }}</p>
-                @enderror
+                    @error('name')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </section>
+
+                <section class="col">
+                    <label for="type" class="form-label">Tipologia*</label>
+                    <input id="type" name='type' value="{{ old('type') }}"
+                        class="form-control @error('type') is-invalid @enderror"
+                        placeholder="Monolocale, trilocale, villetta..." type="text">
+
+
+                    @error('type')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </section>
+
             </div>
 
-            <div class="mb-3">
-                <label for="type" class="form-label">Tipologia*</label>
-                <input id="type" name='type' value="{{ old('type') }}"
-                    class="form-control @error('type') is-invalid @enderror"
-                    placeholder="Monolocale, trilocale, villetta..." type="text">
 
-
-                @error('type')
-                    <p class="text-danger">{{ $message }}</p>
-                @enderror
-            </div>
 
             <div class="mb-3">
                 <label for="description" class="form-label">Descrizione</label>
@@ -60,9 +65,9 @@
 
 
 
-            <div class="mb-3 d-flex">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-4 mb-3">
 
-                <section class="me-3">
+                <section class="col mb-3 mb-lg-0">
                     <label for="address" class="form-label">Metri quadri*</label>
                     <input id="apartment_size" name='apartment_size' value="{{ old('apartment_size') }}"
                         class="form-control @error('apartment_size') is-invalid @enderror" placeholder="Metri quadri"
@@ -74,7 +79,7 @@
                     @enderror
                 </section>
 
-                <section class="me-3">
+                <section class="col mb-3 mb-lg-0">
                     <label for="n_of_room" class="form-label">Numero di camere*</label>
                     <input id="n_of_room" name='n_of_room' value="{{ old('n_of_room') }}"
                         class="form-control @error('n_of_room') is-invalid @enderror" placeholder="Numero di camere"
@@ -85,7 +90,7 @@
                     @enderror
                 </section>
 
-                <section class="me-3">
+                <section class="col mb-3 mb-sm-0">
                     <label for="n_of_bed" class="form-label">Numero di letti*</label>
                     <input id="n_of_bed" name='n_of_bed' value="{{ old('n_of_bed') }}"
                         class="form-control @error('n_of_bed') is-invalid @enderror" placeholder="Numero di letti"
@@ -95,7 +100,7 @@
                     @enderror
                 </section>
 
-                <section class="me-3">
+                <section class="col mb-sm-0">
                     <label for="n_of_bathroom" class="form-label">Numero di bagni*</label>
                     <input id="n_of_bathroom" name='n_of_bathroom' value="{{ old('n_of_bathroom') }}"
                         class="form-control @error('n_of_bathroom') is-invalid @enderror" placeholder="Numero di bagni"
@@ -108,28 +113,32 @@
 
             </div>
 
+            <div class="row row-cols-1 row-cols-md-2 mb-3">
 
-            <div class="mb-3" id="autocomplete">
-                <label for="address" class="form-label">Indirizzo*</label>
-                {{-- <input
-            id="address"
-            name='address'
-            value=""
-            class="form-control"
-            placeholder="Indirizzo appartamento"
-            type="text"
-          > --}}
+                <div class="col mb-3 mb-md-0" id="autocomplete">
+                    <label for="address" class="form-label">Indirizzo*</label>
+                    {{-- <input
+                id="address"
+                name='address'
+                value=""
+                class="form-control"
+                placeholder="Indirizzo appartamento"
+                type="text"
+              > --}}
+                </div>
+
+                <div class="col">
+                    <label for="visible" class="form-label">Apparamento visibile</label>
+
+                    <select name="visible" id="visible" class="form-select" aria-label="Default select example">
+                        <option value=1 {{ old('visible') == 1 ? 'selected' : '' }}> visibile</option>
+                        <option value=0 {{ old('visible') == 0 ? 'selected' : '' }}> non visibile</option>
+                    </select>
+
+                </div>
             </div>
 
-            <div class="mb-3">
-                <label for="visible" class="form-label"></label>
 
-                <select name="visible" id="visible">
-                    <option value=1 {{ old('visible') == 1 ? 'selected' : '' }}> visibile</option>
-                    <option value=0 {{ old('visible') == 0 ? 'selected' : '' }}> non visibile</option>
-                </select>
-
-            </div>
 
             <div class="mb-3">
                 <label for="address_info" class="form-label">Informazioni aggiuntive indirizzo</label>
@@ -165,7 +174,7 @@
                 <input id="cover_image" name='cover_image' onchange="showImage(event)" value=""
                     class="form-control" placeholder="copertina" type="file">
 
-                <img width="150" id="prev-image" src="">
+                <img class="mt-3" width="150" id="prev-image" src="">
             </div>
 
             <div class="mb-3">
