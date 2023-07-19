@@ -216,9 +216,7 @@
             type: 'text'
         });
 
-
-
-
+        // forzatura autocomplete
         inputElement.addEventListener('blur', function() {verify(inputElement);});
 
         function verify(inputElement) {
