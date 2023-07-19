@@ -21,11 +21,15 @@ export default {
 
     <Jumbotron  />
 
-    <!-- <div class="container debug">
 
-      <h1>home guest</h1>
-    </div> -->
 
+    <!--caricamento pagine virtuali  -->
+    <router-view v-slot="{Component, route}">
+
+        <component :is="Component">
+        </component>
+
+    </router-view>
 
 </template>
 
