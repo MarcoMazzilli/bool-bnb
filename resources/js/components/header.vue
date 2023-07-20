@@ -3,6 +3,19 @@ import {store} from '../../data/store';
 import axios from 'axios';
 export default {
   name: 'Header',
+  data(){
+    return{
+      apiKey: 'cxG50CTiIMJjWZztYbdn0RxgT658PVkx',
+      TomtomBaseUrl:'https://api.tomtom.com/',
+      apiUrlSearchAddress: 'search/2/geocode/',
+      queryType: '.json?typeahead=false&limit=1&view=Unified&key=',
+      indirizzo: 'inserisci indirizzo',
+      jsonLink: '',
+      cordinates:{},
+      // --------------------------
+      autocomplete:'cerca',
+    }
+  },
   methods :{
 
     searchApartment(){
@@ -11,9 +24,53 @@ export default {
         // axios.get()
         // .then(result =>{
         // console.log(result.data)
+
+        // --------------------------------------------------------------------------------------------------------
+        // metodo fornito da vue per spostarsi tra le rotte del router!!!
+        //  this.$router.push('/indirizzo')
+        // this.$router.push('nome indirizzo');
+        // this.$router.push({ nome: 'nomerotta',  params:{ slug: 'apartamentSlug'} }); mandando oggetto e parametri
+
+        this.$router.push({ name: 'advancedSearch' });
+        // ------------------------------------------------------------------------------------------------------
         // })
-    }
+    },
+
+    getCordianates(){
+    console.log(this.TomtomBaseUrl + this.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + this.queryType + this.apiKey);
+
+    // -------- chiamata
+    axios.get(this.TomtomBaseUrl + this.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + this.queryType + this.apiKey)
+    .then(result =>{
+      // console.log(result.data.results[0].position);
+      this.cordinates = result.data.results[0].position;
+      store.cord = [this.cordinates.lon , this.cordinates.lat ];
+      console.log('store cord', store.cord )
+      this.jsonLink = this.TomtomBaseUrl + this.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + this.queryType + this.apiKey;
+    })
+    .catch(function (error) {
+      // handle error
+    console.warn(error);
+    })
+    .finally(function () {
+     // always executed
+    });
+    },
+
+    convertAddress(address){
+    const converted = address.replace(/ /g,'%20') ;
+    console.log(converted);
+    return converted;
+    },
+
+    getAddres(){
+      console.log('address di ricerca');
+    },
   },
+  mounted(){
+    console.log(store.ttKey);
+
+  }
 
 }
 
@@ -34,8 +91,9 @@ export default {
         <div class="col col-11 col-sm-9 col-lg-8">
 
 
-            <div class="input-group flex-nowrap">
-              <input @keypress.enter="searchApartment()"
+            <div class="input-group flex-nowrap " id="" >
+              <input @keypress.enter="getCordianates()"
+              id="via" v-model="indirizzo"
               type="text"
               class="form-control"
               placeholder="Cerca per indirizzo"

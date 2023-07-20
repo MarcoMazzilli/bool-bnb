@@ -6,6 +6,10 @@ export const store = reactive ({
   getTpartments : '/apartment',
   apartmentsGetted: [{app: 1}],
 
+  // ttKey:  import.meta.env.VUE_APP_API_TT_KEY,
+
+  cord: [],
+
 
 
 })
