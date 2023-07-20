@@ -9,12 +9,12 @@ export default {
     components:{},
     methods :{
       searchByRange(){
-        // data = {
-        //   longitude : 12.29600,
-        //   latitude : 44.43871,
-        //   radius : 20
-        // }
-        axios.post('http://127.0.0.1:8000/api/find')
+        let data = {
+          longitude : 12.29600,
+          latitude : 44.43871,
+          radius : 200
+        }
+        axios.post('http://127.0.0.1:8000/api/find', data)
         .then(result =>{
           console.log('risultato ===>',result)
         }).catch(error => {
@@ -32,7 +32,7 @@ export default {
     <div class="AdvancedSearch_container" id="AdvancedSearch-page">
 
         <h1>Advanced Search</h1>
-        <button class="btn btn-danger" @click="searchByRange()">Sed request</button>
+        <button class="btn btn-danger" @click="searchByRange()">Console log</button>
 
     </div>
 </template>

@@ -17,9 +17,9 @@ class SearchController extends Controller
       return $rawDistance->distance / 1000;
   }
 
-  public function searchByRange(){
+  public function searchByRange(Request $request){
 
-    // $data = $request->all();
+    $data = $request->all();
 
     $apartments = Apartment::select(['id','user_id','name','slug','description','slug','cover_image','address','address_info','price','n_of_bed','n_of_room','n_of_bathroom','apartment_size','type','created_at',
     DB::raw("ST_AsText(coordinate) as coordinate")])
@@ -34,13 +34,13 @@ class SearchController extends Controller
 
 
 
-    $longitude = 12.29600;
-    $latitude = 44.43871;
-    $radius = 20; // Raggio in chilometri
+    // $longitude = 12.29600;
+    // $latitude = 44.43871;
+    // $radius = 20; // Raggio in chilometri
 
-    // $longitude = $data['longitude'];
-    // $latitude = $data['latitude'];
-    // $radius = $data['radius']; // Raggio in chilometri
+    $longitude = $data['longitude'];
+    $latitude = $data['latitude'];
+    $radius = $data['radius']; // Raggio in chilometri
 
       $filteredApartments = $apartments->filter(function ($apartment) use ($longitude, $latitude, $radius) {
       $distanceInKm = $this->calculateDistanceInKm($apartment->coordinate['longitude'], $apartment->coordinate['latitude'], $longitude, $latitude);
