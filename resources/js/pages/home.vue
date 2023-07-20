@@ -3,15 +3,18 @@ import {store} from '../../data/store';
 import axios from 'axios';
 import Jumbotron from '../components/jumbotron.vue';
 import ApartmentCard from '../components/apartmentCard.vue'
+import Apartment from './apartment.vue';
+
 export default {
     name: 'Home',
     data(){
         return{
           store,
           load: false,
+          selectedApartment: null,
         }
     },
-    components:{Jumbotron, ApartmentCard },
+    components:{Jumbotron, ApartmentCard, Apartment },
     methods :{
 
         getApartment(){
@@ -23,8 +26,10 @@ export default {
                 console.log(store.apartmentsGetted);
                 this.load = true;
             })
-        }
-
+        },
+        showApartmentDetails(apartmentData) {
+      this.selectedApartment = apartmentData;
+    },
     },
     mounted(){
         console.log('Home page!');
@@ -34,21 +39,12 @@ export default {
 </script>
 
 <template>
-    <div class="home_container" id="home-page">
-
-        <Jumbotron/>
-
-        <div v-if="load" class="container py-5 d-flex flex-wrap justify-content-between">
-
-          <ApartmentCard v-for="apart in store.apartmentsGetted" :key="apart.id"
-          :apartmentData="apart"
-          />
-
-
-        </div>
-
-
+  <div class="home_container" id="home-page">
+    <Jumbotron />
+    <div v-if="load" class="container py-5 d-flex flex-wrap justify-content-between">
+      <ApartmentCard v-for="apart in store.apartmentsGetted" :key="apart.id" :apartmentData="apart" @apartmentSelected="showApartmentDetails" />
     </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>
