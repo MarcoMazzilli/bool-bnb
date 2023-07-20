@@ -20,7 +20,7 @@ export default {
 @use '../../scss/var' as *;
 
 .jumbo{
-    height: calc(50vh - 70px);
+    height: calc(35vh - 70px);
     background-image: url('https://services.meteored.com/img/article/italia-carta-natura-ispra-almeno-37-tipi-di-paesaggio-quali-sono-1637578644759_1280.jpg');
     background-size: cover;
     background-position-y: bottom;

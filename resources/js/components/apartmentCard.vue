@@ -10,11 +10,11 @@ export default {
 </script>
 
 <template>
-    <div class="container py-5">
 
-        <div class="card" style="width: 22rem; height: 22rem;">
+
+        <div class="card  m-2" style="width: 22rem; ">
                 <!-- Immagine -->
-                <img src="https://www.miprendoemiportovia.it/wp-content/uploads/2020/10/Casa-Nea-Sardegna.jpg" class="card-img-top" alt=""  style="width: 22rem; height: 22rem;">
+                <img src="https://www.miprendoemiportovia.it/wp-content/uploads/2020/10/Casa-Nea-Sardegna.jpg" class="card-img-top" alt=""  style="width: 22rem;">
 
                 <!-- Testo -->
                 <div class="card-body">
@@ -31,9 +31,6 @@ export default {
 
         </div>
 
-    </div>
-
-
 </template>
 
 <style lang="scss" scoped>
@@ -41,6 +38,7 @@ export default {
 
 .card{
     border: none;
+
     .card-body{
         padding-left: 0;
     }
