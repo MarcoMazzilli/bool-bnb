@@ -5,7 +5,7 @@ export default {
   name: 'Header',
   data(){
     return{
-      apiKey: 'cxG50CTiIMJjWZztYbdn0RxgT658PVkx',
+      apiKey: store.apiKey,
       TomtomBaseUrl:'https://api.tomtom.com/',
       apiUrlSearchAddress: 'search/2/geocode/',
       queryType: '.json?typeahead=false&limit=1&view=Unified&key=',
@@ -31,10 +31,28 @@ export default {
         // this.$router.push('nome indirizzo');
         // this.$router.push({ nome: 'nomerotta',  params:{ slug: 'apartamentSlug'} }); mandando oggetto e parametri
 
-        this.$router.push({ name: 'advancedSearch' });
+
         // ------------------------------------------------------------------------------------------------------
         // })
     },
+
+    searchByRange(){
+        this.load = false;
+        let data = {
+          longitude : store.cord[0],
+          latitude : store.cord[1],
+          radius : 200,
+        }
+        axios.post('http://127.0.0.1:8000/api/find', data)
+        .then(result =>{
+          console.log('risultato ===>',result.data.filteredApartments);
+          store.apartmentsfiltred = result.data.filteredApartments;
+          this.load = true;
+          this.$router.push({ name: 'advancedSearch' });
+        }).catch(error => {
+          console.log('Errori ===>',error)
+        })
+      },
 
     getCordianates(){
     console.log(this.TomtomBaseUrl + this.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + this.queryType + this.apiKey);
@@ -47,6 +65,8 @@ export default {
       store.cord = [this.cordinates.lon , this.cordinates.lat ];
       console.log('store cord', store.cord )
       this.jsonLink = this.TomtomBaseUrl + this.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + this.queryType + this.apiKey;
+      this.searchByRange();
+
     })
     .catch(function (error) {
       // handle error
@@ -100,7 +120,7 @@ export default {
               aria-label="Username"
               aria-describedby="addon-wrapping">
 
-              <span @click="searchApartment()"
+              <span @click="getCordianates(), searchApartment()"
               class="input-group-text search"
               id="addon-wrapping"
 

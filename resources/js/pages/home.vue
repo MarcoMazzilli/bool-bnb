@@ -2,7 +2,7 @@
 import {store} from '../../data/store';
 import axios from 'axios';
 import Jumbotron from '../components/jumbotron.vue';
-import ApartmentCard from '../components/apartmentCard.vue'
+import ApartmentCard from '../components/apartmentCard.vue';
 import Apartment from './apartment.vue';
 
 export default {
