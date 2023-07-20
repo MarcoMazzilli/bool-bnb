@@ -38,7 +38,7 @@ export default {
 
         <Jumbotron/>
 
-        <div v-if="load" class="container py-5">
+        <div v-if="load" class="container py-5 d-flex flex-wrap justify-content-between">
 
           <ApartmentCard v-for="apart in store.apartmentsGetted" :key="apart.id"
           :apartmentData="apart"
