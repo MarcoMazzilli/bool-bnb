@@ -9,7 +9,7 @@ export default {
 
     <div class="jumbo d-flex justify-content-center align-items-center">
 
-        <h1>Inserire un testo</h1>
+        <h1>La tua casa, lontano da casa</h1>
 
     </div>
 
@@ -21,9 +21,10 @@ export default {
 
 .jumbo{
     height: calc(35vh - 70px);
-    background-image: url('https://services.meteored.com/img/article/italia-carta-natura-ispra-almeno-37-tipi-di-paesaggio-quali-sono-1637578644759_1280.jpg');
+    background-image: url('https://s1.1zoom.me/b5050/755/360556-svetik_1920x1080.jpg');
     background-size: cover;
-    background-position-y: bottom;
+    background-position:center;
     color: $low-black;
+    filter: brightness(1.0);
 }
 </style>
