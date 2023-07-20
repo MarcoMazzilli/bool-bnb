@@ -52,14 +52,27 @@ class ApartmentsTableSeeder extends Seeder
 
           if (array_key_exists('sponsor', $apartment)) {
             // $new_apartment->sponsorships()->attach($apartment['sponsor']);
+
+            $randomDate = Carbon::now()->subDays(rand(1, 30));
+
+            $days = 0;
+
+            if ($apartment['sponsor'][0] === 1){
+              $days = 2;
+            }elseif($apartment['sponsor'][0] === 2) {
+              $days = 3;
+            }else{
+              $days = 6;
+            }
+
             $new_apartment->sponsorships()->attach(
               $apartment['sponsor'],
               // per la data corrente usare Carbon::now
               // ['started_at' => Carbon::now()]
               [
-                'started_at' => '2021-03-20 16:21:54',
-                'expiration_date' => '2021-03-20 16:21:54'
-                ]
+                'started_at' => $randomDate,
+                'expiration_date' => $randomDate->copy()->addDays($days)
+              ]
             );
 
         }
