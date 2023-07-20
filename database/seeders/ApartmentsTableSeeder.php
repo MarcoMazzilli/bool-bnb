@@ -9,6 +9,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Config;
 use App\Helpers\CustomHelper;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ApartmentsTableSeeder extends Seeder
 {
@@ -47,6 +48,20 @@ class ApartmentsTableSeeder extends Seeder
 
           if (array_key_exists('services', $apartment)) {
             $new_apartment->services()->attach($apartment['services']);
+        }
+
+          if (array_key_exists('sponsor', $apartment)) {
+            // $new_apartment->sponsorships()->attach($apartment['sponsor']);
+            $new_apartment->sponsorships()->attach(
+              $apartment['sponsor'],
+              // per la data corrente usare Carbon::now
+              // ['started_at' => Carbon::now()]
+              [
+                'started_at' => '2021-03-20 16:21:54',
+                'expiration_date' => '2021-03-20 16:21:54'
+                ]
+            );
+
         }
         }
     }

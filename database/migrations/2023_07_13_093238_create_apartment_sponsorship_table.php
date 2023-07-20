@@ -28,8 +28,8 @@ return new class extends Migration
             ->references('id')
             ->on('sponsorships');
 
-            $table->dateTime('started_at');
-            $table->dateTime('expiration_date');
+            $table->dateTime('started_at')->nullable();
+            $table->dateTime('expiration_date')->nullable();
 
             $table->timestamps();
         });
