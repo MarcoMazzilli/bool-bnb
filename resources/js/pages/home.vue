@@ -6,21 +6,29 @@ import ApartmentCard from '../components/apartmentCard.vue'
 export default {
     name: 'Home',
     data(){
-        return{}
+        return{
+          store,
+          load: false,
+        }
     },
     components:{Jumbotron, ApartmentCard },
     methods :{
 
         getApartment(){
-            axios.get()
+          this.load = false;
+            axios.get(store.apiHostUrl + store.getTpartments)
             .then(result =>{
-                console.log(result.data)
+                // console.log(result.data.apartments);
+                store.apartmentsGetted = result.data.apartments;
+                console.log(store.apartmentsGetted);
+                this.load = true;
             })
         }
 
     },
     mounted(){
-        console.log('Home page!')
+        console.log('Home page!');
+        this.getApartment();
     }
 }
 </script>
@@ -30,14 +38,12 @@ export default {
 
         <Jumbotron/>
 
-        <div class="container py-5">
+        <div v-if="load" class="container py-5">
 
-          <ApartmentCard />
-          <ApartmentCard />
-          <ApartmentCard />
-          <ApartmentCard />
-          <ApartmentCard />
-          <ApartmentCard />
+          <ApartmentCard v-for="apart in store.apartmentsGetted" :key="apart.id"
+          :apartmentData="apart"
+          />
+
 
         </div>
 
