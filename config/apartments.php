@@ -14,6 +14,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "trilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -29,6 +30,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "bilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -44,6 +46,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "quadrilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -59,6 +62,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "monolocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -74,6 +78,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "trilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -89,6 +94,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "trilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -104,6 +110,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "quadrilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -119,6 +126,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "bilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -134,6 +142,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "quadrilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -149,6 +158,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "monolocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -164,6 +174,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "trilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -179,6 +190,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "bilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -194,6 +206,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "quadrilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -209,6 +222,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "trilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -224,6 +238,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "monolocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -239,6 +254,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "bilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -254,6 +270,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "trilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -269,6 +286,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "quadrilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -286,6 +304,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "monolocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
   ],
   [
@@ -301,6 +320,7 @@ return  [
     "apartment_size"=> rand(30,150),
     "visible"=> false,
     "type"=> "bilocale",
+    "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
   ]
 ];

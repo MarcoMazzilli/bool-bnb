@@ -9,6 +9,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Config;
 use App\Helpers\CustomHelper;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ApartmentsTableSeeder extends Seeder
 {
@@ -47,6 +48,32 @@ class ApartmentsTableSeeder extends Seeder
 
           if (array_key_exists('services', $apartment)) {
             $new_apartment->services()->attach($apartment['services']);
+        }
+
+          if (array_key_exists('sponsor', $apartment)) {
+            // $new_apartment->sponsorships()->attach($apartment['sponsor']);
+
+            $randomDate = Carbon::now()->subDays(rand(1, 30));
+
+            $hours = 0;
+            //FIXME: le ore corrispondono alla durata ad ID equivalente 1,2 e 3
+
+            if ($apartment['sponsor'][0] === 1){
+              $hours = 24;
+            }elseif($apartment['sponsor'][0] === 2) {
+              $hours = 72;
+            }else{
+              $hours = 144;
+            }
+
+            $new_apartment->sponsorships()->attach(
+              $apartment['sponsor'],
+              [
+                'started_at' => $randomDate,
+                'expiration_date' => $randomDate->copy()->addHours($hours)
+              ]
+            );
+
         }
         }
     }
