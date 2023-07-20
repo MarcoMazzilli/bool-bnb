@@ -11,8 +11,25 @@ export default {
         // axios.get()
         // .then(result =>{
         // console.log(result.data)
+
+
+        // --------------------------------------------------------------------------------------------------------
+        // metodo fornito da vue per spostarsi tra le rotte del router!!!
+        //  this.$router.push('/indirizzo')
+        // this.$router.push('nome indirizzo');
+        // this.$router.push({ nome: 'nomerotta',  params:{ slug: 'apartamentSlug'} }); mandando oggetto e parametri
+
+        this.$router.push({ name: 'advancedSearch' });
+        // ------------------------------------------------------------------------------------------------------
+
+
+
         // })
-    }
+    },
+
+    getAddres(){
+      console.log('address di ricerca');
+    },
   },
 
 }
@@ -35,7 +52,7 @@ export default {
 
 
             <div class="input-group flex-nowrap">
-              <input @keypress.enter="searchApartment()"
+              <input @keypress.enter="getAddres()"
               type="text"
               class="form-control"
               placeholder="Cerca per indirizzo"
