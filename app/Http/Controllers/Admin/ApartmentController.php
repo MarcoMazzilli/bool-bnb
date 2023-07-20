@@ -18,7 +18,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ApartmentRequest;
 use Illuminate\Support\Str;
 use App\Helpers\CustomHelper;
-
+use Spatie\LaravelIgnition\Recorders\DumpRecorder\Dump;
 
 class ApartmentController extends Controller
 {
@@ -116,8 +116,16 @@ class ApartmentController extends Controller
      */
     public function show(Apartment $apartment)
     {
+      $apartment = Apartment::select([
+        'id','user_id','name','slug','description','slug','cover_image','address','address_info','price','n_of_bed','n_of_room','n_of_bathroom','apartment_size','type','created_at',
+      DB::raw("ST_X(coordinate) as latitude"),
+      DB::raw("ST_Y(coordinate) as longitude")])->where('id', $apartment->id)
+    ->first();
 
-        return view('admin.apartments.show', compact('apartment'));
+    $lat = $apartment->latitude;
+    $lon = $apartment->longitude;
+
+        return view('admin.apartments.show', compact('apartment','lat','lon'));
     }
 
     /**
