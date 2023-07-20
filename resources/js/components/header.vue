@@ -31,6 +31,87 @@ export default {
       console.log('address di ricerca');
     },
   },
+  mounted(){
+    console.log(store.ttKey);
+    //  autocomplete seach bar tomtom script ---------------------------------------/
+    const options = {
+            searchOptions: {
+                key: import.meta.env.API_TT_KEY,
+                language: "it-IT",
+                limit: 5,
+            },
+
+            autocompleteOptions: {
+                key: import.meta.env.API_TT_KEY,
+                language: "it-IT",
+            },
+        }
+
+        const ttSearchBox = new tt.plugins.SearchBox(tt.services, options);
+        const searchBoxHTML = ttSearchBox.getSearchBoxHTML()
+        const searchBoxContainer = document.getElementById('autocomplete');
+
+        if (searchBoxContainer) {
+            searchBoxContainer.appendChild(searchBoxHTML);
+        }
+        const inputElement = document.querySelector('.tt-search-box-input');
+        // attributi dell input
+        Object.assign(inputElement, {
+            id: 'address',
+            name: 'address',
+            value: '',
+            className: 'form-control' + ' ' + 'tt-search-box-input',
+            placeholder: 'Indirizzo appartamento',
+            type: 'text'
+        });
+
+        // forzatura autocomplete
+        inputElement.addEventListener('blur', function() {verify(inputElement);});
+
+        function verify(inputElement) {
+            console.log('valore lasciato',inputElement.value);
+            const elements = document.querySelectorAll('.tt-search-box-result-list-bold');
+
+            let replaceAddres;
+
+            console.warn('first child',elements[2].firstChild.data);
+            console.warn('next silibing',elements[2].nextSibling);
+
+                if(elements[2].firstChild.data && elements[2].nextSibling ){
+                    replaceAddres = elements[2].firstChild.data + ' ' + elements[2].nextSibling.data;
+                    Object.assign(inputElement, {
+                    value: replaceAddres });
+
+                }else if(elements[2].firstChild.data){
+                    replaceAddres = elements[2].firstChild.data;
+                    Object.assign(inputElement, {
+                    value: replaceAddres });
+                }
+
+            console.warn('indirizzo forzato :', replaceAddres);
+            indirizzo = inputElement.value;
+            getCordianates();
+        };
+
+
+        // verifica dell indirizzo
+        const
+            TomtomBaseUrl ='https://api.tomtom.com/',
+            apiKey = "{{ env('API_TT_KEY') }}",
+            apiUrlSearchAddress = 'search/2/geocode/',
+            queryType = '.json?typeahead=false&limit=1&view=Unified&key=';
+        let indirizzo = 'inserisci indirizzo';
+
+        function convertAddress(address){
+            const converted = address.replace(/ /g,'%20') ;
+            console.log(converted);
+            return converted;
+        };
+        // stampa json link del geocoding
+        function   getCordianates(){
+            console.log(TomtomBaseUrl + apiUrlSearchAddress + convertAddress(indirizzo) + queryType + apiKey);
+        };
+  }
 
 }
 
@@ -51,7 +132,7 @@ export default {
         <div class="col col-11 col-sm-9 col-lg-8">
 
 
-            <div class="input-group flex-nowrap">
+            <div class="input-group flex-nowrap " id="autocomplete" >
               <input @keypress.enter="getAddres()"
               type="text"
               class="form-control"
