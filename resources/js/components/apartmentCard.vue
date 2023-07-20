@@ -6,13 +6,19 @@ export default {
     props: {
         apartmentData: Object,
     },
+    methods: {
+    selectApartment() {
+      //emetto l'evento
+      this.$emit('apartmentSelected', this.apartmentData);
+    },
+  },
 }
 </script>
 
 <template>
 
 
-        <div class="card  m-2" style="width: 22rem; ">
+        <div class="card  m-2" style="width: 22rem;" @click="selectApartment">
                 <!-- Immagine -->
                 <!-- <img src="https://www.miprendoemiportovia.it/wp-content/uploads/2020/10/Casa-Nea-Sardegna.jpg" class="card-img-top" alt=""  style="width: 22rem;"> -->
                 <img :src=" 'storage/' + apartmentData.cover_image " class="card-img-top" alt=""  style="width: 22rem;">
