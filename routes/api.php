@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ApartmentController;
+use App\Http\Controllers\Api\SearchController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,5 +24,7 @@ Route::namespace('Api')
         ->prefix('apartment')
         ->group(function(){
             Route::get('/', [ApartmentController::class, 'index' ]);
-        });
+          });
+
+          Route::post('/find',[SearchController::class, 'searchByRange']);
 
