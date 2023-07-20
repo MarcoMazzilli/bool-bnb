@@ -32,6 +32,7 @@ return new class extends Migration
             $table->boolean('visible')->default(1);
             $table->string('type');
             $table->timestamps();
+            $table->timestamp('deleted_at')->nullable();
 
             // Foreign key User
             $table->foreign('user_id')
