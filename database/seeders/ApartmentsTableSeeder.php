@@ -55,23 +55,22 @@ class ApartmentsTableSeeder extends Seeder
 
             $randomDate = Carbon::now()->subDays(rand(1, 30));
 
-            $days = 0;
+            $hours = 0;
+            //FIXME: le ore corrispondono alla durata ad ID equivalente 1,2 e 3
 
             if ($apartment['sponsor'][0] === 1){
-              $days = 2;
+              $hours = 24;
             }elseif($apartment['sponsor'][0] === 2) {
-              $days = 3;
+              $hours = 72;
             }else{
-              $days = 6;
+              $hours = 144;
             }
 
             $new_apartment->sponsorships()->attach(
               $apartment['sponsor'],
-              // per la data corrente usare Carbon::now
-              // ['started_at' => Carbon::now()]
               [
                 'started_at' => $randomDate,
-                'expiration_date' => $randomDate->copy()->addDays($days)
+                'expiration_date' => $randomDate->copy()->addHours($hours)
               ]
             );
 
