@@ -91,7 +91,7 @@ export default {
 header{
   // background-color: $low-black;
   box-shadow: 0 2px 2px rgba($color: #000000, $alpha: .1);
-  height: 70px;
+  height: 50px;
 
   span.search{
     background-color: white;

@@ -184,7 +184,7 @@ return  [
   [
     "name"=> "Castaway",
     "description"=> "Casa sulla spiaggia",
-    "cover_image"=> "seeder-img/13.jpg",
+    "cover_image"=> "seeder-img/13.jpeg",
     "address"=> "89866 Gurdurello VV",
     "address_info"=> "Cammina lungo Corso Italia fino a quando raggiungi il civico 30, che sarà sulla tua sinistra. La casa è un palazzo d'epoca con una balconata in ferro battuto.",
     "price"=> rand(30,150),
