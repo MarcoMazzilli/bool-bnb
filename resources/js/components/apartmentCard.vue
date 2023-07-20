@@ -19,11 +19,13 @@ export default {
 
                 <!-- Testo -->
                 <div class="card-body">
-                  <h4>{{apartmentData.name}}</h4>
-                    <div class="d-flex justify-content-between">
-                        <p class="card-text m-0"><b>{{apartmentData.address}}</b></p>
+                  <div class="d-flex justify-content-between">
+                        <h4>{{apartmentData.name}}</h4>
                         <span><i class="fa-solid fa-star"></i> 5,0</span>
                     </div>
+
+                  <p class="card-text m-0"><b>{{apartmentData.address}}</b></p>
+
 
 
                     <p class="card-text m-0">{{apartmentData.description}}</p>
@@ -43,6 +45,7 @@ export default {
 
     .card-body{
         padding-left: 0;
+        padding-right: 0;
 
         & h4{
           font-weight: bold;
@@ -51,6 +54,7 @@ export default {
 }
 img{
     border-radius: 10px;
+    height: 250px;
 }
 
 </style>
