@@ -26,7 +26,6 @@
             <img src="{{ asset('storage/' . $apartment->cover_image) }}" alt="" style="width: 500px">
         </div>
 
-
         <div class="description mt-4">
             <h5>{{ $apartment->description }} ( {{ $apartment->type }} )</h5>
         </div>

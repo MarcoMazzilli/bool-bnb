@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->nullable();
             $table->text('description')->nullable();
-            $table->string('cover_image');
+            $table->string('cover_image')->nullable();
             $table->string('address');
             $table->string('address_info')->nullable();
             $table->point('coordinate');

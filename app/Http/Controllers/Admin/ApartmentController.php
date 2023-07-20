@@ -91,6 +91,9 @@ class ApartmentController extends Controller
         if(array_key_exists('cover_image', $form_data)){
             $form_data['cover_image'] = CustomHelper::saveImage($request, $form_data , new Apartment());
         }
+        else{
+          $form_data['cover_image'] = 'seeder-img/placeholder.jpg';
+        }
 
 
         $new_apartment->fill($form_data);
