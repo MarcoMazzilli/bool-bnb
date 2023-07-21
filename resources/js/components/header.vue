@@ -18,24 +18,6 @@ export default {
   },
   methods :{
 
-    searchApartment(){
-        console.log('CERCA!')
-
-        // axios.get()
-        // .then(result =>{
-        // console.log(result.data)
-
-        // --------------------------------------------------------------------------------------------------------
-        // metodo fornito da vue per spostarsi tra le rotte del router!!!
-        //  this.$router.push('/indirizzo')
-        // this.$router.push('nome indirizzo');
-        // this.$router.push({ nome: 'nomerotta',  params:{ slug: 'apartamentSlug'} }); mandando oggetto e parametri
-
-
-        // ------------------------------------------------------------------------------------------------------
-        // })
-    },
-
     searchByRange(){
         this.load = false;
         let data = {
@@ -82,13 +64,9 @@ export default {
     console.log(converted);
     return converted;
     },
-
-    getAddres(){
-      console.log('address di ricerca');
-    },
   },
+
   mounted(){
-    console.log(store.apiKey);
 
   }
 
@@ -120,7 +98,7 @@ export default {
               aria-label="Username"
               aria-describedby="addon-wrapping">
 
-              <span @click="getCordianates(), searchApartment()"
+              <span @click="getCordianates()"
               class="input-group-text search"
               id="addon-wrapping"
 

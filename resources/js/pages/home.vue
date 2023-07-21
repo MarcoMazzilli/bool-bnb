@@ -12,6 +12,7 @@ export default {
           store,
           load: false,
           selectedApartment: null,
+          apartmentData: null,
         }
     },
     components:{Jumbotron, ApartmentCard, Apartment },
@@ -27,9 +28,10 @@ export default {
                 this.load = true;
             })
         },
+
         showApartmentDetails(apartmentData) {
-      this.selectedApartment = apartmentData;
-    },
+        this.selectedApartment = apartmentData;
+      },
     },
     mounted(){
         console.log('Home page!');
