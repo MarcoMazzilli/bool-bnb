@@ -88,7 +88,7 @@ export default {
     },
   },
   mounted(){
-    console.log(store.ttKey);
+    console.log(store.apiKey);
 
   }
 
