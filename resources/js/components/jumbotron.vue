@@ -9,7 +9,7 @@ export default {
 
     <div class="jumbo d-flex justify-content-center align-items-center">
 
-        <h1>La tua casa, lontano da casa</h1>
+        <h1></h1>
 
     </div>
 
