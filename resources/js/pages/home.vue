@@ -27,12 +27,14 @@ export default {
                 this.load = true;
             })
         },
-        showApartmentDetails(apartmentData) {
-      this.selectedApartment = apartmentData;
+        showApartmentDetails(apart) {
+      console.log(apart)
+      store.apartmentDetails = apart
+      this.$router.push({ name: 'apartment', params: { slug: apart.slug } });
     },
     },
     mounted(){
-        console.log('Home page!');
+        // console.log('Home page!');
         this.getApartment();
     }
 }
@@ -42,7 +44,7 @@ export default {
   <div class="home_container" id="home-page">
     <Jumbotron />
     <div v-if="load" class="container py-5 d-flex flex-wrap justify-content-between">
-      <ApartmentCard v-for="apart in store.apartmentsGetted" :key="apart.id" :apartmentData="apart" @apartmentSelected="showApartmentDetails" />
+      <ApartmentCard v-for="apart in store.apartmentsGetted" :key="apart.id" :apartmentData="apart" @apartmentSelected="showApartmentDetails(apart)" @click="showApartmentDetails(apart)"/>
     </div>
   </div>
 </template>

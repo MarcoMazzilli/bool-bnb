@@ -9,7 +9,8 @@ export default {
     methods: {
     selectApartment() {
       //emetto l'evento
-      this.$emit('apartmentSelected', this.apartmentData);
+      // console.log('emit')
+      this.$emit('apartmentSelected');
     },
   },
 }
