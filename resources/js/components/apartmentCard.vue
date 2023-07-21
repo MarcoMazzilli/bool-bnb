@@ -50,15 +50,18 @@ export default {
 @use '../../scss/var' as *;
 
 .card{
-    border: none;
-    box-shadow: .5px .5px 2px 1px rgba($color: #000000, $alpha: .1);
-    &:hover{
-      transition: .4s;
+  border: none;
+  box-shadow: .5px .5px 2px 1px rgba($color: #000000, $alpha: .1);
+  img{
+    transition: all 1s;
+  }
+  &:hover{
+
+    transition: all .4s;
       cursor: pointer;
       box-shadow: 1px 1px 30px rgba($color: #000000, $alpha: .2);
 
       img {
-        transition: all 1s;
           transform: scale(1.2);
         }
     }
