@@ -6,16 +6,30 @@
   background-color: rgba(9, 255, 0, 0.226);
 }
 
-.d_link{
-    // background-color: $brand-main;
+.debug-header{
+  width: 100%;
+  text-align: center;
+  margin: 0px auto;
 }
 
-.debug-header{
-    width: 100%;
-    text-align: center;
-    margin: 0px auto;
+.form-control:focus {
+  border-color: lighten($low-black, 80%);
+  box-shadow: 2px 2px 0px 1px lighten($brand-main, 20%)
+}
+
+.search_box{
+  border-color: lighten($low-black, 80%);
+  box-shadow: inset 0px 0px 2px 1px lighten($brand-main, 20%);
+  background-color: lighten($brand-main, 25%);
+  border-radius: 7px;
+
+  & input{
+    background-color: lighten($brand-main, 30%);
+  }
 }
 
 .card{
   display: inline-block;
 }
+
+

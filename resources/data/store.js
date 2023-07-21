@@ -19,6 +19,10 @@ export const store = reactive ({
 
   // search page
   apartmentsfiltred: [],
+  services:['Piscina', 'Piscina', 'Piscina','Piscina','Piscina','Piscina','Piscina','Piscina',
+            'Piscina', 'Piscina','Piscina','Piscina','Piscina','Piscina','Piscina','Piscina',
+            'Piscina', 'Piscina','Piscina','Piscina','Piscina','Piscina','Piscina'
+          ],
 
   // ttKey:  import.meta.env.VUE_APP_API_TT_KEY,
 
