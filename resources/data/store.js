@@ -19,9 +19,11 @@ export const store = reactive ({
 
   // search page
   apartmentsfiltred: [],
-  services:['Piscina', 'Piscina', 'Piscina','Piscina','Piscina','Piscina','Piscina','Piscina',
-            'Piscina', 'Piscina','Piscina','Piscina','Piscina','Piscina','Piscina','Piscina',
-            'Piscina', 'Piscina','Piscina','Piscina','Piscina','Piscina','Piscina'
+  services:[
+            'Piscina','Parcheggio gratuito nella proprietà','Cucina','Wi-Fi',
+            'Lavatrice','Aria condizionata','Rilevatore di   monossido di carbonio',
+            'Animali domestici ammessi','Asciugatrice','Telecamere di sicurezza presenti nella proprietà',
+            'Riscaldamento','Griglia per barbecue','TV','Sauna','Lavastoviglie','Palestra','Spazio di lavoro dedicato'
           ],
 
   // ttKey:  import.meta.env.VUE_APP_API_TT_KEY,

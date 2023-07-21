@@ -7,6 +7,7 @@ export default {
     data(){
         return{
           store,
+          load:true,
         }
     },
 
@@ -23,10 +24,22 @@ export default {
 <template>
     <div class="AdvancedSearch_container" id="AdvancedSearch-page">
 
-        <h4>Advanced Search</h4>
+      <div id="search-type-selector">
+        <div class="container">
 
-        <div class="advanced_search_bar address   container debug2">
+          <span>Advanced Search</span>
 
+          <span>Map Search</span>
+
+        </div>
+      </div>
+
+
+      <div id="search-filter">
+
+        <div class="advanced_search_bar d-flex justify-content-around  container debug2">
+
+          <!-- search bar -->
           <div class="input-group flex-nowrap " id="" >
               <input @keypress.enter=""
               id="via" v-model="indirizzo"
@@ -43,11 +56,9 @@ export default {
                 <i class="fa-solid fa-magnifying-glass"></i>
               </span>
             </div>
+          <!-- search bar -->
 
-        </div>
-
-        <div class="advanced_search_bar d-flex justify-content-around  container debug2">
-
+          <!-- stanze letti raggio -->
           <div class="search_box d-flex flex-column justify-content-around align-items-center p-1  ">
             <label class="form-label" for="rooms">numero di stanze</label>
             <input class="form-control" id="rooms" type="number">
@@ -62,22 +73,31 @@ export default {
             <label class="form-label" for="radius">raggio in km</label>
             <input class="form-control" id="radius" type="number">
           </div>
-
         </div>
+        <!-- stanze letti raggio -->
 
+        <!-- servizi -->
         <div class="advanced_search_bar  mt-1  container debug2">
 
           <div class="btn_group " role="group" aria-label="Basic checkbox toggle button group">
 
             <div v-for="(service, index) in store.services" :key="index" style="display: inline-block;">
               <input type="checkbox" class="btn-check" :id="index" autocomplete="off">
-              <label class="btn btn-outline-primary" :for="index">   {{ service }}</label>
+              <label class="btn btn-outline-primary d-flex justify-content-center align-items-center" :for="index">   {{ service }}</label>
             </div>
           </div>
 
         </div>
 
+      </div>
 
+      <div id="map-search"></div>
+
+
+
+
+
+<!-- ---------------result -->
         <div v-if="load" class="container py-5 d-flex flex-wrap justify-content-between">
 
           <ApartmentCard v-for="apart in store.apartmentsfiltred" :key="apart.id"
@@ -125,8 +145,10 @@ export default {
 .btn_group{
   display: flex;
   flex-wrap: wrap;
-  // justify-content: space-between;
+  justify-content: center;
   width: 100%;
+  height: 190px;
+  overflow: auto;
   .btn{
     padding: 2px 10px;
     margin: 2px 2px;
@@ -134,8 +156,9 @@ export default {
     font-size: 0.8rem;
     min-width: 110px;
     // max-width: 160px;
-    // min-height: 110px;
+    min-height: 90px;
     // max-height: 160px;
+
   }
   .btn-outline-primary{
     color: $light-text;
