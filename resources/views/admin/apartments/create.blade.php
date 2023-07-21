@@ -275,11 +275,11 @@
 
 // ---------------------------------------------------------------------------
         //Gestione anteprima immagine di copertina
-        ClassicEditor
-            .create(document.querySelector('#text'))
-            .catch(error => {
-                console.error(error);
-            });
+        // ClassicEditor
+        //     .create(document.querySelector('#text'))
+        //     .catch(error => {
+        //         console.error(error);
+        //     });
 
         function showImage(event) {
             const tagImage = document.getElementById('prev-image');
@@ -292,6 +292,68 @@
             const tagImage = document.getElementById('prev-image');
             tagImage.src = '';
         };
+
+        // CONTROLLI INPUT FORM ------------------------
+
+        // DATA ------------------------
+
+        const name = document.getElementById('name');
+        const type = document.getElementById('type');
+        const description = document.getElementById('description');
+        const apartment_size = document.getElementById('apartment_size');
+        const n_of_room = document.getElementById('n_of_room');
+        const n_of_bed = document.getElementById('n_of_bed');
+        const n_of_bathroom = document.getElementById('n_of_bathroom');
+        const cover_image = document.getElementById('cover_image');
+
+        //FUNCTION ------------------------
+
+        function swithClass(condition,input){
+          if(condition){
+            input.classList.remove('is-invalid')
+            input.classList.add('is-valid')
+          }else{
+            input.classList.remove('is-valid')
+            input.classList.add('is-invalid')
+          }
+        }
+
+        function errorSpecialCharacter(text){
+            const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+            return specialChars.test(text)
+        }
+
+        // EVENT ------------------------
+
+        name.addEventListener('keyup',()=>{
+          const condition = name.value.length >= 2 && !errorSpecialCharacter(name.value)
+          console.log(condition)
+          swithClass(condition, name)
+        });
+
+        type.addEventListener('keyup',()=>{swithClass(type.value.length >= 2, type)});
+
+        description.addEventListener('keyup',()=>{swithClass(description.value.length >= 10, description)});
+
+        apartment_size.addEventListener('keyup',()=>{
+          const condition = apartment_size.value >= 15  && apartment_size.value <= 1000;
+          swithClass(condition , apartment_size)
+        });
+
+        n_of_bed.addEventListener('keyup',()=>{
+          const condition = n_of_bed.value >= 1  && n_of_bed.value <= 20;
+          swithClass(condition , n_of_bed)
+        });
+
+        n_of_room.addEventListener('keyup',()=>{
+          const condition = n_of_room.value >= 1  && n_of_room.value <= 10;
+          swithClass(condition , n_of_room)
+        });
+
+        n_of_bathroom.addEventListener('keyup',()=>{
+          const condition = n_of_bathroom.value >= 1  && n_of_bathroom.value <= 10;
+          swithClass(condition , n_of_bathroom)
+        })
 
     </script>
 @endsection
