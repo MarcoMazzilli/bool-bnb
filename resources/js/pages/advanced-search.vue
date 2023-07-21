@@ -10,7 +10,7 @@ export default {
         return{
           store,
           load:true,
-          center: [7.66616, 45.08347],
+          center: [12.49427, 41.89056],
         }
     },
 
@@ -19,6 +19,35 @@ export default {
     methods :{
       // tomtom map--------------------------------------------------------
       initializeMap() {
+
+        // reset dom---
+        const mapDiv = document.getElementById('map');
+        mapDiv.innerHTML = '';
+
+        // inizializza mappa
+        map = tt.map({
+        key: 'cxG50CTiIMJjWZztYbdn0RxgT658PVkx',
+        container: 'map',
+        center: this.center,
+        zoom: 10,
+        pitch: true, // Abilita l'animazione
+        animate: true
+        });
+
+        // map.addControl(new tt.FullscreenControl());
+        // map.addControl(new tt.NavigationControl());
+
+        map.on('load', () => {
+
+          new tt.Marker().setLngLat(this.center).addTo(map);
+        });
+      },
+
+      initializeMapDrawing() {
+
+        // reset dom---
+        const mapDiv = document.getElementById('map');
+        mapDiv.innerHTML = '';
 
         const ttDrawingTools = new DrawingTools({
         ttMapsSdk: tt
@@ -60,8 +89,10 @@ export default {
       });
 
       }
-    },
     // tomtom map--------------------------------------------------------
+
+
+    },
 
     mounted(){
         console.log('Advanced Search!');
@@ -78,12 +109,16 @@ export default {
         <div id="search-type-selector" class="">
             <div class="">
 
-              <button class="src_typ_btn">
-                <span>Advanced Search</span>
+              <button
+              @click="initializeMap()"
+              class="src_typ_btn">
+                <span>Ricerca Avanzata</span>
               </button>
 
-              <button class="src_typ_btn">
-                <span>Map Search</span>
+              <button
+              @click="initializeMapDrawing()"
+              class="src_typ_btn">
+                <span>Disegna Sulla Mappa</span>
               </button>
 
             </div>
