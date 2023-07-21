@@ -43,7 +43,10 @@ export default {
 <template>
   <div class="home_container" id="home-page">
     <Jumbotron />
-    <div v-if="load" class="container py-5 d-flex flex-wrap justify-content-between">
+    <div class="container py-3">
+      <h1>Scopri i nostri appartamenti</h1>
+    </div>
+    <div v-if="load" class="container d-flex flex-wrap justify-content-between">
       <ApartmentCard v-for="apart in store.apartmentsGetted" :key="apart.id" :apartmentData="apart" @apartmentSelected="showApartmentDetails(apart)" @click="showApartmentDetails(apart)"/>
     </div>
   </div>
