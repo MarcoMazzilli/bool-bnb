@@ -12,7 +12,9 @@ export default {
     },
     components:{},
     methods :{
-
+      getImage(img){
+        return new URL ()
+      }
     },
     mounted(){
         console.log('apartment page!')
@@ -31,7 +33,7 @@ export default {
           </div>
 
         <!-- Immagine -->
-        <img :src="'storage/' + apartment.cover_image" class="card-img-top" alt="" style="width: 22rem;">
+        <img :src="'/storage/' + apartment.cover_image" class="card-img-top" alt="" style="width: 22rem;">
 
         <!-- Testo -->
         <div class="card-body">
