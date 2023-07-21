@@ -1,9 +1,11 @@
 .debug{
   background-color: rgba(255, 0, 0, 0.226);
+  // border: 1px solid black;
 }
 
 .debug2{
-  background-color: rgba(9, 255, 0, 0.226);
+  background-color: rgba(9, 255, 0, 0.137);
+  // border: 1px dashed black;
 }
 
 .debug-header{
@@ -18,13 +20,10 @@
 }
 
 .search_box{
-  border-color: lighten($low-black, 80%);
-  box-shadow: inset 0px 0px 2px 1px lighten($brand-main, 20%);
-  background-color: lighten($brand-main, 25%);
-  border-radius: 7px;
+
 
   & input{
-    background-color: lighten($brand-main, 30%);
+
   }
 }
 
