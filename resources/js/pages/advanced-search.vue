@@ -1,6 +1,8 @@
 <script>
-import {store} from '../../data/store';
+import tt from '@tomtom-international/web-sdk-maps';
+import DrawingTools from '@tomtom-international/web-sdk-plugin-drawingtools';
 import axios from 'axios';
+import {store} from '../../data/store';
 import ApartmentCard from '../components/apartmentCard.vue';
 export default {
     name: 'AdvancedSearch',
@@ -8,15 +10,62 @@ export default {
         return{
           store,
           load:true,
+          center: [7.66616, 45.08347],
         }
     },
 
     components:{ApartmentCard},
 
-    methods :{},
+    methods :{
+      // tomtom map--------------------------------------------------------
+      initializeMap() {
+
+        const ttDrawingTools = new DrawingTools({
+        ttMapsSdk: tt
+        });
+
+        map = tt.map({
+        key: 'cxG50CTiIMJjWZztYbdn0RxgT658PVkx',
+        container: 'map',
+        center: this.center,
+        zoom: 10,
+        pitch: true, // Abilita l'animazione
+        animate: true
+        });
+
+        map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
+        map.addControl(ttDrawingTools, 'top-left');
+
+        map.on('load', () => {
+
+          new tt.Marker().setLngLat(this.center).addTo(map);
+        });
+
+        ttDrawingTools.on('tomtom.drawingtools.created', function(feature) {
+        console.log(
+          feature.data.features[0].geometry.coordinates,
+          feature.data.features[0],
+          );
+        });
+
+        },
+
+      updateMapCenter(newCenter) {
+
+      map.easeTo({
+      center: newCenter,
+      duration: 3000,
+      animate: true
+      });
+
+      }
+    },
+    // tomtom map--------------------------------------------------------
 
     mounted(){
         console.log('Advanced Search!');
+        this.initializeMap();
     }
 }
 </script>
