@@ -6,7 +6,18 @@ export const store = reactive ({
 
   apiHostUrl : 'http://127.0.0.1:8000/api',
   getTpartments : '/apartment',
+
+
+
+
+
+
+
+  // home page------------
   apartmentsGetted: [],
+  homeStored: false,
+
+  // search page
   apartmentsfiltred: [],
 
   // ttKey:  import.meta.env.VUE_APP_API_TT_KEY,

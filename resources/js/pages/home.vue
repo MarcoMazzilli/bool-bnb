@@ -19,14 +19,16 @@ export default {
     methods :{
 
         getApartment(){
-          this.load = false;
-            axios.get(store.apiHostUrl + store.getTpartments)
-            .then(result =>{
-                // console.log(result.data.apartments);
-                store.apartmentsGetted = result.data.apartments;
-                console.log(store.apartmentsGetted);
-                this.load = true;
-            })
+          if(!store.homeStored){
+            this.load = false;
+              axios.get(store.apiHostUrl + store.getTpartments)
+              .then(result =>{
+                  store.apartmentsGetted = result.data.apartments;
+                  console.log(store.apartmentsGetted);
+                  this.load = true;
+                  store.homeStored = true;
+              });
+          }else{this.load = true;}
         },
 
     },
