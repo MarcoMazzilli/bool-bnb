@@ -9,7 +9,7 @@ export default {
       TomtomBaseUrl:'https://api.tomtom.com/',
       apiUrlSearchAddress: 'search/2/geocode/',
       queryType: '.json?typeahead=false&limit=1&view=Unified&key=',
-      indirizzo: 'inserisci indirizzo',
+      indirizzo: '',
       jsonLink: '',
       cordinates:{},
       // --------------------------
