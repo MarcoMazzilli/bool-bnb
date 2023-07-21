@@ -28,7 +28,7 @@ export const store = reactive ({
 
   // ttKey:  import.meta.env.VUE_APP_API_TT_KEY,
 
-  cord: [],
+  cord: false,
 
 
 

@@ -10,7 +10,8 @@ export default {
         return{
           store,
           load:true,
-          center: [12.49427, 41.89056],
+          // center: [12.49427, 41.89056],
+          center: store.cord,
         }
     },
 
@@ -19,6 +20,11 @@ export default {
     methods :{
       // tomtom map--------------------------------------------------------
       initializeMap() {
+
+        // se arrivi direttamente in advanced search allora centra la mappa su Roma
+        if(!store.cord){
+          this.center = [12.49427, 41.89056];
+        }
 
         // reset dom---
         const mapDiv = document.getElementById('map');
@@ -34,7 +40,7 @@ export default {
         animate: true
         });
 
-        // map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.FullscreenControl());
         // map.addControl(new tt.NavigationControl());
 
         map.on('load', () => {
@@ -78,7 +84,7 @@ export default {
           );
         });
 
-        },
+      },
 
       updateMapCenter(newCenter) {
 
@@ -89,7 +95,7 @@ export default {
       });
 
       }
-    // tomtom map--------------------------------------------------------
+    // tomtom map----------------------------------------------------------
 
 
     },
