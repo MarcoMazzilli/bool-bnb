@@ -13,12 +13,12 @@ export default {
           // center: [12.49427, 41.89056],
           center: store.cord,
         }
-    },
+    }, // close data
 
-    components:{ApartmentCard},
+    components:{ApartmentCard}, // close components
 
     methods :{
-      // tomtom map--------------------------------------------------------
+      // tomtom map----------------------------------------------------------------\
       initializeMap() {
 
         // se arrivi direttamente in advanced search allora centra la mappa su Roma
@@ -36,8 +36,8 @@ export default {
         container: 'map',
         center: this.center,
         zoom: 10,
-        pitch: true, // Abilita l'animazione
-        animate: true
+        pitch: true, // Abilita l'animazione --- D: ...ma non funziona!!! :(
+        animate: true, // nada--- :'(
         });
 
         map.addControl(new tt.FullscreenControl());
@@ -91,19 +91,18 @@ export default {
       map.easeTo({
       center: newCenter,
       duration: 3000,
-      animate: true
+      animate: true, // nada de nada --- :'(
       });
 
       }
-    // tomtom map----------------------------------------------------------
+    // tomtom map------------------------------------------------------------------/
 
-
-    },
+    }, // close methods
 
     mounted(){
         console.log('Advanced Search!');
         this.initializeMap();
-    }
+    } // close mounted
 }
 </script>
 
@@ -112,6 +111,7 @@ export default {
 
       <div id="search-filter" class="container gx-0 debug2">
 
+        <!-- selettori tipo di ricerca -------------------------\ -->
         <div id="search-type-selector" class="">
             <div class="">
 
@@ -129,10 +129,12 @@ export default {
 
             </div>
         </div>
+        <!-- selettori tipo di ricerca -------------------------/ -->
 
+        <!-- filtri -------------------------\ -->
         <div class="d-flex h-100 w-100">
 
-            <!-- search bar -->
+            <!-- search bar & map -->
           <div class="advanced_search_bar mapping  d-flex flex-column  debug2">
 
             <div class="input-group flex-nowrap " id="" >
@@ -160,7 +162,7 @@ export default {
           </div>
 
           <!-- raggio metriquadri stanze letti bagno -->
-          <div class="advanced_search_bar option d-flex flex-column justify-content-around align-items-center  debug2">
+          <div class="advanced_search_bar option d-flex flex-column justify-content-around align-items-center debug2">
 
             <div class="search_box d-flex flex-column justify-content-around align-items-center p-1  ">
               <label class="form-label" for="radius">raggio in km</label>
@@ -187,8 +189,6 @@ export default {
               <input class="form-control" id="bad" type="number">
             </div>
 
-
-
           </div>
           <!-- raggio metriquadri stanze letti bagno -->
 
@@ -204,15 +204,15 @@ export default {
             </div>
 
           </div>
+          <!-- servizi -->
 
         </div>
+        <!-- filtri -------------------------\ -->
 
       </div>
 
 
-
-
-<!-- ---------------result -->
+      <!-- ---------------result ------------------------------------------------------\-->
       <div v-if="load" class="container py-5 d-flex flex-wrap justify-content-between">
 
           <ApartmentCard v-for="apart in store.apartmentsfiltred" :key="apart.id"
@@ -220,6 +220,7 @@ export default {
           />
 
       </div>
+      <!-- ---------------result ------------------------------------------------------/-->
 
     </div>
 </template>
