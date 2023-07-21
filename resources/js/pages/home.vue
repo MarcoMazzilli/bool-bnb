@@ -11,11 +11,11 @@ export default {
         return{
           store,
           load: false,
-          selectedApartment: null,
-          apartmentData: null,
         }
     },
+
     components:{Jumbotron, ApartmentCard, Apartment },
+
     methods :{
 
         getApartment(){
@@ -29,9 +29,6 @@ export default {
             })
         },
 
-        showApartmentDetails(apartmentData) {
-        this.selectedApartment = apartmentData;
-      },
     },
     mounted(){
         console.log('Home page!');
@@ -43,8 +40,13 @@ export default {
 <template>
   <div class="home_container" id="home-page">
     <Jumbotron />
+
     <div v-if="load" class="container py-5 d-flex flex-wrap justify-content-between">
-      <ApartmentCard v-for="apart in store.apartmentsGetted" :key="apart.id" :apartmentData="apart" @apartmentSelected="showApartmentDetails" />
+
+      <ApartmentCard v-for="apart in store.apartmentsGetted" :key="apart.id"
+      :apartmentData="apart"
+      />
+
     </div>
   </div>
 </template>
