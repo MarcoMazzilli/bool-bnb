@@ -8,6 +8,7 @@ export const store = reactive ({
   getTpartments : '/apartment',
   apartmentsGetted: [],
   apartmentsfiltred: [],
+  apartmentDetails : null,
 
   // ttKey:  import.meta.env.VUE_APP_API_TT_KEY,
 
