@@ -1,9 +1,12 @@
 <script>
+// --------------------------------------------------------------------import
 import tt from '@tomtom-international/web-sdk-maps';
 import DrawingTools from '@tomtom-international/web-sdk-plugin-drawingtools';
 import axios from 'axios';
 import {store} from '../../data/store';
 import ApartmentCard from '../components/apartmentCard.vue';
+
+// ---------------- ADV-SRC-SUPERSTAR-------------------------------start-logic
 export default {
     name: 'AdvancedSearch',
     data(){
@@ -108,7 +111,7 @@ export default {
 
 <template>
     <div class="AdvancedSearch_container" id="AdvancedSearch-page">
-
+      <!-- ---------------search-filter -----------------------------------------------\-->
       <div id="search-filter" class="container gx-0 debug2">
 
         <!-- selettori tipo di ricerca -------------------------\ -->
@@ -210,6 +213,7 @@ export default {
         <!-- filtri -------------------------\ -->
 
       </div>
+      <!-- ---------------search-filter -----------------------------------------------/-->
 
 
       <!-- ---------------result ------------------------------------------------------\-->
