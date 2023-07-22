@@ -43,7 +43,7 @@ export default {
           latitude : store.cord[1],
           radius : 200,
         }
-        axios.post('http://127.0.0.1:8000/api/find', data)
+        axios.post('http://127.0.0.1:8000/api/find/location', data)
         .then(result =>{
           console.log('risultato ===>',result.data.filteredApartments);
           store.apartmentsfiltred = result.data.filteredApartments;

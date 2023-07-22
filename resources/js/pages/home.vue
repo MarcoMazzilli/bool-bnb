@@ -30,6 +30,7 @@ export default {
 
           this.load = true;
           this.links = result.data.apartments.links;
+          console.log('risultati', result.data)
         })
     },
 
