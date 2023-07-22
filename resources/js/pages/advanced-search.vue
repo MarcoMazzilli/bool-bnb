@@ -45,7 +45,7 @@ export default {
     methods :{
       advancedSearch(){console.log('ricerca avanzata')},
 
-      verifica(){
+      test(){
         console.log(store.newCenter)
       },
 
@@ -86,7 +86,9 @@ export default {
 
         map.on('load', () => {
 
-          new tt.Marker().setLngLat(this.center).addTo(map);
+          store.fakePoints.forEach(point => {
+            new tt.Marker().setLngLat(point).addTo(map);
+          });
         });
       },
 
@@ -115,7 +117,9 @@ export default {
 
         map.on('load', () => {
 
-          new tt.Marker().setLngLat(this.center).addTo(map);
+          store.fakePoints.forEach(point => {
+            new tt.Marker().setLngLat(point).addTo(map);
+          });
         });
 
         ttDrawingTools.on('tomtom.drawingtools.created', function(feature) {
@@ -149,13 +153,13 @@ export default {
 
     mounted(){
         console.log('Advanced Search!');
-        this.initializeMap();
+        // this.initializeMap();
     } // close mounted
 }
 </script>
 
 <template>
-  <button @click="verifica()">verifica array</button>
+  <!-- <button @click="test()">test function</button> -->
     <div class="AdvancedSearch_container" id="AdvancedSearch-page">
       <!-- ---------------search-filter -----------------------------------------------\-->
       <div id="search-filter" class="search-filter container-lg  gx-0 ">
@@ -266,8 +270,8 @@ export default {
         <!-- open close bar -------------------------/ -->
         <div @click="toggleAdvBar()"
         class="open_close_bar d-flex justify-content-center">
-          <span v-if="this.advToggle">Apri Ricerca Avanzata</span>
-          <span v-if="!this.advToggle">Chiudi Ricerca Avanzata</span>
+          <span v-if="this.advToggle">Mostra Ricerca Avanzata</span>
+          <span v-if="!this.advToggle">Nascondi Ricerca Avanzata</span>
         </div>
         <!-- open close bar -------------------------\ -->
       </div>
@@ -382,6 +386,11 @@ export default {
     }
   }
 }
+.adv-closed{
+  height: 0px ;
+  overflow: hidden;
+  // transition :all 600ms ease-in;
+}
 .input-group{
   height: 30px;
   max-width: 400px;
@@ -440,6 +449,7 @@ export default {
   font-size: 0.9rem;
   overflow: hidden;
   border-radius: 0px 0px 10px 10px;
+  cursor: pointer;
   transition :all 300ms ease-in;
 
   &:hover{
@@ -449,11 +459,6 @@ export default {
   }
 }
 
-.adv-closed{
-  height: 0px ;
-  overflow: hidden;
-  // transition :all 600ms ease-in;
-}
 
 @media screen and (min-width: 390px) {
         .flt_container{
@@ -542,6 +547,7 @@ export default {
       }
 
 }
+
 @media screen and (min-width: 992px) {
 
         .adv_submit{
@@ -563,6 +569,7 @@ export default {
         }
       }
 }
+
 @media screen and (min-width: 1200px) {
         .adv_submit{
         top: calc(300px - 10px);
@@ -583,6 +590,7 @@ export default {
         }
       }
 }
+
 @media screen and (min-width: 1400px) {
         .adv_submit{
         top: calc(300px - 10px);
