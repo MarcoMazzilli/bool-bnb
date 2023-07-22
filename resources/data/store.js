@@ -20,7 +20,7 @@ export const store = reactive ({
   apartmentsGetted: [],
   homeStored: false,
 
-  // search page
+  // search page ---------------------------------------------------\
   apartmentsfiltred: [],
   services:[
             'Piscina','Parcheggio gratuito nella proprietà','Cucina','Wi-Fi',
@@ -29,7 +29,6 @@ export const store = reactive ({
             'Riscaldamento','Griglia per barbecue','TV','Sauna','Lavastoviglie','Palestra','Spazio di lavoro dedicato'
           ],
 
-  // ttKey:  import.meta.env.VUE_APP_API_TT_KEY,
 
   cord: false,
   newCenter: [],
@@ -44,8 +43,30 @@ export const store = reactive ({
     [12.46314, 41.86185 ],
     [12.49568, 41.86708 ],
     [12.51686, 41.9107 ],
-  ]
+  ],
+
+  advSrcRequest: {
+
+    type: 'adv', //or drv
+    priceRange: [20,160],
+    radius: 20,
+    size: 40,
+    rooms: 40,
+    beds: 1,
+    bathrooms: 1,
+    servicesIds: [4, 15],
+    coord:[
+      [ 11.166504901180673, 43.74673562381395  ],
+      [ 11.160517660159542, 43.72833625965026  ],
+      [ 11.255282317736459, 43.703600113836075 ],
+      [ 11.286793397171635, 43.7591431626044   ],
+      [ 11.185512700570968, 43.77460258943185  ],
+      [ 11.174559844226877, 43.767117547831674 ],
+      [ 11.166504901180673, 43.74673562381395  ],
+    ]
+
+  }
 
 
-
+  // search page ---------------------------------------------------/
 })

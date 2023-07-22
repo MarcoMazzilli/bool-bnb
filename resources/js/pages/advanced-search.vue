@@ -5,15 +5,17 @@ import DrawingTools from '@tomtom-international/web-sdk-plugin-drawingtools';
 import axios from 'axios';
 import {store} from '../../data/store';
 import {getCordianates} from '../function/basicCall';
+import {requestCompiler} from '../function/requestCompiler';
 import ApartmentCard from '../components/apartmentCard.vue';
 
 /**
     - media query scatti grandezza mappa --OK.
     - barra chiudi apri adv-search-bar --OK.
     - bottone submit --OK.
+    - centratura mappa con geocoding --OK.
     - js scrolling
-    - centratura mappa con geocoding
     - filtro prezzi
+    - compilatore request .js
 
  */
 
@@ -24,7 +26,6 @@ export default {
         return{
           store,
           load:true,
-          // center: [12.49427, 41.89056],
           center: store.cord,
           advToggle: false,
           address: '',
@@ -83,8 +84,8 @@ export default {
         animate: true, // nada--- :'(
         });
 
-        map.addControl(new tt.FullscreenControl());
-        // map.addControl(new tt.NavigationControl());
+        // map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
 
         map.on('load', () => {
 
@@ -151,7 +152,7 @@ export default {
 
     mounted(){
         console.log('Advanced Search!');
-        // this.initializeMap();
+        this.initializeMap();
     } // close mounted
 }
 </script>
@@ -193,7 +194,7 @@ export default {
           <!-- search bar & map -->
           <div class="advanced_search_bar mapping  d-flex flex-column ">
 
-            <div class="input-group flex-nowrap " id="" >
+            <div class="input-group flex-nowrap " id="">
               <input @keypress.enter="mapCenter()"
               id="via" v-model="address"
               type="text"
@@ -208,6 +209,25 @@ export default {
               >
                 <i class="fa-solid fa-magnifying-glass"></i>
               </span> -->
+
+              <!--    price  ----------------------------      -->
+              <!-- <div class="d-flex">
+
+                <select class="form-control" name="" id="priceFrom">
+                  <option  value="20">20 €</option>
+                  <option  value="40">40 €</option>
+                  <option  value="60">60 €</option>
+                  <option  value="80">80 €</option>
+                </select>
+
+                <select class="form-control" name="" id="priceTo">
+                  <option  value="40">40 €</option>
+                  <option  value="60">60 €</option>
+                  <option  value="80">80 €</option>
+                  <option  value="80">100 €</option>
+                </select>
+              </div> -->
+              <!--    price  ----------------------------      -->
             </div>
 
             <div id="mountMap" class="">
@@ -221,28 +241,28 @@ export default {
           <div class="advanced_search_bar option d-flex flex-column justify-content-around align-items-center ">
 
             <div class="search_box d-flex flex-column justify-content-around align-items-center p-1  ">
-              <label class="form-label" for="radius">raggio in km</label>
-              <input class="form-control" id="radius" type="number">
+              <label class="form-label" for="radius">Raggio in Km</label>
+              <input class="form-control" id="radius" type="number" value="20">
             </div>
 
             <div class="search_box d-flex flex-column justify-content-around align-items-center p-1  ">
-              <label class="form-label" for="bad">metriquadri</label>
-              <input class="form-control" id="bad" type="number">
+              <label class="form-label" for="mq">Minimo m²</label>
+              <input class="form-control" id="mq" type="number" value="40">
             </div>
 
             <div class="search_box d-flex flex-column justify-content-around align-items-center p-1  ">
-              <label class="form-label" for="rooms">numero di stanze</label>
-              <input class="form-control" id="rooms" type="number">
+              <label class="form-label" for="rooms">Minimo Stanze </label>
+              <input class="form-control" id="rooms" type="number" value="1">
             </div>
 
             <div class="search_box d-flex flex-column justify-content-around align-items-center p-1  ">
-              <label class="form-label" for="bad">numero di letti</label>
-              <input class="form-control" id="bad" type="number">
+              <label class="form-label" for="bad">Minimo Letti </label>
+              <input class="form-control" id="bad" type="number" value="1">
             </div>
 
             <div class="search_box d-flex flex-column justify-content-around align-items-center p-1  ">
-              <label class="form-label" for="bad">numero di bagni</label>
-              <input class="form-control" id="bad" type="number">
+              <label class="form-label" for="bathrooms">Minimo Bagni </label>
+              <input class="form-control" id="bathrooms" type="number" value="1">
             </div>
 
           </div>
