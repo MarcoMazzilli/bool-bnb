@@ -7,6 +7,9 @@ export const store = reactive ({
   apiHostUrl : 'http://127.0.0.1:8000/api',
   getTpartments : '/apartment',
 
+  TomtomBaseUrl:'https://api.tomtom.com/',
+  apiUrlSearchAddress: 'search/2/geocode/',
+  queryType: '.json?typeahead=false&limit=1&view=Unified&key=',
 
 
 
@@ -29,6 +32,8 @@ export const store = reactive ({
   // ttKey:  import.meta.env.VUE_APP_API_TT_KEY,
 
   cord: false,
+  newCenter: []
+
 
 
 

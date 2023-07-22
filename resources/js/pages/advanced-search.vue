@@ -4,6 +4,7 @@ import tt from '@tomtom-international/web-sdk-maps';
 import DrawingTools from '@tomtom-international/web-sdk-plugin-drawingtools';
 import axios from 'axios';
 import {store} from '../../data/store';
+import {getCordianates} from '../function/basicCall';
 import ApartmentCard from '../components/apartmentCard.vue';
 
 /**
@@ -26,13 +27,33 @@ export default {
           // center: [12.49427, 41.89056],
           center: store.cord,
           advToggle: false,
+          address: '',
         }
     }, // close data
 
     components:{ApartmentCard}, // close components
+    watch: {
+    // whenever question changes, this function will run
+    'store.newCenter'(newnewCenter, oldnewCenter) {
+      if (newnewCenter != oldnewCenter) {
+        console.log('cambiato:');
+        this.updateMapCenter();
+      }
 
+    }
+  },
     methods :{
       advancedSearch(){console.log('ricerca avanzata')},
+
+      verifica(){
+        console.log(store.newCenter)
+      },
+
+      prova(){
+        console.log(this.address);
+        getCordianates(this.address);
+      },
+
       toggleAdvBar(){
         console.log('toggle');
         this.advToggle ? this.advToggle = false : this.advToggle = true;
@@ -106,30 +127,38 @@ export default {
 
       },
 
-      updateMapCenter(newCenter) {
+      updateMapCenter() {
+
+      console.warn( 'update', store.newCenter);
 
       map.easeTo({
-      center: newCenter,
+      center: store.newCenter,
       duration: 3000,
       animate: true, // nada de nada --- :'(
       });
 
       }
+
     // tomtom map------------------------------------------------------------------/
 
     }, // close methods
+    computed:{
+
+    },
+
 
     mounted(){
         console.log('Advanced Search!');
-        // this.initializeMap();
+        this.initializeMap();
     } // close mounted
 }
 </script>
 
 <template>
+  <button @click="verifica()">verifica array</button>
     <div class="AdvancedSearch_container" id="AdvancedSearch-page">
       <!-- ---------------search-filter -----------------------------------------------\-->
-      <div id="search-filter" class="search-filter container-lg  gx-0 debug2">
+      <div id="search-filter" class="search-filter container-lg  gx-0 ">
 
         <button @click="advancedSearch()" class="adv_submit"><i class="fa-solid fa-magnifying-glass"></i></button>
 
@@ -160,14 +189,14 @@ export default {
         >
 
             <!-- search bar & map -->
-          <div class="advanced_search_bar mapping  d-flex flex-column  debug2">
+          <div class="advanced_search_bar mapping  d-flex flex-column ">
 
             <div class="input-group flex-nowrap " id="" >
-              <input @keypress.enter=""
-              id="via" v-model="indirizzo"
+              <input @keypress.enter="prova()"
+              id="via" v-model="address"
               type="text"
               class="form-control"
-              placeholder="Cerca indirizzo"
+              placeholder="centra per indirizzo"
               aria-label="Username"
               aria-describedby="">
 
@@ -179,7 +208,7 @@ export default {
               </span> -->
             </div>
 
-            <div id="mountMap" class="debug2">
+            <div id="mountMap" class="">
                 <div class="map debug2" id="map" ref="mapRef"></div>
             </div>
 
@@ -187,7 +216,7 @@ export default {
           </div>
 
           <!-- raggio metriquadri stanze letti bagno -->
-          <div class="advanced_search_bar option d-flex flex-column justify-content-around align-items-center debug2">
+          <div class="advanced_search_bar option d-flex flex-column justify-content-around align-items-center ">
 
             <div class="search_box d-flex flex-column justify-content-around align-items-center p-1  ">
               <label class="form-label" for="radius">raggio in km</label>
@@ -218,7 +247,7 @@ export default {
           <!-- raggio metriquadri stanze letti bagno -->
 
           <!-- servizi -->
-          <div class="advanced_search_bar service  debug2">
+          <div class="advanced_search_bar service  ">
 
             <div class="btn_group " role="group" aria-label="Basic checkbox toggle button group">
 
@@ -264,6 +293,7 @@ export default {
 .search-filter {
   position: relative;
   overflow: hidden;
+
   // transition :all 600ms ease-in;
 }
 .adv_submit{
@@ -300,6 +330,7 @@ export default {
   flex-direction: row;
   width: 100%;
   height: 100%;
+  background-color: rgb(250, 242, 242);
 }
 
 .advanced_search_bar{

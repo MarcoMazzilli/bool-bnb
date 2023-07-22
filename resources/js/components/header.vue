@@ -6,9 +6,7 @@ export default {
   data(){
     return{
       apiKey: store.apiKey,
-      TomtomBaseUrl:'https://api.tomtom.com/',
-      apiUrlSearchAddress: 'search/2/geocode/',
-      queryType: '.json?typeahead=false&limit=1&view=Unified&key=',
+
       indirizzo: '',
       jsonLink: '',
       cordinates:{},
@@ -37,10 +35,10 @@ export default {
       },
 
     getCordianates(){
-    console.log(this.TomtomBaseUrl + this.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + this.queryType + this.apiKey);
+    console.log(store.TomtomBaseUrl + store.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + store.queryType + this.apiKey);
 
     // -------- chiamata
-    axios.get(this.TomtomBaseUrl + this.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + this.queryType + this.apiKey)
+    axios.get(store.TomtomBaseUrl + store.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + store.queryType + store.apiKey)
     .then(result =>{
       // console.log(result.data.results[0].position);
       this.cordinates = result.data.results[0].position;
