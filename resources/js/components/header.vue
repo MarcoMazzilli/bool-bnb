@@ -59,7 +59,7 @@ export default {
 
     convertAddress(address){
     const converted = address.replace(/ /g,'%20') ;
-    console.log(converted);
+    // console.log(converted);
     return converted;
     },
   },

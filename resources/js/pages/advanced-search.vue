@@ -38,7 +38,7 @@ export default {
 
       'store.newCenter'(newnewCenter, oldnewCenter) {
           if (newnewCenter != oldnewCenter) {
-            console.log('centro mappa cambiato!');
+            console.log('WATCH : centro mappa cambiato --->');
             this.updateMapCenter();
           }
       }
@@ -136,7 +136,7 @@ export default {
 
       updateMapCenter() {
 
-      console.warn( 'update', store.newCenter);
+      console.warn('update map center', store.newCenter);
 
       map.easeTo({
       center: store.newCenter,

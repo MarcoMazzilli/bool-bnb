@@ -15,7 +15,7 @@ function getCordianates(addres){
 
     const jsonLink = store.TomtomBaseUrl + store.apiUrlSearchAddress + convertAddress(addres) + store.queryType + store.apiKey;
 
-    console.log('cordinate ottenute:', [cordinates.lon , cordinates.lat], 'chiamata:', jsonLink );
+    console.log('cordinate ottenute:', [cordinates.lon , cordinates.lat], 'jsonLink:', jsonLink );
 
     store.newCenter = [cordinates.lon , cordinates.lat];
   })
@@ -23,6 +23,6 @@ function getCordianates(addres){
 
 function  convertAddress(address){
     const converted = address.replace(/ /g,'%20') ;
-    console.log(converted);
+    // console.log(converted);
     return converted;
 }

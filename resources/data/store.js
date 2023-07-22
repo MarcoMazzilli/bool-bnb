@@ -51,7 +51,7 @@ export const store = reactive ({
     priceRange: [20,160],
     radius: 20,
     size: 40,
-    rooms: 40,
+    rooms: 1,
     beds: 1,
     bathrooms: 1,
     servicesIds: [4, 15],

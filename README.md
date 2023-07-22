@@ -77,6 +77,11 @@ installare il vue-router
 ```
 npm i vue-router@4 --force
 ```
-
+---
+aggiornamento 24 luglio impementazione mappa Tom-Tom (adv-src-superstar)
+```
+npm i --force
+```
+---
 
 
