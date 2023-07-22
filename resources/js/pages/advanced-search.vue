@@ -32,16 +32,18 @@ export default {
     }, // close data
 
     components:{ApartmentCard}, // close components
+
     watch: {
-    // whenever question changes, this function will run
-    'store.newCenter'(newnewCenter, oldnewCenter) {
-      if (newnewCenter != oldnewCenter) {
-        console.log('cambiato:');
-        this.updateMapCenter();
+
+      'store.newCenter'(newnewCenter, oldnewCenter) {
+          if (newnewCenter != oldnewCenter) {
+            console.log('centro mappa cambiato!');
+            this.updateMapCenter();
+          }
       }
 
-    }
-  },
+    }, // close watch
+
     methods :{
       advancedSearch(){console.log('ricerca avanzata')},
 
@@ -49,7 +51,7 @@ export default {
         console.log(store.newCenter)
       },
 
-      prova(){
+      mapCenter(){
         console.log(this.address);
         getCordianates(this.address);
       },
@@ -146,10 +148,6 @@ export default {
     // tomtom map------------------------------------------------------------------/
 
     }, // close methods
-    computed:{
-
-    },
-
 
     mounted(){
         console.log('Advanced Search!');
@@ -192,11 +190,11 @@ export default {
         :class="this.advToggle ? 'adv-closed' : '' "
         >
 
-            <!-- search bar & map -->
+          <!-- search bar & map -->
           <div class="advanced_search_bar mapping  d-flex flex-column ">
 
             <div class="input-group flex-nowrap " id="" >
-              <input @keypress.enter="prova()"
+              <input @keypress.enter="mapCenter()"
               id="via" v-model="address"
               type="text"
               class="form-control"
@@ -265,17 +263,18 @@ export default {
           <!-- servizi -->
 
         </div>
-        <!-- filtri -------------------------\ -->
+        <!-- filtri -------------------------/ -->
 
-        <!-- open close bar -------------------------/ -->
+        <!-- open close bar -------------------------\ -->
         <div @click="toggleAdvBar()"
         class="open_close_bar d-flex justify-content-center">
           <span v-if="this.advToggle">Mostra Ricerca Avanzata</span>
           <span v-if="!this.advToggle">Nascondi Ricerca Avanzata</span>
         </div>
-        <!-- open close bar -------------------------\ -->
+        <!-- open close bar -------------------------/ -->
+
       </div>
-      <!-- ---------------search-filter -----------------------------------------------/-->
+      <!-- ---------------search-filter --------------/-->
 
 
       <!-- ---------------result ------------------------------------------------------\-->
