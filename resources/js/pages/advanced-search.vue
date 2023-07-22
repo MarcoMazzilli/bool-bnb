@@ -6,6 +6,16 @@ import axios from 'axios';
 import {store} from '../../data/store';
 import ApartmentCard from '../components/apartmentCard.vue';
 
+/**
+    - media query scatti grandezza mappa --OK.
+    - barra chiudi apri adv-search-bar --OK.
+    - bottone submit --OK.
+    - js scrolling
+    - centratura mappa con geocoding
+    - filtro prezzi
+
+ */
+
 // ---------------- ADV-SRC-SUPERSTAR-------------------------------start-logic
 export default {
     name: 'AdvancedSearch',
@@ -15,12 +25,19 @@ export default {
           load:true,
           // center: [12.49427, 41.89056],
           center: store.cord,
+          advToggle: false,
         }
     }, // close data
 
     components:{ApartmentCard}, // close components
 
     methods :{
+      advancedSearch(){console.log('ricerca avanzata')},
+      toggleAdvBar(){
+        console.log('toggle');
+        this.advToggle ? this.advToggle = false : this.advToggle = true;
+        console.log(this.advToggle);
+      },
       // tomtom map----------------------------------------------------------------\
       initializeMap() {
 
@@ -35,7 +52,7 @@ export default {
 
         // inizializza mappa
         map = tt.map({
-        key: 'cxG50CTiIMJjWZztYbdn0RxgT658PVkx',
+        key: store.apiKey,
         container: 'map',
         center: this.center,
         zoom: 10,
@@ -63,7 +80,7 @@ export default {
         });
 
         map = tt.map({
-        key: 'cxG50CTiIMJjWZztYbdn0RxgT658PVkx',
+        key: store.apiKey,
         container: 'map',
         center: this.center,
         zoom: 10,
@@ -104,7 +121,7 @@ export default {
 
     mounted(){
         console.log('Advanced Search!');
-        this.initializeMap();
+        // this.initializeMap();
     } // close mounted
 }
 </script>
@@ -112,10 +129,13 @@ export default {
 <template>
     <div class="AdvancedSearch_container" id="AdvancedSearch-page">
       <!-- ---------------search-filter -----------------------------------------------\-->
-      <div id="search-filter" class="container gx-0 debug2">
+      <div id="search-filter" class="search-filter container-lg  gx-0 debug2">
+
+        <button @click="advancedSearch()" class="adv_submit"><i class="fa-solid fa-magnifying-glass"></i></button>
 
         <!-- selettori tipo di ricerca -------------------------\ -->
-        <div id="search-type-selector" class="">
+        <div id="search-type-selector" class=""
+        :class="this.advToggle ? 'adv-closed' : '' ">
             <div class="">
 
               <button
@@ -135,7 +155,9 @@ export default {
         <!-- selettori tipo di ricerca -------------------------/ -->
 
         <!-- filtri -------------------------\ -->
-        <div class="d-flex h-100 w-100">
+        <div class="flt_container d-flex "
+        :class="this.advToggle ? 'adv-closed' : '' "
+        >
 
             <!-- search bar & map -->
           <div class="advanced_search_bar mapping  d-flex flex-column  debug2">
@@ -212,6 +234,13 @@ export default {
         </div>
         <!-- filtri -------------------------\ -->
 
+        <!-- open close bar -------------------------/ -->
+        <div @click="toggleAdvBar()"
+        class="open_close_bar d-flex justify-content-center">
+          <span v-if="this.advToggle">Apri Ricerca Avanzata</span>
+          <span v-if="!this.advToggle">Chiudi Ricerca Avanzata</span>
+        </div>
+        <!-- open close bar -------------------------\ -->
       </div>
       <!-- ---------------search-filter -----------------------------------------------/-->
 
@@ -232,7 +261,17 @@ export default {
 <style lang="scss" scoped>
 @import '../../scss/var';
 
-
+.search-filter {
+  position: relative;
+  overflow: hidden;
+  // transition :all 600ms ease-in;
+}
+.adv_submit{
+  position:absolute;
+  top: calc(300px - 10px);
+  right: 0%;
+  z-index: 999;
+}
 .src_typ_btn {
 	box-shadow:inset 0px 0px 0px 0px #ffffff;
 	background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
@@ -257,8 +296,14 @@ export default {
   }
 }
 
+.flt_container{
+  flex-direction: row;
+  width: 100%;
+  height: 100%;
+}
+
 .advanced_search_bar{
-  margin: 0px auto;
+  // margin: 0px auto;
 
   &.mapping{
     width: 78%;
@@ -319,16 +364,16 @@ export default {
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
+
   .btn{
     padding: 2px 10px;
-    margin: 2px 2px 2px 2px;
+    margin: 1px 1px 1px 1px;
     max-width: 80px;
     font-size: 0.8rem;
     min-width: 110px;
     // max-width: 160px;
     // min-height: 90px;
     // max-height: 160px;
-
   }
   .btn-outline-primary{
     color: $light-text;
@@ -358,6 +403,177 @@ export default {
   width: 100%;
   height: 270px;
 }
+.open_close_bar{
+  background-color: #dfdfdf;
+  color: #868686;
+  font-size: 0.9rem;
+  overflow: hidden;
+  border-radius: 0px 0px 10px 10px;
+  transition :all 300ms ease-in;
 
+  &:hover{
+    background-color: #f3f3f3;
+    color: #9e0000;
+      transition :all 150ms ease-in;
+  }
+}
+
+.adv-closed{
+  height: 0px ;
+  overflow: hidden;
+  // transition :all 600ms ease-in;
+}
+
+@media screen and (min-width: 390px) {
+        .flt_container{
+        flex-direction: column;
+        }
+
+        .advanced_search_bar{
+        margin: 0px auto;
+
+        &.mapping{
+          width: 100%;
+          margin-right: 1%;
+        }
+        &.option{
+        flex-direction: row !important;
+        width: 100%;
+        }
+        &.service{
+        width: 100%;
+        height: 75px;
+        overflow-x: scroll; //
+        }
+        & .search_box{
+        height: 60px; //
+        min-width: 80px; //
+        }
+      }
+      .btn_group{
+        display: inline-block; //
+        flex-wrap: nowrap; //
+        width: 1400px; //
+        overflow-y: hidden; //
+        overflow-x: hidden; //
+        .btn{
+          max-width: 400px; //
+        }
+}
+}
+
+@media screen and (min-width: 768px) {
+
+        .adv_submit{
+        top: calc(300px - 10px);
+        right: 33%;
+        }
+
+      .flt_container{
+        flex-direction: row;
+      }
+
+      .advanced_search_bar{
+        margin: 0px auto;
+
+        &.mapping{
+          width: 65%;
+          margin-right: 1%;
+        }
+        &.option{
+        flex-direction: column !important;
+        width: 10%;
+        }
+        &.service{
+        width: 17%;
+        height: 300px;
+        padding: 2px;
+        overflow: hidden;
+        margin: 0px;
+        }
+        & .search_box{
+        width: calc(100% / 8);
+        height: 100%;
+        margin: 2px 0px;
+        min-width: 110px;
+        max-width: 160px;}
+
+      }
+      .btn_group{
+        display: flex; //
+        flex-wrap: wrap; //
+        width: 100%; //
+        overflow-y: scroll; //
+        overflow-x: hidden; //
+        .btn{
+          max-width: 80px; //
+        }
+      }
+
+}
+@media screen and (min-width: 992px) {
+
+        .adv_submit{
+        top: calc(300px - 10px);
+        right: 27.5%;
+        }
+      .advanced_search_bar{
+      margin: 0px auto;
+
+        &.mapping{
+          width: 75%;
+          margin-right: 1%;
+        }
+        &.option{
+        width: 12%;
+        }
+        &.service{
+        width: 15%;
+        }
+      }
+}
+@media screen and (min-width: 1200px) {
+        .adv_submit{
+        top: calc(300px - 10px);
+        right: 24.5%;
+        }
+      .advanced_search_bar{
+      margin: 0px auto;
+
+        &.mapping{
+          width: 87%;
+          margin-right: 1%;
+        }
+        &.option{
+        width: 12%;
+        }
+        &.service{
+        width: 15%;
+        }
+      }
+}
+@media screen and (min-width: 1400px) {
+        .adv_submit{
+        top: calc(300px - 10px);
+        right: 20.5%;
+        }
+        .flt_container{
+        flex-direction: row;
+      }
+        .advanced_search_bar{
+        margin: 0px auto;
+
+        &.mapping{
+          width: 110%;
+          margin-right: 1%;
+        }
+        &.option{
+        width: 12%;
+        }
+        &.service{
+        width: 15%;
+        }
+      }
+}
 
 </style>
