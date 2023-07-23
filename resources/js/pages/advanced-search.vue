@@ -353,7 +353,8 @@ export default {
 
     <div v-if="load" class="container py-5 d-flex flex-wrap justify-content-between">
       <ApartmentCard v-for="apart in store.apartmentsfiltred" :key="apart.id" :apartmentData="apart"
-        @apartmentSelected="showApartmentDetails" />
+        />
+        <!-- @apartmentSelected="showApartmentDetails" -->
     </div>
   </div>
 </template>
