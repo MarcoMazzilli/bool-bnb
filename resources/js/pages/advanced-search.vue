@@ -13,9 +13,11 @@ import ApartmentCard from '../components/apartmentCard.vue';
     - barra chiudi apri adv-search-bar --OK.
     - bottone submit --OK.
     - centratura mappa con geocoding --OK.
-    - js scrolling
-    - filtro prezzi
-    - compilatore request .js
+    - js scrolling <--
+    - filtro prezzi <--
+    - compilatore request  <--
+      - v-bind e toggle per i servizi --OK
+      - cordinate in mod drv disegna sulla mappa <--
 
  */
 
