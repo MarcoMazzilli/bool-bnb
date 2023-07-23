@@ -29,6 +29,8 @@ export default {
           center: store.cord,
           advToggle: false,
           address: '',
+
+
         }
     }, // close data
 
@@ -39,6 +41,7 @@ export default {
       'store.newCenter'(newnewCenter, oldnewCenter) {
           if (newnewCenter != oldnewCenter) {
             console.log('WATCH : centro mappa cambiato --->');
+            store.cord = store.newCenter;
             this.updateMapCenter();
           }
       }
@@ -46,15 +49,20 @@ export default {
     }, // close watch
 
     methods :{
-      advancedSearch(){console.log('ricerca avanzata')},
-
-      test(){
-        console.log(store.newCenter)
+      advancedSearch(){
+        console.log('ricerca avanzata', store.advSrcRequest )
+        if(store.advSrcRequest.type === 'adv'){
+          store.advSrcRequest.coord = [[store.cord]]
+        }
       },
 
-      mapCenter(){
-        console.log(this.address);
-        getCordianates(this.address);
+      test(){
+        console.log(store.advSrcRequest.radius);
+      },
+
+      toggleServices(serviceIndex){
+        store.advSrcRequest.servicesChecked[serviceIndex] = !store.advSrcRequest.servicesChecked[serviceIndex];
+        console.log(store.advSrcRequest.servicesChecked[serviceIndex]);
       },
 
       toggleAdvBar(){
@@ -62,9 +70,15 @@ export default {
         this.advToggle ? this.advToggle = false : this.advToggle = true;
         console.log(this.advToggle);
       },
+
+      mapCenter(){
+        console.log(this.address);
+        getCordianates(this.address);
+      },
+
       // tomtom map----------------------------------------------------------------\
       initializeMap() {
-
+        store.advSrcRequest.type='adv';
         // se arrivi direttamente in advanced search allora centra la mappa su Roma
         if(!store.cord){
           this.center = [12.49427, 41.89056];
@@ -96,7 +110,7 @@ export default {
       },
 
       initializeMapDrawing() {
-
+        store.advSrcRequest.type='drv';
         // reset dom---
         const mapDiv = document.getElementById('map');
         mapDiv.innerHTML = '';
@@ -242,27 +256,37 @@ export default {
 
             <div class="search_box d-flex flex-column justify-content-around align-items-center p-1  ">
               <label class="form-label" for="radius">Raggio in Km</label>
-              <input class="form-control" id="radius" type="number" value="20">
+              <input min="20" max="1000"
+              class="form-control" id="radius" type="number"
+              v-model="store.advSrcRequest.radius">
             </div>
 
             <div class="search_box d-flex flex-column justify-content-around align-items-center p-1  ">
               <label class="form-label" for="mq">Minimo m²</label>
-              <input class="form-control" id="mq" type="number" value="40">
+              <input min="40" max="300"
+              class="form-control" id="mq" type="number"
+              v-model="store.advSrcRequest.size">
             </div>
 
             <div class="search_box d-flex flex-column justify-content-around align-items-center p-1  ">
               <label class="form-label" for="rooms">Minimo Stanze </label>
-              <input class="form-control" id="rooms" type="number" value="1">
+              <input min="1" max="20"
+              class="form-control" id="rooms" type="number"
+              v-model="store.advSrcRequest.rooms">
             </div>
 
             <div class="search_box d-flex flex-column justify-content-around align-items-center p-1  ">
               <label class="form-label" for="bad">Minimo Letti </label>
-              <input class="form-control" id="bad" type="number" value="1">
+              <input min="1" max="20"
+              class="form-control" id="bad" type="number"
+              v-model="store.advSrcRequest.beds">
             </div>
 
             <div class="search_box d-flex flex-column justify-content-around align-items-center p-1  ">
               <label class="form-label" for="bathrooms">Minimo Bagni </label>
-              <input class="form-control" id="bathrooms" type="number" value="1">
+              <input min="1" max="6" c
+              lass="form-control" id="bathrooms" type="number"
+              v-model="store.advSrcRequest.bathrooms">
             </div>
 
           </div>
@@ -274,7 +298,10 @@ export default {
             <div class="btn_group " role="group" aria-label="Basic checkbox toggle button group">
 
             <div v-for="(service, index) in store.services" :key="index" style="display: inline-block;">
-              <input type="checkbox" class="btn-check" :id="index" autocomplete="off">
+              <input type="checkbox"
+              :checked="store.advSrcRequest.servicesChecked[index]"
+              @change="toggleServices(index)"
+              class="btn-check" :id="index" autocomplete="off">
               <label class="btn btn-outline-primary d-flex justify-content-center align-items-center" :for="index">   {{ service }}</label>
             </div>
             </div>
@@ -294,7 +321,7 @@ export default {
         <!-- open close bar -------------------------/ -->
 
       </div>
-      <!-- ---------------search-filter --------------/-->
+      <!-- ---------------search-filter -----------------------------------------------/-->
 
 
       <!-- ---------------result ------------------------------------------------------\-->

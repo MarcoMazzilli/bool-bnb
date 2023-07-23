@@ -48,13 +48,13 @@ export const store = reactive ({
   advSrcRequest: {
 
     type: 'adv', //or drv
-    priceRange: [20,160],
+    // priceRange: [20,160],
     radius: 20,
     size: 40,
     rooms: 1,
     beds: 1,
     bathrooms: 1,
-    servicesIds: [4, 15],
+    servicesChecked: [false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,],
     coord:[
       [ 11.166504901180673, 43.74673562381395  ],
       [ 11.160517660159542, 43.72833625965026  ],
