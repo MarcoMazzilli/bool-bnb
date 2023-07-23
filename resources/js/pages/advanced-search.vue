@@ -4,8 +4,7 @@ import tt from '@tomtom-international/web-sdk-maps';
 import DrawingTools from '@tomtom-international/web-sdk-plugin-drawingtools';
 import axios from 'axios';
 import {store} from '../../data/store';
-import {getCordianates} from '../function/basicCall';
-import {requestCompiler} from '../function/requestCompiler';
+import {getCordianates, requestCompiler} from '../function/basicCall';
 import ApartmentCard from '../components/apartmentCard.vue';
 
 /**
