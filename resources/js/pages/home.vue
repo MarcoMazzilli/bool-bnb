@@ -7,7 +7,6 @@ import Apartment from './apartment.vue';
 
 import { Button } from 'bootstrap';
 export default {
-
   name: 'Home',
   data() {
     return {
@@ -19,10 +18,23 @@ export default {
     }
   },
   components: { Jumbotron, ApartmentCard, Apartment, Button },
-  
   methods: {
-  
-        getApartment(){
+
+    getApartment() {
+      this.load = false;
+
+      axios.get(store.apiHostUrl + store.getTpartments)
+        .then(result => {
+
+          store.apartmentsGetted = result.data.apartments.data;
+
+          this.load = true;
+          this.links = result.data.apartments.links;
+          console.log('risultati', result.data)
+        })
+    },
+
+    oldGetApartment(){
           if(!store.homeStored){
             this.load = false;
               axios.get(store.apiHostUrl + store.getTpartments)
@@ -46,7 +58,6 @@ export default {
       // console.log(apart)
       store.apartmentDetails = apart
       this.$router.push({ name: 'apartment', params: { slug: apart.slug } });
-
     },
   },
   mounted() {
