@@ -14,6 +14,7 @@ import ApartmentCard from '../components/apartmentCard.vue';
     - barra chiudi apri adv-search-bar --OK.
     - bottone submit --OK.
     - centratura mappa con geocoding --OK.
+    - disattivare raggio in km quandi si va in disegna mappa  <--
     - js scrolling <--
     - filtro prezzi <--
     - compilatore request  <--
@@ -79,6 +80,13 @@ export default {
         console.log(this.address);
         getCordianates(this.address);
       },
+
+      filterByService() {
+      axios.get('http://127.0.0.1:8000/api/find/services/' + this.servicesToSearch)
+        .then(result => {
+          console.log('======> filterByService', result.data.apartments);
+        })
+    },
 
       // tomtom map----------------------------------------------------------------\
       initializeMap() {
@@ -328,7 +336,7 @@ export default {
       </div>
       <!-- ---------------search-filter -----------------------------------------------/-->
 
-
+      <div @click="filterByService()" class="btn btn-danger">Da inserire un ciclo dei servizi offerti (passare in compact dal db)</div>
       <!-- ---------------result ------------------------------------------------------\-->
       <div v-if="load" class="container py-5 d-flex flex-wrap justify-content-between">
 

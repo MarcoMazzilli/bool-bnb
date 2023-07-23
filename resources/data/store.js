@@ -19,7 +19,7 @@ export const store = reactive ({
   // home page------------
   apartmentsGetted: [],
   homeStored: false,
-
+  apartmentDetails : null,
   // search page ---------------------------------------------------\
   apartmentsfiltred: [],
   services:[
