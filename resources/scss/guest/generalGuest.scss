@@ -1,21 +1,64 @@
 .debug{
   background-color: rgba(255, 0, 0, 0.226);
+  // border: 1px solid black;
 }
 
 .debug2{
-  background-color: rgba(9, 255, 0, 0.226);
-}
-
-.d_link{
-    // background-color: $brand-main;
+  background-color: rgba(9, 255, 0, 0.137);
+  // border: 1px dashed black;
 }
 
 .debug-header{
-    width: 100%;
-    text-align: center;
-    margin: 0px auto;
+  width: 100%;
+  text-align: center;
+  margin: 0px auto;
+}
+
+.form-control:focus {
+  border-color: lighten($low-black, 80%);
+  box-shadow: 2px 2px 0px 1px lighten($brand-main, 20%)
 }
 
 .card{
   display: inline-block;
 }
+
+
+
+
+
+
+.adv_submit{
+
+// font-weight: 900;
+font-size: 16px;
+color: #000000;
+background: linear-gradient(87deg, $brand-main 0%, #c500cc 100%);
+padding: 10px 25px;
+border: solid $brand-main 1px;
+box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+border-radius: 50px 0px 0px 50px;
+transition : 600ms;
+transform: translateY(0);
+display: flex;
+flex-direction:row-reverse;
+align-items: center;
+cursor: pointer;
+text-transform: uppercase;
+
+}
+
+.adv_submit:hover{
+transition : 600ms;
+padding: 10px 35px;
+transform : translateY(0px);
+background: linear-gradient(87deg, $brand-main 0%, #c500cc 100%);
+color: #ffffff;
+border: solid 1px #0066cc;
+
+}
+
+
+
+
+

@@ -1,4 +1,4 @@
 export default
 {
-  "apiKey" : 'Pw0ntF4ozGmYSW0Anxs8jpjCHUnPOPJT'
+  "apiKey" : 'cxG50CTiIMJjWZztYbdn0RxgT658PVkx'
 }

@@ -6,9 +6,7 @@ export default {
   data(){
     return{
       apiKey: store.apiKey,
-      TomtomBaseUrl:'https://api.tomtom.com/',
-      apiUrlSearchAddress: 'search/2/geocode/',
-      queryType: '.json?typeahead=false&limit=1&view=Unified&key=',
+
       indirizzo: '',
       jsonLink: '',
       cordinates:{},
@@ -17,24 +15,6 @@ export default {
     }
   },
   methods :{
-
-    searchApartment(){
-        console.log('CERCA!')
-
-        // axios.get()
-        // .then(result =>{
-        // console.log(result.data)
-
-        // --------------------------------------------------------------------------------------------------------
-        // metodo fornito da vue per spostarsi tra le rotte del router!!!
-        //  this.$router.push('/indirizzo')
-        // this.$router.push('nome indirizzo');
-        // this.$router.push({ nome: 'nomerotta',  params:{ slug: 'apartamentSlug'} }); mandando oggetto e parametri
-
-
-        // ------------------------------------------------------------------------------------------------------
-        // })
-    },
 
     searchByRange(){
         this.load = false;
@@ -55,10 +35,10 @@ export default {
       },
 
     getCordianates(){
-    console.log(this.TomtomBaseUrl + this.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + this.queryType + this.apiKey);
+    console.log(store.TomtomBaseUrl + store.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + store.queryType + this.apiKey);
 
     // -------- chiamata
-    axios.get(this.TomtomBaseUrl + this.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + this.queryType + this.apiKey)
+    axios.get(store.TomtomBaseUrl + store.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + store.queryType + store.apiKey)
     .then(result =>{
       // console.log(result.data.results[0].position);
       this.cordinates = result.data.results[0].position;
@@ -79,16 +59,12 @@ export default {
 
     convertAddress(address){
     const converted = address.replace(/ /g,'%20') ;
-    console.log(converted);
+    // console.log(converted);
     return converted;
     },
-
-    getAddres(){
-      console.log('address di ricerca');
-    },
   },
+
   mounted(){
-    console.log(store.apiKey);
 
   }
 
@@ -120,7 +96,7 @@ export default {
               aria-label="Username"
               aria-describedby="addon-wrapping">
 
-              <span @click="getCordianates(), searchApartment()"
+              <span @click="getCordianates()"
               class="input-group-text search"
               id="addon-wrapping"
 
