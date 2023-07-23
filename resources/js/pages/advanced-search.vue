@@ -1,7 +1,9 @@
 <script>
+
 // --------------------------------------------------------------------import
 import tt from '@tomtom-international/web-sdk-maps';
 import DrawingTools from '@tomtom-international/web-sdk-plugin-drawingtools';
+
 import axios from 'axios';
 import {store} from '../../data/store';
 import {getCordianates, requestCompiler} from '../function/basicCall';
@@ -22,6 +24,7 @@ import ApartmentCard from '../components/apartmentCard.vue';
 
 // ---------------- ADV-SRC-SUPERSTAR-------------------------------start-logic
 export default {
+
     name: 'AdvancedSearch',
     data(){
         return{
@@ -173,6 +176,7 @@ export default {
 </script>
 
 <template>
+
   <!-- <button @click="test()">test function</button> -->
     <div class="AdvancedSearch_container" id="AdvancedSearch-page">
       <!-- ---------------search-filter -----------------------------------------------\-->
@@ -335,7 +339,13 @@ export default {
       </div>
       <!-- ---------------result ------------------------------------------------------/-->
 
+
+
+    <div v-if="load" class="container py-5 d-flex flex-wrap justify-content-between">
+      <ApartmentCard v-for="apart in store.apartmentsfiltred" :key="apart.id" :apartmentData="apart"
+        @apartmentSelected="showApartmentDetails" />
     </div>
+  </div>
 </template>
 
 <style lang="scss" scoped>

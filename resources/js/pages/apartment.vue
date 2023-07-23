@@ -6,10 +6,16 @@ export default {
     name: 'Apartment',
 
     data(){
-        return{}
+        return{
+          apartment : store.apartmentDetails
+        }
     },
     components:{},
-    methods :{},
+    methods :{
+      getImage(img){
+        return new URL ()
+      }
+    },
     mounted(){
         console.log('apartment page!')
     }
@@ -21,49 +27,23 @@ export default {
 
       <div class="card" style="width: 22rem; ">
         <div class="">
-                <h4>Nome appartamento</h4>
-                <p class="card-text m-0"><b>Indirizzo</b></p>
+                <h4>{{ apartment.name }}</h4>
+                <p class="card-text m-0"><b>{{ apartment.address }}</b></p>
                 <span><i class="fa-solid fa-star"></i> 5,0</span>
           </div>
 
         <!-- Immagine -->
-
-        <img src="https://www.miprendoemiportovia.it/wp-content/uploads/2020/10/Casa-Nea-Sardegna.jpg" class="card-img-top mt-2" alt=""  style="width: 30rem;">
-
-        <!-- <img :src=" 'storage/' + apartmentData.cover_image " class="card-img-top" alt=""  style="width: 22rem;"> -->
+        <img :src="'/storage/' + apartment.cover_image" class="card-img-top" alt="" style="width: 22rem;">
 
         <!-- Testo -->
         <div class="card-body">
-            <p class="card-text m-0">Descrizione</p>
-            <p class="card-text m-0"><b>Prezzo €</b> a notte</p>
+            <p class="card-text m-0">{{ apartment.description }}</p>
+            <p class="card-text m-0"><b>{{ apartment.price }} €</b> a notte</p>
 
         </div>
-
       </div>
 
     </div>
-
-
-  <!-- <div class="apartment_container" id="apartment-page">
-    <div v-if="selectedApartment" class="card m-2" style="width: 22rem;">
-
-      <img :src="'storage/' + selectedApartment.cover_image" class="card-img-top" alt="" style="width: 22rem;" />
-
-
-      <div class="card-body">
-        <div class="d-flex justify-content-between">
-          <h4>{{ selectedApartment.name }}</h4>
-          <span><i class="fa-solid fa-star"></i> 5.0</span>
-        </div>
-
-        <p class="card-text m-0"><b>{{ selectedApartment.address }}</b></p>
-        <p class="card-text m-0">{{ selectedApartment.description }}</p>
-        <p class="card-text m-0"><b>{{ selectedApartment.price }}€</b> a notte</p>
-      </div>
-    </div>
-  </div> -->
-
-
 </template>
 
 <style lang="scss" scoped>

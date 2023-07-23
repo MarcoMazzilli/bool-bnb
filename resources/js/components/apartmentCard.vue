@@ -9,7 +9,8 @@ export default {
     methods: {
     selectApartment() {
       //emetto l'evento
-      this.$emit('apartmentSelected', this.apartmentData);
+      // console.log('emit')
+      this.$emit('apartmentSelected');
     },
   },
 }
@@ -21,10 +22,12 @@ export default {
         <div class="card  m-2" style="width: 22rem;" @click="selectApartment">
                 <!-- Immagine -->
                 <!-- <img src="https://www.miprendoemiportovia.it/wp-content/uploads/2020/10/Casa-Nea-Sardegna.jpg" class="card-img-top" alt=""  style="width: 22rem;"> -->
-                <img :src=" 'storage/' + apartmentData.cover_image " class="card-img-top" alt=""  style="width: 22rem;">
+                <div class="overflow-hidden">
+                  <img :src=" 'storage/' + apartmentData.cover_image " class="card-img-top" alt=""  style="width: 22rem;">
+                </div>
 
                 <!-- Testo -->
-                <div class="card-body">
+                <div class="card-body p-3">
                   <div class="d-flex justify-content-between">
                         <h4>{{apartmentData.name}}</h4>
                         <span><i class="fa-solid fa-star"></i> 5,0</span>
@@ -47,7 +50,21 @@ export default {
 @use '../../scss/var' as *;
 
 .card{
-    border: none;
+  border: none;
+  box-shadow: .5px .5px 2px 1px rgba($color: #000000, $alpha: .1);
+  img{
+    transition: all 1s;
+  }
+  &:hover{
+
+    transition: all .4s;
+      cursor: pointer;
+      box-shadow: 1px 1px 30px rgba($color: #000000, $alpha: .2);
+
+      img {
+          transform: scale(1.2);
+        }
+    }
 
     .card-body{
         padding-left: 0;

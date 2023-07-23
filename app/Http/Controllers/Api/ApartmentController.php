@@ -16,17 +16,18 @@ class ApartmentController extends Controller
 
       // // ----------------------------------------------------------complete-apartments
 
-      $apartments = Apartment::select(['id','user_id','name','slug','description','slug','cover_image','address','address_info','price','n_of_bed','n_of_room','n_of_bathroom','apartment_size','type','created_at',
-        DB::raw("ST_AsText(coordinate) as coordinate")])
-      ->get()
-      ->map(function ($apartment) {
-        $coordinates = sscanf($apartment->coordinate, 'POINT(%f %f)');
-        $apartment->coordinate = [
-            'longitude' => $coordinates[0],
-            'latitude' => $coordinates[1]
-        ];
-        return $apartment;});
+      $apartments = Apartment::select([
+        'id','user_id','name','slug','description','slug','cover_image','address','address_info','price','n_of_bed','n_of_room','n_of_bathroom','apartment_size','type','created_at',
+      DB::raw("ST_X(coordinate) as latitude"),
+      DB::raw("ST_Y(coordinate) as longitude")])
+      ->paginate(3);
 
+        return response()->json(compact('apartments'));
+    }
+
+
+
+}
       //   // -----------------------------------------------------apartmentsWithoutCoord
 
       //   $apartmentsWithoutCoord = Apartment::all()
@@ -45,12 +46,3 @@ class ApartmentController extends Controller
       //         'latitude' => $coordinates[1]
       //     ];
       //     return $coordinates;});
-
-
-
-        return response()->json(compact('apartments'));
-    }
-
-
-
-}
