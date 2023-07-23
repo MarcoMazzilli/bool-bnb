@@ -31,10 +31,12 @@ export default {
         return{
           store,
           load:true,
+          selectedApartment: null,
           center: store.cord,
           advToggle: false,
           address: '',
-
+          // Da valorizzare in fase di ricerca
+          servicesToSearch: 1,
 
         }
     }, // close data
