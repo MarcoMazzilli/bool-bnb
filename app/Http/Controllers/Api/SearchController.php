@@ -12,41 +12,65 @@ class SearchController extends Controller
 {
 
   public function searchByRange(Request $request)
-{
+  {
     $data = $request->all();
 
     $longitude = $data['longitude'];
     $latitude = $data['latitude'];
     $radius = $data['radius']; // Raggio in chilometri
+    $services = $data['services'];
 
-    $apartments = Apartment::select([
+
+      //Se arriva faccio un controllo sullla lunghezza, e se maggiore di 0 applico la logica
+      if (count($services) > 0) {
+        $apartments = Apartment::select([
+          'id', 'user_id', 'name', 'slug', 'description', 'cover_image',
+          'address', 'address_info', 'price', 'n_of_bed', 'n_of_room', 'n_of_bathroom',
+          'apartment_size', 'type', 'created_at',
+          DB::raw("ST_Y(coordinate) as latitude"),
+          DB::raw("ST_X(coordinate) as longitude"),
+          DB::raw("ST_Distance_Sphere(point(ST_X(coordinate), ST_Y(coordinate)), point($longitude, $latitude)) / 1000 as distance")
+        ])
+          ->with('services', 'sponsorships')
+          ->having('distance', '<=', $radius)
+          ->whereHas('services', function (Builder $query) use ($services) {
+            $query->whereIn('service_id', $services);
+          }, '=', count($services))
+          ->orderBy('distance')
+          ->paginate(3);
+      }else {
+      $apartments = Apartment::select([
         'id', 'user_id', 'name', 'slug', 'description', 'cover_image',
         'address', 'address_info', 'price', 'n_of_bed', 'n_of_room', 'n_of_bathroom',
         'apartment_size', 'type', 'created_at',
         DB::raw("ST_Y(coordinate) as latitude"),
         DB::raw("ST_X(coordinate) as longitude"),
         DB::raw("ST_Distance_Sphere(point(ST_X(coordinate), ST_Y(coordinate)), point($longitude, $latitude)) / 1000 as distance")
-    ])
-    ->with('services', 'sponsorships')
-    ->having('distance', '<=', $radius)
-    ->orderBy('distance')
-    ->paginate(3);
+      ])
+        ->with('services', 'sponsorships')
+        ->having('distance', '<=', $radius)
+        ->orderBy('distance')
+        ->paginate(3);
+    }
+
+
+    //Controllo se mi arriva il parametro "services"
+
 
     return response()->json(compact('apartments'));
-}
+  }
 
-  public function searchByServices(Request $request){
-    $data = $request->all();
-
-    $services = $data['services'];
+  public function searchByServices($services)
+  {
     $apartments = Apartment::select([
-      'id','user_id','name','slug','description','slug','cover_image','address','address_info','price','n_of_bed','n_of_room','n_of_bathroom','apartment_size','type','created_at',
-    DB::raw("ST_X(coordinate) as latitude"),
-    DB::raw("ST_Y(coordinate) as longitude")])
-    ->with('services', 'sponsorships')
-    ->whereHas('services', function(Builder $query) use ($services){
-      $query->whereIn('service_id', $services);
-    },'=', count($services))->get();
+      'id', 'user_id', 'name', 'slug', 'description', 'slug', 'cover_image', 'address', 'address_info', 'price', 'n_of_bed', 'n_of_room', 'n_of_bathroom', 'apartment_size', 'type', 'created_at',
+      DB::raw("ST_X(coordinate) as latitude"),
+      DB::raw("ST_Y(coordinate) as longitude")
+    ])
+      ->with('services', 'sponsorships')
+      ->whereHas('services', function (Builder $query) use ($services) {
+        $query->whereIn('service_id', $services);
+      }, '=', count($services))->get();
 
     return response()->json(compact('apartments'));
   }

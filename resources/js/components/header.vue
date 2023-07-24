@@ -22,10 +22,11 @@ export default {
           longitude : store.cord[0],
           latitude : store.cord[1],
           radius : 200,
+          services : []
         }
         axios.post('http://127.0.0.1:8000/api/find/location', data)
         .then(result =>{
-          console.log('risultato ===>',result.data.apartments.data);
+          console.log('risultato ===>',result);
           store.apartmentsfiltred = result.data.apartments.data
           this.load = true;
           this.$router.push({ name: 'advancedSearch' });
