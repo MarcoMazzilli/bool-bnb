@@ -1,8 +1,23 @@
 import {store} from '../../data/store';
 import axios from 'axios';
-export {getCordianates, requestCompiler, findServices};
+export {getCordianates, requestCompiler, findServices,  searchByRange};
 
 
+
+
+function  searchByRange(data){
+  store.load = false;
+
+  axios.post('http://127.0.0.1:8000/api/find/location', data)
+  .then(result =>{
+    console.log('risultato ===>',result);
+    store.apartmentsfiltred = result.data.apartments.data
+    store.load = true;
+
+  }).catch(error => {
+    console.log('Errori ===>',error)
+  })
+}
 
 function getCordianates(addres){
 

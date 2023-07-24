@@ -6,7 +6,7 @@ import DrawingTools from '@tomtom-international/web-sdk-plugin-drawingtools';
 
 import axios from 'axios';
 import {store} from '../../data/store';
-import {getCordianates,findServices, requestCompiler} from '../function/basicCall';
+import {getCordianates,findServices, requestCompiler,  searchByRange} from '../function/basicCall';
 import ApartmentCard from '../components/apartmentCard.vue';
 
 /**
@@ -59,7 +59,14 @@ export default {
       advancedSearch(){
         if(store.advSrcRequest.type === 'adv'){
           // service ricerca avanzata -------------------------
+          console.log(store.cord)
           store.advSrcRequest.coord = [[store.cord]];
+          store.advSrcRequest.longitude = store.cord[0];
+          store.advSrcRequest.latitude = store.cord[1];
+          this.compileServiceIndex();
+          let data = store.advSrcRequest;
+          console.log('ricerca avanzata', store.advSrcRequest );
+          searchByRange( data );
 
         }else if(store.advSrcRequest.type === 'drv'){
           // service ricerca avanzata -------------------------
@@ -70,7 +77,7 @@ export default {
           store.advSrcRequest.coord = [[store.cord]]
           this.compileServiceIndex();
           let data = store.advSrcRequest;
-          console.log('ricerca avanzata', store.advSrcRequest );
+          console.log('solo servizi', store.advSrcRequest );
           findServices(data);
 
 
