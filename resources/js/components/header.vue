@@ -39,6 +39,7 @@ export default {
     .then(result =>{
       // console.log(result.data.results[0].position);
       store.advSrcRequest.cordinates = result.data.results[0].position;
+      console.log(store.advSrcRequest.cordinates )
       store.advSrcRequest.longitude = store.advSrcRequest.cordinates.lon;
       store.advSrcRequest.latitude = store.advSrcRequest.cordinates.lat;
       console.log('store cord', store.cord )

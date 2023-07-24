@@ -46,7 +46,7 @@ export default {
     watch: {
       'store.advSrcRequest.cordinates'(n , o){
           if(n != o){
-            store.newCenter = store.advSrcRequest.cordinates;
+            store.newCenter = [store.advSrcRequest.cordinates.lon, store.advSrcRequest.cordinates.lat ];
             console.warn('watch')
           }
       },
@@ -74,6 +74,7 @@ export default {
           // service ricerca avanzata -------------------------
           console.log(store.cord)
           store.advSrcRequest.coord = [[store.cord]];
+          console.warn(store.newCenter);
           store.advSrcRequest.longitude = store.newCenter[0];
           store.advSrcRequest.latitude = store.newCenter[1];
           this.compileServiceIndex();
