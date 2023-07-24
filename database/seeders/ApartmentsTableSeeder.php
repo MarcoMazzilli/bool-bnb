@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Apartment;
 use App\Models\User;
+use App\Models\Sponsorship;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Config;
@@ -22,13 +23,30 @@ class ApartmentsTableSeeder extends Seeder
     {
         $apartments = config('apartments');
 
+        $type = [
+          'Monolocale',
+          'Bilocale',
+          'Trilocale',
+          'Quadrilocale',
+          'Studio',
+          'Mansarda',
+          'Rustico',
+          'Chalet',
+          'Appartamento duplex',
+          'Villa',
+          'Attico',
+          'Bungalow',
+          'Loft'
+        ];
+
         foreach ($apartments as $apartment) {
           $new_apartment = new Apartment();
           $new_apartment->user_id = User::inRandomOrder()->first()->id;
           $new_apartment->name = $apartment['name'];
           $new_apartment->slug = CustomHelper::generateUniqueSlug($apartment['name'], new Apartment());
           $new_apartment->description = $apartment['description'];
-          $new_apartment->cover_image = $apartment['cover_image'];
+          // $new_apartment->cover_image = $apartment['cover_image']; TODO: provvisorio
+          $new_apartment->cover_image = "seeder-img/" . rand(1,20) .  ".jpg";
           $new_apartment->address = $apartment['address'];
           $new_apartment->address_info = $apartment['address_info'];
 
@@ -40,8 +58,8 @@ class ApartmentsTableSeeder extends Seeder
           $new_apartment->n_of_bathroom = $apartment['n_of_bathroom'];
           $new_apartment->apartment_size = $apartment['apartment_size'];
           $new_apartment->visible = $apartment['visible'];
-          $new_apartment->type = $apartment['type'];
-
+          // $new_apartment->type = $apartment['type'];
+          $new_apartment->type = $type[rand(0, count($type) - 1)];
 
           // dump($new_apartment);
           $new_apartment->save();
@@ -51,26 +69,16 @@ class ApartmentsTableSeeder extends Seeder
         }
 
           if (array_key_exists('sponsor', $apartment)) {
-            // $new_apartment->sponsorships()->attach($apartment['sponsor']);
 
-            $randomDate = Carbon::now()->subDays(rand(1, 30));
+            $randomDate = Carbon::now()->addDays(rand(1, 365));
 
-            $hours = 0;
-            //FIXME: le ore corrispondono alla durata ad ID equivalente 1,2 e 3
-
-            if ($apartment['sponsor'][0] === 1){
-              $hours = 24;
-            }elseif($apartment['sponsor'][0] === 2) {
-              $hours = 72;
-            }else{
-              $hours = 144;
-            }
+            $sponsorship = Sponsorship::find($apartment['sponsor']);
 
             $new_apartment->sponsorships()->attach(
               $apartment['sponsor'],
               [
                 'started_at' => $randomDate,
-                'expiration_date' => $randomDate->copy()->addHours($hours)
+                'expiration_date' => $randomDate->copy()->addHours($sponsorship[0]->duration)
               ]
             );
 
