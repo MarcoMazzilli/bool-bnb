@@ -31,7 +31,7 @@ Route::namespace('Api')
         ->prefix('find')
         ->group(function(){
             Route::post('/location',[SearchController::class, 'searchByRange']);
-            Route::get('/services/{id}',[SearchController::class, 'searchByCategory']); //questo dovera' ricevere un parametro
+            Route::get('/services/{id}',[SearchController::class, 'searchByServices']); //questo dovera' ricevere un parametro
 });
 
 

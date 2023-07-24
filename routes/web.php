@@ -22,6 +22,7 @@ Route::get('/' , [PageController::class , 'index'])->name('home');
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth','verified'])->name('dashboard');
+Route::get('/sponsorships', [DashboardController::class , 'getSponsorship'])->middleware(['auth','verified'])->name('sponsorship');
 // Route::get('/visible', [DashboardController::class, 'visible'])->middleware(['auth','verified'])->name('visible');
 
 Route::middleware(['auth','verified'])

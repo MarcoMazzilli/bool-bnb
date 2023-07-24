@@ -27,7 +27,7 @@
                         <div class="card-body">
 
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item"><strong>Tot. appartamenti Sponsorizzati :</strong> ???? </li>
+                                <li class="list-group-item"><strong>Tot. appartamenti Sponsorizzati :</strong> {{ $SponsoredApartmentsCount}} </li>
 
                                 @foreach ($apartmentsCount as $label => $value)
                                     <li class="list-group-item"><strong>Tot. {{ $label }} :</strong>
@@ -58,6 +58,41 @@
                         </div>
                     </div>
                 </div>
+                {{-- TIPOLOGIA DI SPONSORIZZAZIONI ATTIVE --}}
+                <div class="col col-4 my-5">
+                  <div class="card shadow">
+                    <div class="card-header">Tipologia di sponsorizzazioni</div>
+
+                    <div class="card-body">
+
+                      <ul class="list-group list-group-flush">
+
+                        @foreach ($countTypeOfSponsor as $label => $value)
+                        <li class="list-group-item"><strong>{{ $label }} :</strong>
+                          {{ $value }}</li>
+                          @endforeach
+
+                        </ul>
+
+                      </div>
+                    </div>
+                  </div>
+                  {{-- /TIPOLOGIA DI SPONSORIZZAZIONI ATTIVE --}}
+
+                  {{-- ANALITICA APPARTAMENTI --}}
+                  <div class="col my-5">
+                    <div class="card shadow">
+                      <div class="card-header">Statistiche appartamenti</div>
+
+                      <div class="card-body">
+
+                          <span>INSERIRE STATISTICHE APPPARTAMENTI</span>
+
+                        </div>
+                      </div>
+                    </div>
+                    {{-- /ANALITICA APPARTAMENTI --}}
+
             </div>
         @endif
     </div>
