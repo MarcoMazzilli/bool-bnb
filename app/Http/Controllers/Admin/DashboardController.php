@@ -14,17 +14,49 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Paginate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
+
 
 class DashboardController extends Controller
 {
-public function index(){
+  public function index()
+  {
 
     $apartmentsCount = [
-        'appartamenti' => Apartment::all()->where('user_id', Auth::id())->count(),
-        'appartamenti visibili' => Apartment::where('visible', 1)->where('user_id', Auth::id())->count(),
-        'appartamenti nascosti' => Apartment::where('visible', 0)->where('user_id', Auth::id())->count()
+      'appartamenti' => Apartment::all()->where('user_id', Auth::id())->count(),
+      'appartamenti visibili' => Apartment::where('visible', 1)->where('user_id', Auth::id())->count(),
+      'appartamenti nascosti' => Apartment::where('visible', 0)->where('user_id', Auth::id())->count()
     ];
 
-    return view('admin.home', compact('apartmentsCount'));
-}
+    $SponsoredApartmentsCount =       Apartment::where('user_id', Auth::id())
+    ->with('services', 'sponsorships')
+    ->whereHas('sponsorships', function (Builder $query) {
+      $query->where('sponsorship_id', '!=', null);
+    })->count();
+
+    $countTypeOfSponsor = [
+      '[ 24h. ] Livello 1' =>
+      Apartment::where('user_id', Auth::id())
+        ->with('services', 'sponsorships')
+        ->whereHas('sponsorships', function (Builder $query) {
+          $query->where('sponsorship_id', 1);
+        })->count(),
+
+      '[ 72h. ] Livello 2' =>
+      Apartment::where('user_id', Auth::id())
+        ->with('services', 'sponsorships')
+        ->whereHas('sponsorships', function (Builder $query) {
+          $query->where('sponsorship_id', 2);
+        })->count(),
+
+      '[ 144h. ] Livello 3' =>
+      Apartment::where('user_id', Auth::id())
+        ->with('services', 'sponsorships')
+        ->whereHas('sponsorships', function (Builder $query) {
+          $query->where('sponsorship_id', 3);
+        })->count(),
+    ];
+
+    return view('admin.home', compact('apartmentsCount','countTypeOfSponsor','SponsoredApartmentsCount'));
+  }
 }
