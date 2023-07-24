@@ -19,7 +19,7 @@ class sponsorships_table_seeder extends Seeder
         $new_sponsorship_a->name = 'One Day';
         $new_sponsorship_a->price = 2.99;
         $new_sponsorship_a->duration = 24;
-        $new_sponsorship_a->description = 'metti in cima per due giorni';
+        $new_sponsorship_a->description = 'metti in cima per un giorno';
         $new_sponsorship_a->save();
 
         $new_sponsorship_b = new Sponsorship();
