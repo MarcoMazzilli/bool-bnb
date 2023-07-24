@@ -57,16 +57,48 @@ export default {
 
     methods :{
       advancedSearch(){
-        console.log('ricerca avanzata', store.advSrcRequest );
-        let data = {services:[1,2,5,7]};
-        findServices(data);
         if(store.advSrcRequest.type === 'adv'){
+          // service ricerca avanzata -------------------------
+          store.advSrcRequest.coord = [[store.cord]];
+
+        }else if(store.advSrcRequest.type === 'drv'){
+          // service ricerca avanzata -------------------------
+
+
+        }else if(store.advSrcRequest.type = 'srv-only'){
+          // service only search -------------------------
           store.advSrcRequest.coord = [[store.cord]]
+          this.compileServiceIndex();
+          let data = store.advSrcRequest;
+          console.log('ricerca avanzata', store.advSrcRequest );
+          findServices(data);
+
+
+
         }
+
+
+
+
+
+
+
+
       },
 
       test(){
         console.log(store.advSrcRequest.radius);
+      },
+
+      compileServiceIndex(){
+        store.advSrcRequest.services = [];
+        store.advSrcRequest.servicesChecked.forEach((element, key) => {
+          if(element){
+            store.advSrcRequest.services.push(key + 1);
+            // console.log(key, element , store.advSrcRequest.services);
+          }
+        });
+
       },
 
       toggleServices(serviceIndex){
@@ -84,7 +116,6 @@ export default {
         console.log(this.address);
         getCordianates(this.address);
       },
-
 
       serviceSearch(){
         store.advSrcRequest.type='srv-only';
@@ -173,9 +204,15 @@ export default {
       animate: true, // nada de nada --- :'(
       });
 
-      }
+      },
 
     // tomtom map------------------------------------------------------------------/
+
+      showApartmentDetails(apart) {
+        // console.log(apart)
+        store.apartmentDetails = apart
+        this.$router.push({ name: 'apartment', params: { slug: apart.slug } });
+      },
 
     }, // close methods
 
@@ -202,20 +239,26 @@ export default {
 
               <button
               @click="initializeMap()"
-              class="src_typ_btn">
+              class="src_typ_btn"
+              :class="(store.advSrcRequest.type === 'adv') ? 'active' : '' "
+              >
                 <span>Ricerca Avanzata</span>
               </button>
 
               <button
               @click="initializeMapDrawing()"
-              class="src_typ_btn">
+              class="src_typ_btn"
+              :class="(store.advSrcRequest.type === 'drv') ? 'active' : '' "
+              >
                 <span>Disegna Sulla Mappa</span>
               </button>
 
               <button
               @click="serviceSearch()"
-              class="src_typ_btn">
-                <span>service search</span>
+              class="src_typ_btn"
+              :class="(store.advSrcRequest.type === 'srv-only') ? 'active' : '' "
+              >
+                <span>service only search</span>
               </button>
 
             </div>
@@ -346,10 +389,12 @@ export default {
       <!-- ---------------search-filter -----------------------------------------------/-->
 
       <!-- ---------------result ------------------------------------------------------\-->
-      <div v-if="load" class="container py-5 d-flex flex-wrap justify-content-between">
+      <div v-if="store.load" class="container py-5 d-flex flex-wrap justify-content-between">
 
           <ApartmentCard v-for="apart in store.apartmentsfiltred" :key="apart.id"
           :apartmentData="apart"
+          @apartmentSelected="showApartmentDetails(apart)"
+          @click="showApartmentDetails(apart)"
           />
 
       </div>
@@ -400,6 +445,9 @@ export default {
   &:active {
     position:relative;
     top:1px;
+  }
+  &.active{
+    border: 2px solid black;
   }
 }
 

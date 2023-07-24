@@ -48,6 +48,8 @@ export const store = reactive ({
     [12.51686, 41.9107 ],
   ],
 
+  load : false,
+
   advSrcRequest: {
 
     type: 'adv', //or drv
@@ -58,6 +60,7 @@ export const store = reactive ({
     beds: 1,
     bathrooms: 1,
     servicesChecked: [false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,],
+    services: [],
     coord:[
       [ 11.166504901180673, 43.74673562381395  ],
       [ 11.160517660159542, 43.72833625965026  ],

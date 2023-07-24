@@ -17,7 +17,7 @@ export default {
   methods :{
 
     searchByRange(){
-        this.load = false;
+        store.load = false;
         let data = {
           longitude : store.cord[0],
           latitude : store.cord[1],
@@ -28,7 +28,7 @@ export default {
         .then(result =>{
           console.log('risultato ===>',result);
           store.apartmentsfiltred = result.data.apartments.data
-          this.load = true;
+          store.load = true;
           this.$router.push({ name: 'advancedSearch' });
         }).catch(error => {
           console.log('Errori ===>',error)

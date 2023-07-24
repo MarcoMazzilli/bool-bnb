@@ -29,19 +29,13 @@ function  convertAddress(address){
 
 
 function findServices(data){
-
-  // let data = {
-  //   services : [1,2,5,7,8],
-
-  // }
-
+  store.load = false;
   // -------- chiamata
   axios.post(store.apiHostUrl + store.findServices , data)
   .then(result =>{
     console.log('risultato ===>',result.data.apartments);
-    // store.apartmentsfiltred = result.data.apartments.data;
-
-
+    store.apartmentsfiltred = result.data.apartments;
+    store.load = true;
   })
   .catch(error => { console.log(store.apiHostUrl + store.findServices )})
 }
