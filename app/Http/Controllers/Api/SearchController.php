@@ -19,6 +19,9 @@ class SearchController extends Controller
     $latitude = $data['latitude'];
     $radius = $data['radius']; // Raggio in chilometri
     $services = $data['services'];
+    $beds = $data['beds'];
+    $bathrooms = $data['bathrooms'];
+    $size = $data['size'];
 
 
       //Se arriva faccio un controllo sullla lunghezza, e se maggiore di 0 applico la logica
@@ -31,6 +34,9 @@ class SearchController extends Controller
           DB::raw("ST_X(coordinate) as longitude"),
           DB::raw("ST_Distance_Sphere(point(ST_X(coordinate), ST_Y(coordinate)), point($longitude, $latitude)) / 1000 as distance")
         ])
+          ->where('n_of_bed', '>=', $beds)
+          ->where('n_of_bathroom' ,'>=', $bathrooms )
+          ->where('apartment_size' ,'>=', $size)
           ->with('services', 'sponsorships')
           ->having('distance', '<=', $radius)
           ->whereHas('services', function (Builder $query) use ($services) {
@@ -46,9 +52,11 @@ class SearchController extends Controller
         DB::raw("ST_Y(coordinate) as latitude"),
         DB::raw("ST_X(coordinate) as longitude"),
         DB::raw("ST_Distance_Sphere(point(ST_X(coordinate), ST_Y(coordinate)), point($longitude, $latitude)) / 1000 as distance")
-      ])
-        ->with('services', 'sponsorships')
+        ])
         ->having('distance', '<=', $radius)
+        ->where('n_of_bed', '>=', $beds)
+        ->where('n_of_bathroom' ,'>=', $bathrooms )
+        ->where('apartment_size' ,'>=', $size)
         ->orderBy('distance')
         ->paginate(3);
     }
