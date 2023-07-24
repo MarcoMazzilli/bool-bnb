@@ -54,16 +54,16 @@ class SearchController extends Controller
     return response()->json(compact('filteredApartments'));
   }
 
-  public function searchByServices($id){
+  public function searchByServices($services){
 
     $apartments = Apartment::select([
       'id','user_id','name','slug','description','slug','cover_image','address','address_info','price','n_of_bed','n_of_room','n_of_bathroom','apartment_size','type','created_at',
     DB::raw("ST_X(coordinate) as latitude"),
     DB::raw("ST_Y(coordinate) as longitude")])
     ->with('services', 'sponsorships')
-    ->whereHas('services', function(Builder $query)use($id){
-      $query->where('service_id', $id);
-    })->paginate(3);
+    ->whereHas('services', function(Builder $query) use ($services){
+      $query->whereIn('service_id', $services);
+    },'=', count($services))->get();
 
     return response()->json(compact('apartments'));
   }
