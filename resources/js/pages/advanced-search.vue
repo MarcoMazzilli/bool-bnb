@@ -6,7 +6,7 @@ import DrawingTools from '@tomtom-international/web-sdk-plugin-drawingtools';
 
 import axios from 'axios';
 import {store} from '../../data/store';
-import {getCordianates,findServices, requestCompiler,  searchByRange} from '../function/basicCall';
+import {getCordianates,findServices, requestCompiler,  searchByRange, getMarkers} from '../function/basicCall';
 import ApartmentCard from '../components/apartmentCard.vue';
 
 /**
@@ -51,7 +51,14 @@ export default {
             store.cord = store.newCenter;
             this.updateMapCenter();
           }
-      }
+      },
+      'store.fakePoints'(neww, old) {
+          if (neww != old) {
+            console.log('WATCH : centro mappa cambiato --->');
+            store.cord = store.newCenter;
+            this.initializeMap();
+          }
+      },
 
     }, // close watch
 
@@ -118,18 +125,17 @@ export default {
         this.advToggle ? this.advToggle = false : this.advToggle = true;
         console.log(this.advToggle);
       },
+      serviceSearch(){
+        store.advSrcRequest.type='srv-only';
+      },
 
       mapCenter(){
         console.log(this.address);
         getCordianates(this.address);
       },
 
-      serviceSearch(){
-        store.advSrcRequest.type='srv-only';
-      },
-
-
       // tomtom map----------------------------------------------------------------\
+
       initializeMap() {
         store.advSrcRequest.type='adv';
         // se arrivi direttamente in advanced search allora centra la mappa su Roma
@@ -152,7 +158,7 @@ export default {
         animate: true, // nada--- :'(
         });
 
-        // map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.FullscreenControl());
         map.addControl(new tt.NavigationControl());
 
         map.on('load', () => {
@@ -227,6 +233,7 @@ export default {
     mounted(){
         console.log('Advanced Search!');
         this.initializeMap();
+        getMarkers();
     } // close mounted
 }
 </script>

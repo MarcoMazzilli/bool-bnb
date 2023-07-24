@@ -24,6 +24,7 @@ Route::namespace('Api')
         ->prefix('apartment')
         ->group(function(){
             Route::get('/', [ApartmentController::class, 'index' ]);
+            Route::get('/markers', [ApartmentController::class, 'getCoordinates' ]);
           });
 
 

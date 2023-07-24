@@ -1,6 +1,6 @@
 import {store} from '../../data/store';
 import axios from 'axios';
-export {getCordianates, requestCompiler, findServices,  searchByRange};
+export {getCordianates, requestCompiler, findServices,  searchByRange, getMarkers};
 
 
 
@@ -16,6 +16,13 @@ function  searchByRange(data){
 
   }).catch(error => {
     console.log('Errori ===>',error)
+  })
+}
+function getMarkers(){
+  axios.get('http://127.0.0.1:8000/api/apartment/markers')
+  .then(result =>{
+    console.log('risultato ===>',result.data.coordinates);
+    store.fakePoints = result.data.coordinates;
   })
 }
 

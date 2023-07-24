@@ -22,27 +22,36 @@ class ApartmentController extends Controller
       DB::raw("ST_Y(coordinate) as longitude")])
       ->paginate(3);
 
+
+
         return response()->json(compact('apartments'));
     }
 
 
 
-}
-      //   // -----------------------------------------------------apartmentsWithoutCoord
+    //   // -----------------------------------------------------apartmentsWithoutCoord
 
-      //   $apartmentsWithoutCoord = Apartment::all()
-      //   ->map(function ($apartment) {
+    //   $apartmentsWithoutCoord = Apartment::all()
+    //   ->map(function ($apartment) {
       //     return collect($apartment)->except(['coordinate']);
       // });
 
       // // ------------------------------------------------------------------coordinates
+      public function getCoordinates(){
+        $coordinates = Apartment::select([DB::raw("ST_AsText(coordinate) as coordinate")])
+        ->get()
+        ->map(function ($apartment) {
+          $coordinates = sscanf($apartment->coordinate, 'POINT(%f %f)');
+          $apartment->coordinate = [
+            'longitude' => $coordinates[0],
+            'latitude' => $coordinates[1]
+          ];
+          return $coordinates;});
 
-      //   $coordinates = Apartment::select([DB::raw("ST_AsText(coordinate) as coordinate")])
-      //   ->get()
-      //   ->map(function ($apartment) {
-      //     $coordinates = sscanf($apartment->coordinate, 'POINT(%f %f)');
-      //     $apartment->coordinate = [
-      //         'longitude' => $coordinates[0],
-      //         'latitude' => $coordinates[1]
-      //     ];
-      //     return $coordinates;});
+          return response()->json(compact('coordinates'));
+        }
+
+
+
+
+}

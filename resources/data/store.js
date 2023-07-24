@@ -37,15 +37,6 @@ export const store = reactive ({
   newCenter: [],
   fakePoints: [
     [12.46341, 41.90575 ],
-    [12.52818, 41.87445],
-    [12.52818, 41.87445 ],
-    [12.60374, 41.83681  ],
-    [12.61035, 41.84173 ],
-    [12.44107, 41.77731 ],
-    [12.50371, 41.8923  ],
-    [12.46314, 41.86185 ],
-    [12.49568, 41.86708 ],
-    [12.51686, 41.9107 ],
   ],
 
   load : false,
@@ -55,7 +46,7 @@ export const store = reactive ({
     type: 'adv', //or drv
     // priceRange: [20,160],
     radius: 20,
-    size: 40,
+    size: 15,
     rooms: 1,
     beds: 1,
     bathrooms: 1,
