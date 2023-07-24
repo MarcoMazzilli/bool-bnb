@@ -98,14 +98,16 @@ export default {
 
         }
 
-
-
-
-
-
-
-
       },
+
+      // per il paginate di una chiamata post devi riaggiungere la request!!!
+      navigateApartmentResults(url){
+      axios.post(url, store.advSrcRequest )
+        .then(result =>{
+          console.log(result.data);
+          store.apartmentsfiltred = result.data.apartments.data;
+      })
+    },
 
       test(){
         console.log(store.advSrcRequest.radius);
@@ -410,16 +412,32 @@ export default {
       </div>
       <!-- ---------------search-filter -----------------------------------------------/-->
 
-      <!-- ---------------result ------------------------------------------------------\-->
-      <div v-if="store.load" class="container py-5 d-flex flex-wrap justify-content-between">
+      <!-- ---------------result
+        ------------------------------------------------------\-->
 
-          <ApartmentCard v-for="apart in store.apartmentsfiltred" :key="apart.id"
-          :apartmentData="apart"
-          @apartmentSelected="showApartmentDetails(apart)"
-          @click="showApartmentDetails(apart)"
-          />
 
-      </div>
+        <div v-if="store.pagination.current_page" class="container py-1 d-flex flex-wrap justify-content-between">
+
+          <button v-for="(link, index) in store.pagination.links" :key="index"
+          @click=" navigateApartmentResults(link.url)"
+          v-show="(link.url != null)"
+          style="height: 20px; font-size: 0.6rem;"
+          >
+          page {{link.label}}
+          </button>
+
+        </div>
+
+        <div v-if="store.load" class="container py-5 d-flex flex-wrap justify-content-between">
+
+            <ApartmentCard v-for="apart in store.apartmentsfiltred" :key="apart.id"
+            v
+            :apartmentData="apart"
+            @apartmentSelected="showApartmentDetails(apart)"
+            @click="showApartmentDetails(apart)"
+            />
+
+        </div>
 
       <!-- <div v-if="load" class="container py-5 d-flex flex-wrap justify-content-between">
         <ApartmentCard v-for="apart in store.apartmentsfiltred" :key="apart.id" :apartmentData="apart"

@@ -10,10 +10,19 @@ function  searchByRange(data){
 
   axios.post('http://127.0.0.1:8000/api/find/location', data)
   .then(result =>{
-    console.log('risultato ===>',result);
-    store.apartmentsfiltred = result.data.apartments.data
-    store.load = true;
+    console.log('risultato ===>',result.data);
+    store.apartmentsfiltred = result.data.apartments.data;
 
+    store.pagination.current_page = result.data.apartments.current_page;
+    store.pagination.first_page_url = result.data.apartments.first_page_url;
+    store.pagination.last_page_url = result.data.apartments.last_page_url;
+    store.pagination.links = result.data.apartments.links;
+    store.pagination.total = result.data.apartments.total;
+    store.pagination.next_page_url = result.data.apartments.next_page_url;
+    store.pagination.prev_page_url = result.data.apartments.prev_page_url;
+
+    console.warn(store.pagination);
+    store.load = true;
   }).catch(error => {
     console.log('Errori ===>',error)
   })
