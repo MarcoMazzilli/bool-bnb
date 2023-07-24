@@ -44,6 +44,16 @@
                 </a>
             </li>
             @endif
+
+            @if (Auth::user()->apartments->count())
+            <li class="nav-item {{ Route::currentRouteName() === 'admin.apartments.service-apartments' ? 'active' : '' }}" title="Sponsorship">
+                <a class="nav-link" href="{{ route('sponsorship') }}">
+                    <span class="d-none d-md-block">Sponsorships</span>
+                    <i class="fa-solid fa-inbox d-md-none"></i>
+                </a>
+            </li>
+            @endif
+
         </ul>
     </div>
 

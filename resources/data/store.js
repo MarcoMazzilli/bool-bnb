@@ -1,8 +1,8 @@
 import {reactive} from 'vue';
-// import config2 from './config2';
+import config2 from './config2';
 
 export const store = reactive ({
-  apiKey : 'Pw0ntF4ozGmYSW0Anxs8jpjCHUnPOPJT',
+  apiKey : config2.apiKey,
 
   apiHostUrl : 'http://127.0.0.1:8000/api',
   getTpartments : '/apartment',

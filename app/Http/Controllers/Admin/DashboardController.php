@@ -59,4 +59,8 @@ class DashboardController extends Controller
 
     return view('admin.home', compact('apartmentsCount','countTypeOfSponsor','SponsoredApartmentsCount'));
   }
+
+  public function getSponsorship(){
+    return view('admin.apartments.apartment-sponsorship');
+  }
 }
