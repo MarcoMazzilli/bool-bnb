@@ -61,8 +61,8 @@ export default {
           // service ricerca avanzata -------------------------
           console.log(store.cord)
           store.advSrcRequest.coord = [[store.cord]];
-          store.advSrcRequest.longitude = store.cord[0];
-          store.advSrcRequest.latitude = store.cord[1];
+          store.advSrcRequest.longitude = store.newCenter[0];
+          store.advSrcRequest.latitude = store.newCenter[1];
           this.compileServiceIndex();
           let data = store.advSrcRequest;
           console.log('ricerca avanzata', store.advSrcRequest );
@@ -135,6 +135,7 @@ export default {
         // se arrivi direttamente in advanced search allora centra la mappa su Roma
         if(!store.cord){
           this.center = [12.49427, 41.89056];
+          store.newCenter = [12.49427, 41.89056];
         }
 
         // reset dom---

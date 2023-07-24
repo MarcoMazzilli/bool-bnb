@@ -59,7 +59,7 @@ export const store = reactive ({
     rooms: 1,
     beds: 1,
     bathrooms: 1,
-    servicesChecked: [false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,],
+    servicesChecked: [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,],
     services: [],
     longitude : false,
     latitude : false,
