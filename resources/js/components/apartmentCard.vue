@@ -40,6 +40,14 @@ export default {
                     <p class="card-text m-0">{{apartmentData.description}}</p>
 
                     <p class="card-text m-0"><b>{{apartmentData.price}}€</b> a notte</p>
+                    {{apartmentData.n_of_bed}}
+                    <i class="fa-solid fa-bed"></i>
+                    {{apartmentData.n_of_bathroom}}
+                    <i class="fa-solid fa-shower"></i>
+                    {{apartmentData.n_of_room}}
+                    <i class="fa-solid fa-building"></i>
+                    {{apartmentData.apartment_size + ' ' +'m²'}}
+                    <!-- <i class="fa-regular fa-square"></i> -->
                 </div>
 
         </div>

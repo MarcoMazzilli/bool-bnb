@@ -20,6 +20,7 @@ class SearchController extends Controller
     $radius = $data['radius']; // Raggio in chilometri
     $services = $data['services'];
     $beds = $data['beds'];
+    $rooms = $data['rooms'];
     $bathrooms = $data['bathrooms'];
     $size = $data['size'];
 
@@ -37,13 +38,14 @@ class SearchController extends Controller
           ->where('n_of_bed', '>=', $beds)
           ->where('n_of_bathroom' ,'>=', $bathrooms )
           ->where('apartment_size' ,'>=', $size)
+          ->where('n_of_room' ,'>=', $rooms)
           ->with('services', 'sponsorships')
           ->having('distance', '<=', $radius)
           ->whereHas('services', function (Builder $query) use ($services) {
             $query->whereIn('service_id', $services);
           }, '=', count($services))
           ->orderBy('distance')
-          ->paginate(3);
+          ->paginate(20);
       }else {
       $apartments = Apartment::select([
         'id', 'user_id', 'name', 'slug', 'description', 'cover_image',
@@ -57,8 +59,9 @@ class SearchController extends Controller
         ->where('n_of_bed', '>=', $beds)
         ->where('n_of_bathroom' ,'>=', $bathrooms )
         ->where('apartment_size' ,'>=', $size)
+        ->where('n_of_room' ,'>=', $rooms)
         ->orderBy('distance')
-        ->paginate(3);
+        ->paginate(20);
     }
 
 

@@ -24,6 +24,15 @@ export const store = reactive ({
   homeStored: false,
   apartmentDetails : null,
   // search page ---------------------------------------------------\
+  pagination : {
+    current_page: false,
+    first_page_url: false,
+    last_page_url: false,
+    links: [],
+    next_page_url: false,
+    prev_page_url:false,
+    total:false,
+  },
   apartmentsfiltred: [],
   services:[
             'Piscina','Parcheggio gratuito nella proprietà','Cucina','Wi-Fi',
