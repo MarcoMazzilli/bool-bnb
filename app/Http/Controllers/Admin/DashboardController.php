@@ -61,6 +61,11 @@ class DashboardController extends Controller
   }
 
   public function getSponsorship(){
-    return view('admin.apartments.apartment-sponsorship');
+
+    $apartments = Apartment::where('user_id' , Auth::id())->get(['id','name','address']);
+
+    $sponsorships = Sponsorship::all();
+
+    return view('admin.apartments.apartment-sponsorship',compact( 'apartments','sponsorships'));
   }
 }
