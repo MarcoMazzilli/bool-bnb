@@ -17,7 +17,7 @@ export default {
 <template>
 
     <Header  />
-    <DebHeader  />
+    <!-- <DebHeader  /> -->
 
     <!--caricamento pagine virtuali  -->
     <router-view v-slot="{Component}">

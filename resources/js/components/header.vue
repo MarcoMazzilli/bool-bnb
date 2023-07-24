@@ -18,16 +18,12 @@ export default {
 
     searchByRange(){
         store.load = false;
-        let data = {
-          longitude : store.cord[0],
-          latitude : store.cord[1],
-          radius : 200,
-          services : []
-        }
+        let data = store.advSrcRequest;
+        console.log(data);
         axios.post('http://127.0.0.1:8000/api/find/location', data)
         .then(result =>{
           console.log('risultato ===>',result);
-          store.apartmentsfiltred = result.data.apartments.data
+          store.apartmentsfiltred = result.data.apartments.data;
           store.load = true;
           this.$router.push({ name: 'advancedSearch' });
         }).catch(error => {
@@ -42,8 +38,9 @@ export default {
     axios.get(store.TomtomBaseUrl + store.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + store.queryType + store.apiKey)
     .then(result =>{
       // console.log(result.data.results[0].position);
-      this.cordinates = result.data.results[0].position;
-      store.cord = [this.cordinates.lon , this.cordinates.lat ];
+      store.advSrcRequest.cordinates = result.data.results[0].position;
+      store.advSrcRequest.longitude = store.advSrcRequest.cordinates.lon;
+      store.advSrcRequest.latitude = store.advSrcRequest.cordinates.lat;
       console.log('store cord', store.cord )
       this.jsonLink = this.TomtomBaseUrl + this.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + this.queryType + this.apiKey;
       this.searchByRange();
@@ -80,9 +77,11 @@ export default {
       <div class="row d-flex align-items-center h-100">
 
         <div class="col col-2 d-none d-sm-block h-100">
-          <a href="/" class="h-100 logo">
+          <!-- <a href="/" class="h-100 logo"> -->
+            <router-link :to="{name: 'home' }" class=" h-100 logo" >
             <img class="h-100" src="/img/boolbnb-sfondo-trasparente.png" alt="">
-          </a>
+          </router-link>
+          <!-- </a> -->
         </div>
 
         <div class="col col-11 col-sm-9 col-lg-8">

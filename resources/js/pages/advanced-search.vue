@@ -44,6 +44,12 @@ export default {
     components:{ApartmentCard}, // close components
 
     watch: {
+      'store.advSrcRequest.cordinates'(n , o){
+          if(n != o){
+            store.newCenter = store.advSrcRequest.cordinates;
+            console.warn('watch')
+          }
+      },
 
       'store.newCenter'(newnewCenter, oldnewCenter) {
           if (newnewCenter != oldnewCenter) {
