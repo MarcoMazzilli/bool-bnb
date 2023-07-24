@@ -6,7 +6,7 @@ import DrawingTools from '@tomtom-international/web-sdk-plugin-drawingtools';
 
 import axios from 'axios';
 import {store} from '../../data/store';
-import {getCordianates, requestCompiler} from '../function/basicCall';
+import {getCordianates,findServices, requestCompiler} from '../function/basicCall';
 import ApartmentCard from '../components/apartmentCard.vue';
 
 /**
@@ -57,7 +57,9 @@ export default {
 
     methods :{
       advancedSearch(){
-        console.log('ricerca avanzata', store.advSrcRequest )
+        console.log('ricerca avanzata', store.advSrcRequest );
+        let data = {services:[1,2,5,7]};
+        findServices(data);
         if(store.advSrcRequest.type === 'adv'){
           store.advSrcRequest.coord = [[store.cord]]
         }
@@ -83,12 +85,11 @@ export default {
         getCordianates(this.address);
       },
 
-      filterByService() {
-      axios.get('http://127.0.0.1:8000/api/find/services/' + this.servicesToSearch)
-        .then(result => {
-          console.log('======> filterByService', result.data.apartments);
-        })
-    },
+
+      serviceSearch(){
+        store.advSrcRequest.type='srv-only';
+      },
+
 
       // tomtom map----------------------------------------------------------------\
       initializeMap() {
@@ -209,6 +210,12 @@ export default {
               @click="initializeMapDrawing()"
               class="src_typ_btn">
                 <span>Disegna Sulla Mappa</span>
+              </button>
+
+              <button
+              @click="serviceSearch()"
+              class="src_typ_btn">
+                <span>service search</span>
               </button>
 
             </div>
@@ -338,7 +345,6 @@ export default {
       </div>
       <!-- ---------------search-filter -----------------------------------------------/-->
 
-      <div @click="filterByService()" class="btn btn-danger">Da inserire un ciclo dei servizi offerti (passare in compact dal db)</div>
       <!-- ---------------result ------------------------------------------------------\-->
       <div v-if="load" class="container py-5 d-flex flex-wrap justify-content-between">
 

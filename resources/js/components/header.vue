@@ -25,8 +25,8 @@ export default {
         }
         axios.post('http://127.0.0.1:8000/api/find/location', data)
         .then(result =>{
-          console.log('risultato ===>',result.data.filteredApartments);
-          store.apartmentsfiltred = result.data.filteredApartments;
+          console.log('risultato ===>',result.data.apartments.data);
+          store.apartmentsfiltred = result.data.apartments.data
           this.load = true;
           this.$router.push({ name: 'advancedSearch' });
         }).catch(error => {

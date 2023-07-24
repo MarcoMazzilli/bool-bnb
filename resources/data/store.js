@@ -6,6 +6,9 @@ export const store = reactive ({
 
   apiHostUrl : 'http://127.0.0.1:8000/api',
   getTpartments : '/apartment',
+  findLocation: '/find/location',
+  findServices: '/find/services',
+
 
   TomtomBaseUrl:'https://api.tomtom.com/',
   apiUrlSearchAddress: 'search/2/geocode/',

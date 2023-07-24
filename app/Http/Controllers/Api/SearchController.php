@@ -35,7 +35,10 @@ class SearchController extends Controller
     return response()->json(compact('apartments'));
 }
 
-  public function searchByServices($services){
+  public function searchByServices(Request $request){
+    $data = $request->all();
+
+    $services = $data['services'];
     $apartments = Apartment::select([
       'id','user_id','name','slug','description','slug','cover_image','address','address_info','price','n_of_bed','n_of_room','n_of_bathroom','apartment_size','type','created_at',
     DB::raw("ST_X(coordinate) as latitude"),

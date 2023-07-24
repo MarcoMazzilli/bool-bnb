@@ -1,6 +1,6 @@
 import {store} from '../../data/store';
 import axios from 'axios';
-export {getCordianates, requestCompiler};
+export {getCordianates, requestCompiler, findServices};
 
 
 
@@ -26,6 +26,27 @@ function  convertAddress(address){
     // console.log(converted);
     return converted;
 }
+
+
+function findServices(data){
+
+  // let data = {
+  //   services : [1,2,5,7,8],
+
+  // }
+
+  // -------- chiamata
+  axios.post(store.apiHostUrl + store.findServices , data)
+  .then(result =>{
+    console.log('risultato ===>',result.data.apartments);
+    // store.apartmentsfiltred = result.data.apartments.data;
+
+
+  })
+  .catch(error => { console.log(store.apiHostUrl + store.findServices )})
+}
+
+
 
 // ----------------adv search call
 function requestCompiler(){
