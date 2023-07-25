@@ -68,7 +68,8 @@ export const store = reactive ({
     latitude : false,
     coord:[
       [ 11.166504901180673, 43.74673562381395  ],
-    ]
+    ],
+    address: false,
 
   },
   lastRequest : false,

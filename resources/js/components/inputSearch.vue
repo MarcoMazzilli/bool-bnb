@@ -15,7 +15,7 @@ export default {
   methods :{
 
     search(){
-
+    store.advSrcRequest.address = this.indirizzo;
     console.log(store.TomtomBaseUrl + store.apiUrlSearchAddress + convertAddress(this.indirizzo) + store.queryType + this.apiKey);
     // -------- chiamata centratura mappa
       axios.get(store.TomtomBaseUrl + store.apiUrlSearchAddress + convertAddress(this.indirizzo) + store.queryType + store.apiKey)
