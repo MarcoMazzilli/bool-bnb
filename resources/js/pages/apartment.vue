@@ -23,24 +23,60 @@ export default {
 </script>
 
 <template>
-    <div class="apartment_container container py-5" id="apartment-page">
+    <div class="container py-3" id="apartment-page">
 
-      <div class="card" style="width: 22rem; ">
-        <div class="">
-                <h4>{{ apartment.name }}</h4>
-                <p class="card-text m-0"><b>{{ apartment.address }}</b></p>
-                <span><i class="fa-solid fa-star"></i> 5,0</span>
-          </div>
+      <!--Titolo -->
+      <div class="">
+        <h4>{{ apartment.name }}</h4>
+        <span><i class="fa-solid fa-star"></i> 5,0</span>
+        <span class="card-text mx-2"><b>{{ apartment.address }}</b></span>
+      </div>
+
+      <div class="row">
 
         <!-- Immagine -->
-        <img :src="'/storage/' + apartment.cover_image" class="card-img-top" alt="" style="width: 22rem;">
+        <div class="col col-7 ">
 
-        <!-- Testo -->
-        <div class="card-body">
-            <p class="card-text m-0">{{ apartment.description }}</p>
-            <p class="card-text m-0"><b>{{ apartment.price }} €</b> a notte</p>
+          <div class="swiper py-3">
 
+            <img :src="'/storage/' + apartment.cover_image" alt="">
+
+          </div>
         </div>
+
+        <!-- mappa -->
+        <div class="col col-5">
+
+          <!-- da mettere sotto -->
+
+          <div id="mountMap" class="bg-info">
+              <!-- <div class="map" id="map" ref="mapRef">MAPPA</div> -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Testo -->
+      <div class="info">
+          <p class="">{{ apartment.description }}</p>
+          <p class=""><b>{{ apartment.price }} €</b> a notte</p>
+      </div>
+
+      <div class="">
+        <form action="">
+
+          <!-- nome, cognome, email.messaggio -->
+
+          <label for="descrizione" class="form-label">Invia un messaggio</label>
+          <textarea
+            name="description"
+            id="description"
+            class="form-control"
+            placeholder="Inserisci un messaggio"
+            cols="30"
+            rows="10"></textarea>
+
+        </form>
       </div>
 
     </div>
@@ -49,22 +85,10 @@ export default {
 <style lang="scss" scoped>
 @use '../../scss/var' as *;
 
-.card{
-    border: none;
-
-    .card-body{
-        padding-left: 0;
-        padding-right: 0;
-
-        & h4{
-          font-weight: bold;
-        }
-    }
-}
 img{
     border-radius: 10px;
     height: 300px;
-    padding: 0;
+    width: 500px;
 }
 
 </style>
