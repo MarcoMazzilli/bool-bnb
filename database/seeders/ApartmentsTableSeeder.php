@@ -45,8 +45,9 @@ class ApartmentsTableSeeder extends Seeder
           $new_apartment->name = $apartment['name'];
           $new_apartment->slug = CustomHelper::generateUniqueSlug($apartment['name'], new Apartment());
           $new_apartment->description = $apartment['description'];
-          // $new_apartment->cover_image = $apartment['cover_image']; TODO: provvisorio
-          $new_apartment->cover_image = "seeder-img/" . rand(1,20) .  ".jpg";
+          $new_apartment->cover_image = $apartment['cover_image'];
+          //  TODO: provvisorio
+          // $new_apartment->cover_image = "seeder-img/" . rand(1,20) .  ".jpg";
           $new_apartment->address = $apartment['address'];
           $new_apartment->address_info = $apartment['address_info'];
 
