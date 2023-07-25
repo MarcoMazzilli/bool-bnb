@@ -19,6 +19,7 @@ export default {
       console.log('indirizzo vuoto');
       this.indirizzo = 'Roma';
     }
+
     store.advSrcRequest.address = this.indirizzo;
     console.log(store.TomtomBaseUrl + store.apiUrlSearchAddress + convertAddress(this.indirizzo) + store.queryType + this.apiKey);
     // -------- chiamata centratura mappa
@@ -33,10 +34,16 @@ export default {
         console.warn(error);
       })
     },
+
+    updateAddress(){
+      if(store.lastRequest){
+      this.indirizzo =  store.lastRequest.address;
+    }
+    }
   },
 
   mounted(){
-
+    this.updateAddress();
   }
 
 }
