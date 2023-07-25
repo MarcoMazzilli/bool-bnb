@@ -30,7 +30,7 @@ function advancedSearch(){
 function searchByRange(data){
   console.warn('src by range')
   store.load = false;
-  store.lastRequest = JSON.parse(JSON.stringify(store.advSrcRequest));
+  store.lastRequest = JSON.parse(JSON.stringify(data));
   console.log('search store.lastRequest', store.lastRequest );
   axios.post(store.apiHostUrl + store.findLocation, data)
   .then(result =>{

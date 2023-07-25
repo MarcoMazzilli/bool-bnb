@@ -90,7 +90,8 @@ export const store = reactive ({
     services: [],
     longitude : 12.49427,
     latitude : 41.89056,
-    coord:[[]]
+    coord:[[]],
+    address: 'Roma',
   },
 
   MilanoRequest: {
@@ -105,7 +106,8 @@ export const store = reactive ({
     services: [],
     longitude : 9.18812,
     latitude : 45.46362,
-    coord:[[]]
+    coord:[[]],
+    address: 'Milano',
   },
 
   NapoliRequest: {
@@ -120,7 +122,8 @@ export const store = reactive ({
     services: [],
     longitude : 14.25254,
     latitude : 	40.83998,
-    coord:[ []]
+    coord:[[]],
+    address: 'Napoli',
   },
 
   RiminiRequest: {
@@ -135,7 +138,8 @@ export const store = reactive ({
     services: [],
     longitude : 12.5663,
     latitude : 44.06092,
-    coord:[[]]
+    coord:[[]],
+    address: 'Rimini',
   },
 
   FirenzeRequest: {
@@ -150,7 +154,8 @@ export const store = reactive ({
     services: [],
     longitude : 11.25693,
     latitude : 43.7687,
-    coord:[[]]
+    coord:[[]],
+    address: 'Firenze',
   },
 })
 

@@ -1,6 +1,7 @@
 <script>
 import {store} from '../../data/store';
 import axios from 'axios';
+import {searchByRange} from '../function/basicCall';
 
 export default {
   name: 'Destinations',
@@ -9,6 +10,15 @@ export default {
       store,
     }
   },
+
+  watch:{
+    'store.lastRequest'(n,o){
+      if(n != o){
+        this.$router.push({ name: 'advancedSearch' });
+      }
+    }
+  },
+
   methods: {
 
     handleDestinationClick(destination) {
@@ -36,18 +46,7 @@ export default {
     },
 
     makeRequest(request) {
-      console.log('ooooooooo');
-      axios.post('http://127.0.0.1:8000/api/find/location', request)
-      .then(result =>{
-          console.log('risultato ===>',result);
-          store.apartmentsfiltred = result.data.apartments.data;
-          store.load = true;
-          this.$router.push({ name: 'advancedSearch' });
-        }).catch(error => {
-          console.log('Errori ===>',error)
-        })
-      console.log(request);
-
+      searchByRange(request);
     }
   }
 }
