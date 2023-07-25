@@ -73,8 +73,85 @@ export const store = reactive ({
       [ 11.166504901180673, 43.74673562381395  ],
     ]
 
-  }
+  },
 
 
   // search page ---------------------------------------------------/
+
+  RomaRequest: {
+
+    type: 'adv', //or drv
+    // priceRange: [20,160],
+    radius: 30,
+    size: 15,
+    rooms: 1,
+    beds: 1,
+    bathrooms: 1,
+    services: [],
+    longitude : 12.49427,
+    latitude : 41.89056,
+    coord:[[]]
+  },
+
+  MilanoRequest: {
+
+    type: 'adv', //or drv
+    // priceRange: [20,160],
+    radius: 30,
+    size: 15,
+    rooms: 1,
+    beds: 1,
+    bathrooms: 1,
+    services: [],
+    longitude : 9.18812,
+    latitude : 45.46362,
+    coord:[[]]
+  },
+
+  NapoliRequest: {
+
+    type: 'adv', //or drv
+    // priceRange: [20,160],
+    radius: 30,
+    size: 15,
+    rooms: 1,
+    beds: 1,
+    bathrooms: 1,
+    services: [],
+    longitude : 14.25254,
+    latitude : 	40.83998,
+    coord:[ []]
+  },
+
+  RiminiRequest: {
+
+    type: 'adv', //or drv
+    // priceRange: [20,160],
+    radius: 30,
+    size: 15,
+    rooms: 1,
+    beds: 1,
+    bathrooms: 1,
+    services: [],
+    longitude : 12.5663,
+    latitude : 44.06092,
+    coord:[[]]
+  },
+
+  FirenzeRequest: {
+
+    type: 'adv', //or drv
+    // priceRange: [20,160],
+    radius: 30,
+    size: 15,
+    rooms: 1,
+    beds: 1,
+    bathrooms: 1,
+    services: [],
+    longitude : 11.25693,
+    latitude : 43.7687,
+    coord:[[]]
+  },
 })
+
+
