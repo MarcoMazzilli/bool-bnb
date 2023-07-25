@@ -20,7 +20,7 @@ class ApartmentController extends Controller
         'id','user_id','name','slug','description','slug','cover_image','address','address_info','price','n_of_bed','n_of_room','n_of_bathroom','apartment_size','type','created_at',
       DB::raw("ST_X(coordinate) as latitude"),
       DB::raw("ST_Y(coordinate) as longitude")])
-      ->paginate(3);
+      ->paginate(18);
 
 
 

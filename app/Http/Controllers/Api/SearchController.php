@@ -45,7 +45,7 @@ class SearchController extends Controller
             $query->whereIn('service_id', $services);
           }, '=', count($services))
           ->orderBy('distance')
-          ->paginate(20);
+          ->paginate(18);
       }else {
       $apartments = Apartment::select([
         'id', 'user_id', 'name', 'slug', 'description', 'cover_image',
@@ -61,7 +61,7 @@ class SearchController extends Controller
         ->where('apartment_size' ,'>=', $size)
         ->where('n_of_room' ,'>=', $rooms)
         ->orderBy('distance')
-        ->paginate(20);
+        ->paginate(18);
     }
 
 
