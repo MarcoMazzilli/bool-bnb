@@ -2,8 +2,10 @@
 import { store } from '../../data/store';
 import axios from 'axios';
 import Jumbotron from '../components/jumbotron.vue';
+import Destinations from '../components/destinations.vue';
 import ApartmentCard from '../components/apartmentCard.vue';
 import Apartment from './apartment.vue';
+import { searchByRange } from '../function/basicCall';
 
 import { Button } from 'bootstrap';
 export default {
@@ -17,7 +19,7 @@ export default {
       links : [],
     }
   },
-  components: { Jumbotron, ApartmentCard, Apartment, Button },
+  components: { Jumbotron, ApartmentCard, Apartment, Button, Destinations },
   methods: {
 
     getApartment() {
@@ -32,6 +34,11 @@ export default {
           this.links = result.data.apartments.links;
           console.log('risultati', result.data)
         })
+    },
+
+    Preset(){
+      searchByRange(store.RomaRequest)
+
     },
 
     // oldGetApartment(){
@@ -102,6 +109,8 @@ export default {
 
     </div>
     <!-- /COMPONENTE CARD -->
+
+    <Destinations />
 
   </div>
 </template>
