@@ -12,7 +12,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "trilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -28,7 +28,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "bilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -44,7 +44,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "quadrilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -60,7 +60,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "monolocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -76,7 +76,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "trilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -92,7 +92,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "trilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -108,7 +108,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "quadrilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -124,7 +124,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "bilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -140,7 +140,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "quadrilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -156,7 +156,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "monolocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -172,7 +172,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "trilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -188,7 +188,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "bilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -204,7 +204,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "quadrilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -220,7 +220,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "trilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -236,7 +236,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "monolocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -252,7 +252,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "bilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -268,7 +268,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "trilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -284,7 +284,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "quadrilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -302,7 +302,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "monolocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -318,7 +318,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "bilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -334,7 +334,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Appartamento duplex",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -350,7 +350,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Attico",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -366,7 +366,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Villa",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -382,7 +382,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Loft",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -398,7 +398,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Mansarda",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -414,7 +414,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Rustico",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -430,7 +430,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Quadrilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -446,7 +446,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Studio",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -462,7 +462,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Bungalow",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -478,7 +478,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Chalet",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -494,7 +494,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Trilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -510,7 +510,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Loft",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -526,7 +526,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Trilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -542,7 +542,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Attico",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -558,7 +558,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Appartamento duplex",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -574,7 +574,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Studio",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -590,7 +590,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Monolocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -606,7 +606,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Rustico",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -622,7 +622,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Quadrilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -638,7 +638,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Attico",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -654,7 +654,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Bilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -670,7 +670,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Chalet",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -686,7 +686,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Villa",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -702,7 +702,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Bungalow",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -718,7 +718,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Studio",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -734,7 +734,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Appartamento duplex",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -750,7 +750,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Appartamento duplex",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -766,7 +766,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Monolocale",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -782,7 +782,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Mansarda",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -798,7 +798,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Rustico",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -814,7 +814,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Quadrilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -830,7 +830,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Attico",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -846,7 +846,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Trilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -862,7 +862,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Chalet",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -878,7 +878,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Villa",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -894,7 +894,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Loft",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -910,7 +910,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Studio",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -926,7 +926,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Appartamento duplex",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -942,7 +942,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Appartamento duplex",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -958,7 +958,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Monolocale",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -974,7 +974,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Mansarda",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -990,7 +990,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Rustico",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1006,7 +1006,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Quadrilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1022,7 +1022,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Attico",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -1038,7 +1038,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Trilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1054,7 +1054,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Chalet",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1070,7 +1070,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Villa",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1086,7 +1086,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Loft",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -1102,7 +1102,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Studio",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1118,7 +1118,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Appartamento duplex",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1134,7 +1134,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Appartamento duplex",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1150,7 +1150,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Monolocale",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -1166,7 +1166,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Mansarda",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1182,7 +1182,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Rustico",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1198,7 +1198,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Quadrilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1214,7 +1214,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Attico",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -1230,7 +1230,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Bilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1246,7 +1246,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Rustico",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1262,7 +1262,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Quadrilocale",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1278,7 +1278,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Bungalow",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -1294,7 +1294,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Studio",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1310,7 +1310,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Chalet",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1326,7 +1326,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Villa",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1342,7 +1342,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "Loft",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -1358,7 +1358,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1374,7 +1374,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1391,7 +1391,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1407,7 +1407,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -1423,7 +1423,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1439,7 +1439,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1455,7 +1455,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1471,7 +1471,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -1487,7 +1487,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1503,7 +1503,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1519,7 +1519,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1535,7 +1535,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -1551,7 +1551,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1567,7 +1567,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1583,7 +1583,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1599,7 +1599,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -1615,7 +1615,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1631,7 +1631,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1647,7 +1647,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1663,7 +1663,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -1679,7 +1679,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1695,7 +1695,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1711,7 +1711,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1728,7 +1728,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -1744,7 +1744,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1760,7 +1760,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1776,7 +1776,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1792,7 +1792,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -1808,7 +1808,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1824,7 +1824,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1840,7 +1840,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1856,7 +1856,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -1872,7 +1872,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1888,7 +1888,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1904,7 +1904,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1920,7 +1920,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -1936,7 +1936,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1952,7 +1952,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1968,7 +1968,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -1984,7 +1984,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -2000,7 +2000,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2016,7 +2016,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2032,7 +2032,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2048,7 +2048,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -2064,7 +2064,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2080,7 +2080,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2096,7 +2096,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2112,7 +2112,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -2129,7 +2129,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2145,7 +2145,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2161,7 +2161,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2177,7 +2177,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -2193,7 +2193,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2209,7 +2209,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2225,7 +2225,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2241,7 +2241,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -2257,7 +2257,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2273,7 +2273,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2289,7 +2289,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2305,7 +2305,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -2321,7 +2321,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2337,7 +2337,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2353,7 +2353,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2369,7 +2369,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -2385,7 +2385,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2401,7 +2401,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2417,7 +2417,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2433,7 +2433,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -2449,7 +2449,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2465,7 +2465,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2481,7 +2481,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2497,7 +2497,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -2513,7 +2513,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2529,7 +2529,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2545,7 +2545,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2561,7 +2561,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -2577,7 +2577,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2593,7 +2593,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2609,7 +2609,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2625,7 +2625,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -2641,7 +2641,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2657,7 +2657,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2673,7 +2673,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2689,7 +2689,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -2705,7 +2705,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2721,7 +2721,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2737,7 +2737,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2753,7 +2753,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -2769,7 +2769,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2785,7 +2785,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2801,7 +2801,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2817,7 +2817,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -2833,7 +2833,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2849,7 +2849,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2865,7 +2865,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2881,7 +2881,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
@@ -2898,7 +2898,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2914,7 +2914,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2930,7 +2930,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [rand(1,17)]
@@ -2946,7 +2946,7 @@ return  [
     "n_of_room"=> rand(1,6),
     "n_of_bathroom"=> rand(1,4),
     "apartment_size"=> rand(30,150),
-    "visible"=> false,
+    "visible"=> rand(0,1),
     "type"=> "tipologia_immobile",
     "sponsor" => [rand(1,3)],
     "services"=> [1,2,5,7]
