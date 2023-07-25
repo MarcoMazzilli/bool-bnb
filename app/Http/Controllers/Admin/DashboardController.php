@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Paginate;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
+use Braintree\Gateway;
+use Braintree\ClientTokenGateway;
 
 
 class DashboardController extends Controller
@@ -65,6 +67,7 @@ class DashboardController extends Controller
     $apartments = Apartment::where('user_id' , Auth::id())->get(['id','name','address']);
 
     $sponsorships = Sponsorship::all();
+
 
     return view('admin.apartments.apartment-sponsorship',compact( 'apartments','sponsorships'));
   }
