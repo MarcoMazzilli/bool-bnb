@@ -6,7 +6,7 @@ export default {
     name: 'home',
 
     components:{
-        Header,DebHeader,
+        Header,DebHeader
     },
     methods:{},
     computed:{},
@@ -17,7 +17,6 @@ export default {
 <template>
 
     <Header  />
-    <!-- <DebHeader  /> -->
 
     <!--caricamento pagine virtuali  -->
     <router-view v-slot="{Component}">
