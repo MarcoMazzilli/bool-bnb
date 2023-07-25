@@ -435,7 +435,7 @@ export default {
 
         </div>
 
-        <div v-if="store.load" class="container py-5 d-flex flex-wrap justify-content-between">
+        <div v-if="store.load" class="container py-1 d-flex flex-wrap justify-content-between">
 
             <ApartmentCard v-for="apart in store.apartmentsfiltred" :key="apart.id"
             v

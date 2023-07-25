@@ -7,7 +7,7 @@ import DrawingTools from '@tomtom-international/web-sdk-plugin-drawingtools';
 import axios from 'axios';
 import {store} from '../../data/store';
 // function import basic calls
-import {getCordianates,findServices, requestCompiler,  searchByRange, getMarkers} from '../function/basicCall';
+import {getCordianates,findServices, searchByRange, getMarkers} from '../function/basicCall';
 // import components
 
 
@@ -32,24 +32,18 @@ export default {
     components:{}, // close components
 
     watch: {
-      'store.advSrcRequest.cordinates'(n , o){
-          if(n != o){
-            store.newCenter = [store.advSrcRequest.cordinates.lon, store.advSrcRequest.cordinates.lat ];
-            console.warn('watch')
-          }
-      },
-
-      'store.newCenter'(newnewCenter, oldnewCenter) {
-          if (newnewCenter != oldnewCenter) {
+      'store.mapCoord'(n, o) {
+          if (n != o) {
             console.log('WATCH : centro mappa cambiato --->');
-            store.cord = store.newCenter;
+
             this.updateMapCenter();
           }
       },
-      'store.fakePoints'(neww, old) {
-          if (neww != old) {
-            console.log('WATCH : centro mappa cambiato --->');
-            store.cord = store.newCenter;
+
+      'store.fakePoints'(n, o) {
+          if (n != o) {
+            console.log('WATCH : marker aggiornati');
+
             this.initializeMap();
           }
       },
@@ -90,11 +84,7 @@ export default {
           let data = store.advSrcRequest;
           console.log('solo servizi', store.advSrcRequest );
           findServices(data);
-
-
-
         }
-
       },
 
       // per il paginate di una chiamata post devi riaggiungere la request!!!
@@ -118,12 +108,11 @@ export default {
             // console.log(key, element , store.advSrcRequest.services);
           }
         });
-
       },
 
       toggleServices(serviceIndex){
-        store.advSrcRequest.servicesChecked[serviceIndex] = !store.advSrcRequest.servicesChecked[serviceIndex];
-        console.log(store.advSrcRequest.servicesChecked[serviceIndex]);
+        store.servicesChecked[serviceIndex] = !store.servicesChecked[serviceIndex];
+        console.log(store.servicesChecked[serviceIndex]);
       },
 
       toggleAdvBar(){
@@ -146,9 +135,9 @@ export default {
       initializeMap() {
         store.advSrcRequest.type='adv';
         // se arrivi direttamente in advanced search allora centra la mappa su Roma
-        if(!store.cord){
-          this.center = [12.49427, 41.89056];
-          store.newCenter = [12.49427, 41.89056];
+        if(!store.mapCoord){
+          store.mapCoord = [8.49427, 41.89056];
+          console.warn('centro mappa mancante')
         }
 
         // reset dom---
@@ -159,7 +148,7 @@ export default {
         map = tt.map({
         key: store.apiKey,
         container: 'map',
-        center: this.center,
+        center: store.mapCoord,
         zoom: 10,
         pitch: true, // Abilita l'animazione --- D: ...ma non funziona!!! :(
         animate: true, // nada--- :'(
@@ -217,10 +206,10 @@ export default {
 
       updateMapCenter() {
 
-      console.warn('update map center', store.newCenter);
+      console.warn('update map center', store.mapCoord);
 
       map.easeTo({
-      center: store.newCenter,
+      center: store.mapCoord,
       duration: 3000,
       animate: true, // nada de nada --- :'(
       });
@@ -349,7 +338,7 @@ export default {
 
                 <div v-for="(service, index) in store.services" :key="index" style="display:    inline-block;">
                   <input type="checkbox"
-                  :checked="store.advSrcRequest.servicesChecked[index]"
+                  :checked="store.servicesChecked[index]"
                   @change="toggleServices(index)"
                   class="btn-check" :id="index" autocomplete="off">
                   <label class="btn btn-outline-primary d-flex justify-content-center     align-items-center" :for="index">   {{ service }}</label>
@@ -447,6 +436,7 @@ export default {
 .open_close_bar{
   height: 20px;
   font-size: 0.8rem;
+  cursor: pointer;
 }
 
 .src_typ_btn {

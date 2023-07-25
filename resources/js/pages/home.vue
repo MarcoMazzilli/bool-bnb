@@ -4,6 +4,7 @@ import axios from 'axios';
 import Jumbotron from '../components/jumbotron.vue';
 import ApartmentCard from '../components/apartmentCard.vue';
 import Apartment from './apartment.vue';
+import inputSearch from '../components/inputSearch.vue';
 
 import { Button } from 'bootstrap';
 export default {
@@ -17,7 +18,7 @@ export default {
       links : [],
     }
   },
-  components: { Jumbotron, ApartmentCard, Apartment, Button },
+  components: { Jumbotron,inputSearch, ApartmentCard, Apartment, Button },
   methods: {
 
     getApartment() {
@@ -71,6 +72,7 @@ export default {
   <div class="home_container" id="home-page">
 
     <Jumbotron />
+    <inputSearch />
 
     <!-- TITOLO -->
     <div class="container py-3">

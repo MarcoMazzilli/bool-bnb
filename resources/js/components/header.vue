@@ -16,51 +16,6 @@ export default {
   },
   methods :{
 
-    searchByRange(){
-        store.load = false;
-        let data = store.advSrcRequest;
-        console.log(data);
-        axios.post('http://127.0.0.1:8000/api/find/location', data)
-        .then(result =>{
-          console.log('risultato ===>',result);
-          store.apartmentsfiltred = result.data.apartments.data;
-          store.load = true;
-          this.$router.push({ name: 'advancedSearch' });
-        }).catch(error => {
-          console.log('Errori ===>',error)
-        })
-      },
-
-    getCordianates(){
-    console.log(store.TomtomBaseUrl + store.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + store.queryType + this.apiKey);
-
-    // -------- chiamata
-    axios.get(store.TomtomBaseUrl + store.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + store.queryType + store.apiKey)
-    .then(result =>{
-      // console.log(result.data.results[0].position);
-      store.advSrcRequest.cordinates = result.data.results[0].position;
-      console.log(store.advSrcRequest.cordinates )
-      store.advSrcRequest.longitude = store.advSrcRequest.cordinates.lon;
-      store.advSrcRequest.latitude = store.advSrcRequest.cordinates.lat;
-      console.log('store cord', store.cord )
-      this.jsonLink = this.TomtomBaseUrl + this.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + this.queryType + this.apiKey;
-      this.searchByRange();
-
-    })
-    .catch(function (error) {
-      // handle error
-    console.warn(error);
-    })
-    .finally(function () {
-     // always executed
-    });
-    },
-
-    convertAddress(address){
-    const converted = address.replace(/ /g,'%20') ;
-    // console.log(converted);
-    return converted;
-    },
   },
 
   mounted(){
@@ -87,25 +42,9 @@ export default {
 
         <div class="col col-11 col-sm-9 col-lg-8">
 
-
             <div class="input-group flex-nowrap " id="" >
-              <input @keypress.enter="getCordianates()"
-              id="via" v-model="indirizzo"
-              type="text"
-              class="form-control"
-              placeholder="Cerca per indirizzo"
-              aria-label="Username"
-              aria-describedby="addon-wrapping">
 
-              <span @click="getCordianates()"
-              class="input-group-text search"
-              id="addon-wrapping"
-
-              >
-                <i class="fa-solid fa-magnifying-glass"></i>
-              </span>
             </div>
-
 
         </div>
 

@@ -1,65 +1,33 @@
 <script>
 import {store} from '../../data/store';
 import axios from 'axios';
+import {advancedSearch, convertAddress} from'../function/basicCall';
 export default {
   name: 'InputSearch',
   data(){
     return{
       apiKey: store.apiKey,
-
       indirizzo: '',
-      jsonLink: '',
-      cordinates:{},
       // --------------------------
       autocomplete:'cerca',
     }
   },
   methods :{
 
-    searchByRange(){
-        store.load = false;
-        let data = store.advSrcRequest;
-        console.log(data);
-        axios.post('http://127.0.0.1:8000/api/find/location', data)
-        .then(result =>{
-          console.log('risultato ===>',result);
-          store.apartmentsfiltred = result.data.apartments.data;
-          store.load = true;
-          this.$router.push({ name: 'advancedSearch' });
-        }).catch(error => {
-          console.log('Errori ===>',error)
-        })
-      },
+    search(){
 
-    getCordianates(){
-    console.log(store.TomtomBaseUrl + store.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + store.queryType + this.apiKey);
-
-    // -------- chiamata
-    axios.get(store.TomtomBaseUrl + store.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + store.queryType + store.apiKey)
-    .then(result =>{
-      // console.log(result.data.results[0].position);
-      store.advSrcRequest.cordinates = result.data.results[0].position;
-      console.log(store.advSrcRequest.cordinates )
-      store.advSrcRequest.longitude = store.advSrcRequest.cordinates.lon;
-      store.advSrcRequest.latitude = store.advSrcRequest.cordinates.lat;
-      console.log('store cord', store.cord )
-      this.jsonLink = this.TomtomBaseUrl + this.apiUrlSearchAddress + this.convertAddress(this.indirizzo) + this.queryType + this.apiKey;
-      this.searchByRange();
-
-    })
-    .catch(function (error) {
-      // handle error
-    console.warn(error);
-    })
-    .finally(function () {
-     // always executed
-    });
-    },
-
-    convertAddress(address){
-    const converted = address.replace(/ /g,'%20') ;
-    // console.log(converted);
-    return converted;
+    console.log(store.TomtomBaseUrl + store.apiUrlSearchAddress + convertAddress(this.indirizzo) + store.queryType + this.apiKey);
+    // -------- chiamata centratura mappa
+      axios.get(store.TomtomBaseUrl + store.apiUrlSearchAddress + convertAddress(this.indirizzo) + store.queryType + store.apiKey)
+      .then(result =>{
+        store.mapCoord = [result.data.results[0].position.lon, result.data.results[0].position.lat];
+        console.log('store.mapCoord', store.mapCoord);
+        advancedSearch();
+        this.$router.push({ name: 'advancedSearch' });
+      })
+      .catch(function (error) {
+        console.warn(error);
+      })
     },
   },
 
@@ -74,13 +42,13 @@ export default {
     <div class="container g-1">
 
         <div class="input-group g-0" id="" >
-          <input @keypress.enter="getCordianates()"
+          <input @keypress.enter="search()"
           id="via" v-model="indirizzo"
           type="text"
           class="form-control"
           placeholder="Cerca dove vorresti andare"
           >
-          <span @click="getCordianates()"
+          <span @click="search()"
           class="input-group-text search"
           >
             <i class="fa-solid fa-magnifying-glass"></i>
