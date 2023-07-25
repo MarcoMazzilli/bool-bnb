@@ -5,7 +5,9 @@ import Jumbotron from '../components/jumbotron.vue';
 import Destinations from '../components/destinations.vue';
 import ApartmentCard from '../components/apartmentCard.vue';
 import Apartment from './apartment.vue';
-import { searchByRange } from '../function/basicCall';
+import inputSearch from '../components/inputSearch.vue';
+// import { searchByRange } from '../function/basicCall';
+
 
 import { Button } from 'bootstrap';
 export default {
@@ -19,7 +21,9 @@ export default {
       links : [],
     }
   },
-  components: { Jumbotron, ApartmentCard, Apartment, Button, Destinations },
+
+  components: { Jumbotron,inputSearch, ApartmentCard, Apartment, Button, Destinations  },
+
   methods: {
 
     getApartment() {
@@ -38,21 +42,7 @@ export default {
 
     Preset(){
       searchByRange(store.RomaRequest)
-
     },
-
-    // oldGetApartment(){
-    //       if(!store.homeStored){
-    //         this.load = false;
-    //           axios.get(store.apiHostUrl + store.getTpartments)
-    //           .then(result =>{
-    //               store.apartmentsGetted = result.data.apartments;
-    //               console.log(store.apartmentsGetted);
-    //               this.load = true;
-    //               store.homeStored = true;
-    //           });
-    //       }else{this.load = true;}
-    //     },
 
     navigateApartmentResults(url){
       axios.get(url)
@@ -67,6 +57,7 @@ export default {
       this.$router.push({ name: 'apartment', params: { slug: apart.slug } });
     },
   },
+  
   mounted() {
     // console.log('Home page!');
     this.getApartment();
@@ -78,6 +69,7 @@ export default {
   <div class="home_container" id="home-page">
 
     <Jumbotron />
+    <inputSearch />
 
     <!-- TITOLO -->
     <div class="container py-3">

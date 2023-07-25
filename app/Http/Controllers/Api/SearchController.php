@@ -84,7 +84,7 @@ class SearchController extends Controller
       ->with('services', 'sponsorships')
       ->whereHas('services', function (Builder $query) use ($services) {
         $query->whereIn('service_id', $services);
-      }, '=', count($services))->get();
+      }, '=', count($services))->orderBy('created_at')->paginate(18);
 
     return response()->json(compact('apartments'));
   }

@@ -24,6 +24,8 @@ export const store = reactive ({
   homeStored: false,
   apartmentDetails : null,
   // search page ---------------------------------------------------\
+  searchMessage:'risultati',
+
   pagination : {
     current_page: false,
     first_page_url: false,
@@ -43,6 +45,8 @@ export const store = reactive ({
 
 
   cord: false,
+  mapCoord: false,
+  servicesChecked: [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
   newCenter: [],
   fakePoints: [
     [12.46341, 41.90575 ],
@@ -59,21 +63,17 @@ export const store = reactive ({
     rooms: 1,
     beds: 1,
     bathrooms: 1,
-    servicesChecked: [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,],
     services: [],
     longitude : false,
     latitude : false,
     coord:[
       [ 11.166504901180673, 43.74673562381395  ],
-      [ 11.160517660159542, 43.72833625965026  ],
-      [ 11.255282317736459, 43.703600113836075 ],
-      [ 11.286793397171635, 43.7591431626044   ],
-      [ 11.185512700570968, 43.77460258943185  ],
-      [ 11.174559844226877, 43.767117547831674 ],
-      [ 11.166504901180673, 43.74673562381395  ],
-    ]
+    ],
+    address: false,
 
   },
+
+  lastRequest : false,
 
 
   // search page ---------------------------------------------------/
