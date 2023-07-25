@@ -4,6 +4,7 @@ use App\Http\Controllers\Guest\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ApartmentController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\SponsorshipController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
@@ -31,9 +32,15 @@ Route::middleware(['auth','verified'])
     ->group(function(){
         Route::resource('apartments', ApartmentController::class);
 
-
         // Route::put('apartments/{apartment}/visible', [ApartmentController::class, 'visible'])
         // ->name('apartments.visible');
+    });
+Route::middleware(['auth','verified'])
+    ->name('sponsorship.')
+    ->prefix('sponsorship')
+    ->group(function(){
+        Route::get('/',[SponsorshipController::class , 'index']);
+        Route::post('/request',[SponsorshipController::class , 'request'])->name('request');
     });
 
 require __DIR__.'/auth.php';

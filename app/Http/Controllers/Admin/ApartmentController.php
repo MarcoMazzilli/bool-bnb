@@ -202,9 +202,4 @@ class ApartmentController extends Controller
 
         return redirect()->route('admin.apartments.index')->with('deleted','appartamento eliminato');
     }
-
-    public function sponsorships(){
-
-      return view('admin.apartments.apartment-sponsorship');
-    }
 }
