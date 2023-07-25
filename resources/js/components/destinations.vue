@@ -1,0 +1,146 @@
+<script>
+import {store} from '../../data/store';
+import axios from 'axios';
+
+export default {
+  name: 'Destinations',
+  data(){
+    return{
+      store,
+    }
+  },
+  methods: {
+
+    handleDestinationClick(destination) {
+
+      switch (destination) {
+        case 'Roma':
+          this.makeRequest(store.RomaRequest);
+          break;
+        case 'Milano':
+          this.makeRequest(store.MilanoRequest);
+          break;
+        case 'Napoli':
+          this.makeRequest(store.NapoliRequest);
+          break;
+        case 'Rimini':
+          this.makeRequest(store.RiminiRequest);
+          break;
+        case 'Firenze':
+          this.makeRequest(store.FirenzeRequest);
+          break;
+        default:
+
+          break;
+      }
+    },
+
+    makeRequest(request) {
+      console.log('ooooooooo');
+      axios.post('http://127.0.0.1:8000/api/find/location', request)
+      .then(result =>{
+          console.log('risultato ===>',result);
+          store.apartmentsfiltred = result.data.apartments.data;
+          store.load = true;
+          this.$router.push({ name: 'advancedSearch' });
+        }).catch(error => {
+          console.log('Errori ===>',error)
+        })
+      console.log(request);
+
+    }
+  }
+}
+</script>
+
+<template>
+
+  <div class="container py-3 mb-5 text-align-center-center">
+
+    <div class="title mb-4">
+      <h1>Mete più richieste</h1>
+      <span>Le scelte preferite dai viaggiatori dall'Italia</span>
+    </div>
+
+    <!-- FIRST ROW -->
+    <div class="destination-row d-flex justify-content-between">
+
+      <div class="card" style="width: 39rem;" @click="handleDestinationClick('Roma')">
+        <img src="storage/destinations-img/roma.jpg" class="card-img" alt="Roma">
+        <span class="position-absolute top-0 start-0 text-white p-2"><h3>Roma</h3></span>
+      </div>
+
+      <div class="card" style="width: 39rem;" @click="handleDestinationClick('Milano')">
+        <img src="storage/destinations-img/milano.jpg" class="card-img" alt="Milano">
+        <span class="position-absolute top-0 start-0 text-white p-2"><h3>Milano</h3></span>
+      </div>
+
+    </div>
+
+    <!-- SECOND ROW -->
+    <div class="destination-secondtrow d-flex justify-content-between mt-4">
+
+      <div class="card" style="width: 25rem;" @click="handleDestinationClick('Napoli')">
+        <img src="storage/destinations-img/napoli.jpg" class="card-img" alt="Napoli">
+        <span class="position-absolute top-0 start-0 text-white p-2"><h4>Napoli</h4></span>
+      </div>
+
+      <div class="card" style="width: 25rem;" @click="handleDestinationClick('Rimini')">
+        <img src="storage/destinations-img/rimini.jpg" class="card-img" alt="Rimini">
+        <span class="position-absolute top-0 start-0 text-white p-2"><h4>Rimini</h4></span>
+      </div>
+
+
+      <div class="card" style="width: 25rem;" @click="handleDestinationClick('Firenze')">
+        <img src="storage/destinations-img/firenze.jpg" class="card-img" alt="Firenze">
+        <span class="position-absolute top-0 start-0 text-white p-2"><h4>Firenze</h4></span>
+      </div>
+
+    </div>
+
+  </div>
+
+</template>
+
+<style lang="scss" scoped>
+.card{
+  position: relative;
+  box-shadow: .5px .5px 2px 1px rgba($color: #000000, $alpha: .1);
+  overflow: hidden;
+  h3,h4{
+    font-weight:600;
+  }
+  img{
+    transition: transform 1.0s;
+  }
+
+  &:hover{
+    transition: all .4s;
+    cursor: pointer;
+    box-shadow: 1px 1px 20px rgba($color: #000000, $alpha: .2);
+
+    img{
+      transform: scale(1.1);
+  }
+  }
+}
+
+.destination-row{
+    img{
+    height: 350px !important;
+  }
+}
+.destination-secondtrow{
+  img{
+    height: 250px !important;
+  }
+}
+
+.position-absolute{
+  background: linear-gradient(180deg,rgba(0,27,65,.65) 0,rgba(0,27,65,0));
+  padding: 20px;
+  width: 100%;
+}
+
+
+</style>

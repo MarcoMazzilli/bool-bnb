@@ -2,9 +2,12 @@
 import { store } from '../../data/store';
 import axios from 'axios';
 import Jumbotron from '../components/jumbotron.vue';
+import Destinations from '../components/destinations.vue';
 import ApartmentCard from '../components/apartmentCard.vue';
 import Apartment from './apartment.vue';
 import inputSearch from '../components/inputSearch.vue';
+// import { searchByRange } from '../function/basicCall';
+
 
 import { Button } from 'bootstrap';
 export default {
@@ -18,7 +21,9 @@ export default {
       links : [],
     }
   },
-  components: { Jumbotron,inputSearch, ApartmentCard, Apartment, Button },
+
+  components: { Jumbotron,inputSearch, ApartmentCard, Apartment, Button, Destinations  },
+
   methods: {
 
     getApartment() {
@@ -35,18 +40,9 @@ export default {
         })
     },
 
-    // oldGetApartment(){
-    //       if(!store.homeStored){
-    //         this.load = false;
-    //           axios.get(store.apiHostUrl + store.getTpartments)
-    //           .then(result =>{
-    //               store.apartmentsGetted = result.data.apartments;
-    //               console.log(store.apartmentsGetted);
-    //               this.load = true;
-    //               store.homeStored = true;
-    //           });
-    //       }else{this.load = true;}
-    //     },
+    Preset(){
+      searchByRange(store.RomaRequest)
+    },
 
     navigateApartmentResults(url){
       axios.get(url)
@@ -61,6 +57,7 @@ export default {
       this.$router.push({ name: 'apartment', params: { slug: apart.slug } });
     },
   },
+  
   mounted() {
     // console.log('Home page!');
     this.getApartment();
@@ -104,6 +101,8 @@ export default {
 
     </div>
     <!-- /COMPONENTE CARD -->
+
+    <Destinations />
 
   </div>
 </template>

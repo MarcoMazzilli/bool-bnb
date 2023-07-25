@@ -83,5 +83,28 @@ aggiornamento 24 luglio impementazione mappa Tom-Tom
 npm i --force
 ```
 ---
+--------------------------
+AGGIORNAMENTO AL 25/07/2023
+## Implementato sistema di pagamento con Braintree
+Installare le dipendenze necessarie utilizzando il comando:
+
+```
+composer require braintree/braintree_php
+```
+
+- Registrarsi a Braintree per recuperare le proprie credenziali
+- Dal file `.env.example` recuperarare le seguenti variabili, inserirle nel `.env` e valorizzarle con i propri dati  :
+```
+BT_ENVIRONMENT = 'sandbox'
+BT_MERCHANT_ID = ''
+BT_PUBLIC_KEY = ''
+BT_PRIVATE_KEY = ''
+```
+- Come dati della carta di credito inserire i seguenti 
+```
+Numero carta : 4242 4242 4242 4242
+Data di scadenza : Una qualsiasi 
+```
+
 
 
