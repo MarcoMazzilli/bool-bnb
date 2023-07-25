@@ -136,7 +136,7 @@ export default {
         store.advSrcRequest.type='adv';
         // se arrivi direttamente in advanced search allora centra la mappa su Roma
         if(!store.mapCoord){
-          store.mapCoord = [8.49427, 41.89056];
+          store.mapCoord = [12.49427, 41.89056];
           console.warn('centro mappa mancante')
         }
 
@@ -149,7 +149,7 @@ export default {
         key: store.apiKey,
         container: 'map',
         center: store.mapCoord,
-        zoom: 10,
+        zoom: 9,
         pitch: true, // Abilita l'animazione --- D: ...ma non funziona!!! :(
         animate: true, // nada--- :'(
         });
@@ -178,8 +178,8 @@ export default {
         map = tt.map({
         key: store.apiKey,
         container: 'map',
-        center: this.center,
-        zoom: 10,
+        center: store.mapCoord,
+        zoom: 9,
         pitch: true, // Abilita l'animazione
         animate: true
         });

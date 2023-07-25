@@ -20,9 +20,8 @@ function advancedSearch(){
     // service only search -------------------------
     store.advSrcRequest.coord = [[store.cord]]
     compileServiceIndex();
-    let data = store.advSrcRequest;
     console.log('solo servizi', store.advSrcRequest );
-    findServices(data);
+    findServices(store.advSrcRequest);
   }
 
 }
@@ -32,7 +31,7 @@ function searchByRange(data){
   console.warn('src by range')
   store.load = false;
   store.lastRequest = JSON.parse(JSON.stringify(store.advSrcRequest));
-  console.log('search store.lastRequest', store.lastRequest )
+  console.log('search store.lastRequest', store.lastRequest );
   axios.post(store.apiHostUrl + store.findLocation, data)
   .then(result =>{
     console.log('risultato ===>',result.data);
@@ -75,11 +74,21 @@ function navigateApartmentResults(url){
 
 function findServices(data){
   store.load = false;
-  // -------- chiamata
+  store.lastRequest = JSON.parse(JSON.stringify(store.advSrcRequest));
+  console.log('search store.lastRequest', store.lastRequest );
   axios.post(store.apiHostUrl + store.findServices , data)
   .then(result =>{
     console.log('risultato ===>',result.data.apartments);
-    store.apartmentsfiltred = result.data.apartments;
+    store.apartmentsfiltred = result.data.apartments.data;
+
+    store.pagination.current_page = result.data.apartments.current_page;
+    store.pagination.first_page_url = result.data.apartments.first_page_url;
+    store.pagination.last_page_url = result.data.apartments.last_page_url;
+    store.pagination.links = result.data.apartments.links;
+    store.pagination.total = result.data.apartments.total;
+    store.pagination.next_page_url = result.data.apartments.next_page_url;
+    store.pagination.prev_page_url = result.data.apartments.prev_page_url;
+
     store.load = true;
   })
   .catch(error => { console.log(store.apiHostUrl + store.findServices )})

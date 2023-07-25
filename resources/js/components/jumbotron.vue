@@ -7,7 +7,7 @@ export default {
 
 <template>
 
-    <div class="jumbo d-flex justify-content-center align-items-center">
+    <div class="jumbo mb-2 d-flex justify-content-center align-items-center">
 
         <h1></h1>
 

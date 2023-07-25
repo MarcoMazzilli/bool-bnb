@@ -26,7 +26,13 @@ export default {
 </script>
 
 <template>
-    <div class="result-synthesis container my-1 g-1 d-flex">
+
+    <div  v-if="store.pagination.total < 1"
+    class="no-result container  mt-2 g-1 d-flex">
+      nessun risultato
+    </div>
+    <div v-if="store.pagination.total > 0"
+    class="result-synthesis container  mt-2 g-1 d-flex">
 
       <div class="info-box ">
         <span>{{ 'risultati: '+ store.pagination.total}}</span>
@@ -56,8 +62,8 @@ export default {
     </div>
 
 
-    <div v-if="store.pagination.current_page"
-    class="paginate container d-flex justify-content-between mt-3 g-5 ">
+    <div v-if="store.pagination.total > 0"
+    class="paginate container d-flex justify-content-between mt-1 g-5 ">
 
       <div
       v-for="(link, index) in store.pagination.links" :key="index"

@@ -15,6 +15,10 @@ export default {
   methods :{
 
     search(){
+    if(this.indirizzo.trim() == ''){
+      console.log('indirizzo vuoto');
+      this.indirizzo = 'Roma';
+    }
     store.advSrcRequest.address = this.indirizzo;
     console.log(store.TomtomBaseUrl + store.apiUrlSearchAddress + convertAddress(this.indirizzo) + store.queryType + this.apiKey);
     // -------- chiamata centratura mappa
