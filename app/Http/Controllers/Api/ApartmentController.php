@@ -20,8 +20,11 @@ class ApartmentController extends Controller
         'id','user_id','name','slug','description','slug','cover_image','address','address_info','price','n_of_bed','n_of_room','n_of_bathroom','apartment_size','type','created_at',
       DB::raw("ST_X(coordinate) as latitude"),
       DB::raw("ST_Y(coordinate) as longitude")])
-      ->with('services')
-      ->paginate(18);
+      ->with('services', 'sponsorships')
+      ->whereHas('sponsorships', function ($query) {
+        $query->where('sponsorship_id', '>', 1)
+        ->orderBy('sponsorship_id', 'desc');
+    })->paginate(18);
 
 
 
