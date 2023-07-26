@@ -6,6 +6,7 @@ export default {
   name: 'InputSearch',
   data(){
     return{
+      store,
       apiKey: store.apiKey,
       indirizzo: '',
       // --------------------------
@@ -59,6 +60,7 @@ export default {
 
         <div class="input-group g-0" id="" >
           <input @keypress.enter="search()"
+          v-if="store.advSrcRequest.type === 'adv'"
           id="via" v-model="indirizzo"
           type="text"
           class="form-control"
@@ -66,6 +68,9 @@ export default {
           >
           <span @click="search()"
           class="input-group-text search"
+          :class="{
+            'alone' : store.advSrcRequest.type === 'drv' || store.advSrcRequest.type === 'srv-only' ,
+          }"
           >
             <i class="fa-solid fa-magnifying-glass"></i>
           </span>
@@ -78,5 +83,10 @@ export default {
 
 @use '../../scss/var' as *;
 
+.alone{
+  width: 100%;
+  justify-content: center;
+
+}
 
 </style>

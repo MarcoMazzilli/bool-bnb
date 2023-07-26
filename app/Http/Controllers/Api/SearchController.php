@@ -46,7 +46,7 @@ class SearchController extends Controller
           }, '=', count($services))
           ->orderBy('distance')
           ->paginate(18);
-      }else {
+      }else{
       $apartments = Apartment::select([
         'id', 'user_id', 'name', 'slug', 'description', 'cover_image',
         'address', 'address_info', 'price', 'n_of_bed', 'n_of_room', 'n_of_bathroom',
@@ -73,6 +73,13 @@ class SearchController extends Controller
   {
       $data = $request->all();
       $perimeterRequest = $data['coord'];
+      // $radius = $data['radius']; // Raggio in chilometri
+      $services = $data['services'];
+      $beds = $data['beds'];
+      $rooms = $data['rooms'];
+      $bathrooms = $data['bathrooms'];
+      $size = $data['size'];
+
       // Costruisci un array di oggetti Point (coordinate) per il perimetro quadrato intorno a roma
       // è fondamentale che arrivi un array con primo e ultimo point uguali - poligono chiuso
       $perimeterExample = [ // è un quadrato intorno Roma
@@ -96,6 +103,27 @@ class SearchController extends Controller
     $polygonPoints .= ')';
 
 
+      if (count($services) > 0) {
+        $apartments = Apartment::select([
+          'id', 'user_id', 'name', 'slug', 'description', 'cover_image',
+          'address', 'address_info', 'price', 'n_of_bed', 'n_of_room', 'n_of_bathroom',
+          'apartment_size', 'type', 'created_at',
+          DB::raw("ST_Y(coordinate) as latitude"),
+          DB::raw("ST_X(coordinate) as longitude"),
+        ])
+        ->whereRaw("ST_Within(coordinate, ST_GeomFromText('POLYGON($polygonPoints)'))")
+        ->where('n_of_bed', '>=', $beds)
+        ->where('n_of_bathroom' ,'>=', $bathrooms )
+        ->where('apartment_size' ,'>=', $size)
+        ->where('n_of_room' ,'>=', $rooms)
+        ->with('services', 'sponsorships')
+        ->whereHas('services', function (Builder $query) use ($services) {
+          $query->whereIn('service_id', $services);
+        }, '=', count($services))
+          ->orderBy('created_at', 'desc')
+          ->paginate(18);
+
+      }else {
       $apartments = Apartment::select([
           'id', 'user_id', 'name', 'slug', 'description', 'cover_image',
           'address', 'address_info', 'price', 'n_of_bed', 'n_of_room', 'n_of_bathroom',
@@ -105,11 +133,15 @@ class SearchController extends Controller
       ])
           // le parentesi maledizione e usare whereRaw la query deve risultare con sintassi idetica alla query d esempio sotto
           ->whereRaw("ST_Within(coordinate, ST_GeomFromText('POLYGON($polygonPoints)'))")
+          ->where('n_of_bed', '>=', $beds)
+          ->where('n_of_bathroom' ,'>=', $bathrooms )
+          ->where('apartment_size' ,'>=', $size)
+          ->where('n_of_room' ,'>=', $rooms)
           ->with('services', 'sponsorships')
           ->orderBy('created_at', 'desc')
           ->paginate(18);
 
-
+        }
 
       return response()->json(compact('apartments'));
       // return response()->json(compact('perimeterRequest','perimeterExample','polygonPoints' ));

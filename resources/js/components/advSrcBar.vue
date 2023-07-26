@@ -253,9 +253,11 @@ export default {
             <!-- map -->
 
             <!-- raggio metriquadri stanze letti bagno -->
-            <div class="option d-flex justify-content-around align-items-center w-100 ">
+            <div
+            class="option d-flex justify-content-around align-items-center w-100 ">
 
-              <div class="search_box d-flex flex-column  justify-content-center align-items-center ">
+              <div v-if="store.advSrcRequest.type === 'adv'"
+              class="search_box d-flex flex-column  justify-content-center align-items-center ">
               <label class="" for="radius">Raggio in Km</label>
               <input min="20" max="1000"
               class="option-input mt-1 " id="radius" type="number"

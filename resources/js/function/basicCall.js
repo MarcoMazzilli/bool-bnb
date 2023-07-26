@@ -158,7 +158,6 @@ function  compileServiceIndex(){
   store.advSrcRequest.longitude = store.mapCoord[0];
   store.advSrcRequest.latitude = store.mapCoord[1];
   console.log('request state:', store.advSrcRequest);
-  // store.advSrcRequest.coord = [[store.mapCoord]];
   store.advSrcRequest.services = [];
   store.servicesChecked.forEach((element, key) => {
     if(element){
