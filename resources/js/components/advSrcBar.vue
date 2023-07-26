@@ -130,7 +130,11 @@ export default {
         mapDiv.innerHTML = '';
 
         const ttDrawingTools = new DrawingTools({
-        ttMapsSdk: tt
+        ttMapsSdk: tt,
+        controls: {
+          line: false,
+          polygon: false,
+        }
         });
 
         map = tt.map({
