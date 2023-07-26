@@ -20,31 +20,6 @@ export default {
   },
 
   methods: {
-
-    handleDestinationClick(destination) {
-
-      switch (destination) {
-        case 'Roma':
-          this.makeRequest(store.RomaRequest);
-          break;
-        case 'Milano':
-          this.makeRequest(store.MilanoRequest);
-          break;
-        case 'Napoli':
-          this.makeRequest(store.NapoliRequest);
-          break;
-        case 'Rimini':
-          this.makeRequest(store.RiminiRequest);
-          break;
-        case 'Firenze':
-          this.makeRequest(store.FirenzeRequest);
-          break;
-        default:
-
-          break;
-      }
-    },
-
     makeRequest(request) {
       searchByRange(request);
     }
@@ -64,12 +39,12 @@ export default {
     <!-- FIRST ROW -->
     <div class="destination-row d-flex justify-content-between">
 
-      <div class="card" style="width: 39rem;" @click="handleDestinationClick('Roma')">
+      <div class="card" style="width: 39rem;" @click="makeRequest(store.RomaRequest)">
         <img src="storage/destinations-img/roma.jpg" class="card-img" alt="Roma">
         <span class="position-absolute top-0 start-0 text-white p-2"><h3>Roma</h3></span>
       </div>
 
-      <div class="card" style="width: 39rem;" @click="handleDestinationClick('Milano')">
+      <div class="card" style="width: 39rem;" @click="makeRequest(store.MilanoRequest)">
         <img src="storage/destinations-img/milano.jpg" class="card-img" alt="Milano">
         <span class="position-absolute top-0 start-0 text-white p-2"><h3>Milano</h3></span>
       </div>
@@ -79,18 +54,18 @@ export default {
     <!-- SECOND ROW -->
     <div class="destination-secondtrow d-flex justify-content-between mt-4">
 
-      <div class="card" style="width: 25rem;" @click="handleDestinationClick('Napoli')">
+      <div class="card" style="width: 25rem;" @click="makeRequest(store.NapoliRequest)">
         <img src="storage/destinations-img/napoli.jpg" class="card-img" alt="Napoli">
         <span class="position-absolute top-0 start-0 text-white p-2"><h4>Napoli</h4></span>
       </div>
 
-      <div class="card" style="width: 25rem;" @click="handleDestinationClick('Rimini')">
+      <div class="card" style="width: 25rem;" @click="makeRequest(store.RiminiRequest)">
         <img src="storage/destinations-img/rimini.jpg" class="card-img" alt="Rimini">
         <span class="position-absolute top-0 start-0 text-white p-2"><h4>Rimini</h4></span>
       </div>
 
 
-      <div class="card" style="width: 25rem;" @click="handleDestinationClick('Firenze')">
+      <div class="card" style="width: 25rem;" @click="makeRequest(store.FirenzeRequest)">
         <img src="storage/destinations-img/firenze.jpg" class="card-img" alt="Firenze">
         <span class="position-absolute top-0 start-0 text-white p-2"><h4>Firenze</h4></span>
       </div>
