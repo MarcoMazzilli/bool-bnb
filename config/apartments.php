@@ -15,7 +15,7 @@ return  [
     "visible"=> rand(0,1),
     "type"=> "trilocale",
     "sponsor" => [rand(1,3)],
-    "services"=> [rand(1,17)]
+    "services"=> [rand(1,17), rand(1,17)]
   ],
   [
     "name"=> "Aspen Glow",
