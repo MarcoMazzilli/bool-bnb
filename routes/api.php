@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ApartmentController;
+use App\Http\Controllers\Api\MessageController;
 use App\Http\Controllers\Api\SearchController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,13 @@ Route::namespace('Api')
         ->group(function(){
             Route::post('/location',[SearchController::class, 'searchByRange']);
             Route::post('/services',[SearchController::class, 'searchByServices']); //questo dovera' ricevere un parametro
-});
+          });
+
+Route::namespace('Api')
+          ->prefix('contacts')
+          ->group(function(){
+            Route::post('/',[MessageController::class, 'store']);
+
+          });
 
 
