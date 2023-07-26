@@ -21,6 +21,7 @@ export default {
 
   methods: {
     makeRequest(request) {
+      store.mapCoord = [request.longitude, request.latitude]; // centra la mappa
       searchByRange(request);
     }
   }

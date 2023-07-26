@@ -45,7 +45,7 @@ export const store = reactive ({
 
 
   cord: false,
-  mapCoord: false,
+  mapCoord: false, // <---
   servicesChecked: [false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false],
   newCenter: [],
   fakePoints: [
