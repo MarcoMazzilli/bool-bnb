@@ -40,14 +40,24 @@ class ApartmentsTableSeeder extends Seeder
         ];
 
         foreach ($apartments as $apartment) {
+
+          $services = [];
+          // genero un array di numeri da 1 a 17 di lunghezza random
+          for ($i=1; $i < rand(2,18); $i++) {
+            $number = rand(1,17);
+            if(!in_array($number, $services)){
+              $services[] = $number;
+            }
+          }
+
+          // dd($services);
+
           $new_apartment = new Apartment();
           $new_apartment->user_id = User::inRandomOrder()->first()->id;
           $new_apartment->name = $apartment['name'];
           $new_apartment->slug = CustomHelper::generateUniqueSlug($apartment['name'], new Apartment());
           $new_apartment->description = $apartment['description'];
           $new_apartment->cover_image = $apartment['cover_image'];
-          //  TODO: provvisorio
-          // $new_apartment->cover_image = "seeder-img/" . rand(1,20) .  ".jpg";
           $new_apartment->address = $apartment['address'];
           $new_apartment->address_info = $apartment['address_info'];
 
@@ -65,9 +75,12 @@ class ApartmentsTableSeeder extends Seeder
           // dump($new_apartment);
           $new_apartment->save();
 
-          if (array_key_exists('services', $apartment)) {
-            $new_apartment->services()->attach($apartment['services']);
-        }
+          $new_apartment->services()->attach($services);
+          // dd($new_apartment['services']);
+
+        //   if (array_key_exists('services', $apartment)) {
+        //     $new_apartment->services()->attach($apartment['services']);
+        // }
 
           if (array_key_exists('sponsor', $apartment)) {
 
