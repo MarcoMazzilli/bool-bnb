@@ -8,6 +8,7 @@ export const store = reactive ({
   getTpartments : '/apartment',
   findLocation: '/find/location',
   findServices: '/find/services',
+  findPerimeter: '/find/perimeter',
 
 
   TomtomBaseUrl:'https://api.tomtom.com/',

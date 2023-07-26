@@ -60,34 +60,6 @@ export default {
         event.preventDefault();
       },
 
-      advancedSearch(){
-        if(store.advSrcRequest.type === 'adv'){
-          // service ricerca avanzata -------------------------
-          console.log(store.cord)
-          store.advSrcRequest.coord = [[store.cord]];
-          console.warn(store.newCenter);
-          store.advSrcRequest.longitude = store.newCenter[0];
-          store.advSrcRequest.latitude = store.newCenter[1];
-          this.compileServiceIndex();
-          let data = store.advSrcRequest;
-          console.log('ricerca avanzata', store.advSrcRequest );
-          searchByRange( data );
-
-        }else if(store.advSrcRequest.type === 'drv'){
-          // service ricerca avanzata -------------------------
-
-
-        }else if(store.advSrcRequest.type = 'srv-only'){
-          // service only search -------------------------
-          store.advSrcRequest.coord = [[store.cord]]
-          this.compileServiceIndex();
-          let data = store.advSrcRequest;
-          console.log('solo servizi', store.advSrcRequest );
-          findServices(data);
-        }
-      },
-
-      // per il paginate di una chiamata post devi riaggiungere la request!!!
       navigateApartmentResults(url){
       axios.post(url, store.advSrcRequest )
         .then(result =>{
@@ -95,20 +67,6 @@ export default {
           store.apartmentsfiltred = result.data.apartments.data;
       })
     },
-
-      test(){
-        console.log(store.advSrcRequest.radius);
-      },
-
-      compileServiceIndex(){
-        store.advSrcRequest.services = [];
-        store.advSrcRequest.servicesChecked.forEach((element, key) => {
-          if(element){
-            store.advSrcRequest.services.push(key + 1);
-            // console.log(key, element , store.advSrcRequest.services);
-          }
-        });
-      },
 
       toggleServices(serviceIndex){
         store.servicesChecked[serviceIndex] = !store.servicesChecked[serviceIndex];
@@ -200,6 +158,8 @@ export default {
           feature.data.features[0].geometry.coordinates,
           feature.data.features[0],
           );
+          store.advSrcRequest.coord = feature.data.features[0].geometry.coordinates[0];
+          console.log('request drv state',  store.advSrcRequest )
         });
 
       },
@@ -229,7 +189,6 @@ export default {
 
 <template>
 
-  <!-- <button @click="test()">test function</button> -->
     <div class="AdvancedSearch_container my-2 container gx-1 " id="AdvancedSearch-page"
     :class="this.advToggle ? 'adv-closed' : ' ' "
     >

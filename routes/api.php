@@ -33,7 +33,7 @@ Route::namespace('Api')
         ->group(function(){
             Route::post('/location',[SearchController::class, 'searchByRange']);
             Route::post('/services',[SearchController::class, 'searchByServices']); //questo dovera' ricevere un parametro
-            Route::get('/perimeter',[SearchController::class, 'searchByPerimeter']); //questo dovera' ricevere un parametro
+            Route::post('/perimeter',[SearchController::class, 'searchByPerimeter']); //questo dovera' ricevere un parametro
 });
 
 

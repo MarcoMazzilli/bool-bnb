@@ -67,19 +67,21 @@ class SearchController extends Controller
     return response()->json(compact('apartments'));
   }
 
+
+// -------------- search by perimeter
   public function searchByPerimeter(Request $request)
   {
-      // $data = $request->all();
-
+      $data = $request->all();
+      $perimeterRequest = $data['coord'];
       // Costruisci un array di oggetti Point (coordinate) per il perimetro quadrato intorno a roma
-      $perimeterRequest = [
+      // è fondamentale che arrivi un array con primo e ultimo point uguali - poligono chiuso
+      $perimeterExample = [ // è un quadrato intorno Roma
                       [ 12.35130657853972, 42.00166338325269 ],
                       [ 12.663003032580121, 42.00166338325269 ],
                       [ 12.663003032580121, 41.77108687403114  ],
                       [ 12.35130657853972, 41.77108687403114   ],
                       [ 12.35130657853972, 42.00166338325269 ],
                     ];
-
 
     // Costruisci il perimetro come oggetto POLYGON .= concatena
     $polygonPoints = '(';
@@ -93,7 +95,6 @@ class SearchController extends Controller
         }
     $polygonPoints .= ')';
 
-    // dd($polygonPoints);
 
       $apartments = Apartment::select([
           'id', 'user_id', 'name', 'slug', 'description', 'cover_image',
@@ -111,7 +112,7 @@ class SearchController extends Controller
 
 
       return response()->json(compact('apartments'));
-      // return response()->json(compact('polygonPoints'));
+      // return response()->json(compact('perimeterRequest','perimeterExample','polygonPoints' ));
 
       // !!!! QUESTA QUERY FUNZIONA! --------------------------------------------------
 
@@ -124,6 +125,7 @@ class SearchController extends Controller
       // -------------------------------------------------------------------------------
   }
 
+  // -------------- search by perimeter
 
   public function searchByServices(Request $request)
   {
