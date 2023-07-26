@@ -184,7 +184,6 @@ export default {
     }, // close methods
 
     mounted(){
-        console.log('Advanced Search Bar!');
         this.initializeMap();
         getMarkers();
     } // close mounted

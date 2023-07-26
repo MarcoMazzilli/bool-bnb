@@ -55,7 +55,7 @@ export default {
   },
 
   mounted() {
-    // console.log('Home page!');
+    console.log('whereIam?', this.$route.name );
     this.getApartment();
   }
 }

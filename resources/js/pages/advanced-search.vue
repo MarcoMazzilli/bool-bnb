@@ -59,7 +59,7 @@ export default {
     }, // close methods
 
     mounted(){
-        console.log('Advanced Search!');
+      console.log('whereIam?', this.$route.name );
     } // close mounted
 }
 </script>

@@ -43,7 +43,12 @@ export default {
   },
 
   mounted(){
-    this.updateAddress();
+
+    if(this.$route.name == 'home'){
+      this.indirizzo = ''
+    }else{
+      this.updateAddress();
+    }
   }
 
 }

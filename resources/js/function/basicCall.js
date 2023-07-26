@@ -14,6 +14,7 @@ function advancedSearch(){
 
   }else if(store.advSrcRequest.type === 'drv'){
     //ricerca dentro disegno -------------------------
+    store.mapCoord = calcPolygonCenter(store.advSrcRequest.coord);
     compileServiceIndex();
     console.log('drv request obj :', store.advSrcRequest );
     searchByPerimeter(store.advSrcRequest);

@@ -16,10 +16,6 @@ export const store = reactive ({
   queryType: '.json?typeahead=false&limit=1&view=Unified&key=',
 
 
-
-
-
-
   // home page------------
   apartmentsGetted: [],
   homeStored: false,

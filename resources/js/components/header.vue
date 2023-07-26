@@ -7,11 +7,6 @@ export default {
     return{
       apiKey: store.apiKey,
 
-      indirizzo: '',
-      jsonLink: '',
-      cordinates:{},
-      // --------------------------
-      autocomplete:'cerca',
     }
   },
   methods :{
@@ -43,6 +38,7 @@ export default {
         <div class="col col-11 col-sm-9 col-lg-8">
 
             <div class="input-group flex-nowrap " id="" >
+
 
             </div>
 

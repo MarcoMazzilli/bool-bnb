@@ -21,7 +21,7 @@ export default {
       }
     },
     mounted(){
-        console.log('apartment page!')
+      console.log('whereIam?', this.$route.name );
     }
 }
 </script>
