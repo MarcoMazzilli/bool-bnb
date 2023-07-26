@@ -61,7 +61,7 @@ export default {
       }
     },
     mounted(){
-        console.log('apartment page!')
+        console.log(this.apartment)
     }
 }
 </script>
@@ -103,13 +103,14 @@ export default {
         <div v-show="apartment.address_info">
 
           <h5>Come raggiungere l'indirizzo</h5>
-          <div class="alert alert-info" role="alert">
+          <div class="alert alert-info mb-4" role="alert">
             {{ apartment.address_info }}
           </div>
 
         </div>
 
-        <div class="row row-cols-2 row-cols-md-3 py-2">
+        <h5>Informazioni aggiuntive</h5>
+        <div class="row row-cols-2 row-cols-md-3 mb-3">
           <div class="col my-2 ">
             Tipologia: {{ apartment.type }} <i class="fa-solid fa-house"></i>
           </div>
@@ -132,10 +133,14 @@ export default {
             Prezzo: <b>{{ apartment.price }} €</b> a notte
           </div>
         </div>
+
+        <h5>Servizi offerti</h5>
+        <span v-for="(service, index) in apartment.services" :key="index" class="badge mx-1">{{ service.name }}</span>
+
       </div>
 
-      <!-- FORM CONTATTO HOST  -->
 
+      <!-- FORM CONTATTO HOST  -->
 
       <form v-if="!success" class="row" @submit.prevent="sendMail()">
         <h2>Invia un messaggio all'host</h2>
@@ -194,4 +199,12 @@ img{
     width: 400px;
 }
 
+h5{
+  color: $brand-main;
+  font-weight: bold;
+}
+
+span.badge{
+  background-color: $brand-blue;
+}
 </style>

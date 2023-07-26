@@ -54,6 +54,16 @@
             </li>
             @endif
 
+
+            @if (Auth::user()->apartments->count())
+            <li class="nav-item {{ Route::currentRouteName() === 'admin.apartments.service-apartments' ? 'active' : '' }}" title="Statistics">
+                <a class="nav-link" href="{{ route('admin.statistics.index') }}">
+                    <span class="d-none d-md-block">Statistiche</span>
+                    <i class="fa-solid fa-inbox d-md-none"></i>
+                </a>
+            </li>
+            @endif
+
         </ul>
     </div>
 

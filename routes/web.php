@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\ApartmentController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\SponsorshipController;
+use App\Http\Controllers\Admin\StatisticController;
 use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -32,6 +33,7 @@ Route::middleware(['auth','verified'])
     ->prefix('admin')
     ->group(function(){
         Route::resource('apartments', ApartmentController::class);
+        Route::resource('statistics', StatisticController::class);
 
         // Route::put('apartments/{apartment}/visible', [ApartmentController::class, 'visible'])
         // ->name('apartments.visible');
