@@ -26,7 +26,6 @@ function advancedSearch(){
 
 }
 
-
 function searchByRange(data){
   console.warn('src by range')
   store.load = false;

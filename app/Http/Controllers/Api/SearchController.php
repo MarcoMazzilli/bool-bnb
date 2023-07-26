@@ -24,7 +24,7 @@ class SearchController extends Controller
     $bathrooms = $data['bathrooms'];
     $size = $data['size'];
 
-
+       //Controllo se mi arriva il parametro "services"
       //Se arriva faccio un controllo sullla lunghezza, e se maggiore di 0 applico la logica
       if (count($services) > 0) {
         $apartments = Apartment::select([
@@ -64,12 +64,66 @@ class SearchController extends Controller
         ->paginate(18);
     }
 
-
-    //Controllo se mi arriva il parametro "services"
-
-
     return response()->json(compact('apartments'));
   }
+
+  public function searchByPerimeter(Request $request)
+  {
+      // $data = $request->all();
+
+      // Costruisci un array di oggetti Point (coordinate) per il perimetro quadrato intorno a roma
+      $perimeterRequest = [
+                      [ 12.35130657853972, 42.00166338325269 ],
+                      [ 12.663003032580121, 42.00166338325269 ],
+                      [ 12.663003032580121, 41.77108687403114  ],
+                      [ 12.35130657853972, 41.77108687403114   ],
+                      [ 12.35130657853972, 42.00166338325269 ],
+                    ];
+
+
+    // Costruisci il perimetro come oggetto POLYGON .= concatena
+    $polygonPoints = '(';
+        foreach ($perimeterRequest as $index => $coord) {
+
+            $polygonPoints .= $coord[0] . ' ' . $coord[1];
+
+            if ($index < count($perimeterRequest) - 1) {
+                $polygonPoints .= ', ';
+            }
+        }
+    $polygonPoints .= ')';
+
+    // dd($polygonPoints);
+
+      $apartments = Apartment::select([
+          'id', 'user_id', 'name', 'slug', 'description', 'cover_image',
+          'address', 'address_info', 'price', 'n_of_bed', 'n_of_room', 'n_of_bathroom',
+          'apartment_size', 'type', 'created_at',
+          DB::raw("ST_Y(coordinate) as latitude"),
+          DB::raw("ST_X(coordinate) as longitude"),
+      ])
+          // le parentesi maledizione e usare whereRaw la query deve risultare con sintassi idetica alla query d esempio sotto
+          ->whereRaw("ST_Within(coordinate, ST_GeomFromText('POLYGON($polygonPoints)'))")
+          ->with('services', 'sponsorships')
+          ->orderBy('created_at', 'desc')
+          ->paginate(18);
+
+
+
+      return response()->json(compact('apartments'));
+      // return response()->json(compact('polygonPoints'));
+
+      // !!!! QUESTA QUERY FUNZIONA! --------------------------------------------------
+
+      // SELECT * FROM apartments
+      // WHERE ST_WITHIN(coordinate, ST_GEOMFROMTEXT('POLYGON((12.35130657854 42.001663383253, 12.66300303258 42.001663383253, 12.66300303258 41.771086874031, 12.35130657854 41.771086874031, 12.35130657854 42.001663383253))'));
+
+      // con contains
+      // SELECT * FROM apartments
+      // WHERE ST_CONTAINS(ST_GEOMFROMTEXT('POLYGON((12.35130657854 42.001663383253, 12.66300303258 42.001663383253, 12.66300303258 41.771086874031, 12.35130657854 41.771086874031, 12.35130657854 42.001663383253))'), coordinate);
+      // -------------------------------------------------------------------------------
+  }
+
 
   public function searchByServices(Request $request)
   {

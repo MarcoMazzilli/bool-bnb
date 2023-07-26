@@ -40,10 +40,6 @@ export default {
         })
     },
 
-    Preset(){
-      searchByRange(store.RomaRequest)
-    },
-
     navigateApartmentResults(url){
       axios.get(url)
         .then(result =>{
@@ -57,7 +53,7 @@ export default {
       this.$router.push({ name: 'apartment', params: { slug: apart.slug } });
     },
   },
-  
+
   mounted() {
     // console.log('Home page!');
     this.getApartment();
