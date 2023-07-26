@@ -1,6 +1,6 @@
 import {store} from '../../data/store';
 import axios from 'axios';
-export {advancedSearch, navigateApartmentResults, getCordianates, compileServiceIndex, findServices,  searchByRange,searchByPerimeter, getMarkers, convertAddress};
+export {advancedSearch, navigateApartmentResults, getCordianates, compileServiceIndex, findServices,  searchByRange,searchByPerimeter, getMarkers, convertAddress, calcPolygonCenter};
 
 
 
@@ -165,5 +165,21 @@ function  compileServiceIndex(){
       // console.log(key, element , store.advSrcRequest.services);
     }
   });
+}
+
+function calcPolygonCenter(coordinates) {
+  const numPoints = coordinates.length - 1; // Sottrai 1 per escludere la duplicazione della prima e ultima coordinata.
+  let sumX = 0;
+  let sumY = 0;
+
+  for (let i = 0; i < numPoints; i++) {
+    sumX += coordinates[i][0]; // longitudine
+    sumY += coordinates[i][1]; // latitudine
+  }
+
+  const centerX = sumX / numPoints;
+  const centerY = sumY / numPoints;
+  console.log('centro del poligono',' lat ' + centerX + ' lat ' + centerY)
+  return [centerX, centerY];
 }
 

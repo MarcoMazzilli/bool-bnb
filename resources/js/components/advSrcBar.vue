@@ -7,7 +7,7 @@ import DrawingTools from '@tomtom-international/web-sdk-plugin-drawingtools';
 import axios from 'axios';
 import {store} from '../../data/store';
 // function import basic calls
-import {getCordianates,findServices, searchByRange, getMarkers} from '../function/basicCall';
+import {getCordianates,findServices, searchByRange, getMarkers, calcPolygonCenter} from '../function/basicCall';
 // import components
 
 
@@ -133,8 +133,7 @@ export default {
         ttMapsSdk: tt,
         controls: {
           line: false,
-          polygon: false,
-        }
+          polygon: false,}
         });
 
         map = tt.map({
@@ -163,6 +162,7 @@ export default {
           feature.data.features[0],
           );
           store.advSrcRequest.coord = feature.data.features[0].geometry.coordinates[0];
+          store.mapCoord = calcPolygonCenter(store.advSrcRequest.coord);
           console.log('request drv state',  store.advSrcRequest )
         });
 
