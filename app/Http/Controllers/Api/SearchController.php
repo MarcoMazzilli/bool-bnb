@@ -120,7 +120,7 @@ class SearchController extends Controller
         ->whereHas('services', function (Builder $query) use ($services) {
           $query->whereIn('service_id', $services);
         }, '=', count($services))
-          ->orderBy('created_at', 'desc')
+          ->orderBy('created_at', 'asc')
           ->paginate(18);
 
       }else {
@@ -138,7 +138,7 @@ class SearchController extends Controller
           ->where('apartment_size' ,'>=', $size)
           ->where('n_of_room' ,'>=', $rooms)
           ->with('services', 'sponsorships')
-          ->orderBy('created_at', 'desc')
+          ->orderBy('created_at', 'asc')
           ->paginate(18);
 
         }

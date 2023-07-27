@@ -75,7 +75,13 @@ export default {
 
       toggleAdvBar(){
         console.log('toggle');
-        this.advToggle ? this.advToggle = false : this.advToggle = true;
+        if(!this.advToggle){
+          store.advSrcRequest.type='adv'; //reset search type
+          this.advToggle = !this.advToggle;
+        }else{
+          this.advToggle = !this.advToggle;
+        }
+        // this.advToggle ? this.advToggle = false : this.advToggle = true;
         console.log(this.advToggle);
       },
 
