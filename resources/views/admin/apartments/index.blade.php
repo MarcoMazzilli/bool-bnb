@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- @dd($apartmentsVisible); --}}
+    {{-- @dd($apartmentsVisible); --}}
 
     <div class="container my_overflow">
         <h3>Lista appartamenti visibili</h3>
@@ -23,12 +23,11 @@
                             <td>{{ $apartment->address }}</td>
                             <td>
 
-                                {{-- @include('admin.partials.form-visible',[
-                    'title'=>'modifica',
-                    'id'=> $apartment->id,
-                    'message'=> "modifica $apartment->name",
-                    'route' => route('admin.apartments.update', $apartment)
-                    ]) --}}
+                                @include('admin.partials.form-visible', [
+                                    'title' => 'Modifica',
+                                    'apartment' => $apartment,
+                                    'route' => route('admin.apartments.update', $apartment),
+                                ])
 
                                 <a href="{{ route('admin.apartments.show', $apartment) }}"
                                     class="btn btn-outline-primary">Mostra</a>
@@ -46,8 +45,8 @@
                         </tr>
                     @endforeach
                 </tbody>
-              </table>
-              {{-- <div class="d-flex justify-content-end">
+            </table>
+            {{-- <div class="d-flex justify-content-end">
                 {{ $apartmentsVisible->links() }}
               </div> --}}
         @else
@@ -73,11 +72,11 @@
                     @foreach ($apartmentSponsored as $apartment)
                         {{-- @dd($apartment->sponsorships) --}}
                         {{-- @if (!$apartment->sponsorships) --}}
-                            <tr>
-                                <th>{{ $apartment->id }}</th>
-                                <td>{{ $apartment->name }}</td>
-                                <td>{{ $apartment->address }}</td>
-                            </tr>
+                        <tr>
+                            <th>{{ $apartment->id }}</th>
+                            <td>{{ $apartment->name }}</td>
+                            <td>{{ $apartment->address }}</td>
+                        </tr>
                         {{-- @else --}}
                         {{-- @endif --}}
                     @endforeach
@@ -113,6 +112,11 @@
                             <td>{{ $apartment->name }}</td>
                             <td>{{ $apartment->address }}</td>
                             <td>
+                              @include('admin.partials.form-visible', [
+                                'title' => 'Modifica',
+                                'apartment' => $apartment,
+                                'route' => route('admin.apartments.update', $apartment),
+                            ])
                                 <a href="{{ route('admin.apartments.show', $apartment) }}"
                                     class="btn btn-outline-primary">Mostra</a>
                                 <a href="{{ route('admin.apartments.edit', $apartment) }}"

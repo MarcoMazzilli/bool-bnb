@@ -35,8 +35,7 @@ Route::middleware(['auth','verified'])
 ->group(function(){
   Route::resource('apartments', ApartmentController::class);
   Route::resource('statistics', StatisticController::class);
-  // Route::put('apartments/{apartment}/visible', [ApartmentController::class, 'visible'])
-  // ->name('apartments.visible');
+  Route::post('/switch', [ApartmentController::class, 'toggleVisible'])->name('toggleVisible');
 });
 
 Route::middleware(['auth','verified'])
