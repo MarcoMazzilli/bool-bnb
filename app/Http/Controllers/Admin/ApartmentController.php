@@ -29,21 +29,15 @@ class ApartmentController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //  public function visible(ApartmentRequest $request,Apartment $apartment){
-    //     $data = [];
+    public function toggleVisible(Request $request){
+        $data = $request->all();
+        $apartment = Apartment::find($data['apartment_id']);
 
-    //     if($apartment->visible === 1){
-    //         $data['visible'] = 0;
-    //     }elseif($apartment->visible === 0){
-    //         $data['visible'] = 1;
-    //     }
-    //     // dd($apartment);
-    //     $method = 'PUT';
-    //     // $route = route('admin.apartments.update', $apartment);
-    //     $apartment->visible->update(0);
-    //     return view('admin.apartments.index', compact('apartment'));
+        !$apartment->visible ? $apartment->visible = 1 : $apartment->visible = 0;
+        $apartment->update($data);
 
-    //  }
+        return back();
+    }
 
     public function index()
     {

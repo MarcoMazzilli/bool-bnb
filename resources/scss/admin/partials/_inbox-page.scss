@@ -1,0 +1,27 @@
+#inboxMessages {
+
+  thead {
+
+    th {
+      background-color: $brand-blue;
+      padding: 20px;
+      color: white;
+    }
+  }
+
+  tbody {
+    tr {
+      cursor: pointer;
+
+      &:hover td{
+        background-color: lighten($brand-main, 30%);
+      }
+
+      .inbox{
+        background-color: $brand-blue;
+        color: white;
+        width: 100%;
+      }
+    }
+  }
+}

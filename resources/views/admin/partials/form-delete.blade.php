@@ -1,11 +1,12 @@
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modal{{ $id }}">
-    Elimina
+<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modaldelete{{ $id }}">
+  <span class="d-none d-xl-inline-block">Elimina</span>
+  <i class="fa-solid fa-trash-can d-xl-none"></i>
   </button>
 
   <!-- Modal -->
-  <div class="modal fade" id="modal{{ $id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modaldelete{{ $id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

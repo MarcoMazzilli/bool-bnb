@@ -38,7 +38,7 @@
 
             @if (Auth::user()->apartments->count())
             <li class="nav-item {{ Route::currentRouteName() === '#' ? 'active' : '' }}" title="Inbox">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('messages.getMessages')}}">
                     <span class="d-none d-md-block">Inbox</span>
                     <i class="fa-solid fa-inbox d-md-none"></i>
                 </a>

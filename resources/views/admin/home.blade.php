@@ -51,7 +51,9 @@
                             @foreach ($messages as $message)
                             <li class="border rounded p-2">
                               @if (!$message->message_read)
-                              <span class="badge text-bg-primary">1</span>
+                              <a class=" btn badge text-bg-primary d-inline-block position-relative" href="{{ route('messages.getMessages')}}">1
+                                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"></span>
+                              </a>
                               @else
                               <span class="badge text-bg-success">&checkmark;</span>
                               @endif

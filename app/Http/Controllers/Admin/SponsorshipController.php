@@ -45,6 +45,15 @@ class SponsorshipController extends Controller
 
   public function checkout(Request $request)
   {
+    $data = json_decode($request['data']);
+    // --------------------------------------------
+
+    $apartmentId = $data->apartment;
+    $sponsorId = $data->sponsor;
+    $startDate = $data->date;
+
+    $sponsorship = Sponsorship::find($sponsorId);
+
     $gateway = new Gateway([
       'environment' => config('services.braintree.environment'),
       'merchantId' => config('services.braintree.merchantId'),
@@ -52,7 +61,7 @@ class SponsorshipController extends Controller
       'privateKey' => config('services.braintree.privateKey')
     ]);
 
-    $amount = $request->amount;
+    $amount = $sponsorship->price;
     $nonce = $request->payment_method_nonce;
 
     $result = $gateway->transaction()->sale([
@@ -69,19 +78,12 @@ class SponsorshipController extends Controller
     ]);
 
     if ($result->success) {
-      $data = json_decode($request['data']);
-      // --------------------------------------------
-
-      $apartmentId = $data->apartment;
-      $sponsorId = $data->sponsor;
-      $startDate = $data->date;
 
       // Se non viene specificata una data, prendo quella locale
       if ($startDate == null) {
         $startDate = Carbon::now('GMT+2')->toDateTimeString();
       };
 
-      $sponsorship = Sponsorship::find($sponsorId);
 
 
       $new_sponsorship = new Sponsorship();
