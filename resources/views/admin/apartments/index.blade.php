@@ -4,12 +4,12 @@
     {{-- @dd($apartmentsVisible); --}}
 
     <div class="container my_overflow">
-        <h3>Lista appartamenti visibili</h3>
+        <h3 class="py-3">Lista appartamenti visibili</h3>
         @if ($apartmentsVisible->where('visible', 1)->count())
             <table class="table mb-5">
                 <thead>
                     <tr>
-                        <th scope="col">#ID</th>
+                        {{-- <th scope="col">#ID</th> --}}
                         <th scope="col">Nome</th>
                         <th scope="col">Luogo appartamento</th>
                         <th scope="col">Azioni</th>
@@ -18,7 +18,7 @@
                 <tbody>
                     @foreach ($apartmentsVisible as $apartment)
                         <tr>
-                            <th>{{ $apartment->id }}</th>
+                            {{-- <th>{{ $apartment->id }}</th> --}}
                             <td>{{ $apartment->name }}</td>
                             <td>{{ $apartment->address }}</td>
                             <td>
@@ -29,10 +29,15 @@
                                     'route' => route('admin.apartments.update', $apartment),
                                 ])
 
-                                <a href="{{ route('admin.apartments.show', $apartment) }}"
-                                    class="btn btn-outline-primary">Mostra</a>
+                                <a href="{{ route('admin.apartments.show', $apartment) }}" class="btn btn-outline-primary">
+                                    <span class="d-none d-xl-inline-block">Mostra</span>
+                                    <i class="fa-solid fa-circle-info d-xl-none"></i>
+                                </a>
                                 <a href="{{ route('admin.apartments.edit', $apartment) }}"
-                                    class="btn btn-outline-secondary">Modifica</a>
+                                    class="btn btn-outline-secondary">
+                                    <span class="d-none d-xl-inline-block">Modifica</span>
+                                    <i class="fa-solid fa-pencil d-xl-none"></i>
+                                </a>
 
                                 @include('admin.partials.form-delete', [
                                     'title' => 'Eliminazione Post',
@@ -55,7 +60,7 @@
             </div>
         @endif
 
-        <h3>Lista appartamenti sponsorizzati</h3>
+        <h3 class="py-3">Lista appartamenti sponsorizzati</h3>
         @if ($num_sponsorship != 0)
             <table class="table">
                 <thead>
@@ -92,7 +97,7 @@
             </div>
         @endif
 
-        <h3>Lista appartamenti non visibili</h3>
+        <h3 class="py-3">Lista appartamenti non visibili</h3>
         @if ($apartmentsHidden->where('visible', 0)->count())
             <table class="table">
                 <thead>
@@ -112,15 +117,20 @@
                             <td>{{ $apartment->name }}</td>
                             <td>{{ $apartment->address }}</td>
                             <td>
-                              @include('admin.partials.form-visible', [
-                                'title' => 'Modifica',
-                                'apartment' => $apartment,
-                                'route' => route('admin.apartments.update', $apartment),
-                            ])
-                                <a href="{{ route('admin.apartments.show', $apartment) }}"
-                                    class="btn btn-outline-primary">Mostra</a>
+                                @include('admin.partials.form-visible', [
+                                    'title' => 'Modifica',
+                                    'apartment' => $apartment,
+                                    'route' => route('admin.apartments.update', $apartment),
+                                ])
+                                <a href="{{ route('admin.apartments.show', $apartment) }}" class="btn btn-outline-primary">
+                                    <span class="d-none d-xl-inline-block">Mostra</span>
+                                    <i class="fa-solid fa-circle-info d-xl-none"></i>
+                                </a>
                                 <a href="{{ route('admin.apartments.edit', $apartment) }}"
-                                    class="btn btn-outline-secondary">Modifica</a>
+                                    class="btn btn-outline-secondary">
+                                    <span class="d-none d-xl-inline-block">Modifica</span>
+                                    <i class="fa-solid fa-pencil d-xl-none"></i>
+                                </a>
 
                                 @include('admin.partials.form-delete', [
                                     'title' => 'Eliminazione Post',
