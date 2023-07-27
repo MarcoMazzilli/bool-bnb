@@ -84,7 +84,7 @@ class ApartmentsTableSeeder extends Seeder
 
           if (array_key_exists('sponsor', $apartment)) {
 
-            $randomDate = Carbon::now()->addDays(rand(1, 365));
+            $randomDate = Carbon::now('GMT+2')->addDays(rand(0, 5));
 
             $sponsorship = Sponsorship::find($apartment['sponsor']);
 
