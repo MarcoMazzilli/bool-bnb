@@ -72,5 +72,20 @@ body {
 }
 
 
+header{
 
+  img{
+    height: 50px;
+  }
 
+  nav{
+    button.btn{
+      background-color:$light-text;
+      transition: all .4s;
+      color: $brand-blue;
+      &:hover{
+        background-color: $brand-main;
+      }
+    }
+  }
+}

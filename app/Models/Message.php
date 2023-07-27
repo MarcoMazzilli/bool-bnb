@@ -16,12 +16,13 @@ class Message extends Model
 
 
     protected $fillable = [
-        'object',
         'text',
         'author_email',
-        'message_read',
         'author_first_name',
         'author_last_name',
+        'apartment_id',
+        'text',
+        'object'
     ];
 
 }

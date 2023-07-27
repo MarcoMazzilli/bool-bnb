@@ -10,6 +10,7 @@ use App\Models\Image;
 use App\Models\Message;
 use App\Models\User;
 use App\Models\Sponsorship;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -28,34 +29,39 @@ class ApartmentController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //  public function visible(ApartmentRequest $request,Apartment $apartment){
-    //     $data = [];
+    public function toggleVisible(Request $request){
+        $data = $request->all();
+        $apartment = Apartment::find($data['apartment_id']);
 
-    //     if($apartment->visible === 1){
-    //         $data['visible'] = 0;
-    //     }elseif($apartment->visible === 0){
-    //         $data['visible'] = 1;
-    //     }
-    //     // dd($apartment);
-    //     $method = 'PUT';
-    //     // $route = route('admin.apartments.update', $apartment);
-    //     $apartment->visible->update(0);
-    //     return view('admin.apartments.index', compact('apartment'));
+        !$apartment->visible ? $apartment->visible = 1 : $apartment->visible = 0;
+        $apartment->update($data);
 
-    //  }
+        return back();
+    }
 
     public function index()
     {
-        $apartments = Apartment::where('user_id', Auth::id())->orderBy('updated_at', 'desc')->get();
+        $apartmentsVisible = Apartment::where('user_id', Auth::id())
+        ->where('visible', 1)
+        ->orderBy('updated_at', 'desc')->get();
+
+        $apartmentsHidden= Apartment::where('user_id', Auth::id())
+        ->where('visible', 0)
+        ->orderBy('updated_at', 'desc')->get();
+
+        $apartmentSponsored = Apartment::where('user_id', Auth::id())
+        ->with('services', 'sponsorships')
+        ->whereHas('sponsorships', function (Builder $query) {
+          $query->where('sponsorship_id', '!=', 1);
+        })->get();
+
         $num_sponsorship = 0;
-        foreach($apartments as $apartment ){
-
+        foreach($apartmentsVisible as $apartment ){
             $num_sponsorship += $apartment->sponsorships->count();
-
         }
-        // dd($num_sponsorship);
 
-        return view('admin.apartments.index', compact('apartments', 'num_sponsorship'));
+
+        return view('admin.apartments.index', compact('apartmentsVisible','apartmentsHidden','apartmentSponsored', 'num_sponsorship'));
     }
 
     /**

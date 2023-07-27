@@ -17,7 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
 use Braintree\Gateway;
 use Braintree\ClientTokenGateway;
-
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class DashboardController extends Controller
 {
@@ -59,7 +59,12 @@ class DashboardController extends Controller
         })->count(),
     ];
 
-    return view('admin.home', compact('apartmentsCount','countTypeOfSponsor','SponsoredApartmentsCount'));
+    $apartmentsId = Apartment::select('id')->where('user_id', Auth::id())->get();
+    $messagesCount = Message::WhereIn('apartment_id',$apartmentsId)->count();
+    $messages = Message::WhereIn('apartment_id',$apartmentsId)->get();
+
+
+    return view('admin.home', compact('apartmentsCount','countTypeOfSponsor','SponsoredApartmentsCount','messagesCount','messages'));
   }
 
   public function getSponsorship(){
@@ -71,4 +76,6 @@ class DashboardController extends Controller
 
     return view('admin.apartments.apartment-sponsorship',compact( 'apartments','sponsorships'));
   }
+
+
 }

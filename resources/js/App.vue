@@ -1,12 +1,13 @@
 <script>
 import {store} from'../data/store.js';
 import Header from '../js/components/header.vue';
+import Footer from '../js/components/footer.vue';
 import DebHeader from '../js/components/debug_header.vue';
 export default {
     name: 'home',
 
     components:{
-        Header,DebHeader
+        Header,DebHeader, Footer
     },
     methods:{},
     computed:{},
@@ -25,6 +26,8 @@ export default {
         </component>
 
     </router-view>
+
+    <Footer />
 
 </template>
 
