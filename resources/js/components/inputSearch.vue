@@ -16,24 +16,32 @@ export default {
   methods :{
 
     search(){
-    if(this.indirizzo.trim() == ''){
-      console.log('indirizzo vuoto');
-      this.indirizzo = 'Roma';
-    }
 
-    store.advSrcRequest.address = this.indirizzo;
-    console.log(store.TomtomBaseUrl + store.apiUrlSearchAddress + convertAddress(this.indirizzo) + store.queryType + this.apiKey);
-    // -------- chiamata centratura mappa
-      axios.get(store.TomtomBaseUrl + store.apiUrlSearchAddress + convertAddress(this.indirizzo) + store.queryType + store.apiKey)
-      .then(result =>{
-        store.mapCoord = [result.data.results[0].position.lon, result.data.results[0].position.lat];
-        console.log('store.mapCoord', store.mapCoord);
-        advancedSearch();
-        this.$router.push({ name: 'advancedSearch' });
-      })
-      .catch(function (error) {
-        console.warn(error);
-      })
+      if(this.indirizzo.trim() == ''){
+        console.log('indirizzo vuoto');
+        this.indirizzo = 'Roma';
+      }
+
+      if(store.advSrcRequest.type === 'drv' && !store.advSrcRequest.coord){
+        console.warn('nessun poligono disegnato');
+
+      }else{
+
+        store.advSrcRequest.address = this.indirizzo;
+        console.log(store.TomtomBaseUrl + store.apiUrlSearchAddress + convertAddress(this.indirizzo) + store.queryType + this.apiKey);
+        // -------- chiamata centratura mappa
+        axios.get(store.TomtomBaseUrl + store.apiUrlSearchAddress + convertAddress(this.indirizzo) + store.queryType + store.apiKey)
+        .then(result =>{
+          store.mapCoord = [result.data.results[0].position.lon, result.data.results[0].position.lat];
+          console.log('store.mapCoord', store.mapCoord);
+          advancedSearch();
+          this.$router.push({ name: 'advancedSearch' });
+        })
+        .catch(function (error) {
+          console.warn(error);
+        })
+      }
+
     },
 
     updateAddress(){
@@ -50,6 +58,7 @@ export default {
     }else{
       this.updateAddress();
     }
+
   }
 
 }
@@ -70,6 +79,7 @@ export default {
           class="input-group-text search"
           :class="{
             'alone' : store.advSrcRequest.type === 'drv' || store.advSrcRequest.type === 'srv-only' ,
+            'deactivated' : store.advSrcRequest.type === 'drv' && !store.advSrcRequest.coord ,
           }"
           >
             <i class="fa-solid fa-magnifying-glass"></i>
@@ -87,6 +97,10 @@ export default {
   width: 100%;
   justify-content: center;
 
+}
+
+.deactivated{
+  opacity: 0.1;
 }
 
 </style>

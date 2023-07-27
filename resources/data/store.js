@@ -63,9 +63,7 @@ export const store = reactive ({
     services: [],
     longitude : false,
     latitude : false,
-    coord:[
-      [ 11.166504901180673, 43.74673562381395  ],
-    ],
+    coord: false,
     address: false,
 
   },

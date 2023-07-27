@@ -1,8 +1,8 @@
 import {store} from '../../data/store';
 import axios from 'axios';
-export {advancedSearch, navigateApartmentResults, getCordianates, compileServiceIndex, findServices,  searchByRange,searchByPerimeter, getMarkers, convertAddress, calcPolygonCenter};
-
-
+export {advancedSearch, navigateApartmentResults, getCordianates,
+        compileServiceIndex, findServices,  searchByRange,searchByPerimeter,
+        getMarkers, convertAddress, calcPolygonCenter};
 
 
 function advancedSearch(){
@@ -16,6 +16,8 @@ function advancedSearch(){
     //ricerca dentro disegno -------------------------
     store.mapCoord = calcPolygonCenter(store.advSrcRequest.coord);
     compileServiceIndex();
+    store.advSrcRequest.address = 'perimetro disegnato';
+    store.advSrcRequest.radius = '?';
     console.log('drv request obj :', store.advSrcRequest );
     searchByPerimeter(store.advSrcRequest);
 
@@ -99,7 +101,7 @@ function navigateApartmentResults(url){
 
       store.load = true;
   })
-  }
+}
 
 function findServices(data){
   store.load = false;
@@ -148,13 +150,13 @@ function getCordianates(addres){
   })
 }
 
-function  convertAddress(address){
+function convertAddress(address){
   const converted = address.replace(/ /g,'%20') ;
   // console.log(converted);
   return converted;
 }
 
-function  compileServiceIndex(){
+function compileServiceIndex(){
   store.advSrcRequest.longitude = store.mapCoord[0];
   store.advSrcRequest.latitude = store.mapCoord[1];
   console.log('request state:', store.advSrcRequest);

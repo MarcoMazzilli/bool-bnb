@@ -57,8 +57,6 @@ export default {
           {{ 'min: '+ store.lastRequest.bathrooms }}</span>
       </div>
 
-
-
     </div>
 
 
@@ -76,7 +74,6 @@ export default {
           'pg_btn prv' : link.label.length === 16,
           'pg_btn nxt' : link.label.length === 12,
         }"
-
       >
 
         <span
@@ -136,8 +133,6 @@ export default {
   }
 }
 
-
-
 .pg_btn{
 width: 500px;
 
@@ -172,6 +167,5 @@ color: #ffffff;
 border: none;
 
 }
-
 
 </style>

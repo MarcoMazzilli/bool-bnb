@@ -52,6 +52,43 @@ export default {
 
     methods :{
 
+      // check error input------
+      radiusCheckErrors(){
+        if(store.advSrcRequest.radius < 20){
+          store.advSrcRequest.radius = 20;
+        }else if(store.advSrcRequest.radius > 1000){
+          store.advSrcRequest.radius = 1000;
+        }
+      },
+      sizeCheckErrors(){
+        if(store.advSrcRequest.size < 15){
+          store.advSrcRequest.size = 15;
+        }else if(store.advSrcRequest.size > 1000){
+          store.advSrcRequest.size = 1000;
+        }
+      },
+      badCheckErrors(){
+        if(store.advSrcRequest.beds < 1){
+          store.advSrcRequest.beds = 1;
+        }else if(store.advSrcRequest.beds > 20){
+          store.advSrcRequest.beds = 20;
+        }
+      },
+      roomsCheckErrors(){
+        if(store.advSrcRequest.rooms < 1){
+          store.advSrcRequest.rooms = 1;
+        }else if(store.advSrcRequest.rooms > 10){
+          store.advSrcRequest.rooms = 10;
+        }
+      },
+      bathroomCheckErrors(){
+        if(store.advSrcRequest.bathrooms < 1){
+          store.advSrcRequest.bathrooms = 1;
+        }else if(store.advSrcRequest.bathrooms > 20){
+          store.advSrcRequest.bathrooms = 20;
+        }
+      },
+      // check error input------
       scrollService(event){
         console.log('scroll', event);
         const scrollableDiv = this.$refs.scrollable;
@@ -104,6 +141,10 @@ export default {
       initializeMap() {
         store.advSrcRequest.type='adv';
         // se arrivi direttamente in advanced search allora centra la mappa su Roma
+        if(store.advSrcRequest.radius === '?'){
+          store.advSrcRequest.radius = 20;
+        }
+
         if(!store.mapCoord){
           store.mapCoord = [12.49427, 41.89056];
           console.warn('centro mappa mancante')
@@ -136,6 +177,7 @@ export default {
 
       initializeMapDrawing() {
         store.advSrcRequest.type='drv';
+        store.advSrcRequest.coord = false;
         // reset dom---
         const mapDiv = document.getElementById('map');
         mapDiv.innerHTML = '';
@@ -168,13 +210,20 @@ export default {
         });
 
         ttDrawingTools.on('tomtom.drawingtools.created', function(feature) {
-        console.log(
+          console.log( 'feature-----polygon',
           feature.data.features[0].geometry.coordinates,
           feature.data.features[0],
           );
-          store.advSrcRequest.coord = feature.data.features[0].geometry.coordinates[0];
-          store.mapCoord = calcPolygonCenter(store.advSrcRequest.coord);
-          console.log('request drv state',  store.advSrcRequest )
+
+          if(feature.data.features[0].geometry.coordinates[0].length > 3){
+            store.advSrcRequest.coord = feature.data.features[0].geometry.coordinates[0];
+            store.mapCoord = calcPolygonCenter(store.advSrcRequest.coord);
+            console.log('request drv state',  store.advSrcRequest )
+          }
+        });
+
+        ttDrawingTools.on('tomtom.drawingtools.deleted', function(feature) {
+            store.advSrcRequest.coord = false;
         });
 
       },
@@ -234,13 +283,13 @@ export default {
                 <span>Disegna Sulla Mappa</span>
               </button>
 
-              <button
+              <!-- <button
               @click="serviceSearch()"
               class="src_typ_btn"
               :class="(store.advSrcRequest.type === 'srv-only') ? 'active' : '' "
               >
                 <span>service only search</span>
-              </button>
+              </button> -->
 
 
         </div>
@@ -248,10 +297,7 @@ export default {
 
 
         <!-- filtri -------------------------\ -->
-        <div class="flt_container d-flex flex-column "
-
-        >
-        <!-- filtri -------------------------/ -->
+        <div class="flt_container d-flex flex-column ">
 
             <!-- map -->
             <div class="mapping w-100">
@@ -270,35 +316,40 @@ export default {
               <div v-if="store.advSrcRequest.type === 'adv'"
               class="search_box d-flex flex-column  justify-content-center align-items-center ">
               <label class="" for="radius">Raggio in Km</label>
-              <input min="20" max="1000"
+              <input @blur="radiusCheckErrors()"
+              min="20" max="1000"
               class="option-input mt-1 " id="radius" type="number"
               v-model="store.advSrcRequest.radius">
             </div>
 
             <div class="search_box d-flex flex-column  justify-content-center align-items-center  ">
               <label class="" for="mq">Minimo m²</label>
-              <input min="40" max="300"
+              <input @blur="sizeCheckErrors()"
+              min="40" max="300"
               class="option-input mt-1" id="mq" type="number"
               v-model="store.advSrcRequest.size">
             </div>
 
             <div class="search_box d-flex flex-column  justify-content-center align-items-center  ">
               <label class="" for="rooms">Minimo Stanze</label>
-              <input min="1" max="20"
+              <input @blur="roomsCheckErrors()"
+              min="1" max="20"
               class="option-input mt-1" id="rooms" type="number"
               v-model="store.advSrcRequest.rooms">
             </div>
 
             <div class="search_box d-flex flex-column  justify-content-center align-items-center  ">
               <label class="" for="bad">Minimo Letti</label>
-              <input min="1" max="20"
+              <input @blur="badCheckErrors()"
+              min="1" max="20"
               class="option-input mt-1" id="bad" type="number"
               v-model="store.advSrcRequest.beds">
             </div>
 
             <div class="search_box d-flex flex-column  justify-content-center align-items-center  ">
               <label class="" for="bathrooms">Minimo Bagni</label>
-              <input min="1" max="6"
+              <input @blur="bathroomCheckErrors()"
+              min="1" max="6"
               class="option-input mt-1" id="bathrooms" type="number"
               v-model="store.advSrcRequest.bathrooms">
             </div>
