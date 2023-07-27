@@ -145,19 +145,19 @@ export default {
       <form v-if="!success" class="row" @submit.prevent="sendMail()">
         <h2>Invia un messaggio all'host</h2>
 
-        <div class="col col-4 mb-3">
+        <div class="col col-12 col-md-4 mb-3">
           <label for="author_first_name" class="form-label">Nome</label>
           <input v-model.trim="author_first_name" type="text" class="form-control" :class="{'is-invalid' : errors.first_name }" id="author_first_name" placeholder="Inserisci il nome">
           <p v-for="(error,index) in errors.author_first_name" :key="index" class="text-danger">{{ error }}</p>
         </div>
 
-        <div class="col col-4 mb-3">
+        <div class="col col-12 col-md-4 mb-3">
           <label for="author_last_name" class="form-label">Cognome</label>
           <input v-model.trim="author_last_name" type="text" class="form-control" :class="{'is-invalid' : errors.author_last_name }" id="author_last_name" placeholder="Inserisci il cognome">
           <p v-for="(error,index) in errors.author_last_name" :key="index" class="text-danger">{{ error }}</p>
         </div>
 
-        <div class="col col-4 mb-3">
+        <div class="col col-12 col-md-4 mb-3">
           <label for="author_email" class="form-label">Indirizzo email</label>
           <input v-model.trim="author_email" type="email" class="form-control" :class="{'is-invalid' : errors.author_email }" id="author_email" placeholder="Inserisci la tua email">
           <p v-for="(error,index) in errors.author_email" :key="index" class="text-danger">{{ error }}</p>

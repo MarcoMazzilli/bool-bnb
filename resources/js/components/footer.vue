@@ -21,7 +21,7 @@
   <footer>
     <div class="container py-5">
 
-      <div class="row row-cols-4">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
         <div class="col">
           <h5>Assistenza</h5>
           <ul class="p-0">
