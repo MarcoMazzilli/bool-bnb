@@ -252,7 +252,7 @@ export default {
 
 <template>
 
-    <div class="AdvancedSearch_container my-2 container gx-1 " id="AdvancedSearch-page"
+    <div class="AdvancedSearchBar_container my-2 container gx-1 " id=""
     :class="this.advToggle ? 'adv-closed' : ' ' "
     >
       <!-- ---------------search-filter -----------------------------------------------\-->
@@ -394,16 +394,16 @@ export default {
 <style lang="scss" scoped>
 @import '../../scss/var';
 
-.AdvancedSearch_container{
+.AdvancedSearchBar_container{
   box-shadow:  0px 0px 5px rgba(54, 69, 206, 0.507);
   background-color: #f2f8f8;
   border-radius: 10px;
   height: 425px;
   overflow: hidden;
-  transition :all 900ms ease-out;
+  transition : height 900ms ease-out;
   &.adv-closed{
   height: 20px ;
-  transition :all 1100ms ease-out;
+  transition : height 1100ms ease-out;
 }
 }
 
