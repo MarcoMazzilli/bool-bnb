@@ -28,9 +28,17 @@ export default {
 <template>
 
     <div  v-if="store.pagination.total < 1"
-    class="no-result container  mt-2 g-1 d-flex">
-      nessun risultato
+    class="no-result container mt-5 mb-5 g-1 ">
+      <h3>Nessuna corrispondenza esatta</h3>
+      <h6>Prova a modificare o rimuovere alcuni filtri o a cambiare l'area di ricerca.</h6>
+
+      <div class="redirect mt-5">
+        <router-link :to="{name: 'home' }" class="redirect-home text-dark" >
+          Torna alla Home
+        </router-link>
+      </div>
     </div>
+
     <div v-if="store.pagination.total > 0"
     class="result-synthesis container  mt-2 g-1 d-flex">
 
@@ -136,7 +144,17 @@ export default {
   }
 }
 
-
+.redirect a{
+  text-decoration: none;
+  color: rgb(40, 39, 39);
+  padding: 10px;
+  border: 1px solid rgb(96, 95, 95);
+  // background-color:$brand-main;
+  border-radius: 5px;
+  &:hover{
+    border: 1px solid rgb(0, 0, 0);
+  }
+}
 
 .pg_btn{
 width: 500px;
