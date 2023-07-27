@@ -30,45 +30,48 @@ export default {
 
 <template>
 
-  <div class="container py-3 mb-5 text-align-center-center">
+  <div class="container py-3 mb-4">
 
     <div class="title mb-4">
       <h1>Mete più richieste</h1>
       <span>Le scelte preferite dai viaggiatori dall'Italia</span>
     </div>
 
-    <!-- FIRST ROW -->
-    <div class="destination-row d-flex justify-content-between">
+    <div class="row row-cols-1">
 
-      <div class="card" style="width: 39rem;" @click="makeRequest(store.RomaRequest)">
-        <img src="storage/destinations-img/roma.jpg" class="card-img" alt="Roma">
-        <span class="position-absolute top-0 start-0 text-white p-2"><h3>Roma</h3></span>
+      <div class="col  col-md-6 mb-3">
+        <div class="card" @click="makeRequest(store.RomaRequest)">
+          <img src="storage/destinations-img/roma.jpg" class="card-img" alt="Roma">
+          <span class="position-absolute top-0 start-0 text-white p-2"><h3>Roma</h3></span>
+        </div>
       </div>
 
-      <div class="card" style="width: 39rem;" @click="makeRequest(store.MilanoRequest)">
+      <div class="col  col-md-6 mb-3">
+        <div class="card" @click="makeRequest(store.MilanoRequest)">
         <img src="storage/destinations-img/milano.jpg" class="card-img" alt="Milano">
         <span class="position-absolute top-0 start-0 text-white p-2"><h3>Milano</h3></span>
+        </div>
       </div>
 
-    </div>
-
-    <!-- SECOND ROW -->
-    <div class="destination-secondtrow d-flex justify-content-between mt-4">
-
-      <div class="card" style="width: 25rem;" @click="makeRequest(store.NapoliRequest)">
-        <img src="storage/destinations-img/napoli.jpg" class="card-img" alt="Napoli">
+      <div class="col  col-md-4 mb-3">
+        <div class="card ratio ratio-4x3" @click="makeRequest(store.NapoliRequest)">
+          <img src="storage/destinations-img/napoli.jpg" class="card-img" alt="Napoli">
         <span class="position-absolute top-0 start-0 text-white p-2"><h4>Napoli</h4></span>
+        </div>
       </div>
 
-      <div class="card" style="width: 25rem;" @click="makeRequest(store.RiminiRequest)">
-        <img src="storage/destinations-img/rimini.jpg" class="card-img" alt="Rimini">
+      <div class="col  col-md-4 mb-3">
+        <div class="card ratio ratio-4x3" @click="makeRequest(store.RiminiRequest)">
+          <img src="storage/destinations-img/rimini.jpg" class="card-img" alt="Rimini">
         <span class="position-absolute top-0 start-0 text-white p-2"><h4>Rimini</h4></span>
+        </div>
       </div>
 
-
-      <div class="card" style="width: 25rem;" @click="makeRequest(store.FirenzeRequest)">
-        <img src="storage/destinations-img/firenze.jpg" class="card-img" alt="Firenze">
+      <div class="col  col-md-4">
+        <div class="card ratio ratio-4x3" @click="makeRequest(store.FirenzeRequest)">
+          <img src="storage/destinations-img/firenze.jpg" class="card-img" alt="Firenze">
         <span class="position-absolute top-0 start-0 text-white p-2"><h4>Firenze</h4></span>
+        </div>
       </div>
 
     </div>
