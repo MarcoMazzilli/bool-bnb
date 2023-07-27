@@ -7,11 +7,6 @@ export default {
     return{
       apiKey: store.apiKey,
 
-      indirizzo: '',
-      jsonLink: '',
-      cordinates:{},
-      // --------------------------
-      autocomplete:'cerca',
     }
   },
   methods :{

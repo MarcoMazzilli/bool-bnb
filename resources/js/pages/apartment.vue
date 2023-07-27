@@ -61,7 +61,7 @@ export default {
       }
     },
     mounted(){
-        console.log(this.apartment)
+      console.log('whereIam?', this.$route.name );
     }
 }
 </script>

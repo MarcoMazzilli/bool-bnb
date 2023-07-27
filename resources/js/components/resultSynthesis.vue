@@ -65,13 +65,11 @@ export default {
           {{ 'min: '+ store.lastRequest.bathrooms }}</span>
       </div>
 
-
-
     </div>
 
 
     <div v-if="store.pagination.total > 0"
-    class="paginate container d-flex justify-content-between mt-1 g-5 ">
+    class="paginate container d-flex justify-content-between mt-2 g-5 ">
 
       <div
       v-for="(link, index) in store.pagination.links" :key="index"
@@ -84,7 +82,6 @@ export default {
           'pg_btn prv' : link.label.length === 16,
           'pg_btn nxt' : link.label.length === 12,
         }"
-
       >
 
         <span
@@ -118,7 +115,7 @@ export default {
   }
 }
 .paginate{
-  height: 15px;
+  height: 20px;
   font-size: 0.7rem;
 
   & .prev{
@@ -126,7 +123,7 @@ export default {
     color: rgba(255, 0, 0, 0);
     &::before{
       content: "<<";
-      color: rgb(255, 0, 0);
+      color: rgb(0, 0, 0);
       font-size: 0.7rem;
     }
   }
@@ -135,7 +132,7 @@ export default {
     color: rgb(0, 4, 255);
     &::before{
       content: ">>";
-      color: rgb(0, 4, 255);
+      color: rgb(0, 0, 0);
       font-size: 0.7rem;
     }
   }
@@ -162,11 +159,11 @@ width: 500px;
 // height: 10px;
 // position: relative;
 color: #fff;
-background: rgb(217, 173, 173);
+background: linear-gradient(0deg, #7c9cd8  0%, rgba(153,164,180,1) 60%, rgba(255,255,255,1) 93%, rgb(214, 214, 214) 100%);
 padding: 5px 5px;
 border: none;
 border-radius: 5px;
-box-shadow: rgb(202, 202, 202) 0px -1px 5px 0px;
+// box-shadow: rgb(202, 202, 202) 0px -1px 5px 0px;
 // border-radius: 50px;
 transition : 500ms;
 transform: translateY(0);
@@ -175,9 +172,11 @@ flex-direction: row;
 justify-content: center;
 align-items: center;
 cursor: pointer;
+opacity: 0.8;
 
   &.current{
-  background: rgb(241, 213, 213);
+    background: linear-gradient(0deg, $brand-main  0%, rgba(231,186,120,1) 60%, rgba(255,255,255,1) 93%, rgb(214, 214, 214) 100%);
+    opacity: 01;
   }
 }
 
@@ -190,6 +189,5 @@ color: #ffffff;
 border: none;
 
 }
-
 
 </style>

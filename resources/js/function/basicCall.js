@@ -1,31 +1,35 @@
 import {store} from '../../data/store';
 import axios from 'axios';
-export {advancedSearch, navigateApartmentResults, getCordianates, compileServiceIndex, findServices,  searchByRange, getMarkers, convertAddress};
-
-
+export {advancedSearch, navigateApartmentResults, getCordianates,
+        compileServiceIndex, findServices,  searchByRange,searchByPerimeter,
+        getMarkers, convertAddress, calcPolygonCenter};
 
 
 function advancedSearch(){
   if(store.advSrcRequest.type === 'adv'){
-    // service ricerca avanzata -------------------------
+    //ricerca avanzata -------------------------
     compileServiceIndex();
-    console.log('request state :', store.advSrcRequest );
+    console.log('adv request obj :', store.advSrcRequest );
     searchByRange( store.advSrcRequest );
 
   }else if(store.advSrcRequest.type === 'drv'){
-    // service ricerca avanzata -------------------------
-
+    //ricerca dentro disegno -------------------------
+    store.mapCoord = calcPolygonCenter(store.advSrcRequest.coord);
+    compileServiceIndex();
+    store.advSrcRequest.address = 'perimetro disegnato';
+    store.advSrcRequest.radius = '?';
+    console.log('drv request obj :', store.advSrcRequest );
+    searchByPerimeter(store.advSrcRequest);
 
   }else if(store.advSrcRequest.type = 'srv-only'){
     // service only search -------------------------
     store.advSrcRequest.coord = [[store.cord]]
     compileServiceIndex();
-    console.log('solo servizi', store.advSrcRequest );
+    console.log('solo servizi obj', store.advSrcRequest );
     findServices(store.advSrcRequest);
   }
 
 }
-
 
 function searchByRange(data){
   console.warn('src by range')
@@ -52,6 +56,33 @@ function searchByRange(data){
   })
 }
 
+function searchByPerimeter(data){
+  console.warn('src by perimeter')
+  store.load = false;
+  store.lastRequest = JSON.parse(JSON.stringify(data));
+  console.log('perimeter store.lastRequest', store.lastRequest );
+
+  axios.post(store.apiHostUrl + store.findPerimeter, data)
+  .then(result =>{
+    console.log('risultato ===>',result.data);
+    store.apartmentsfiltred = result.data.apartments.data;
+
+    store.pagination.current_page = result.data.apartments.current_page;
+    store.pagination.first_page_url = result.data.apartments.first_page_url;
+    store.pagination.last_page_url = result.data.apartments.last_page_url;
+    store.pagination.links = result.data.apartments.links;
+    store.pagination.total = result.data.apartments.total;
+    store.pagination.next_page_url = result.data.apartments.next_page_url;
+    store.pagination.prev_page_url = result.data.apartments.prev_page_url;
+
+    console.warn('store.pagination', store.pagination);
+    store.load = true;
+  }).catch(error => {
+    console.log('Errori ===>',error)
+  })
+
+}
+
 function navigateApartmentResults(url){
   store.load = false;
   console.log('paginate store.lastRequest', url , store.lastRequest )
@@ -70,7 +101,7 @@ function navigateApartmentResults(url){
 
       store.load = true;
   })
-  }
+}
 
 function findServices(data){
   store.load = false;
@@ -119,17 +150,16 @@ function getCordianates(addres){
   })
 }
 
-function  convertAddress(address){
+function convertAddress(address){
   const converted = address.replace(/ /g,'%20') ;
   // console.log(converted);
   return converted;
 }
 
-function  compileServiceIndex(){
+function compileServiceIndex(){
   store.advSrcRequest.longitude = store.mapCoord[0];
   store.advSrcRequest.latitude = store.mapCoord[1];
   console.log('request state:', store.advSrcRequest);
-  store.advSrcRequest.coord = [[store.mapCoord]];
   store.advSrcRequest.services = [];
   store.servicesChecked.forEach((element, key) => {
     if(element){
@@ -137,5 +167,21 @@ function  compileServiceIndex(){
       // console.log(key, element , store.advSrcRequest.services);
     }
   });
+}
+
+function calcPolygonCenter(coordinates) {
+  const numPoints = coordinates.length - 1; // Sottrai 1 per escludere la duplicazione della prima e ultima coordinata.
+  let sumX = 0;
+  let sumY = 0;
+
+  for (let i = 0; i < numPoints; i++) {
+    sumX += coordinates[i][0]; // longitudine
+    sumY += coordinates[i][1]; // latitudine
+  }
+
+  const centerX = sumX / numPoints;
+  const centerY = sumY / numPoints;
+  console.log('centro del poligono',' lat ' + centerX + ' lat ' + centerY)
+  return [centerX, centerY];
 }
 
