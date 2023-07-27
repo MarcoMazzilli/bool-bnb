@@ -27,7 +27,7 @@
                     <select name="sponsor" class="form-select">
                         @foreach ($sponsorships as $sponsor)
                             <option value="{{ $sponsor->id }}">
-                                <span class="text-uppercase">Durata : {{ $sponsor->duration }}h. Prezzo: &euro; {{ $sponsor->duration }}</span>
+                                <span class="text-uppercase">Durata : {{ $sponsor->duration }}h. Prezzo: &euro; {{ $sponsor->price }}</span>
                             </option>
                         @endforeach
                     </select>
