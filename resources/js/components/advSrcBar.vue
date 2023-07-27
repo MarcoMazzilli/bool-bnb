@@ -76,8 +76,13 @@ export default {
       toggleAdvBar(){
         console.log('toggle');
         if(!this.advToggle){
-          store.advSrcRequest.type='adv'; //reset search type
           this.advToggle = !this.advToggle;
+
+          setTimeout(() => {
+          store.advSrcRequest.type='adv'; //reset search type
+          this.initializeMap();
+          }, 1100);
+
         }else{
           this.advToggle = !this.advToggle;
         }
