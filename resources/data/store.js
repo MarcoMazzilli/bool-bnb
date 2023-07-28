@@ -8,15 +8,12 @@ export const store = reactive ({
   getTpartments : '/apartment',
   findLocation: '/find/location',
   findServices: '/find/services',
+  findPerimeter: '/find/perimeter',
 
 
   TomtomBaseUrl:'https://api.tomtom.com/',
   apiUrlSearchAddress: 'search/2/geocode/',
   queryType: '.json?typeahead=false&limit=1&view=Unified&key=',
-
-
-
-
 
 
   // home page------------
@@ -58,7 +55,7 @@ export const store = reactive ({
 
     type: 'adv', //or drv
     // priceRange: [20,160],
-    radius: 20,
+    radius: 60,
     size: 15,
     rooms: 1,
     beds: 1,
@@ -66,9 +63,7 @@ export const store = reactive ({
     services: [],
     longitude : false,
     latitude : false,
-    coord:[
-      [ 11.166504901180673, 43.74673562381395  ],
-    ],
+    coord: false,
     address: false,
 
   },

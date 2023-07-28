@@ -49,6 +49,7 @@ export default {
         })
     },
 
+
     setup() {
       const onSwiper = (swiper) => {
         console.log(swiper);
@@ -66,6 +67,8 @@ export default {
       searchByRange(store.RomaRequest)
     },
 
+
+
     navigateApartmentResults(url){
       axios.get(url)
         .then(result =>{
@@ -81,7 +84,7 @@ export default {
   },
 
   mounted() {
-    // console.log('Home page!');
+    console.log('whereIam?', this.$route.name );
     this.getApartment();
   }
 }

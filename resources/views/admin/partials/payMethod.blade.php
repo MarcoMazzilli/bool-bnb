@@ -4,7 +4,7 @@
 {{-- BRAIN TREEEEEEE --}}
 
 <div class="container">
-  <h1>Scegli il metodi di pagamento</h1>
+  <h1 class="py-3">Scegli il metodo di pagamento</h1>
   @if (session('success_message'))
       <div class="alert alert-success">
           {{ session('success_message') }}

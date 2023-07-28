@@ -9,7 +9,7 @@ import {store} from '../../data/store';
 // function import basic calls
 import {getCordianates,findServices,   searchByRange, getMarkers} from '../function/basicCall';
 // import components
-import ApartmentCard from '../components/apartmentCard.vue';
+import ApartmentCard from '../components/apartmentCardSrc.vue';
 import advSrcBar from '../components/advSrcBar.vue';
 import inputSearch from '../components/inputSearch.vue';
 import ResultSynthesis from '../components/resultSynthesis.vue';
@@ -22,7 +22,6 @@ export default {
           store,
           load:true,
           selectedApartment: null,
-          // center: store.cord,
           advToggle: false,
           address: '',
           // Da valorizzare in fase di ricerca
@@ -37,19 +36,6 @@ export default {
 
     methods :{
 
-      // per il paginate di una chiamata post devi riaggiungere la request!!!
-      navigateApartmentResults(url){
-      axios.post(url, store.advSrcRequest )
-        .then(result =>{
-          console.log(result.data);
-          store.apartmentsfiltred = result.data.apartments.data;
-      })
-      },
-
-      test(){
-        console.log(store.advSrcRequest.radius);
-      },
-
       showApartmentDetails(apart) {
         // console.log(apart)
         store.apartmentDetails = apart
@@ -59,7 +45,7 @@ export default {
     }, // close methods
 
     mounted(){
-        console.log('Advanced Search!');
+      console.log('whereIam?', this.$route.name );
     } // close mounted
 }
 </script>
@@ -81,7 +67,7 @@ export default {
 
 
 
-        <div v-if="store.load" class="container mt-2 gx-0 d-flex flex-wrap justify-content-between">
+        <div v-if="store.load" class="container mt-2 gx-0  d-flex flex-wrap justify-content-center">
 
             <ApartmentCard v-for="apart in store.apartmentsfiltred" :key="apart.id"
             v
@@ -91,11 +77,6 @@ export default {
             />
 
         </div>
-
-      <!-- <div v-if="load" class="container py-5 d-flex flex-wrap justify-content-between">
-        <ApartmentCard v-for="apart in store.apartmentsfiltred" :key="apart.id" :apartmentData="apart"
-          @apartmentSelected="showApartmentDetails" />
-      </div> -->
 
       <!-- ---------------result ------------------------------------------------------/-->
 

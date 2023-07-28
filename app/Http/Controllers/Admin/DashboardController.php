@@ -76,4 +76,6 @@ class DashboardController extends Controller
 
     return view('admin.apartments.apartment-sponsorship',compact( 'apartments','sponsorships'));
   }
+
+
 }
