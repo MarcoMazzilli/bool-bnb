@@ -6,6 +6,15 @@ import Destinations from '../components/destinations.vue';
 import ApartmentCard from '../components/apartmentCard.vue';
 import Apartment from './apartment.vue';
 import inputSearch from '../components/inputSearch.vue';
+
+//SWIPER
+import { Swiper, SwiperSlide } from 'swiper/vue';
+// import { Mousewheel, Pagination } from 'swiper/vue';
+import 'swiper/css';
+// import 'swiper/css/pagination';
+// import { Autoplay, Navigation, Pagination } from "swiper";
+// Swiper.use([Autoplay, Navigation, Pagination]);
+
 // import { searchByRange } from '../function/basicCall';
 
 
@@ -22,7 +31,7 @@ export default {
     }
   },
 
-  components: { Jumbotron,inputSearch, ApartmentCard, Apartment, Button, Destinations  },
+  components: { Jumbotron,inputSearch, ApartmentCard, Apartment, Button, Destinations, Swiper, SwiperSlide  },
 
   methods: {
 
@@ -39,6 +48,26 @@ export default {
           console.log('risultati', result.data)
         })
     },
+
+
+    setup() {
+      const onSwiper = (swiper) => {
+        console.log(swiper);
+      };
+      const onSlideChange = () => {
+        console.log('slide change');
+      };
+      return {
+        onSwiper,
+        onSlideChange,
+      };
+    },
+
+    Preset(){
+      searchByRange(store.RomaRequest)
+    },
+
+
 
     navigateApartmentResults(url){
       axios.get(url)
@@ -73,8 +102,45 @@ export default {
     </div>
     <!-- /TITOLO -->
 
-    <!-- BOTTONI NAVIGAZIONE  -->
-    <div class="container nav-button text-end">
+
+
+    <!-- COMPONENTE CARD -->
+
+    <swiper
+  :slides-per-view="6"
+  :space-between="50"
+  :breakpoints="{
+    '0': {
+      slidesPerView: 1,
+      spaceBetween: 20,
+    },
+    '767': {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    '1200': {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+  }"
+  @swiper="onSwiper"
+  @slideChange="onSlideChange"
+  class="container d-flex flex-wrap justify-content-between"
+  v-if="load"
+>
+  <swiper-slide v-for="apart in store.apartmentsGetted" :key="apart.id">
+    <ApartmentCard
+      :key="apart.id"
+      :apartmentData="apart"
+      @apartmentSelected="showApartmentDetails(apart)"
+      @click="showApartmentDetails(apart)"
+    />
+  </swiper-slide>
+</swiper>
+
+    <!-- /BOTTONI NAVIGAZIONE  -->
+
+    <div class="container nav-button text-center mt-3">
 
       <button class="btn btn-primary mm-btn-nav mx-1"
         v-for="link in links" :key="link"
@@ -83,10 +149,8 @@ export default {
       </button>
 
     </div>
-    <!-- /BOTTONI NAVIGAZIONE  -->
 
-    <!-- COMPONENTE CARD -->
-    <div v-if="load" class="container d-flex flex-wrap justify-content-between">
+    <!-- <div v-if="load" class="container d-flex flex-wrap justify-content-between">
 
       <ApartmentCard v-for="apart in store.apartmentsGetted"
       :key="apart.id"
@@ -95,8 +159,9 @@ export default {
       @click="showApartmentDetails(apart)"
       />
 
-    </div>
-    <!-- /COMPONENTE CARD -->
+    </div> -->
+
+    <!-- /COMPONENTE CARD DESTINATIONS-->
 
     <Destinations />
 
