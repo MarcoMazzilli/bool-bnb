@@ -8,12 +8,6 @@
   border: 1px dashed black;
 }
 
-.debug-header{
-  width: 100%;
-  text-align: center;
-  margin: 0px auto;
-}
-
 .form-control:focus {
   border-color: lighten($low-black, 80%);
   box-shadow: 2px 2px 0px 1px lighten($brand-main, 20%)

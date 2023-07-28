@@ -57,17 +57,19 @@
         <div class="container-fluid" id="wrapper-auth-user">
             <div class="wrappper-dashboard border rounded-4 my_overflow" id="card-dashboard">
 
+              @include('auth.headerNativo')
+
                 <div class="row h-100 no_wrap ps-2">
 
-                    <div class="col-1 col-md-2  p-0 ">
+                    <div class="col-1 col-md-2  p-0 " style="min-width: 50px;">
                         @include('admin.partials.asideLeft')
                     </div>
 
                     <div class="col-10 p-0 mx-auto my_overflow_auto">
 
-                        <div>
+                        {{-- <div>
                             @include('auth.headerNativo')
-                        </div>
+                        </div> --}}
                         @yield('content')
                     </div>
 

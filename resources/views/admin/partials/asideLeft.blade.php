@@ -1,16 +1,15 @@
 <aside class="h-100 shadow">
 
     {{-- LOGO --}}
-    <div class="logo ps-3">
+    {{-- <div class="logo ps-3">
         <a href="{{ url('/') }}">
             <i class="fa-solid fa-house d-md-none my-4 "></i>
-            {{-- <span class="d-md-none">Logo solo casa</span> --}}
             <img class=" d-none d-md-block" src="{{ asset('img/boolbnb-sfondo-trasparente.png') }}" alt="logo">
         </a>
-    </div>
+    </div> --}}
 
     {{-- MAIN LINK --}}
-    <div class="links h-75">
+    <div class="links h-75 pt-5">
 
         <ul class="navbar-nav">
             <li class="nav-item {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}" title="Dashboard home">
