@@ -4,7 +4,7 @@ import axios from 'axios';
 import Jumbotron from '../components/jumbotron.vue';
 import Destinations from '../components/destinations.vue';
 // import ApartmentCard from '../components/apartmentCard.vue';
-import ApartmentCard from '../components/apartmentCardSrc.vue';
+import ApartmentCard from '../components/apartmentCard.vue';
 import Apartment from './apartment.vue';
 import inputSearch from '../components/inputSearch.vue';
 
@@ -131,7 +131,7 @@ export default {
   <swiper-slide v-for="apart in store.apartmentsGetted" :key="apart.id">
 
 
-    <!--accrocchio per oviare al problema dei margini fra una card e l'altra in mobile ho aggiunto un p-2 che diventa p-0 al di sopra di 576px(mx-sm-4 p-2 p-sm-0)  -->
+    <!--accrocchio per ovviare al problema dei margini fra una card e l'altra -> in mobile ho aggiunto un p-2 che diventa p-0 al di sopra di 576px la classe aggiunta(mx-sm-4 p-2 p-sm-0)  -->
     <ApartmentCard
     class="mx-sm-4 p-2 p-sm-0"
     :key="apart.id"
