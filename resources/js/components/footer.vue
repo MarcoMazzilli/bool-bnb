@@ -22,7 +22,7 @@
     <div class="container py-5">
 
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
-        <div class="col">
+        <div class="col mb-4">
           <h5>Assistenza</h5>
           <ul class="p-0">
             <li v-for="(link, index) in assistance" :key="index">
@@ -30,7 +30,7 @@
             </li>
           </ul>
         </div>
-        <div class="col">
+        <div class="col mb-4">
           <h5>Community</h5>
           <ul class="p-0">
             <li v-for="(link, index) in community" :key="index">
@@ -38,7 +38,7 @@
             </li>
           </ul>
         </div>
-        <div class="col">
+        <div class="col mb-4">
           <h5>Ospitare</h5>
           <ul class="p-0">
             <li v-for="(link, index) in hosting" :key="index">
@@ -46,7 +46,7 @@
             </li>
           </ul>
         </div>
-        <div class="col">
+        <div class="col mb-4">
           <h5>Boolbnb</h5>
           <ul class="p-0">
             <li v-for="(link, index) in boolbnb" :key="index">
