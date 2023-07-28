@@ -76,7 +76,13 @@
             {{--  form --}}
             <form action="{{route('messages.toggleMessage', ['id_message' => $message->id]) }}" method="POST">
               @csrf
-              <button type="submit" class="btn btn-success">Segna come letto/da leggere</button>
+              <button type="submit" class="btn btn-success">
+                @if (!$message->message_read)
+                Segna come letto
+                @else
+                Segna come da leggere
+                @endif
+              </button>
             </form>
             {{--  form --}}
           </div>
