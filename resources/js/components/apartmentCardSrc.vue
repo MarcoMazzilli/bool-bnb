@@ -19,7 +19,7 @@ export default {
 <template>
 
 
-        <div class="card  m-2"  @click="selectApartment">
+        <div class="card mb-4"  @click="selectApartment">
 
             <div class="overflow-hidden img-container">
               <img :src=" 'storage/' + apartmentData.cover_image " class="card-img-top" alt="" >
@@ -57,6 +57,7 @@ export default {
 
 .card{
   width: 100%;
+  max-width: 30rem;
   border: none;
   box-shadow: .5px .5px 2px 1px rgba($color: #000000, $alpha: .1);
   .img-container{
@@ -89,20 +90,20 @@ export default {
     }
 }
 
-@media screen and (min-width: 768px) {
-.card {
-  width: 47%;
-}
-}
-@media screen and (min-width: 992px) {
-.card {
-  width: 48%;
-}
-}
-@media screen and (min-width: 1200px) {
-.card {
-  width: 31%;
-}
-}
+// @media screen and (min-width: 768px) {
+// .card {
+//   width: 47%;
+// }
+// }
+// @media screen and (min-width: 992px) {
+// .card {
+//   width: 48%;
+// }
+// }
+// @media screen and (min-width: 1200px) {
+// .card {
+//   width: 31%;
+// }
+// }
 
 </style>

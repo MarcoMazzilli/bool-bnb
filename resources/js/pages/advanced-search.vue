@@ -66,17 +66,21 @@ export default {
         ------------------------------------------------------\-->
 
 
+      <div v-if="store.load" class="container mt-3">
 
-        <div v-if="store.load" class="container mt-2 gx-0  d-flex flex-wrap justify-content-center">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+          <div v-for="apart in store.apartmentsfiltred" :key="apart.id" class="col d-flex justify-content-center">
 
-            <ApartmentCard v-for="apart in store.apartmentsfiltred" :key="apart.id"
-            v
+            <ApartmentCard
             :apartmentData="apart"
             @apartmentSelected="showApartmentDetails(apart)"
             @click="showApartmentDetails(apart)"
             />
 
+          </div>
         </div>
+
+      </div>
 
       <!-- ---------------result ------------------------------------------------------/-->
 
