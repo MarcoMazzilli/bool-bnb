@@ -1,5 +1,6 @@
 <script>
 import {store} from '../../data/store';
+import tt from '@tomtom-international/web-sdk-maps';
 import axios from 'axios';
 
 export default {
@@ -58,10 +59,48 @@ export default {
           // }, 10000);
 
         })
-      }
+      },
+      // tomtom map----------------------------------------------------------------\
+
+      initializeMap() {
+        store.advSrcRequest.type='adv';
+        // se arrivi direttamente in advanced search allora centra la mappa su Roma
+        // if(store.advSrcRequest.radius === '?'){
+        //   store.advSrcRequest.radius = 20;
+        // }
+
+        // if(!store.mapCoord){
+        //   store.mapCoord = [12.49427, 41.89056];
+        //   console.warn('centro mappa mancante')
+        // }
+
+        // reset dom---
+        const mapDiv = document.getElementById('map');
+        mapDiv.innerHTML = '';
+
+        // inizializza mappa
+        map = tt.map({
+        key: store.apiKey,
+        container: 'map',
+        center: [store.apartmentDetails.latitude, store.apartmentDetails.longitude],
+        zoom: 9,
+        pitch: true, // Abilita l'animazione --- D: ...ma non funziona!!! :(
+        animate: true, // nada--- :'(
+        });
+
+        map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
+
+        map.on('load', () => {
+            new tt.Marker().setLngLat([store.apartmentDetails.latitude, store.apartmentDetails.longitude]).addTo(map);
+        });
+      },
+
     },
     mounted(){
       console.log('whereIam?', this.$route.name );
+      console.log([store.apartmentDetails.longitude, store.apartmentDetails.latitude] );
+      this.initializeMap();
     }
 }
 </script>
@@ -76,12 +115,12 @@ export default {
         <span class="card-text mx-2"><b>{{ apartment.address }}</b></span>
       </div>
 
-      <div class="row">
+      <div class="row debug">
 
         <!-- Immagine -->
         <div class="col col-5">
 
-          <div class="swiper py-3">
+          <div class="">
 
             <img :src="'/storage/' + apartment.cover_image" alt="">
 
@@ -89,9 +128,9 @@ export default {
         </div>
 
         <!-- mappa -->
-        <div class="col col-7 bg-warning">
-          <div id="mountMap" class="">
-              <div class="map" id="map" ref="mapRef">MAPPA</div>
+        <div class="col col-7 mapping">
+          <div id="mountMap" class="w-100 h-100">
+              <div class="map w-100 h-100" id="map" ref="mapRef">MAPPA</div>
           </div>
         </div>
 
