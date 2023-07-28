@@ -3,7 +3,8 @@ import { store } from '../../data/store';
 import axios from 'axios';
 import Jumbotron from '../components/jumbotron.vue';
 import Destinations from '../components/destinations.vue';
-import ApartmentCard from '../components/apartmentCard.vue';
+// import ApartmentCard from '../components/apartmentCard.vue';
+import ApartmentCard from '../components/apartmentCardSrc.vue';
 import Apartment from './apartment.vue';
 import inputSearch from '../components/inputSearch.vue';
 
@@ -118,7 +119,7 @@ export default {
       slidesPerView: 2,
       spaceBetween: 20,
     },
-    '1200': {
+    '993': {
       slidesPerView: 3,
       spaceBetween: 20,
     },
