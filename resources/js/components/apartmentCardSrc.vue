@@ -8,8 +8,6 @@ export default {
     },
     methods: {
     selectApartment() {
-      //emetto l'evento
-      // console.log('emit')
       this.$emit('apartmentSelected');
     },
   },
@@ -18,8 +16,7 @@ export default {
 
 <template>
 
-
-        <div class="card  m-2"  @click="selectApartment">
+    <div class="card  m-2"  @click="selectApartment">
 
             <div class="overflow-hidden img-container">
               <img :src=" 'storage/' + apartmentData.cover_image " class="card-img-top" alt="" >
@@ -48,7 +45,7 @@ export default {
               <!-- <i class="fa-regular fa-square"></i> -->
             </div>
 
-        </div>
+    </div>
 
 </template>
 

@@ -82,7 +82,7 @@ export default {
         map = tt.map({
         key: store.apiKey,
         container: 'map',
-        center: [store.apartmentDetails.latitude, store.apartmentDetails.longitude],
+        center: [ store.apartmentDetails.longitude, store.apartmentDetails.latitude,],
         zoom: 9,
         pitch: true, // Abilita l'animazione --- D: ...ma non funziona!!! :(
         animate: true, // nada--- :'(
@@ -92,14 +92,14 @@ export default {
         map.addControl(new tt.NavigationControl());
 
         map.on('load', () => {
-            new tt.Marker().setLngLat([store.apartmentDetails.latitude, store.apartmentDetails.longitude]).addTo(map);
+            new tt.Marker().setLngLat([store.apartmentDetails.longitude, store.apartmentDetails.latitude]).addTo(map);
         });
       },
 
     },
     mounted(){
       console.log('whereIam?', this.$route.name );
-      console.log([store.apartmentDetails.longitude, store.apartmentDetails.latitude] );
+      console.log(store.apartmentDetails );
       this.initializeMap();
     }
 }
@@ -109,26 +109,20 @@ export default {
     <div class="container py-3" id="apartment-page">
 
       <!--Titolo -->
-      <div class="">
+      <div class="py-2">
         <h4>{{ apartment.name }}</h4>
         <span><i class="fa-solid fa-star"></i> 5,0</span>
         <span class="card-text mx-2"><b>{{ apartment.address }}</b></span>
       </div>
 
-      <div class="row debug">
+      <div class="apartment_top " >
 
         <!-- Immagine -->
-        <div class="col col-5">
 
-          <div class="">
-
-            <img :src="'/storage/' + apartment.cover_image" alt="">
-
-          </div>
-        </div>
+          <img :src="'/storage/' + apartment.cover_image" alt="">
 
         <!-- mappa -->
-        <div class="col col-7 mapping">
+        <div class="mapping">
           <div id="mountMap" class="w-100 h-100">
               <div class="map w-100 h-100" id="map" ref="mapRef">MAPPA</div>
           </div>
@@ -141,9 +135,12 @@ export default {
 
         <div v-show="apartment.address_info">
 
-          <h5>Come raggiungere l'indirizzo</h5>
-          <div class="alert alert-info mb-4" role="alert">
-            {{ apartment.address_info }}
+          <h5>{{ apartment.name }}</h5>
+          <div class="" role="alert">
+
+            <p>{{ apartment.description }}</p>
+            <p>{{ apartment.address_info }}</p>
+
           </div>
 
         </div>
@@ -219,10 +216,9 @@ export default {
         </div>
       </form>
 
-      <div v-else class="p-5 shadow">
+      <div v-else class="p-4 shadow">
         <div>
           <h2>Il messaggio è stato inviato correttamente!</h2>
-          <p>L'host risponderà entro 24h. dalla tua richiesta</p>
         </div>
       </div>
 
@@ -232,10 +228,22 @@ export default {
 <style lang="scss" scoped>
 @use '../../scss/var' as *;
 
+.apartment_top{
+  display: flex;
+  flex-direction: column;
+}
+
+.mapping{
+  margin-top: 20px;
+  width: 100%;
+  height: 150px;
+}
+
 img{
-    border-radius: 10px;
-    height: 300px;
-    width: 400px;
+    display: inline-block;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
 }
 
 h5{
@@ -245,5 +253,42 @@ h5{
 
 span.badge{
   background-color: $brand-blue;
+}
+
+@media screen and (min-width: 768px) {
+  .apartment_top{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 400px;
+}
+img{
+    display: inline-block;
+    object-fit: cover;
+    width: 60%;
+    height: auto;
+}
+.mapping{
+  margin-top: 0px;
+  width: 38%;
+  height: 100%;
+}
+}
+@media screen and (min-width: 992px) {
+
+}
+@media screen and (min-width: 1200px) {
+  img{
+    display: inline-block;
+    object-fit: cover;
+    width: 68%;
+    height: auto;
+}
+.mapping{
+  margin-top: 0px;
+  width: 30%;
+  height: 100%;
+}
+
 }
 </style>

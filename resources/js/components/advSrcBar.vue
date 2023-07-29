@@ -262,7 +262,6 @@ export default {
 
         <!-- <button @click="advancedSearch()" class="adv_submit"><i class="fa-solid fa-magnifying-glass"></i></button> -->
 
-
         <!-- selettori tipo di ricerca -------------------------\ -->
         <div id="search-type-selector" class="search-type-selector "
         >
@@ -396,6 +395,7 @@ export default {
 
 .AdvancedSearchBar_container{
   box-shadow:  0px 0px 5px rgba(54, 69, 206, 0.507);
+  border: 1px solid  rgba(0, 0, 255, 0.377);
   background-color: #f2f8f8;
   border-radius: 10px;
   height: 425px;
@@ -442,7 +442,7 @@ export default {
 .search_box{
   width: calc(100% / 5);
   & label{
-    font-size: 0.8rem;
+    font-size: 0.75rem;
   }
 }
 
@@ -489,7 +489,7 @@ export default {
     top:1px;
   }
   &.active{
-    border: 1px solid rgba(20, 199, 199, 0.466);
+    border: 1px solid rgba(0, 0, 255, 0.486);
     opacity: 1;
   }
 }
@@ -515,29 +515,27 @@ export default {
 
   }
   .btn-outline-primary{
-    color: $light-text;
+    color: $low-black;
     border-color: rgba(0, 0, 0, 0.096);
-    box-shadow: inset 0px 0px 1px 0px rgba(0, 0, 255, 0.185);
-    background-color: none;
+    background-color: rgb(220, 232, 255);
+    box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 255, 0.486);
     border-radius: 7px;
+    opacity: 0.7;
 
     &:hover{
       color: rgba(0, 0, 0, 0.548);
-
       box-shadow: inset 0px 0px 6px 1px white;
-
     }
   }
 
 .btn-check:checked + .btn, :not(.btn-check) + .btn:active, .btn:first-child:active, .btn.active, .btn.show{
   color: $low-black  ;
-  background-color: rgb(220, 232, 255);
-  box-shadow: inset 0px 0px 1px 1px rgba(0, 0, 255, 0.486);
+  background-color: rgb(255, 255, 255);
+  box-shadow: inset 0px 0px 1px 1px rgba(147, 147, 255, 0.486);
+  opacity: 1;
   // border-color: rgba($color: #000000, $alpha: 0)
 }
 }
 // --------------------
-
-
 
 </style>

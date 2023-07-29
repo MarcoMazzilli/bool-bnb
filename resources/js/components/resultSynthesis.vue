@@ -69,7 +69,7 @@ export default {
 
 
     <div v-if="store.pagination.total > 0"
-    class="paginate container d-flex justify-content-between mt-2 g-5 ">
+    class="paginate container d-flex  mt-2 g-5 ">
 
       <div
       v-for="(link, index) in store.pagination.links" :key="index"
@@ -115,8 +115,14 @@ export default {
   }
 }
 .paginate{
+  justify-content: flex-start;
   height: 20px;
   font-size: 0.7rem;
+
+
+  & .links{
+    max-width: 50px;
+  }
 
   & .prev{
     font-size: 0.05rem;
