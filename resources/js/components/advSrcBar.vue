@@ -395,7 +395,7 @@ export default {
 
 .AdvancedSearchBar_container{
   box-shadow:  0px 0px 5px rgba(54, 69, 206, 0.507);
-  border: 1px solid  rgba(0, 0, 255, 0.377);
+  border: 1px solid  rgba(250, 107, 94, 0.534);
   background-color: #f2f8f8;
   border-radius: 10px;
   height: 425px;
