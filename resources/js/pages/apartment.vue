@@ -83,7 +83,7 @@ export default {
         key: store.apiKey,
         container: 'map',
         center: [ store.apartmentDetails.longitude, store.apartmentDetails.latitude,],
-        zoom: 9,
+        zoom: 13,
         pitch: true, // Abilita l'animazione --- D: ...ma non funziona!!! :(
         animate: true, // nada--- :'(
         });
