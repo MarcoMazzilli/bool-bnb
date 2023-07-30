@@ -95,7 +95,7 @@ export default {
   <div class="home_container" id="home-page">
 
     <Jumbotron />
-    <inputSearch />
+    <!-- <inputSearch /> -->
 
     <!-- TITOLO -->
     <div class="container py-3">

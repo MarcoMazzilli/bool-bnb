@@ -65,15 +65,15 @@ export default {
 </script>
 
 <template>
-    <div class="container g-1">
+    <div class="container g-1 mt-4">
 
-        <div class="input-group g-0" id="" >
+        <div class="input-group g-0 mb-3" id="" >
           <input @keypress.enter="search()"
           v-if="store.advSrcRequest.type === 'adv'"
           id="via" v-model="indirizzo"
           type="text"
           class="form-control"
-          placeholder="Cerca dove vorresti andare"
+          placeholder="Inserisci una destinazione"
           >
           <span @click="search()"
           class="input-group-text search"
@@ -82,7 +82,7 @@ export default {
             'deactivated' : store.advSrcRequest.type === 'drv' && !store.advSrcRequest.coord ,
           }"
           >
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-magnifying-glass text-white"></i>
           </span>
         </div>
 
@@ -101,6 +101,11 @@ export default {
 
 .deactivated{
   opacity: 0.1;
+}
+
+.input-group-text{
+  border: none;
+  background-color:$brand-main;
 }
 
 </style>
