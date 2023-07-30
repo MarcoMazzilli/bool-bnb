@@ -101,7 +101,7 @@ export default {
     <div class="container py-3">
       <h1>Scopri i nostri appartamenti</h1>
       <!-- debug -->
-      <h4 class="text-info">Scorri a dx e sx per visualizzare gli appartamenti</h4>
+      <h6 class="text-dark">Scorri a dx e sx per visualizzare gli appartamenti</h6>
     </div>
     <!-- /TITOLO -->
 
@@ -147,7 +147,7 @@ export default {
 
 <div class="container nav-button text-center mt-3">
 
-  <button class="btn btn-primary mm-btn-nav mx-1"
+  <button class="btn btn-custom mm-btn-nav mx-1"
   v-for="link in links" :key="link"
   v-html="link.label"
   @click="navigateApartmentResults(link.url)">
@@ -176,15 +176,22 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../../scss/var' as *;
 .mm-btn-nav{
+  background-color: $brand-main;
+  border: 1px solid $brand-main;
+  border-radius: 50px;
+  color: white;
   // HIDE FIRST AND LAST NAV-BUTTON
   &:first-of-type{
     display: none;
+
   }
   &:last-of-type{
     display: none;
   }
 }
+
 
 @media screen and (max-width: 500px) {
 .card {
