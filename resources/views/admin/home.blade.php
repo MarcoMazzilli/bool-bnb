@@ -91,19 +91,6 @@
                 </div>
                 {{-- /TIPOLOGIA DI SPONSORIZZAZIONI ATTIVE --}}
 
-                {{-- ANALITICA APPARTAMENTI --}}
-                <div class="col mb-3 mb-lg-0">
-                    <div class="card shadow">
-                        <div class="card-header">Statistiche appartamenti</div>
-
-                        <div class="card-body">
-
-                            <span>INSERIRE STATISTICHE APPPARTAMENTI</span>
-
-                        </div>
-                    </div>
-                </div>
-                {{-- /ANALITICA APPARTAMENTI --}}
             </div>
         @endif
     </div>
