@@ -149,17 +149,18 @@ export default {
         <div class="row row-cols-2 row-cols-md-3 mb-3">
 
           <div class="col my-2 ">
-            <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-building"></i>
             Tipologia: {{ apartment.type }}
           </div>
           <!-- <div class="col my-2">
             Descrizione: {{ apartment.description }}
           </div> -->
           <div class="col my-2">
+            <i class="fa-solid fa-house"></i>
             Grandezza del locale: {{ apartment.apartment_size }} m²
           </div>
           <div class="col my-2">
-            Camere: {{ apartment.n_of_room }}
+            Prezzo: <b>{{ apartment.price }} €</b> a notte
           </div>
           <div class="col my-2">
             <i class="fa-solid fa-bed"></i>
@@ -170,7 +171,8 @@ export default {
             Numeri di bagni: {{ apartment.n_of_bathroom }}
           </div>
           <div class="col my-2">
-            Prezzo: <b>{{ apartment.price }} €</b> a notte
+            <i class="fa-solid fa-door-open"></i>
+            Camere: {{ apartment.n_of_room }}
           </div>
         </div>
 
