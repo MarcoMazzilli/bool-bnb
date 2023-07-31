@@ -15,7 +15,8 @@
 
         {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
         <title>BoolBnb</title>
-        <link rel="shortcut icon" href="/img/boolbnb-sfondo-trasparente.png" type="png">
+        {{-- <link rel="shortcut icon" href="/img/boolbnb-sfondo-trasparente.png" type="png"> --}}
+        <link rel="shortcut icon" href="/img/favicon.png" type="png">
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

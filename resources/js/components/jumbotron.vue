@@ -1,106 +1,3 @@
-<!-- <script>
-import InputSearch from './inputSearch.vue';
-
-export default {
-  name: 'Jumbotron',
-  components:{
-    InputSearch
-  },
-}
-</script>
-
-
-<template>
-
-    <div class="jumbo mb-2 d-flex justify-content-center align-items-center">
-
-        <div class="container py-5 d-flex justify-content-center">
-          <div class="text">
-            <span><h3 class="title">Trova alloggi su BoolBnb</h3></span>
-            <span class="subtitle">Scopri interi alloggi o stanze per ogni tipo di viaggio</span>
-
-            <inputSearch />
-
-          </div>
-
-          <div class="cover d-flex justify-content-end">
-            <img src="/img/jumbotron.gif" class="jumbotron-img" alt="home">
-          </div>
-        </div>
-
-    </div>
-
-
-</template>
-
-<style lang="scss" scoped>
-@use '../../scss/var' as *;
-
-.jumbo {
-  color: $low-black;
-  filter: brightness(1.0);
-  .cover {
-    position: relative;
-  }
-  img {
-    width: 65%;
-  }
-  .text {
-    position: absolute;
-    bottom: 35%;
-    left: 15%;
-    z-index: 1;
-    background-color: white;
-    padding: 70px;
-    border-radius: 20px;
-    box-shadow: 1px 1px 30px rgba($color: #000000, $alpha: .2);
-    .subtitle {
-      color: gray;
-    }
-    .title {
-      color: $low-black;
-    }
-  }
-
-  // Media Query
-
-  @media (max-width: 1400px){
-    .text {
-      position: absolute;
-      bottom: 25%;
-      left: 15%;
-      z-index: 1;
-    }
-  }
-
-
-  @media (max-width: 1300px) {
-    .jumbo{
-      background-image: url(https://www.pexels.com/it-it/foto/un-ristorante-accogliente-con-vista-3201919/);
-    }
-
-    .container {
-      flex-direction: column;
-      align-items: center;
-      width: 80%;
-    }
-    .text {
-      position: static;
-      padding: 20px;
-    }
-    .cover {
-      display: none;
-      img {
-        display: none;
-  }
-    }
-  }
-}
-</style> -->
-
-
-<!-- ----------------------------------------- -->
-
 <script>
 import InputSearch from './inputSearch.vue';
 
@@ -118,6 +15,7 @@ export default {
     <div class="jumbo mb-2 d-flex justify-content-center align-items-center">
         <div class="cover d-flex justify-content-end">
           <img src="/img/jumbotron-img.jpg" class="jumbotron-img" alt="home">
+          <!-- <img src="/img/jumbotron.gif" class="jumbotron-img" alt="home"> -->
         </div>
 
 
