@@ -55,7 +55,7 @@ export const store = reactive ({
 
     type: 'adv', //or drv
     // priceRange: [20,160],
-    radius: 60,
+    radius: 20,
     size: 15,
     rooms: 1,
     beds: 1,
