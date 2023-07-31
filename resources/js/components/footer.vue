@@ -145,9 +145,13 @@
 footer{
   background-color: $low-black;
 
+  .dropdown{
+  width: 95%;
+  }
   .btn-brand{
     background-color: $brand-main;
     min-width: 100%;
+    color: white;
   }
 
   .dropdown-menu{
@@ -176,11 +180,15 @@ footer{
 }
 
 // da modificare i px
-@media screen and (max-width: 468px) {
+@media screen and (max-width: 576px) {
 .col {
   display: flex;
   justify-content: center;
   width: 50%;
+  .dropdown{
+
+    width: 80%;
+  }
 }
 }
 
