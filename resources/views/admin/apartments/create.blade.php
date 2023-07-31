@@ -57,7 +57,6 @@
                     class="form-control @error('description') is-invalid @enderror" placeholder="Descrizione appartamento"
                     type="text">
 
-
                 @error('description')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
@@ -113,9 +112,9 @@
 
             </div>
 
-            <div class="row row-cols-1 row-cols-md-2 mb-3">
+            <div class="row row-cols-1 mb-3">
 
-                <div class="col mb-3 mb-md-0" id="autocomplete">
+                <div class="col col-lg-6 mb-3 mb-lg-0" id="autocomplete">
                     <label for="address" class="form-label">Indirizzo*</label>
                     {{-- <input
                 id="address"
@@ -127,7 +126,18 @@
               > --}}
                 </div>
 
-                <div class="col">
+                <div class="col col-lg-3 mb-3 mb-lg-0">
+                    <label for="price" class="form-label">Prezzo*</label>
+                    <input id="price" name='price' value="{{ old('price') }}"
+                        class="form-control @error('price') is-invalid @enderror" placeholder="Prezzo"
+                        type="text">
+
+                    @error('price')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="col col-lg-3">
                     <label for="visible" class="form-label">Apparamento visibile</label>
 
                     <select name="visible" id="visible" class="form-select" aria-label="Default select example">
@@ -170,7 +180,7 @@
 
 
             <div class="mb-3">
-                <label for="cover_image" class="form-label">Seleziona immagine di copertina*</label>
+                <label for="cover_image" class="form-label">Seleziona immagine di copertina</label>
                 <input id="cover_image" name='cover_image' onchange="showImage(event)" value=""
                     class="form-control" placeholder="copertina" type="file">
 

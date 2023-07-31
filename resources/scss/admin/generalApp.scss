@@ -95,3 +95,19 @@ header{
     }
   }
 }
+
+td{
+  .btn{
+    margin-bottom: .2rem;
+  }
+  i{
+    min-width: 1.3rem;
+  }
+}
+
+.extra-services{
+  span.badge{
+    background-color: $brand-blue;
+  }
+}
+
