@@ -156,7 +156,7 @@ export default {
             Descrizione: {{ apartment.description }}
           </div> -->
           <div class="col my-2">
-            Grendezza del locale: {{ apartment.apartment_size }} m²
+            Grandezza del locale: {{ apartment.apartment_size }} m²
           </div>
           <div class="col my-2">
             Camere: {{ apartment.n_of_room }}
