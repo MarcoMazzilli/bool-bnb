@@ -1,6 +1,6 @@
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modaldelete{{ $id }}">
+<button type="button" title="Eliminia" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modaldelete{{ $id }}">
   <span class="d-none d-xl-inline-block">Elimina</span>
   <i class="fa-solid fa-trash-can d-xl-none"></i>
   </button>
