@@ -28,11 +28,11 @@ export default {
       <div class="d-flex align-items-center h-100">
 
         <div class="w-100 h-100">
-          <!-- <a href="/" class="h-100 logo"> -->
-            <router-link :to="{name: 'home' }" class=" h-100 logo" >
+          <a href="/" class="h-100 logo">
+            <!-- <router-link :to="{name: 'home' }" class=" h-100 logo" > -->
             <img class="h-100" src="/img/boolbnb-sfondo-trasparente-ritagliato.png" alt="">
-          </router-link>
-          <!-- </a> -->
+          <!-- </router-link> -->
+          </a>
         </div>
 
 
