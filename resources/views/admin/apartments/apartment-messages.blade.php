@@ -12,7 +12,7 @@
       <div class="d-flex gap-1">
         @if (count($messages) != 0)
         <input id="searchbar" type="text" class="form-control" placeholder="Cerca un appartamento" name="search">
-        <button class="btn border">Cerca</button>
+        <button class="btn mvm-button">Cerca</button>
         @else
         <button class="btn border bg-success text-white">Torna all'inbox</button>
         @endif
@@ -51,7 +51,7 @@
         <td>{{ $message->object }}</td>
         <td>{{ $message->author_email }}</td>
         <td>
-          <button type="button" class="btn inbox" data-bs-toggle="modal" data-bs-target="#{{$message->id}}"><i class="fa-solid fa-message"></i></button>
+          <button type="button" class="btn inbox mvm-button" data-bs-toggle="modal" data-bs-target="#{{$message->id}}"><i class="fa-solid fa-message"></i></button>
         </td>
 
       </tr>
@@ -72,7 +72,7 @@
             <small>Email: {{$message->author_email}}</small>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Chiudi</button>
+            <button type="button" class="btn mvm-button" data-bs-dismiss="modal">Chiudi</button>
             {{--  form --}}
             <form action="{{route('messages.toggleMessage', ['id_message' => $message->id]) }}" method="POST">
               @csrf

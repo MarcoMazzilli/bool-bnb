@@ -25,6 +25,17 @@ body {
     // font-family: 'Work Sans', sans-serif !important;
 }
 
+.mvm-button{
+  background-color: $brand-blue !important;
+  border: none;
+  color: white;
+  &:hover{
+    background-color: $brand-main !important;
+    border: none;
+    color: white;
+  }
+}
+
 #wrapper-auth-user{
     height: 100vh;
     padding: 10px;

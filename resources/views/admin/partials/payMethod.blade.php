@@ -54,7 +54,7 @@
                   </section>
 
                   <input id="nonce" name="payment_method_nonce" type="hidden" />
-                  <button class="btn btn-success" type="submit"><span>Test Transaction</span></button>
+                  <button class="btn mvm-button" type="submit"><span>Test Transaction</span></button>
               </form>
           </div>
       </div>
