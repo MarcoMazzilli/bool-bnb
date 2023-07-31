@@ -13,19 +13,20 @@
             </div>
 
             <form action="{{ route('sponsorship.request') }}" method="POST">
-                @csrf
+              @csrf
 
-                {{-- SELEZIONE DELL'APPARTAMENTO --}}
-                <div class="col-12 col-md-6">
-                    <label for="apartment" class="form-label">Seleziona un appartamento</label>
-                    <select name="apartment" class="form-select" id="apartment">
-                        @foreach ($apartments as $apartment)
-                            <option id="apartmentSelected" value="{{ $apartment->id }}">
-                                <span>{{ $apartment->name }}</span>
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
+              {{-- SELEZIONE DELL'APPARTAMENTO --}}
+              <div class="col-12 col-md-6">
+                <label for="apartment" class="form-label">Seleziona un appartamento</label>
+                <select name="apartment" class="form-select" id="apartment">
+                  @foreach ($apartments as $apartment)
+                  <option id="apartmentSelected" value="{{ $apartment->id }}">
+                    <span>{{ $apartment->name }}</span>
+                  </option>
+                  @endforeach
+                </select>
+              </div>
+              <small>(Se il tuo appartamento è nascosto, questa operazione lo renderà automaticamente visibile)</small>
                 {{-- /SELEZIONE DELL'APPARTAMENTO --}}
 
                 {{-- SELEZIONE DELLO SPONSOR --}}
@@ -65,7 +66,7 @@
                 </div>
                 {{-- /DATA INIZIO SPONSORIZZATA --}}
                 <div class=" my-3 text-center text-md-start">
-                  <button class="btn btn-primary mvm-button" type="submit">Procedi al pagamento</button>
+                  <button class="btn mvm-button" type="submit">Procedi al pagamento</button>
                 </div>
 
             </form>

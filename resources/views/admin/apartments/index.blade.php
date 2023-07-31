@@ -61,7 +61,8 @@
         @endif
 
         <h3 class="py-3">Lista appartamenti sponsorizzati</h3>
-        @if ($num_sponsorship != 0)
+        {{-- @dump($apartmentSponsored->count()) --}}
+        @if ($apartmentSponsored->count() != 0)
             <table class="table">
                 <thead>
                     <tr>

@@ -18,6 +18,17 @@
     border-color: lighten($low-black, 80%);
     box-shadow: 2px 2px 0px 1px lighten($brand-main, 20%)
 }
+.mvm-button{
+  background-color: $brand-blue;
+  color: white;
+  border: none;
+  transition: .4s;
+  &:hover{
+    background-color: $brand-main;
+    color: white;
+    border: none;
+  }
+}
 
 body {
     min-height: 100vh;

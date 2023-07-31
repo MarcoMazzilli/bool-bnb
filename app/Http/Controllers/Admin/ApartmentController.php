@@ -52,7 +52,7 @@ class ApartmentController extends Controller
         $apartmentSponsored = Apartment::where('user_id', Auth::id())
         ->with('services', 'sponsorships')
         ->whereHas('sponsorships', function (Builder $query) {
-          $query->where('sponsorship_id', '!=', 1);
+          $query->where('sponsorship_id', '!=', null);
         })->get();
 
         $num_sponsorship = 0;

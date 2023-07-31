@@ -48,6 +48,7 @@
 
                         <div class="card-body overflow-y-scroll">
                           <ul class="list-group ">
+                            @if ($messages->count() != 0)
 
                             @foreach ($messages as $message)
                             <li class="border rounded p-2">
@@ -64,6 +65,16 @@
                             </li>
                             <li>
                             @endforeach
+
+                            @else
+
+                            <div class="mvm-button p-3 border rounded" role="alert">
+                              Nessun messaggio da visualizzare
+                            </div>
+
+
+                            @endif
+
                           </ul>
 
 
