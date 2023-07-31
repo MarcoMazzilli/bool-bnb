@@ -134,6 +134,10 @@
 
       </div>
     </div>
+
+    <div class="footer-bottom text-center">
+      © 2023 BoolBnb Andrea ∙ Carlo ∙ Marco ∙ Marica
+    </div>
   </footer>
 
 
@@ -144,6 +148,7 @@
 
 footer{
   background-color: $low-black;
+  padding-bottom: 15px;
 
   .dropdown{
   width: 95%;
@@ -177,6 +182,13 @@ footer{
       }
     }
   }
+  .footer-bottom{
+    color:$brand-main;
+  }
+
+  .container{
+    padding-bottom: 0 !important;
+  }
 }
 
 // da modificare i px
@@ -189,6 +201,9 @@ footer{
 
     width: 80%;
   }
+}
+.footer-bottom{
+  display: none;
 }
 }
 
