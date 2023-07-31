@@ -68,7 +68,8 @@ export default {
       <div class="container mt-3">
 
         <!-- LOADER -->
-        <div v-if="!store.load" class="custom-loader"></div>
+        <!-- TODO: sistemare meglio il loader -> aggiunto accrocchio `&& store.pagination.total > 0` per eliminare il loop che esce all'invio del messaggio  -->
+        <div v-if="!store.load && store.pagination.total > 0" class="custom-loader"></div>
 
         <div v-else  class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
           <div v-for="apart in store.apartmentsfiltred" :key="apart.id" class="col d-flex justify-content-center">
