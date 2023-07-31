@@ -10,7 +10,7 @@
 
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
     <title>BoolBnb</title>
-    <link rel="shortcut icon" href="/img/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="/img/boolbnb-sfondo-trasparente.png" type="png">
 
     <!-- Fonts awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -45,7 +45,7 @@
             @include('auth.headerNativo')
 
             <div class="row">
-                <div class="col-10 p-5 mx-auto">
+                <div class="col-12 p-3 col-md-10 p-md-5 mx-auto">
                     @yield('content-log-reg')
                 </div>
             </div>
