@@ -110,7 +110,7 @@ export default {
 
       <!--Titolo -->
       <div class="py-2">
-        <h4>{{ apartment.name }}</h4>
+        <h1> <b>{{ apartment.name }}</b></h1>
         <span><i class="fa-solid fa-star"></i> 5,0</span>
         <span class="card-text mx-2"><b>{{ apartment.address }}</b></span>
       </div>
@@ -147,23 +147,27 @@ export default {
 
         <h5>Informazioni aggiuntive</h5>
         <div class="row row-cols-2 row-cols-md-3 mb-3">
+
           <div class="col my-2 ">
-            Tipologia: {{ apartment.type }} <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-house"></i>
+            Tipologia: {{ apartment.type }}
           </div>
           <!-- <div class="col my-2">
             Descrizione: {{ apartment.description }}
           </div> -->
           <div class="col my-2">
-            Grendezza del locale: {{ apartment.apartment_size }} m2
-          </div>
-          <div class="col my-2">
-            Numeri di letti: {{ apartment.n_of_bed }} <i class="fa-solid fa-bed"></i>
+            Grendezza del locale: {{ apartment.apartment_size }} m²
           </div>
           <div class="col my-2">
             Camere: {{ apartment.n_of_room }}
           </div>
           <div class="col my-2">
-            Numeri di bagni: {{ apartment.n_of_bathroom }} <i class="fa-solid fa-bath"></i>
+            <i class="fa-solid fa-bed"></i>
+            Numeri di letti: {{ apartment.n_of_bed }}
+          </div>
+          <div class="col my-2">
+            <i class="fa-solid fa-bath"></i>
+            Numeri di bagni: {{ apartment.n_of_bathroom }}
           </div>
           <div class="col my-2">
             Prezzo: <b>{{ apartment.price }} €</b> a notte
@@ -212,14 +216,24 @@ export default {
         </div>
 
         <div class="col-auto">
-          <button type="submit" :disabled="sending" class="btn btn-primary mb-3">{{ sending ? 'Invio in corso' : 'Invia messaggio' }}</button>
+          <button type="submit" :disabled="sending" class="btn  mb-3">{{ sending ? 'Invio in corso' : 'Invia messaggio' }}</button>
         </div>
       </form>
 
-      <div v-else class="p-4 shadow">
-        <div>
+      <div v-else class="p-4 shadow row">
+
+        <div class="col-9">
           <h2>Il messaggio è stato inviato correttamente!</h2>
         </div>
+
+        <div class="col-3  text-center d-flex justify-content-center align-items-center ">
+          <router-link :to="{name: 'advancedSearch' }" class="h-100 text-center input-group-text " style="text-decoration: none;" >
+
+              torna pagina di ricerca
+
+          </router-link>
+        </div>
+
       </div>
 
     </div>
@@ -253,6 +267,13 @@ h5{
 
 span.badge{
   background-color: $brand-blue;
+}
+
+.input-group-text{
+  background-color: $brand-main;
+}
+.btn{
+  background-color: $brand-main;
 }
 
 @media screen and (min-width: 768px) {
