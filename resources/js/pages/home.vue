@@ -101,7 +101,7 @@ export default {
     <div class="container py-3">
       <h1>Scopri i nostri appartamenti</h1>
       <!-- debug -->
-      <h6 class="text-dark">Scorri a dx e sx per visualizzare gli appartamenti</h6>
+      <h6 class="text-dark">Scorri per visualizzare gli altri appartamenti</h6>
     </div>
     <!-- /TITOLO -->
 
