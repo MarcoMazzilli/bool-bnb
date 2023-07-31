@@ -1,6 +1,6 @@
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-warning text-dark" data-bs-toggle="modal" data-bs-target="#modal{{ $apartment->id }}">
+<button type="button" title="Visibile" class="btn btn-outline-warning text-dark" data-bs-toggle="modal" data-bs-target="#modal{{ $apartment->id }}">
     @if (!$apartment->visible)
       <span class="d-none d-xl-inline-block">Rendi visibile</span>
       <i class="fa-regular fa-eye d-xl-none"></i>
