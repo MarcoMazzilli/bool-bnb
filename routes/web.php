@@ -44,6 +44,7 @@ Route::middleware(['auth','verified'])
 ->group(function(){
   Route::post('/request',[SponsorshipController::class , 'request'])->name('request');
   Route::post('/checkout',[SponsorshipController::class , 'checkout'])->name('checkout');
+  Route::get('/feedback-transaction',[SponsorshipController::class , 'feedback'])->name('feedback-transaction');
 });
 
 Route::middleware(['auth','verified'])
