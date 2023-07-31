@@ -29,11 +29,11 @@
                                     'route' => route('admin.apartments.update', $apartment),
                                 ])
 
-                                <a href="{{ route('admin.apartments.show', $apartment) }}" class="btn btn-outline-primary">
+                                <a title="Mostra" href="{{ route('admin.apartments.show', $apartment) }}" class="btn btn-outline-primary">
                                     <span class="d-none d-xl-inline-block">Mostra</span>
                                     <i class="fa-solid fa-circle-info d-xl-none"></i>
                                 </a>
-                                <a href="{{ route('admin.apartments.edit', $apartment) }}"
+                                <a title="Modifica" href="{{ route('admin.apartments.edit', $apartment) }}"
                                     class="btn btn-outline-secondary">
                                     <span class="d-none d-xl-inline-block">Modifica</span>
                                     <i class="fa-solid fa-pencil d-xl-none"></i>

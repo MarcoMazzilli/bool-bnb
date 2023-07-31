@@ -93,6 +93,8 @@ class ApartmentController extends Controller
 
         $new_apartment->user_id =  Auth::id();
 
+        $new_apartment->slug = CustomHelper::generateUniqueSlug($request['name'], new Apartment());
+
 
         if(array_key_exists('cover_image', $form_data)){
             $form_data['cover_image'] = CustomHelper::saveImage($request, $form_data , new Apartment());
@@ -181,6 +183,7 @@ class ApartmentController extends Controller
         }else{
             $apartment->services()->detach();
         }
+        $apartment->slug = CustomHelper::generateUniqueSlug($request['name'], new Apartment());
         // @dd($form_data);
 
         $apartment->update($form_data);

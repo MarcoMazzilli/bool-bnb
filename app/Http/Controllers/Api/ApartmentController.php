@@ -22,11 +22,13 @@ class ApartmentController extends Controller
         'id','user_id','name','slug','description','slug','cover_image','address','address_info','price','n_of_bed','n_of_room','n_of_bathroom','apartment_size','type','created_at',
       DB::raw("ST_Y(coordinate) as latitude"),
       DB::raw("ST_X(coordinate) as longitude")])
+      ->where('visible', true)
       ->with('services', 'sponsorships')
       ->whereHas('sponsorships', function ($query) use ($now) {
-        $query->where('expiration_date', '>', $now)->where('started_at', '<=', $now)
-        ->orderBy('sponsorship_id', 'desc');
-    })->paginate(18)
+        $query->where('expiration_date', '>', $now)->where('started_at', '<=', $now);
+      })
+      ->orderBy('id','desc')
+      ->paginate(18)
     ;
 
 
