@@ -75,7 +75,7 @@ export default {
       v-for="(link, index) in store.pagination.links" :key="index"
       @click="navigate(link.url)"
       v-show="(link.url != null)"
-      class="links mx-1"
+      class="links  mm-btn-nav mx-1"
       :class="{
           'pg_btn' : (!(link.label.length === 16) && !(link.label.length === 12) && !(store.pagination.current_page === index) ),
           'pg_btn current' : store.pagination.current_page === index,
@@ -116,12 +116,25 @@ export default {
 }
 .paginate{
   justify-content: flex-start;
-  height: 20px;
+  height: 30px;
   font-size: 0.7rem;
+  .mm-btn-nav{
+  background-color: $brand-main;
+  // border: 1px solid $brand-main;
+  border-radius: 50px;
+  color: white;
+  // HIDE FIRST AND LAST NAV-BUTTON
+  // &:first-of-type{
+  //   display: none;
 
+  // }
+  // &:last-of-type{
+  //   display: none;
+  // }
+}
 
   & .links{
-    max-width: 50px;
+    max-width: 30px;
   }
 
   & .prev{
@@ -165,7 +178,7 @@ width: 500px;
 // height: 10px;
 // position: relative;
 color: #fff;
-background: linear-gradient(0deg, #7c9cd8  0%, rgba(153,164,180,1) 60%, rgba(255,255,255,1) 93%, rgb(214, 214, 214) 100%);
+background: linear-gradient(0deg, #7c9cd8  0%, rgba(153,164,180,1) 60%, rgba(255,255,255,1) 100%, rgb(214, 214, 214) 100%);
 padding: 5px 5px;
 border: none;
 border-radius: 5px;
@@ -181,7 +194,7 @@ cursor: pointer;
 opacity: 0.8;
 
   &.current{
-    background: linear-gradient(0deg, $brand-main  0%, rgba(231,186,120,1) 60%, rgba(255,255,255,1) 93%, rgb(214, 214, 214) 100%);
+    background: linear-gradient(0deg, $brand-main  0%, rgba(231,186,120,1) 60%, rgba(255,255,255,1) 100%, rgb(214, 214, 214) 100%);
     opacity: 01;
   }
 }
