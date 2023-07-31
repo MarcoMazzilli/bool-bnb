@@ -11,7 +11,7 @@
                     <tr>
                         {{-- <th scope="col">#ID</th> --}}
                         <th scope="col">Nome</th>
-                        <th scope="col">Luogo appartamento</th>
+                        <th class="d-none d-sm-table-cell" scope="col">Luogo appartamento</th>
                         <th scope="col">Azioni</th>
                     </tr>
                 </thead>
@@ -20,7 +20,7 @@
                         <tr>
                             {{-- <th>{{ $apartment->id }}</th> --}}
                             <td>{{ $apartment->name }}</td>
-                            <td>{{ $apartment->address }}</td>
+                            <td class="d-none d-sm-table-cell">{{ $apartment->address }}</td>
                             <td>
 
                                 @include('admin.partials.form-visible', [

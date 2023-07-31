@@ -76,7 +76,6 @@ header{
       transition: all .4s;
       &:hover{
         background-color:$brand-main;
-        color: black;
       }
     }
   .user{
