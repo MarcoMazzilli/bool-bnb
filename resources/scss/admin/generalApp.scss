@@ -80,11 +80,11 @@ header{
 
   nav{
     button.btn{
-      background-color:$light-text;
+      background-color: $brand-blue;
+      color: white;
       transition: all .4s;
-      color: $brand-blue;
       &:hover{
-        background-color: $brand-main;
+        background-color:$brand-main;
       }
     }
   }
