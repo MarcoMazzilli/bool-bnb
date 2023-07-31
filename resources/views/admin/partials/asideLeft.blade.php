@@ -36,7 +36,7 @@
             </li>
 
             @if (Auth::user()->apartments->count())
-            <li class="nav-item {{ Route::currentRouteName() === '#' ? 'active' : '' }}" title="Inbox">
+            <li class="nav-item {{ Route::currentRouteName() === 'messages.getMessages' ? 'active' : '' }}" title="Inbox">
                 <a class="nav-link" href="{{ route('messages.getMessages')}}">
                     <span class="d-none d-md-block">Inbox</span>
                     <i class="fa-regular fa-envelope d-md-none"></i>
@@ -45,7 +45,7 @@
             @endif
 
             @if (Auth::user()->apartments->count())
-            <li class="nav-item {{ Route::currentRouteName() === 'admin.apartments.service-apartments' ? 'active' : '' }}" title="Sponsorship">
+            <li class="nav-item {{ Route::currentRouteName() === 'sponsorship' ? 'active' : '' }}" title="Sponsorship">
                 <a class="nav-link" href="{{ route('sponsorship') }}">
                     <span class="d-none d-md-block">Sponsorships</span>
                     <i class="fa-solid fa-rectangle-ad d-md-none"></i>
