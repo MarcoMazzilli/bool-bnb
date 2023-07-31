@@ -21,39 +21,117 @@
   <footer>
     <div class="container py-5">
 
-      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4">
-        <div class="col mb-4">
-          <h5>Assistenza</h5>
-          <ul class="p-0">
-            <li v-for="(link, index) in assistance" :key="index">
-              <a :href="link.link">{{ link.label}}</a>
-            </li>
-          </ul>
+      <div class="row row-cols-4 row-cols-md-2 row-cols-lg-4">
+
+        <!--------------------------------Assistenza---------------------------------->
+        <div class="col mb-4 p-0">
+
+          <div class="dropdown d-md-none">
+            <a class="btn btn-brand dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Assistenza
+            </a>
+
+            <ul class="dropdown-menu">
+              <li v-for="(link, index) in assistance" :key="index">
+                <a class="dropdown-item" :href="link.link">{{ link.label}}</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="d-none d-md-block">
+            <h5>Assistenza</h5>
+            <ul class="p-0">
+              <li v-for="(link, index) in assistance" :key="index">
+                <a :href="link.link">{{ link.label}}</a>
+              </li>
+            </ul>
+          </div>
+
         </div>
-        <div class="col mb-4">
-          <h5>Community</h5>
-          <ul class="p-0">
-            <li v-for="(link, index) in community" :key="index">
-              <a :href="link.link">{{ link.label}}</a>
-            </li>
-          </ul>
+
+        <!--------------------------------Community---------------------------------->
+
+        <div class="col mb-4 p-0">
+
+          <div class="dropdown d-md-none">
+            <a class="btn btn-brand dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Community
+            </a>
+
+            <ul class="dropdown-menu">
+              <li v-for="(link, index) in community" :key="index">
+                <a class="dropdown-item" :href="link.link">{{ link.label}}</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="d-none d-md-block">
+            <h5>Community</h5>
+            <ul class="p-0">
+              <li v-for="(link, index) in community" :key="index">
+                <a :href="link.link">{{ link.label}}</a>
+              </li>
+            </ul>
+          </div>
+
         </div>
-        <div class="col mb-4">
-          <h5>Ospitare</h5>
-          <ul class="p-0">
-            <li v-for="(link, index) in hosting" :key="index">
-              <a :href="link.link">{{ link.label}}</a>
-            </li>
-          </ul>
+
+        <!--------------------------------Ospitare---------------------------------->
+
+        <div class="col mb-4 p-0">
+
+          <div class="dropdown d-md-none">
+            <a class="btn btn-brand dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Ospitare
+            </a>
+
+            <ul class="dropdown-menu">
+              <li v-for="(link, index) in hosting" :key="index">
+                <a  class="dropdown-item" :href="link.link">{{ link.label}}</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="d-none d-md-block">
+
+            <h5>Ospitare</h5>
+            <ul class="p-0">
+              <li v-for="(link, index) in hosting" :key="index">
+                <a :href="link.link">{{ link.label}}</a>
+              </li>
+            </ul>
+          </div>
+
         </div>
-        <div class="col mb-4">
-          <h5>Boolbnb</h5>
-          <ul class="p-0">
-            <li v-for="(link, index) in boolbnb" :key="index">
-              <a :href="link.link">{{ link.label}}</a>
-            </li>
-          </ul>
+
+        <!--------------------------------Boolbnb---------------------------------->
+
+        <div class="col mb-4 p-0">
+
+          <div class="dropdown d-md-none">
+            <a class="btn btn-brand dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Boolbnb
+            </a>
+
+            <ul class="dropdown-menu">
+              <li v-for="(link, index) in boolbnb" :key="index">
+                <a  class="dropdown-item" :href="link.link">{{ link.label}}</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="d-none  d-md-block">
+
+            <h5>Boolbnb</h5>
+            <ul class="p-0">
+              <li v-for="(link, index) in boolbnb" :key="index">
+                <a :href="link.link">{{ link.label}}</a>
+              </li>
+            </ul>
+          </div>
+
         </div>
+
       </div>
     </div>
   </footer>
@@ -66,6 +144,19 @@
 
 footer{
   background-color: $low-black;
+
+  .dropdown{
+  width: 95%;
+  }
+  .btn-brand{
+    background-color: $brand-main;
+    min-width: 100%;
+    color: white;
+  }
+
+  .dropdown-menu{
+    background-color: $low-black;
+  }
 
   h5{
     color: $brand-main;
@@ -86,6 +177,19 @@ footer{
       }
     }
   }
+}
+
+// da modificare i px
+@media screen and (max-width: 576px) {
+.col {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  .dropdown{
+
+    width: 80%;
+  }
+}
 }
 
 </style>
