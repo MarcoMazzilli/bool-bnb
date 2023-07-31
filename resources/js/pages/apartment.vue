@@ -276,6 +276,7 @@ span.badge{
 }
 .btn{
   background-color: $brand-main;
+  color: white;
 }
 
 @media screen and (min-width: 768px) {
