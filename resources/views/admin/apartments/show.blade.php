@@ -47,7 +47,6 @@
         <div class="coordinate mt-4">
             <h5>Dove ti troverai</h5>
             <span>{{ $apartment->address }}</span>
-            <div>MAPPA {{ $apartment->coordinate }}</div>
         </div>
 
     </div>
