@@ -3,7 +3,7 @@
 @section('content-log-reg')
 <div class="container mt-4">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12 col-lg-10">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
