@@ -1,5 +1,6 @@
 <script>
 import {store} from '../../data/store';
+import tt from '@tomtom-international/web-sdk-maps';
 import axios from 'axios';
 
 export default {
@@ -58,10 +59,48 @@ export default {
           // }, 10000);
 
         })
-      }
+      },
+      // tomtom map----------------------------------------------------------------\
+
+      initializeMap() {
+        store.advSrcRequest.type='adv';
+        // se arrivi direttamente in advanced search allora centra la mappa su Roma
+        // if(store.advSrcRequest.radius === '?'){
+        //   store.advSrcRequest.radius = 20;
+        // }
+
+        // if(!store.mapCoord){
+        //   store.mapCoord = [12.49427, 41.89056];
+        //   console.warn('centro mappa mancante')
+        // }
+
+        // reset dom---
+        const mapDiv = document.getElementById('map');
+        mapDiv.innerHTML = '';
+
+        // inizializza mappa
+        map = tt.map({
+        key: store.apiKey,
+        container: 'map',
+        center: [ store.apartmentDetails.longitude, store.apartmentDetails.latitude,],
+        zoom: 13,
+        pitch: true, // Abilita l'animazione --- D: ...ma non funziona!!! :(
+        animate: true, // nada--- :'(
+        });
+
+        map.addControl(new tt.FullscreenControl());
+        map.addControl(new tt.NavigationControl());
+
+        map.on('load', () => {
+            new tt.Marker().setLngLat([store.apartmentDetails.longitude, store.apartmentDetails.latitude]).addTo(map);
+        });
+      },
+
     },
     mounted(){
       console.log('whereIam?', this.$route.name );
+      console.log(store.apartmentDetails );
+      this.initializeMap();
     }
 }
 </script>
@@ -70,28 +109,22 @@ export default {
     <div class="container py-3" id="apartment-page">
 
       <!--Titolo -->
-      <div class="">
-        <h4>{{ apartment.name }}</h4>
+      <div class="py-2">
+        <h1> <b>{{ apartment.name }}</b></h1>
         <span><i class="fa-solid fa-star"></i> 5,0</span>
         <span class="card-text mx-2"><b>{{ apartment.address }}</b></span>
       </div>
 
-      <div class="row">
+      <div class="apartment_top " >
 
         <!-- Immagine -->
-        <div class="col col-5">
 
-          <div class="swiper py-3">
-
-            <img :src="'/storage/' + apartment.cover_image" alt="">
-
-          </div>
-        </div>
+          <img :src="'/storage/' + apartment.cover_image" alt="">
 
         <!-- mappa -->
-        <div class="col col-7 bg-warning">
-          <div id="mountMap" class="">
-              <div class="map" id="map" ref="mapRef">MAPPA</div>
+        <div class="mapping">
+          <div id="mountMap" class="w-100 h-100">
+              <div class="map w-100 h-100" id="map" ref="mapRef">MAPPA</div>
           </div>
         </div>
 
@@ -102,32 +135,39 @@ export default {
 
         <div v-show="apartment.address_info">
 
-          <h5>Come raggiungere l'indirizzo</h5>
-          <div class="alert alert-info mb-4" role="alert">
-            {{ apartment.address_info }}
+          <h5>{{ apartment.name }}</h5>
+          <div class="" role="alert">
+
+            <p>{{ apartment.description }}</p>
+            <p>{{ apartment.address_info }}</p>
+
           </div>
 
         </div>
 
         <h5>Informazioni aggiuntive</h5>
         <div class="row row-cols-2 row-cols-md-3 mb-3">
+
           <div class="col my-2 ">
-            Tipologia: {{ apartment.type }} <i class="fa-solid fa-house"></i>
+            <i class="fa-solid fa-house"></i>
+            Tipologia: {{ apartment.type }}
           </div>
           <!-- <div class="col my-2">
             Descrizione: {{ apartment.description }}
           </div> -->
           <div class="col my-2">
-            Grendezza del locale: {{ apartment.apartment_size }} m2
-          </div>
-          <div class="col my-2">
-            Numeri di letti: {{ apartment.n_of_bed }} <i class="fa-solid fa-bed"></i>
+            Grandezza del locale: {{ apartment.apartment_size }} m²
           </div>
           <div class="col my-2">
             Camere: {{ apartment.n_of_room }}
           </div>
           <div class="col my-2">
-            Numeri di bagni: {{ apartment.n_of_bathroom }} <i class="fa-solid fa-bath"></i>
+            <i class="fa-solid fa-bed"></i>
+            Numeri di letti: {{ apartment.n_of_bed }}
+          </div>
+          <div class="col my-2">
+            <i class="fa-solid fa-bath"></i>
+            Numeri di bagni: {{ apartment.n_of_bathroom }}
           </div>
           <div class="col my-2">
             Prezzo: <b>{{ apartment.price }} €</b> a notte
@@ -176,15 +216,24 @@ export default {
         </div>
 
         <div class="col-auto">
-          <button type="submit" :disabled="sending" class="btn btn-primary mb-3">{{ sending ? 'Invio in corso' : 'Invia messaggio' }}</button>
+          <button type="submit" :disabled="sending" class="btn  mb-3">{{ sending ? 'Invio in corso' : 'Invia messaggio' }}</button>
         </div>
       </form>
 
-      <div v-else class="p-5 shadow">
-        <div>
+      <div v-else class="p-4 shadow row">
+
+        <div class="col-9">
           <h2>Il messaggio è stato inviato correttamente!</h2>
-          <p>L'host risponderà entro 24h. dalla tua richiesta</p>
         </div>
+
+        <div class="col-3  text-center d-flex justify-content-center align-items-center ">
+          <router-link :to="{name: 'advancedSearch' }" class="h-100 text-center input-group-text " style="text-decoration: none;" >
+
+              torna pagina di ricerca
+
+          </router-link>
+        </div>
+
       </div>
 
     </div>
@@ -193,10 +242,22 @@ export default {
 <style lang="scss" scoped>
 @use '../../scss/var' as *;
 
+.apartment_top{
+  display: flex;
+  flex-direction: column;
+}
+
+.mapping{
+  margin-top: 20px;
+  width: 100%;
+  height: 150px;
+}
+
 img{
-    border-radius: 10px;
-    height: 300px;
-    width: 400px;
+    display: inline-block;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
 }
 
 h5{
@@ -206,5 +267,49 @@ h5{
 
 span.badge{
   background-color: $brand-blue;
+}
+
+.input-group-text{
+  background-color: $brand-main;
+}
+.btn{
+  background-color: $brand-main;
+}
+
+@media screen and (min-width: 768px) {
+  .apartment_top{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  height: 400px;
+}
+img{
+    display: inline-block;
+    object-fit: cover;
+    width: 60%;
+    height: auto;
+}
+.mapping{
+  margin-top: 0px;
+  width: 38%;
+  height: 100%;
+}
+}
+@media screen and (min-width: 992px) {
+
+}
+@media screen and (min-width: 1200px) {
+  img{
+    display: inline-block;
+    object-fit: cover;
+    width: 68%;
+    height: auto;
+}
+.mapping{
+  margin-top: 0px;
+  width: 30%;
+  height: 100%;
+}
+
 }
 </style>

@@ -9,7 +9,7 @@ import {store} from '../../data/store';
 // function import basic calls
 import {getCordianates,findServices,   searchByRange, getMarkers} from '../function/basicCall';
 // import components
-import ApartmentCard from '../components/apartmentCardSrc.vue';
+import ApartmentCard from '../components/apartmentCard.vue';
 import advSrcBar from '../components/advSrcBar.vue';
 import inputSearch from '../components/inputSearch.vue';
 import ResultSynthesis from '../components/resultSynthesis.vue';
@@ -62,21 +62,27 @@ export default {
       <advSrcBar />
       <inputSearch />
       <ResultSynthesis />
-      <!-- ---------------result
-        ------------------------------------------------------\-->
 
+      <!-- ---------------result ------------------------------\-->
 
+      <div class="container mt-3">
 
-        <div v-if="store.load" class="container mt-2 gx-0  d-flex flex-wrap justify-content-center">
+        <!-- LOADER -->
+        <div v-if="!store.load" class="custom-loader"></div>
 
-            <ApartmentCard v-for="apart in store.apartmentsfiltred" :key="apart.id"
-            v
+        <div v-else  class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+          <div v-for="apart in store.apartmentsfiltred" :key="apart.id" class="col d-flex justify-content-center">
+
+            <ApartmentCard
             :apartmentData="apart"
             @apartmentSelected="showApartmentDetails(apart)"
             @click="showApartmentDetails(apart)"
             />
 
+          </div>
         </div>
+
+      </div>
 
       <!-- ---------------result ------------------------------------------------------/-->
 
@@ -86,6 +92,19 @@ export default {
 <style lang="scss" scoped>
 @import '../../scss/var';
 
+.custom-loader {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background:
+    radial-gradient(farthest-side,#ff5757 94%,#0000) top/8px 8px no-repeat,
+    conic-gradient(#0000 30%,#ff5757);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+  animation:s3 1s infinite linear;
+}
 
+@keyframes s3{
+  100%{transform: rotate(1turn)}
+}
 
 </style>

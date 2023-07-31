@@ -6,7 +6,8 @@
         <div class="container">
 
             <div class="row justify-content-center">
-                <div class="col-md-8">
+              {{-- per modificare il responsive cambiare la larghezza della colonna --}}
+                <div class="col-md-12 col-lg-10 col-xl-8">
                     <div class="card">
                         <div class="card-header">{{ __('Registrazione nuovo utente') }}</div>
 

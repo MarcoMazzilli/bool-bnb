@@ -1,16 +1,15 @@
 <aside class="h-100 shadow">
 
     {{-- LOGO --}}
-    <div class="logo ps-3">
+    {{-- <div class="logo ps-3">
         <a href="{{ url('/') }}">
             <i class="fa-solid fa-house d-md-none my-4 "></i>
-            {{-- <span class="d-md-none">Logo solo casa</span> --}}
             <img class=" d-none d-md-block" src="{{ asset('img/boolbnb-sfondo-trasparente.png') }}" alt="logo">
         </a>
-    </div>
+    </div> --}}
 
     {{-- MAIN LINK --}}
-    <div class="links h-75">
+    <div class="links h-75 pt-5">
 
         <ul class="navbar-nav">
             <li class="nav-item {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}" title="Dashboard home">
@@ -32,7 +31,7 @@
             <li class="nav-item {{ Route::currentRouteName() === 'admin.apartments.create' ? 'active' : '' }}" title="Aggiungi">
                 <a class="nav-link" href="{{ route('admin.apartments.create') }}">
                     <span class="d-none d-md-block">Aggiungi appartamento</span>
-                    <i class="fa-solid fa-square-plus d-md-none"></i>
+                    <i class="fa-regular fa-square-plus d-md-none"></i>
                 </a>
             </li>
 
@@ -40,7 +39,7 @@
             <li class="nav-item {{ Route::currentRouteName() === '#' ? 'active' : '' }}" title="Inbox">
                 <a class="nav-link" href="{{ route('messages.getMessages')}}">
                     <span class="d-none d-md-block">Inbox</span>
-                    <i class="fa-solid fa-inbox d-md-none"></i>
+                    <i class="fa-regular fa-envelope d-md-none"></i>
                 </a>
             </li>
             @endif
@@ -49,21 +48,10 @@
             <li class="nav-item {{ Route::currentRouteName() === 'admin.apartments.service-apartments' ? 'active' : '' }}" title="Sponsorship">
                 <a class="nav-link" href="{{ route('sponsorship') }}">
                     <span class="d-none d-md-block">Sponsorships</span>
-                    <i class="fa-solid fa-inbox d-md-none"></i>
+                    <i class="fa-solid fa-rectangle-ad d-md-none"></i>
                 </a>
             </li>
             @endif
-
-
-            @if (Auth::user()->apartments->count())
-            <li class="nav-item {{ Route::currentRouteName() === 'admin.apartments.service-apartments' ? 'active' : '' }}" title="Statistics">
-                <a class="nav-link" href="{{ route('admin.statistics.index') }}">
-                    <span class="d-none d-md-block">Statistiche</span>
-                    <i class="fa-solid fa-inbox d-md-none"></i>
-                </a>
-            </li>
-            @endif
-
         </ul>
     </div>
 

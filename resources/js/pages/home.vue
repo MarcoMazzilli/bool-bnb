@@ -3,6 +3,7 @@ import { store } from '../../data/store';
 import axios from 'axios';
 import Jumbotron from '../components/jumbotron.vue';
 import Destinations from '../components/destinations.vue';
+// import ApartmentCard from '../components/apartmentCard.vue';
 import ApartmentCard from '../components/apartmentCard.vue';
 import Apartment from './apartment.vue';
 import inputSearch from '../components/inputSearch.vue';
@@ -94,21 +95,20 @@ export default {
   <div class="home_container" id="home-page">
 
     <Jumbotron />
-    <inputSearch />
+    <!-- <inputSearch /> -->
 
     <!-- TITOLO -->
     <div class="container py-3">
       <h1>Scopri i nostri appartamenti</h1>
+      <!-- debug -->
+      <h6 class="text-dark">Scorri a dx e sx per visualizzare gli appartamenti</h6>
     </div>
     <!-- /TITOLO -->
 
 
-
-    <!-- COMPONENTE CARD -->
-
     <swiper
   :slides-per-view="6"
-  :space-between="50"
+  :space-between="20"
   :breakpoints="{
     '0': {
       slidesPerView: 1,
@@ -118,7 +118,7 @@ export default {
       slidesPerView: 2,
       spaceBetween: 20,
     },
-    '1200': {
+    '993': {
       slidesPerView: 3,
       spaceBetween: 20,
     },
@@ -129,31 +129,38 @@ export default {
   v-if="load"
 >
   <swiper-slide v-for="apart in store.apartmentsGetted" :key="apart.id">
+
+
+    <!--accrocchio per ovviare al problema dei margini fra una card e l'altra -> in mobile ho aggiunto un p-2 che diventa p-0 al di sopra di 576px la classe aggiunta(mx-sm-4 p-2 p-sm-0)  -->
     <ApartmentCard
-      :key="apart.id"
-      :apartmentData="apart"
-      @apartmentSelected="showApartmentDetails(apart)"
-      @click="showApartmentDetails(apart)"
+    class="mx-sm-4 p-2 p-sm-0"
+    :key="apart.id"
+    :apartmentData="apart"
+    @apartmentSelected="showApartmentDetails(apart)"
+    @click="showApartmentDetails(apart)"
     />
+
   </swiper-slide>
 </swiper>
 
-    <!-- /BOTTONI NAVIGAZIONE  -->
+<!-- /BOTTONI NAVIGAZIONE  -->
 
-    <div class="container nav-button text-center mt-3">
+<div class="container nav-button text-center mt-3">
 
-      <button class="btn btn-primary mm-btn-nav mx-1"
-        v-for="link in links" :key="link"
-        v-html="link.label"
-        @click="navigateApartmentResults(link.url)">
-      </button>
+  <button class="btn btn-custom mm-btn-nav mx-1"
+  v-for="link in links" :key="link"
+  v-html="link.label"
+  @click="navigateApartmentResults(link.url)">
+</button>
 
-    </div>
+</div>
 
-    <!-- <div v-if="load" class="container d-flex flex-wrap justify-content-between">
+    <!-- COMPONENTE CARD -->
 
-      <ApartmentCard v-for="apart in store.apartmentsGetted"
-      :key="apart.id"
+<!-- <div v-if="load" class="container d-flex flex-wrap justify-content-between">
+
+  <ApartmentCard v-for="apart in store.apartmentsGetted"
+  :key="apart.id"
       :apartmentData="apart"
       @apartmentSelected="showApartmentDetails(apart)"
       @click="showApartmentDetails(apart)"
@@ -169,13 +176,31 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use '../../scss/var' as *;
 .mm-btn-nav{
+  background-color: $brand-main;
+  border: 1px solid $brand-main;
+  border-radius: 50px;
+  color: white;
   // HIDE FIRST AND LAST NAV-BUTTON
   &:first-of-type{
     display: none;
+
   }
   &:last-of-type{
     display: none;
   }
+}
+
+
+@media screen and (max-width: 500px) {
+.card {
+  margin: 0 auto;
+}
+}
+@media screen and (max-width: 768px) {
+.card {
+  margin: 0;
+}
 }
 </style>

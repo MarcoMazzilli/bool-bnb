@@ -5,6 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Work+Sans:wght@200;400;600;800&display=swap" rel="stylesheet">
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -45,7 +49,7 @@
             @include('auth.headerNativo')
 
             <div class="row">
-                <div class="col-10 p-5 mx-auto">
+                <div class="col-12 p-3 col-md-10 p-md-5 mx-auto">
                     @yield('content-log-reg')
                 </div>
             </div>
@@ -57,17 +61,19 @@
         <div class="container-fluid" id="wrapper-auth-user">
             <div class="wrappper-dashboard border rounded-4 my_overflow" id="card-dashboard">
 
+              @include('auth.headerNativo')
+
                 <div class="row h-100 no_wrap ps-2">
 
-                    <div class="col-1 col-md-2  p-0 ">
+                    <div class="col-1 col-md-2  p-0 " style="min-width: 50px;">
                         @include('admin.partials.asideLeft')
                     </div>
 
                     <div class="col-10 p-0 mx-auto my_overflow_auto">
 
-                        <div>
+                        {{-- <div>
                             @include('auth.headerNativo')
-                        </div>
+                        </div> --}}
                         @yield('content')
                     </div>
 

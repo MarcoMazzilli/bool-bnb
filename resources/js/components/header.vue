@@ -70,14 +70,15 @@ header{
   box-shadow: 0 2px 2px rgba($color: #000000, $alpha: .1);
   height: 50px;
 
-  .btn{
-    background-color:$light-text;
-    transition: all .4s;
-    color: $brand-blue;
-    &:hover{
-      background-color: $brand-main;
+  button.btn{
+      background-color: $brand-blue;
+      color: white;
+      transition: all .4s;
+      &:hover{
+        background-color:$brand-main;
+        color: black;
+      }
     }
-  }
   .user{
     a{
       color: $brand-blue;

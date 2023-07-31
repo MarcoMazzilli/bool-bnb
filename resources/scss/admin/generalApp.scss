@@ -10,9 +10,9 @@
     background-color: rgba(255, 0, 0, 0.226);
   }
 
-  .debug2{
-    background-color: rgba(9, 255, 0, 0.226);
-  }
+.debug2{
+  background-color: rgba(9, 255, 0, 0.226);
+}
 
 .form-control:focus {
     border-color: lighten($low-black, 80%);
@@ -21,6 +21,8 @@
 
 body {
     min-height: 100vh;
+    font-family: 'Quicksand', sans-serif !important;
+    // font-family: 'Work Sans', sans-serif !important;
 }
 
 .mvm-button{
@@ -91,11 +93,11 @@ header{
 
   nav{
     button.btn{
-      background-color:$light-text;
+      background-color: $brand-blue;
+      color: white;
       transition: all .4s;
-      color: $brand-blue;
       &:hover{
-        background-color: $brand-main;
+        background-color:$brand-main;
       }
     }
   }

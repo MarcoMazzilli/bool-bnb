@@ -55,8 +55,11 @@
 
                 {{-- DATA INIZIO SPONSORIZZATA --}}
                 <div class="row">
+
                     <div class="col-12 col-md-6">
-                        <label for="sponsorship" class="form-label">Data di inizio sponsorizzata</label>
+                        <label for="sponsorship" class="form-label">Data di inizio sponsorizzata</label><br>
+                        <small>(Se non inserisci nessuna data d'inizio la sponsorizzata partirà subito)</small>
+
                         <input type="date" class="form-select" name="date" id="startDate">
                     </div>
                 </div>

@@ -16,7 +16,7 @@ function advancedSearch(){
     //ricerca dentro disegno -------------------------
     store.mapCoord = calcPolygonCenter(store.advSrcRequest.coord);
     compileServiceIndex();
-    store.advSrcRequest.address = 'perimetro disegnato';
+    store.advSrcRequest.address = 'perimetro';
     store.advSrcRequest.radius = '?';
     console.log('drv request obj :', store.advSrcRequest );
     searchByPerimeter(store.advSrcRequest);

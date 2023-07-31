@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container pe-3 pe-md-4">
 
         <h2 class="text-secondary my-4">Benvenuto {{ Auth::user()->name }} {{ Auth::user()->last_name }} </h2>
         @if ($apartmentsCount['appartamenti'] === 0)
@@ -19,8 +19,9 @@
                 </div>
             </div>
         @else
-            <div class="row justify-content-between">
-                <div class="col col-7">
+                  {{-- FIXME: breakpoints delle col a md o lg? 768px insieme all'aside o 992px? --}}
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col mb-3 mb-lg-4">
                     <div class="card shadow">
                         <div class="card-header">Recap</div>
 
@@ -40,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col col-5">
+                <div class="col mb-3 mb-lg-4">
                     <div class="card shadow h-100">
                         {{-- TODO: PASSARSI CON UNA QUERY TUTTI I MESSAGGI CON IL CAMPO READ FALSE --}}
                         <div class="card-header"><strong>Tot. messaggi ricevuti : </strong> {{ $messagesCount }}</div>
@@ -69,12 +70,8 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="row">
-
                 {{-- TIPOLOGIA DI SPONSORIZZAZIONI ATTIVE --}}
-                <div class="col col-4 my-5">
+                <div class="col mb-3 mb-lg-0">
                     <div class="card shadow">
                         <div class="card-header">Tipologia di sponsorizzazioni</div>
 
@@ -94,19 +91,6 @@
                 </div>
                 {{-- /TIPOLOGIA DI SPONSORIZZAZIONI ATTIVE --}}
 
-                {{-- ANALITICA APPARTAMENTI --}}
-                <div class="col my-5">
-                    <div class="card shadow">
-                        <div class="card-header">Statistiche appartamenti</div>
-
-                        <div class="card-body">
-
-                            <span>INSERIRE STATISTICHE APPPARTAMENTI</span>
-
-                        </div>
-                    </div>
-                </div>
-                {{-- /ANALITICA APPARTAMENTI --}}
             </div>
         @endif
     </div>
