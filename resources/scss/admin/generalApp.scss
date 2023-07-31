@@ -25,17 +25,6 @@ body {
     // font-family: 'Work Sans', sans-serif !important;
 }
 
-.mvm-button{
-  background-color: $brand-blue !important;
-  border: none;
-  color: white;
-  &:hover{
-    background-color: $brand-main !important;
-    border: none;
-    color: white;
-  }
-}
-
 #wrapper-auth-user{
     height: 100vh;
     padding: 10px;
@@ -56,12 +45,16 @@ body {
 }
 
 .my_overflow{
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
 .my_overflow_auto{
     overflow: auto;
+}
+
+.my_aside{
+  height: calc(100% - 50px);
 }
 
 .no_wrap{
@@ -98,17 +91,7 @@ header{
       transition: all .4s;
       &:hover{
         background-color:$brand-main;
-        color: white;
       }
     }
-  }
-}
-
-td{
-  .btn{
-    margin-bottom: .2rem;
-  }
-  i{
-    min-width: 1.3rem;
   }
 }
