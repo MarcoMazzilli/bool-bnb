@@ -65,9 +65,9 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#ID</th>
+                        {{-- <th scope="col">#ID</th> --}}
                         <th scope="col">Nome</th>
-                        <th scope="col">Luogo appartamento</th>
+                        <th class="d-none d-sm-table-cell" scope="col">Luogo appartamento</th>
 
                     </tr>
                 </thead>
@@ -78,9 +78,9 @@
                         {{-- @dd($apartment->sponsorships) --}}
                         {{-- @if (!$apartment->sponsorships) --}}
                         <tr>
-                            <th>{{ $apartment->id }}</th>
+                            {{-- <th>{{ $apartment->id }}</th> --}}
                             <td>{{ $apartment->name }}</td>
-                            <td>{{ $apartment->address }}</td>
+                            <td class="d-none d-sm-table-cell">{{ $apartment->address }}</td>
                         </tr>
                         {{-- @else --}}
                         {{-- @endif --}}
@@ -102,9 +102,9 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#ID</th>
+                        {{-- <th scope="col">#ID</th> --}}
                         <th scope="col">Nome</th>
-                        <th scope="col">Luogo appartamento</th>
+                        <th class="d-none d-sm-table-cell" scope="col">Luogo appartamento</th>
                         <th scope="col">Azioni</th>
                     </tr>
                 </thead>
@@ -113,9 +113,9 @@
 
                     @foreach ($apartmentsHidden->where('visible', 0) as $apartment)
                         <tr>
-                            <th>{{ $apartment->id }}</th>
+                            {{-- <th>{{ $apartment->id }}</th> --}}
                             <td>{{ $apartment->name }}</td>
-                            <td>{{ $apartment->address }}</td>
+                            <td class="d-none d-sm-table-cell">{{ $apartment->address }}</td>
                             <td>
                                 @include('admin.partials.form-visible', [
                                     'title' => 'Modifica',
