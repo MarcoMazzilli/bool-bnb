@@ -86,6 +86,10 @@ class SponsorshipController extends Controller
       };
 
 
+      if (!$apartment->visible) {
+        $apartment->visible = 1;
+        $apartment->update();
+      }
 
       $new_sponsorship = new Sponsorship();
 
