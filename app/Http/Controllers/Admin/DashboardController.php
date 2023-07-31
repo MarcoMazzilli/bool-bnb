@@ -61,7 +61,8 @@ class DashboardController extends Controller
 
     $apartmentsId = Apartment::select('id')->where('user_id', Auth::id())->get();
     $messagesCount = Message::WhereIn('apartment_id',$apartmentsId)->count();
-    $messages = Message::WhereIn('apartment_id',$apartmentsId)->get();
+    $messages = Message::WhereIn('apartment_id',$apartmentsId)->orderBy('message_read')
+    ->get();
 
 
     return view('admin.home', compact('apartmentsCount','countTypeOfSponsor','SponsoredApartmentsCount','messagesCount','messages'));

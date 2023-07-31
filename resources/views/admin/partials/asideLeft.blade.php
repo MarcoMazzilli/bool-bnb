@@ -1,4 +1,4 @@
-<aside class="h-100 shadow">
+<aside class="my_aside shadow">
 
     {{-- LOGO --}}
     {{-- <div class="logo ps-3">
